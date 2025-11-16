@@ -265,4 +265,9 @@ public class LoginController {
             e.printStackTrace();
         }
     }
+
+    public LoginController setLoginPanel(VBox loginPanel) {
+        this.loginPanel = loginPanel;
+        return this;
+    }
 }
