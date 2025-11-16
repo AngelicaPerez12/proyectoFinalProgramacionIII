@@ -37,3 +37,10 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+# Backups creados por herramientas o scripts
+*.bak
+
+# Node / build artifacts (common)
+node_modules/
+dist/

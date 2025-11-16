@@ -1,0 +1,161 @@
+﻿
+
+
+@font-face {
+    font-family: 'PlayfairDisplay';
+    src: url('fonts/PlayfairDisplay-VariableFont_wght.ttf');
+}
+@font-face {
+    font-family: 'RobotoVar';
+    src: url('fonts/Roboto-VariableFont_wdth,wght.ttf');
+}
+
+.root, .login-root {
+    -fx-font-family: "RobotoVar", "Segoe UI", Arial, sans-serif;
+}
+
+
+.login-root {
+    -fx-background-color: #FDEEDD; 
+    -fx-padding: 28;
+    -fx-alignment: center;
+}
+
+
+.login-container {
+    -fx-max-width: 540px;
+    -fx-pref-width: 540px;
+    -fx-min-width: 280px;
+    -fx-alignment: center;
+}
+
+
+.label.title {
+    -fx-font-family: "PlayfairDisplay", "Georgia", serif;
+    -fx-font-size: 42px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #3b2f25;
+}
+
+.subtle {
+    -fx-font-family: "RobotoVar", "Segoe UI", Arial, sans-serif;
+    -fx-font-size: 12px;
+    -fx-text-fill: #7a6b60;
+}
+
+
+.card {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-border-color: rgba(0,0,0,0.06);
+    -fx-border-width: 1;
+    -fx-padding: 18;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.04), 14, 0.08, 0, 6);
+}
+
+.label.card-title {
+    -fx-font-family: "PlayfairDisplay", "Georgia", serif;
+    -fx-font-size: 20px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #211915;
+}
+
+.form-label {
+    -fx-font-size: 12px;
+    -fx-text-fill: #4d4037;
+    -fx-font-weight: 700;
+}
+
+.input-field {
+    -fx-background-color: #FFF3E6;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-color: transparent;
+    -fx-padding: 10 12 10 12;
+    -fx-pref-width: 420px;
+    -fx-font-size: 13px;
+}
+.input-field:focused {
+    -fx-border-color: rgba(0,0,0,0.08);
+    -fx-border-width: 1;
+}
+
+
+.btn-icon {
+    -fx-font-size: 14px; 
+    -fx-text-fill: white;
+    -fx-padding: 0 6 0 0;
+}
+
+
+.btn-primary, .button.btn-primary {
+    -fx-background-color: linear-gradient(from 0% 0% to 0% 100%, #e3a072 0%, #cf8650 50%, #c06f3e 100%);
+    -fx-text-fill: white;
+    -fx-font-weight: 800;
+    -fx-font-size: 14px;
+    -fx-background-radius: 10;
+    -fx-padding: 12 16 12 16;
+    -fx-pref-width: 100%;
+    -fx-border-color: transparent;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 10, 0.12, 0, 3);
+}
+
+
+.button.btn-primary:hover, .btn-primary:hover {
+    -fx-opacity: 0.98;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.18), 14, 0.14, 0, 5);
+}
+.button.btn-primary:pressed, .btn-primary:pressed {
+    -fx-background-color: linear-gradient(from 0% 0% to 0% 100%, #cf8650 0%, #c06f3e 100%);
+    -fx-effect: none;
+    -fx-translate-y: 1px;
+}
+
+
+
+
+.btn-secondary, .button.btn-secondary {
+    -fx-background-color: #FFF3E6;
+    -fx-text-fill: #3b2f25;
+    -fx-font-weight: 700;
+    -fx-font-size: 13px;
+    -fx-background-radius: 12;
+    -fx-padding: 10 14;
+    -fx-border-color: rgba(0,0,0,0.10);
+}
+
+.btn-secondary:hover, .button.btn-secondary:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 8, 0.12, 0, 3);
+}
+
+
+.hyperlink, .hyperlink:hyperlink {
+    -fx-text-fill: #8b5e3c;
+}
+.hyperlink:hover {
+    -fx-underline: true;
+}
+
+
+.message-label {
+    -fx-font-size: 12px;
+    -fx-text-fill: #b33a3a;
+}
+
+
+.button .btn-icon { -fx-padding: 0 8 0 0; }
+
+
+@media screen and (max-width: 480px) {
+    .login-container { -fx-pref-width: 92%; }
+    .input-field { -fx-pref-width: 100%; }
+    .label.title { -fx-font-size: 34px; }
+}
+
+
+.login-container .card, .login-container .card .input-field {
+    -fx-max-width: 520px;
+}
+
+
+
