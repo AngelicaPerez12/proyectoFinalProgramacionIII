@@ -1,0 +1,18 @@
+.root {
+    -fx-color-primario: #E2A16F;
+    -fx-color-secundario: #FFF0DD;
+    -fx-color-borde: #D1D3D4;
+    -fx-color-hover: #86B0BD;
+}
+.pane {
+-fx-background-color: -fx-color-secundario;
+}
+.vboxbotones {
+    -fx-background-color: -fx-color-primario;
+
+}
+
+.hboxuser{
+    -fx-background-color: -fx-color-primario;
+
+}

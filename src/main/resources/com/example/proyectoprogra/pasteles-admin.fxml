@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ImageInput?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="432.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyectoprogra.controllers.PastelesController">
+   <children>
+      <VBox fx:id="vboxbotones" styleClass="vboxbotones" layoutY="47.0" prefHeight="385.0" prefWidth="122.0" stylesheets="Styles/dashadmin.css">
+         <children>
+            <Label prefHeight="17.0" prefWidth="69.0" text="Navegacion" translateX="25.0" />
+            <ImageView fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" translateX="13.0" translateY="38.0">
+               <image>
+                  <Image url="@Imagenes/cake.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="btnpastel1" mnemonicParsing="false" onAction="#inforPasteles" prefHeight="25.0" prefWidth="91.0" style="-fx-background-color: transparent;" text="Pasteles" translateX="20.0" translateY="15.0" />
+            <ImageView fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" translateX="10.0" translateY="48.0">
+               <image>
+                  <Image url="@Imagenes/checkout.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="btnpedidos" mnemonicParsing="false" onAction="#pedidos" prefHeight="43.0" prefWidth="135.0" style="-fx-background-color: transparent;" text=" Pedidos" translateY="15.0" />
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" translateX="10.0" translateY="39.0">
+               <image>
+                  <Image url="@Imagenes/notes.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="btnreservas" mnemonicParsing="false" onAction="#reservas" prefHeight="25.0" prefWidth="91.0" style="-fx-background-color: transparent;" text="Reservas" translateX="15.0" translateY="15.0" />
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" translateX="12.0" translateY="39.0">
+               <image>
+                  <Image url="@Imagenes/file.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="btnhistorial" mnemonicParsing="false" onAction="#historial" prefHeight="25.0" prefWidth="91.0" style="-fx-background-color: transparent;" text="Historial" translateX="15.0" translateY="15.0" />
+            <Button fx:id="btnreportes" mnemonicParsing="false" onAction="#resportes" prefHeight="25.0" prefWidth="91.0" style="-fx-background-color: transparent;" text="Reportes" translateX="15.0" translateY="40.0" />
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" translateX="8.0" translateY="14.0">
+               <image>
+                  <Image url="@Imagenes/report.png" />
+               </image>
+            </ImageView>
+         </children>
+      </VBox>
+      <HBox fx:id="hboxuser" styleClass="hboxuser" prefHeight="47.0" prefWidth="640.0">
+         <children>
+            <Button fx:id="usuario" mnemonicParsing="false" onAction="#informacionUsuario" text="Button" translateX="600.0" translateY="14.0">
+               <effect>
+                  <ImageInput>
+                     <source>
+                        <Image url="@Imagenes/user.png" />
+                     </source>
+                  </ImageInput>
+               </effect>
+            </Button>
+         </children>
+      </HBox>
+      <Label layoutX="149.0" layoutY="59.0" text="Pasteles" />
+      <Button layoutX="507.0" layoutY="63.0" mnemonicParsing="false" text="+ Nuevo Proucto" />
+      <TextField layoutX="136.0" layoutY="98.0" prefHeight="25.0" prefWidth="479.0" text="Buscar Productos" />
+      <TableView layoutX="137.0" layoutY="156.0" prefHeight="143.0" prefWidth="479.0">
+        <columns>
+          <TableColumn prefWidth="28.66668701171875" text="Id" />
+          <TableColumn prefWidth="73.33334350585938" text="Nombre " />
+            <TableColumn prefWidth="104.66668701171875" text="Descripcion" />
+            <TableColumn prefWidth="72.6666259765625" text="IdCategoria" />
+            <TableColumn prefWidth="69.33331298828125" text="IdTamaño" />
+            <TableColumn prefWidth="62.0" text="Precio" />
+            <TableColumn prefWidth="65.3333740234375" text="Sabor" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

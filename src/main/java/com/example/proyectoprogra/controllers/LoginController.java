@@ -1,4 +1,4 @@
-﻿package com.example.proyectoprogra.controllers;
+package com.example.proyectoprogra.controllers;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.ScaleTransition;
@@ -24,6 +24,12 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import com.example.proyectoprogra.models.Usuario;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import com.example.proyectoprogra.ConexionDB.ConexionDB;
 
 import java.io.IOException;
 import java.net.URL;
@@ -205,21 +211,71 @@ public class LoginController {
 
     @FXML
     private void iniciarSesion() {
-        String usuario = (campoUsuario != null) ? campoUsuario.getText() : "";
-        String contrasena = (campoContrasena != null && campoContrasena.isVisible()) ? campoContrasena.getText() :
-                (campoContrasenaVisible != null ? campoContrasenaVisible.getText() : "");
+        String usuario = campoUsuario.getText();
+        String contrasena = showPassword.isSelected()
+                ? campoContrasenaVisible.getText()
+                : campoContrasena.getText();
 
-        if (usuario == null || usuario.isBlank() || contrasena == null || contrasena.isBlank()) {
-            if (etiquetaMensaje != null) etiquetaMensaje.setText("Por favor complete todos los campos.");
+        if (usuario.isBlank() || contrasena.isBlank()) {
+            etiquetaMensaje.setText("Complete todos los campos.");
             return;
         }
 
-        
-        Usuario u = new Usuario(usuario, contrasena);
-        if ("admin".equals(u.getUsuario()) && "admin".equals(u.getContrasena())) {
-            if (etiquetaMensaje != null) etiquetaMensaje.setText("Login exitoso");
-        } else {
-            if (etiquetaMensaje != null) etiquetaMensaje.setText("Usuario o contraseña incorrectos");
+        try (Connection conn = ConexionDB.getConection()) {
+
+            String sql = "SELECT id_usuario, nombre, id_rol FROM tbl_usuarios WHERE correo = ? AND contraseña = ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, usuario);
+            ps.setString(2, contrasena);
+
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+
+                int rol = rs.getInt("id_rol");
+
+                // Cerrar ventana actual
+                Stage stage = (Stage) btnEntrar.getScene().getWindow();
+                stage.close();
+
+                // Abrir vista según rol
+                if (rol == 1) {
+                    abrirVentana("/com/example/proyectoprogra/dashboard-admin.fxml");
+                } else {
+                    abrirVentana("/com/example/proyectoprogra/dashboard-cliente.fxml");
+                }
+
+            } else {
+                etiquetaMensaje.setText("Usuario o contraseña incorrectos.");
+            }
+
+        } catch (SQLException e) {
+            etiquetaMensaje.setText("Error: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    private void abrirVentana(String rutaFXML) {
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(rutaFXML));
+            Parent root = loader.load();
+
+            Scene scene = new Scene(root);
+
+            URL cssUrl = getClass().getResource("/com/example/proyectoprogra/Styles/dashadmin.css");
+            if (cssUrl != null) {
+                scene.getStylesheets().add(cssUrl.toExternalForm());
+            } else {
+                System.err.println("❌ No se encontró dashboard.css");
+            }
+
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
