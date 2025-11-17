@@ -41,7 +41,7 @@ public class LoginController {
     @FXML
     private PasswordField campoContrasena;
 
-    
+
     @FXML
     private TextField campoContrasenaVisible;
 
@@ -75,7 +75,7 @@ public class LoginController {
     @FXML
     private VBox loginPanel;
 
-    
+
     @FXML
     private ToggleButton showPassword;
 
@@ -88,7 +88,7 @@ public class LoginController {
     @FXML
     private Button btnEntrar;
 
-    
+
     @FXML
     private Hyperlink openRegisterLink;
 
@@ -107,33 +107,33 @@ public class LoginController {
             } catch (Exception ignored) {}
         });
 
-        
+
         if (campoContrasenaVisible != null && campoContrasena != null) {
-            
+
             campoContrasena.textProperty().addListener((obs, oldV, newV) -> {
                 if (campoContrasenaVisible != null && !campoContrasenaVisible.isFocused()) {
                     campoContrasenaVisible.setText(newV);
                 }
             });
-            
+
             campoContrasenaVisible.textProperty().addListener((obs, oldV, newV) -> {
                 if (campoContrasena != null && !campoContrasena.isFocused()) {
                     campoContrasena.setText(newV);
                 }
             });
 
-            
+
             campoContrasenaVisible.setVisible(false);
             campoContrasenaVisible.setManaged(false);
         }
 
-        
+
         if (loginPanel != null) {
             loginPanel.setVisible(true);
             loginPanel.setManaged(true);
         }
 
-        
+
         if (btnEntrar != null) {
             DropShadow hoverShadow = new DropShadow(8, Color.rgb(0,0,0,0.14));
             btnEntrar.addEventHandler(MouseEvent.MOUSE_ENTERED, e -> {
@@ -154,7 +154,7 @@ public class LoginController {
             });
         }
 
-        
+
         if (openRegisterLink != null) {
             openRegisterLink.addEventHandler(MouseEvent.MOUSE_ENTERED, e -> {
                 FadeTransition ft = new FadeTransition(Duration.millis(160), openRegisterLink);
@@ -168,22 +168,22 @@ public class LoginController {
     }
 
     public void configurarStage(Stage stage) {
-        
+
         stage.setMaximized(true);
 
-        
+
         tarjeta.prefWidthProperty().bind(Bindings.createDoubleBinding(
                 () -> Math.max(300, stage.getScene().getWidth() * 0.35),
                 stage.widthProperty(), stage.heightProperty()));
 
-        
+
         campoUsuario.prefWidthProperty().bind(tarjeta.prefWidthProperty().subtract(40));
         campoContrasena.prefWidthProperty().bind(tarjeta.prefWidthProperty().subtract(40));
         if (campoContrasenaVisible != null) {
             campoContrasenaVisible.prefWidthProperty().bind(tarjeta.prefWidthProperty().subtract(40));
         }
 
-        
+
         tituloBienvenido.maxWidthProperty().bind(tarjeta.prefWidthProperty());
         subtituloBienvenido.maxWidthProperty().bind(tarjeta.prefWidthProperty());
         tituloCard.maxWidthProperty().bind(tarjeta.prefWidthProperty());
@@ -192,40 +192,90 @@ public class LoginController {
         etiquetaContrasena.maxWidthProperty().bind(tarjeta.prefWidthProperty().subtract(40));
         etiquetaMensaje.maxWidthProperty().bind(tarjeta.prefWidthProperty().subtract(40));
 
-        
+
         if (contenedorCentral != null) {
             contenedorCentral.setAlignment(Pos.CENTER);
             contenedorCentral.setFillWidth(false);
             contenedorCentral.setTranslateX(0);
         }
 
-        
+
         tarjeta.minWidthProperty().set(280);
         tarjeta.maxWidthProperty().bind(Bindings.createDoubleBinding(
                 () -> Math.min(stage.getScene().getWidth() - 80, 600.0), stage.widthProperty()));
 
-        
+
         stage.widthProperty().addListener((obs, oldV, newV) -> Platform.runLater(() -> tarjeta.requestLayout()));
         stage.heightProperty().addListener((obs, oldV, newV) -> Platform.runLater(() -> tarjeta.requestLayout()));
     }
 
     @FXML
     private void iniciarSesion() {
-        String usuario = (campoUsuario != null) ? campoUsuario.getText() : "";
-        String contrasena = (campoContrasena != null && campoContrasena.isVisible()) ? campoContrasena.getText() :
-                (campoContrasenaVisible != null ? campoContrasenaVisible.getText() : "");
+        String usuario = campoUsuario.getText();
+        String contrasena = showPassword.isSelected()
+                ? campoContrasenaVisible.getText()
+                : campoContrasena.getText();
 
-        if (usuario == null || usuario.isBlank() || contrasena == null || contrasena.isBlank()) {
-            if (etiquetaMensaje != null) etiquetaMensaje.setText("Por favor complete todos los campos.");
+        if (usuario.isBlank() || contrasena.isBlank()) {
+            etiquetaMensaje.setText("Complete todos los campos.");
             return;
         }
 
-        
-        Usuario u = new Usuario(usuario, contrasena);
-        if ("admin".equals(u.getUsuario()) && "admin".equals(u.getContrasena())) {
-            if (etiquetaMensaje != null) etiquetaMensaje.setText("Login exitoso");
-        } else {
-            if (etiquetaMensaje != null) etiquetaMensaje.setText("Usuario o contraseña incorrectos");
+        try (Connection conn = ConexionDB.getConection()) {
+
+            String sql = "SELECT id_usuario, nombre, id_rol FROM tbl_usuarios WHERE correo = ? AND contraseña = ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, usuario);
+            ps.setString(2, contrasena);
+
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+
+                int rol = rs.getInt("id_rol");
+
+                // Cerrar ventana actual
+                Stage stage = (Stage) btnEntrar.getScene().getWindow();
+                stage.close();
+
+                // Abrir vista según rol
+                if (rol == 1) {
+                    abrirVentana("/com/example/proyectoprogra/dashboard-admin.fxml");
+                } else {
+                    abrirVentana("/com/example/proyectoprogra/dashboard-cliente.fxml");
+                }
+
+            } else {
+                etiquetaMensaje.setText("Usuario o contraseña incorrectos.");
+            }
+
+        } catch (SQLException e) {
+            etiquetaMensaje.setText("Error: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    private void abrirVentana(String rutaFXML) {
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(rutaFXML));
+            Parent root = loader.load();
+
+            Scene scene = new Scene(root);
+
+            URL cssUrl = getClass().getResource("/com/example/proyectoprogra/Styles/dashadmin.css");
+            if (cssUrl != null) {
+                scene.getStylesheets().add(cssUrl.toExternalForm());
+            } else {
+                System.err.println("❌ No se encontró dashboard.css");
+            }
+
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -234,14 +284,14 @@ public class LoginController {
         if (showPassword == null || campoContrasena == null || campoContrasenaVisible == null) return;
 
         if (showPassword.isSelected()) {
-            
+
             campoContrasenaVisible.setText(campoContrasena.getText());
             campoContrasenaVisible.setVisible(true);
             campoContrasenaVisible.setManaged(true);
             campoContrasena.setVisible(false);
             campoContrasena.setManaged(false);
         } else {
-            
+
             campoContrasena.setText(campoContrasenaVisible.getText());
             campoContrasena.setVisible(true);
             campoContrasena.setManaged(true);
@@ -252,7 +302,7 @@ public class LoginController {
 
     @FXML
     private void abrirRegistro() {
-        
+
         try {
             URL fxmlUrl = getClass().getResource("/com/example/proyectoprogra/register-view.fxml");
             if (fxmlUrl == null) {
@@ -262,7 +312,7 @@ public class LoginController {
             FXMLLoader loader = new FXMLLoader(fxmlUrl);
             Parent root = loader.load();
 
-            
+
             Object ctrl = loader.getController();
             if (ctrl instanceof RegisterController) {
                 RegisterController rc = (RegisterController) ctrl;
@@ -275,13 +325,13 @@ public class LoginController {
             }
 
             Scene scene = new Scene(root);
-            
+
             URL cssUrl = getClass().getResource("/com/example/proyectoprogra/Styles/login.css");
             if (cssUrl != null) scene.getStylesheets().add(cssUrl.toExternalForm());
 
             Stage dialog = new Stage();
             dialog.initModality(Modality.APPLICATION_MODAL);
-            
+
             if (tarjeta != null && tarjeta.getScene() != null && tarjeta.getScene().getWindow() instanceof Stage) {
                 dialog.initOwner((Stage) tarjeta.getScene().getWindow());
             }
@@ -294,4 +344,3 @@ public class LoginController {
         }
     }
 }
-
