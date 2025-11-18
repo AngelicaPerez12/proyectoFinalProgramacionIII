@@ -16,3 +16,13 @@
     -fx-background-color: -fx-color-primario;
 
 }
+.menu-btn {
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+    -fx-font-size: 13;
+    -fx-text-fill: black;
+}
+
+.menu-btn:hover {
+    -fx-text-fill: -fx-color-hover;
+}

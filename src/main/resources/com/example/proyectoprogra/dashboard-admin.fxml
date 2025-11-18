@@ -8,61 +8,146 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.Priority?>
 
-<AnchorPane prefHeight="432.0" styleClass="pane" prefWidth="640.0" xmlns="http://javafx.com/javafx/25"  stylesheets="Styles/dashadmin.css" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyectoprogra.controllers.DashboardAdminController">
-   <children>
-      <VBox fx:id="vboxbotones" styleClass="vboxbotones" layoutY="44.0" prefHeight="388.0" prefWidth="122.0">
-         <children>
-            <Label prefHeight="17.0" prefWidth="69.0" text="Navegacion" translateX="25.0" />
-            <ImageView fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" translateX="13.0" translateY="38.0">
-               <image>
-                  <Image url="@Imagenes/cake.png" />
-               </image>
-            </ImageView>
-            <Button fx:id="btnpastel" mnemonicParsing="false" onAction="#inforPasteles" prefHeight="25.0" prefWidth="91.0" style="-fx-background-color: transparent;" text="Pasteles" translateX="20.0" translateY="15.0" />
-            <ImageView fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" translateX="10.0" translateY="48.0">
-               <image>
-                  <Image url="@Imagenes/checkout.png" />
-               </image>
-            </ImageView>
-            <Button fx:id="btnpedidos" mnemonicParsing="false" onAction="#pedidos" prefHeight="43.0" prefWidth="135.0" style="-fx-background-color: transparent;" text=" Pedidos" translateY="15.0" />
-            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" translateX="10.0" translateY="39.0">
-               <image>
-                  <Image url="@Imagenes/notes.png" />
-               </image>
-            </ImageView>
-            <Button fx:id="btnreservas" mnemonicParsing="false" onAction="#reservas" prefHeight="25.0" prefWidth="91.0" style="-fx-background-color: transparent;" text="Reservas" translateX="15.0" translateY="15.0" />
-            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" translateX="12.0" translateY="39.0">
-               <image>
-                  <Image url="@Imagenes/file.png" />
-               </image>
-            </ImageView>
-            <Button fx:id="btnhistorial" mnemonicParsing="false" onAction="#historial" prefHeight="25.0" prefWidth="91.0" style="-fx-background-color: transparent;" text="Historial" translateX="15.0" translateY="15.0" />
-            <Button fx:id="btnreportes" mnemonicParsing="false" onAction="#resportes" prefHeight="25.0" prefWidth="91.0" style="-fx-background-color: transparent;" text="Reportes" translateX="15.0" translateY="40.0" />
-            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" translateX="8.0" translateY="14.0">
-               <image>
-                  <Image url="@Imagenes/report.png" />
-               </image>
-            </ImageView>
-         </children>
-      </VBox>
-      <HBox fx:id="hboxuser" styleClass="hboxuser" layoutX="-1.0" layoutY="-2.0" prefHeight="47.0" prefWidth="646.0">
-         <children>
-            <Button fx:id="usuario" mnemonicParsing="false" onAction="#informacionUsuario" text="Button" translateX="600.0" translateY="14.0">
-               <effect>
-                  <ImageInput>
-                     <source>
-                        <Image url="@Imagenes/user.png" />
-                     </source>
-                  </ImageInput>
-               </effect>
-            </Button>
-         </children>
-      </HBox>
-      <ImageView fitHeight="301.0" fitWidth="325.0" layoutX="221.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Imagenes/sweet harmony.png" />
-         </image>
-      </ImageView>
-   </children>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<AnchorPane xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.proyectoprogra.controllers.DashboardAdminController"
+            stylesheets="@Styles/dashadmin.css"
+            styleClass="pane">
+
+    <HBox fx:id="hboxuser"
+          styleClass="hboxuser"
+          AnchorPane.topAnchor="0"
+          AnchorPane.leftAnchor="0"
+          AnchorPane.rightAnchor="0"
+          prefHeight="55">
+
+        <children>
+
+            <Region HBox.hgrow="ALWAYS" />
+
+            <VBox>
+                <Button fx:id="btnInfoUsuario"
+                        onAction="#informacionUsuario"
+                        style="-fx-background-color: transparent;">
+                    <effect>
+                        <ImageInput>
+                            <source><Image url="@Imagenes/user.png"/></source>
+                        </ImageInput>
+                    </effect>
+                </Button>
+            </VBox>
+
+        </children>
+
+        <padding>
+            <Insets top="8" bottom="8" left="15" right="20"/>
+        </padding>
+
+    </HBox>
+    <VBox fx:id="panelUsuario"
+          spacing="5"
+          visible="false" managed="false"
+          style="-fx-background-color: #D1D3D4; -fx-padding: 10; -fx-border-color: gray; -fx-border-radius: 5; -fx-background-radius: 5;">
+        <Label fx:id="lblNombreUsuario" text="Nombre"/>
+        <Label fx:id="lblCorreoUsuario" text="Correo"/>
+        <Label fx:id="lblRolUsuario" text="Rol"/>
+        <TextField fx:id="txtEditarNombre" promptText="Editar nombre"/>
+        <TextField fx:id="txtEditarCorreo" promptText="Editar correo"/>
+        <Button fx:id="btnGuardarCambios" text="Guardar cambios" onAction="#guardarCambios"/>
+        <Button fx:id="btnCerrarSesion" text="Cerrar sesión" onAction="#cerrarSesion"/>
+    </VBox>
+
+
+    <VBox fx:id="vboxbotones"
+          styleClass="vboxbotones"
+          prefWidth="150"
+          AnchorPane.topAnchor="55"
+          AnchorPane.bottomAnchor="0"
+          AnchorPane.leftAnchor="0">
+
+        <children>
+
+            <Label text="Navegación" style="-fx-font-weight: bold; -fx-font-size: 14;" />
+
+
+            <VBox spacing="15">
+
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <ImageView fitHeight="25" fitWidth="25" preserveRatio="true">
+                        <image><Image url="@Imagenes/cake.png"/></image>
+                    </ImageView>
+                    <Button text="Pasteles"
+                            fx:id="btnpastel"
+                            styleClass="menu-btn"
+                            onAction="#inforPasteles"/>
+                </HBox>
+
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <ImageView fitHeight="25" fitWidth="25" preserveRatio="true">
+                        <image><Image url="@Imagenes/checkout.png"/></image>
+                    </ImageView>
+                    <Button text="Pedidos"
+                            fx:id="btnpedidos"
+                            styleClass="menu-btn"
+                            onAction="#pedidos"/>
+                </HBox>
+
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <ImageView fitHeight="25" fitWidth="25" preserveRatio="true">
+                        <image><Image url="@Imagenes/notes.png"/></image>
+                    </ImageView>
+                    <Button text="Reservas"
+                            fx:id="btnreservas"
+                            styleClass="menu-btn"
+                            onAction="#reservas"/>
+                </HBox>
+
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <ImageView fitHeight="25" fitWidth="25" preserveRatio="true">
+                        <image><Image url="@Imagenes/file.png"/></image>
+                    </ImageView>
+                    <Button text="Historial"
+                            fx:id="btnhistorial"
+                            styleClass="menu-btn"
+                            onAction="#historial"/>
+                </HBox>
+
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <ImageView fitHeight="25" fitWidth="25" preserveRatio="true">
+                        <image><Image url="@Imagenes/report.png"/></image>
+                    </ImageView>
+                    <Button text="Reportes"
+                            fx:id="btnreportes"
+                            styleClass="menu-btn"
+                            onAction="#resportes"/>
+                </HBox>
+
+            </VBox>
+
+        </children>
+
+        <padding><Insets top="20" left="15"/></padding>
+    </VBox>
+
+    <StackPane AnchorPane.topAnchor="55"
+               AnchorPane.bottomAnchor="0"
+               AnchorPane.leftAnchor="150"
+               AnchorPane.rightAnchor="0">
+
+        <ImageView fx:id="logo"
+                   preserveRatio="true"
+                   smooth="true"
+                   pickOnBounds="true">
+            <image><Image url="@Imagenes/sweet harmony.png"/></image>
+        </ImageView>
+
+    </StackPane>
+
 </AnchorPane>

@@ -1,5 +1,6 @@
 package com.example.proyectoprogra.controllers;
 
+import com.example.proyectoprogra.models.UsuarioSession;
 import javafx.animation.FadeTransition;
 import javafx.animation.ScaleTransition;
 import javafx.application.Platform;
@@ -223,7 +224,7 @@ public class LoginController {
 
         try (Connection conn = ConexionDB.getConection()) {
 
-            String sql = "SELECT id_usuario, nombre, id_rol FROM tbl_usuarios WHERE correo = ? AND contraseña = ?";
+            String sql = "SELECT id_usuario, nombre,correo, id_rol FROM tbl_usuarios WHERE correo = ? AND contraseña = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, usuario);
             ps.setString(2, contrasena);
@@ -231,20 +232,27 @@ public class LoginController {
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
+                int idUsuario = rs.getInt("id_usuario");
+                String nombre = rs.getString("nombre");
+                String correo = rs.getString("correo");
 
-                int rol = rs.getInt("id_rol");
 
-                // Cerrar ventana actual
+                String rol = "Cliente";
+
+                int idRol = rs.getInt("id_rol");
+                if (idRol == 1) rol = "Administrador";
+                else if (idRol == 2) rol = "Cliente";
+
+                UsuarioSession.getInstancia().iniciarSesion(idUsuario, nombre, correo, rol);
+
                 Stage stage = (Stage) btnEntrar.getScene().getWindow();
                 stage.close();
 
-                // Abrir vista según rol
-                if (rol == 1) {
+                if (rol.equalsIgnoreCase("Administrador")) {
                     abrirVentana("/com/example/proyectoprogra/dashboard-admin.fxml");
                 } else {
                     abrirVentana("/com/example/proyectoprogra/dashboard-cliente.fxml");
                 }
-
             } else {
                 etiquetaMensaje.setText("Usuario o contraseña incorrectos.");
             }
@@ -260,8 +268,9 @@ public class LoginController {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(rutaFXML));
             Parent root = loader.load();
-
+            Stage newStage = new Stage();
             Scene scene = new Scene(root);
+            newStage.setScene(scene);
 
             URL cssUrl = getClass().getResource("/com/example/proyectoprogra/Styles/dashadmin.css");
             if (cssUrl != null) {
@@ -270,10 +279,9 @@ public class LoginController {
                 System.err.println("❌ No se encontró dashboard.css");
             }
 
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.show();
+            newStage.setMaximized(true);
 
+            newStage.show();
         } catch (Exception e) {
             e.printStackTrace();
         }
