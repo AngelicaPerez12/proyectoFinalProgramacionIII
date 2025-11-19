@@ -1,6 +1,4 @@
 ﻿
-
-
 @font-face {
     font-family: 'PlayfairDisplay';
     src: url('fonts/PlayfairDisplay-VariableFont_wght.ttf');
@@ -110,10 +108,6 @@
     -fx-effect: none;
     -fx-translate-y: 1px;
 }
-
-
-
-
 .btn-secondary, .button.btn-secondary {
     -fx-background-color: #FFF3E6;
     -fx-text-fill: #3b2f25;
@@ -135,27 +129,16 @@
 .hyperlink:hover {
     -fx-underline: true;
 }
-
-
 .message-label {
     -fx-font-size: 12px;
     -fx-text-fill: #b33a3a;
 }
-
-
 .button .btn-icon { -fx-padding: 0 8 0 0; }
-
-
 @media screen and (max-width: 480px) {
     .login-container { -fx-pref-width: 92%; }
     .input-field { -fx-pref-width: 100%; }
     .label.title { -fx-font-size: 34px; }
 }
-
-
 .login-container .card, .login-container .card .input-field {
     -fx-max-width: 520px;
 }
-
-
-

@@ -26,3 +26,9 @@
 .menu-btn:hover {
     -fx-text-fill: -fx-color-hover;
 }
+.contenedor-imagen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}

@@ -7,6 +7,7 @@ module com.example.proyectoprogra {
         requires org.kordamp.bootstrapfx.core;
     requires javafx.graphics;
 
+
     opens com.example.proyectoprogra to javafx.fxml;
         opens com.example.proyectoprogra.models to javafx.fxml;
         opens com.example.proyectoprogra.controllers to javafx.fxml;

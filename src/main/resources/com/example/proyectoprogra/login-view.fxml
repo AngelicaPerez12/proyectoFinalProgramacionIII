@@ -28,13 +28,13 @@
                         <GridPane alignment="CENTER" hgap="8" vgap="8">
                             <children>
                                 <Label fx:id="etiquetaUsuario" styleClass="form-label" text="Correo electrónico" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                                <TextField fx:id="campoUsuario" promptText="nombre@ejemplo.com" styleClass="input-field" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                <TextField fx:id="campoUsuario" promptText="nombre@ejemplo.com" styleClass="input-field" GridPane.columnIndex="0" GridPane.rowIndex="1" GridPane.hgrow="ALWAYS" />
 
                                 <Label fx:id="etiquetaContrasena" prefHeight="2.0" prefWidth="85.0" styleClass="form-label" text="Contraseña" GridPane.columnIndex="0" GridPane.rowIndex="2" />
                                 <HBox alignment="CENTER_LEFT" spacing="6" GridPane.columnIndex="0" GridPane.rowIndex="3">
                                     <children>
-                                        <PasswordField fx:id="campoContrasena" promptText="Contraseña" styleClass="input-field" HBox.hgrow="ALWAYS" />
-                                        <TextField fx:id="campoContrasenaVisible" managed="false" promptText="Contraseña" styleClass="input-field" visible="false" HBox.hgrow="ALWAYS" />
+                                        <PasswordField fx:id="campoContrasena" promptText="Contraseña" styleClass="input-field" HBox.hgrow="ALWAYS" GridPane.hgrow="ALWAYS" />
+                                        <TextField fx:id="campoContrasenaVisible" managed="false" promptText="Contraseña" styleClass="input-field" visible="false" HBox.hgrow="ALWAYS" GridPane.hgrow="ALWAYS" />
                                         <ToggleButton fx:id="showPassword" onAction="#togglePasswordVisibility" styleClass="eye-btn" text="👁" />
                                     </children>
                                 </HBox>
