@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class PedidosAdminController {
+public class HistorialAdminController {
     public void informacionUsuario(ActionEvent actionEvent) {
     }
 

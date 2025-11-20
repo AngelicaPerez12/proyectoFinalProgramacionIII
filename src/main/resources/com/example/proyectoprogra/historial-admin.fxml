@@ -8,15 +8,13 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyectoprogra.controllers.PedidosAdminController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyectoprogra.controllers.HistorialAdminController">
    <children>
-      <HBox fx:id="hboxuser" prefHeight="55" prefWidth="601.0" styleClass="hboxuser">
+      <HBox fx:id="hboxuser" layoutY="-1.0" prefHeight="36.0" prefWidth="600.0" styleClass="hboxuser">
          <children>
-            <Region HBox.hgrow="ALWAYS" />
             <Button onAction="#informacionUsuario" style="-fx-background-color: transparent;">
                <effect>
                   <ImageInput>
@@ -31,7 +29,7 @@
             <Insets bottom="8" left="15" right="20" top="8" />
          </padding>
       </HBox>
-      <VBox fx:id="vboxbotones" layoutY="114.0" prefWidth="150" styleClass="vboxbotones">
+      <VBox fx:id="vboxbotones" layoutY="74.0" prefHeight="266.0" prefWidth="141.0" styleClass="vboxbotones">
          <children>
             <Label style="-fx-font-weight: bold; -fx-font-size: 14;" text="Navegación" />
             <VBox spacing="15">

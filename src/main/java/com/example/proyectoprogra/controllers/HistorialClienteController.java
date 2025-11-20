@@ -1,7 +1,6 @@
 package com.example.proyectoprogra.controllers;
 
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -10,9 +9,12 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class DashboardClienteController {
-    @FXML
-    void hacerpedido(ActionEvent actionEvent) {
+public class HistorialClienteController {
+
+    public void vercatalogo(ActionEvent actionEvent) {
+    }
+
+    public void hacerpedido(ActionEvent actionEvent) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/proyectoprogra/pedido-cliente.fxml"));
             Parent root = loader.load();
@@ -31,12 +33,9 @@ public class DashboardClienteController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
-    @FXML
-    void historial(ActionEvent actionEvent) {
-
+    public void historial(ActionEvent actionEvent) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/proyectoprogra/historial-cliente.fxml"));
             Parent root = loader.load();
@@ -57,8 +56,7 @@ public class DashboardClienteController {
         }
     }
 
-    @FXML
-    void perfil(ActionEvent actionEvent) {
+    public void perfil(ActionEvent actionEvent) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/proyectoprogra/perfil-cliente.fxml"));
             Parent root = loader.load();
@@ -77,11 +75,6 @@ public class DashboardClienteController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-    }
-
-    @FXML
-    void vercatalogo(ActionEvent actionEvent) {
 
     }
 }

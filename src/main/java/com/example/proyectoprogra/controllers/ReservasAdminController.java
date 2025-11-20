@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class PedidosAdminController {
+public class ReservasAdminController {
     public void informacionUsuario(ActionEvent actionEvent) {
     }
 
@@ -116,5 +116,6 @@ public class PedidosAdminController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 }
