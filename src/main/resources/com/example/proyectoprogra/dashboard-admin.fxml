@@ -136,10 +136,11 @@
         <padding><Insets top="20" left="15"/></padding>
     </VBox>
 
-    <StackPane AnchorPane.topAnchor="55"
-               AnchorPane.bottomAnchor="0"
-               AnchorPane.leftAnchor="150"
-               AnchorPane.rightAnchor="0">
+    <StackPane
+            AnchorPane.topAnchor="55"
+            AnchorPane.bottomAnchor="0"
+            AnchorPane.leftAnchor="150"
+            AnchorPane.rightAnchor="0">
 
         <ImageView fx:id="logo"
                    preserveRatio="true"

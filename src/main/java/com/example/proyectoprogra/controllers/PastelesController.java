@@ -1,6 +1,7 @@
 package com.example.proyectoprogra.controllers;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -10,110 +11,33 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class PastelesController {
-    public void inforPasteles(ActionEvent actionEvent) {
+    public void cambiarVista(String fxml, ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/proyectoprogra/pasteles-admin.fxml"));
-            Parent root = loader.load();
-
-            Stage newStage = new Stage();
-            Scene scene = new Scene(root);
-            newStage.setScene(scene);
-
-            newStage.setMaximized(true);
-
-            newStage.show();
-
-            Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            currentStage.close();
+            Parent root = FXMLLoader.load(getClass().getResource(fxml));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setMaximized(true);
+            stage.show();
 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+    @FXML
+    void historial(ActionEvent e) {cambiarVista("/com/example/proyectoprogra/historial-admin.fxml", e);}
 
-    public void pedidos(ActionEvent actionEvent) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/proyectoprogra/pedidos-admin.fxml"));
-            Parent root = loader.load();
+    @FXML
+    void inforPasteles(ActionEvent e) {cambiarVista("/com/example/proyectoprogra/pasteles-admin.fxml",e );}
 
-            Stage newStage = new Stage();
-            Scene scene = new Scene(root);
-            newStage.setScene(scene);
+    @FXML
+    void pedidos(ActionEvent e) {cambiarVista("/com/example/proyectoprogra/pedidos-admin.fxml", e);}
 
-            newStage.setMaximized(true);
+    @FXML
+    void reservas(ActionEvent e) {cambiarVista("/com/example/proyectoprogra/reservas-admin.fxml", e);}
 
-            newStage.show();
+    @FXML
+    void resportes(ActionEvent e) {cambiarVista("/com/example/proyectoprogra/reportes.fxml", e);}
 
-            Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            currentStage.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void reservas(ActionEvent actionEvent) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/proyectoprogra/reservas-admin.fxml"));
-            Parent root = loader.load();
-
-            Stage newStage = new Stage();
-            Scene scene = new Scene(root);
-            newStage.setScene(scene);
-
-            newStage.setMaximized(true);
-
-            newStage.show();
-
-            Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            currentStage.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void historial(ActionEvent actionEvent) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/proyectoprogra/historial-admin.fxml"));
-            Parent root = loader.load();
-
-            Stage newStage = new Stage();
-            Scene scene = new Scene(root);
-            newStage.setScene(scene);
-
-            newStage.setMaximized(true);
-
-            newStage.show();
-
-            Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            currentStage.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void resportes(ActionEvent actionEvent) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/proyectoprogra/reportes.fxml"));
-            Parent root = loader.load();
-
-            Stage newStage = new Stage();
-            Scene scene = new Scene(root);
-            newStage.setScene(scene);
-
-            newStage.setMaximized(true);
-
-            newStage.show();
-
-            Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            currentStage.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     public void informacionUsuario(ActionEvent actionEvent) {
     }

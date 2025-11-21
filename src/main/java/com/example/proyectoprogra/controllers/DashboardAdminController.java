@@ -13,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -67,6 +68,9 @@ public class DashboardAdminController {
 
     @FXML
     private Button btnInfoUsuario;
+
+    @FXML
+    private StackPane contenidoPrincipal;
 
     @FXML
     public void initialize() {
@@ -158,46 +162,13 @@ public class DashboardAdminController {
 
         System.out.println("Sesión cerrada. Redirigir a login...");
     }
-
-    @FXML
-    void historial(ActionEvent actionEvent) {
+    private void cambiarVista(String fxml, ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/proyectoprogra/historial-admin.fxml"));
-            Parent root = loader.load();
-
-            Stage newStage = new Stage();
-            Scene scene = new Scene(root);
-            newStage.setScene(scene);
-
-            newStage.setMaximized(true);
-
-            newStage.show();
-
-            Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            currentStage.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    @FXML
-    void inforPasteles(ActionEvent actionEvent) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/proyectoprogra/pasteles-admin.fxml"));
-            Parent root = loader.load();
-
-            Stage newStage = new Stage();
-            Scene scene = new Scene(root);
-            newStage.setScene(scene);
-
-            newStage.setMaximized(true);
-
-            newStage.show();
-
-            Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            currentStage.close();
+            Parent root = FXMLLoader.load(getClass().getResource(fxml));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setMaximized(true);
+            stage.show();
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -205,70 +176,17 @@ public class DashboardAdminController {
     }
 
     @FXML
-    void pedidos(ActionEvent actionEvent) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/proyectoprogra/pedidos-admin.fxml"));
-            Parent root = loader.load();
-
-            Stage newStage = new Stage();
-            Scene scene = new Scene(root);
-            newStage.setScene(scene);
-
-            newStage.setMaximized(true);
-
-            newStage.show();
-
-            Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            currentStage.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
+    void historial(ActionEvent e) {cambiarVista("/com/example/proyectoprogra/historial-admin.fxml", e);}
 
     @FXML
-    void reservas(ActionEvent actionEvent) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/proyectoprogra/reservas-admin.fxml"));
-            Parent root = loader.load();
-
-            Stage newStage = new Stage();
-            Scene scene = new Scene(root);
-            newStage.setScene(scene);
-
-            newStage.setMaximized(true);
-
-            newStage.show();
-
-            Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            currentStage.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
+    void inforPasteles(ActionEvent e) {cambiarVista("/com/example/proyectoprogra/pasteles-admin.fxml",e );}
 
     @FXML
-    void resportes(ActionEvent actionEvent) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/proyectoprogra/reportes.fxml"));
-            Parent root = loader.load();
+    void pedidos(ActionEvent e) {cambiarVista("/com/example/proyectoprogra/pedidos-admin.fxml",e );}
 
-            Stage newStage = new Stage();
-            Scene scene = new Scene(root);
-            newStage.setScene(scene);
+    @FXML
+    void reservas(ActionEvent e) {cambiarVista("/com/example/proyectoprogra/reservas-admin.fxml",e );}
 
-            newStage.setMaximized(true);
-
-            newStage.show();
-
-            Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            currentStage.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+    @FXML
+    void resportes(ActionEvent e) {cambiarVista("/com/example/proyectoprogra/reportes.fxml",e);}
 }
