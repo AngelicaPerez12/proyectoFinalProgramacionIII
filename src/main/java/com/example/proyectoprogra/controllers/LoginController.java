@@ -232,7 +232,6 @@ public class LoginController {
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
-
                 String hashGuardado = rs.getString("contraseña");
 
                 if (!PasswordUtils.verifyPassword(contrasenaIngresada, hashGuardado)) {
@@ -284,7 +283,7 @@ public class LoginController {
             if (cssUrl != null) {
                 scene.getStylesheets().add(cssUrl.toExternalForm());
             } else {
-                System.err.println("❌ No se encontró dashboard.css");
+                System.err.println(" No se encontró dashboard.css");
             }
 
             newStage.setMaximized(true);
