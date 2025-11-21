@@ -25,6 +25,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import com.example.proyectoprogra.models.Usuario;
+import com.example.proyectoprogra.models.PasswordUtils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -213,33 +214,39 @@ public class LoginController {
     @FXML
     private void iniciarSesion() {
         String usuario = campoUsuario.getText();
-        String contrasena = showPassword.isSelected()
+        String contrasenaIngresada = showPassword.isSelected()
                 ? campoContrasenaVisible.getText()
                 : campoContrasena.getText();
 
-        if (usuario.isBlank() || contrasena.isBlank()) {
+        if (usuario.isBlank() || contrasenaIngresada.isBlank()) {
             etiquetaMensaje.setText("Complete todos los campos.");
             return;
         }
 
         try (Connection conn = ConexionDB.getConection()) {
 
-            String sql = "SELECT id_usuario, nombre,correo, id_rol FROM tbl_usuarios WHERE correo = ? AND contraseña = ?";
+            String sql = "SELECT id_usuario, nombre, correo, id_rol, contraseña FROM tbl_usuarios WHERE correo = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, usuario);
-            ps.setString(2, contrasena);
 
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
+
+                String hashGuardado = rs.getString("contraseña");
+
+                if (!PasswordUtils.verifyPassword(contrasenaIngresada, hashGuardado)) {
+                    etiquetaMensaje.setText("Usuario o contraseña incorrectos.");
+                    return;
+                }
+
                 int idUsuario = rs.getInt("id_usuario");
                 String nombre = rs.getString("nombre");
                 String correo = rs.getString("correo");
 
-
                 String rol = "Cliente";
-
                 int idRol = rs.getInt("id_rol");
+
                 if (idRol == 1) rol = "Administrador";
                 else if (idRol == 2) rol = "Cliente";
 
@@ -253,6 +260,7 @@ public class LoginController {
                 } else {
                     abrirVentana("/com/example/proyectoprogra/dashboard-cliente.fxml");
                 }
+
             } else {
                 etiquetaMensaje.setText("Usuario o contraseña incorrectos.");
             }

@@ -6,6 +6,7 @@ module com.example.proyectoprogra {
         requires org.controlsfx.controls;
         requires org.kordamp.bootstrapfx.core;
     requires javafx.graphics;
+    requires jbcrypt;
 
 
     opens com.example.proyectoprogra to javafx.fxml;

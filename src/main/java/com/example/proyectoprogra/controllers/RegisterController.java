@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import com.example.proyectoprogra.models.PasswordUtils;
 
 import java.util.function.Consumer;
 
@@ -73,7 +74,7 @@ public class RegisterController {
             ps.setString(1, nombre);
             ps.setString(2, apellido);
             ps.setString(3, email);
-            ps.setString(4, pass);
+            ps.setString(4, PasswordUtils.hashPassword(pass));
             ps.setInt(5, 2);
 
             int filas = ps.executeUpdate();
