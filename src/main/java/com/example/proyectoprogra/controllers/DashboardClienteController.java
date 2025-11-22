@@ -82,6 +82,24 @@ public class DashboardClienteController {
 
     @FXML
     void vercatalogo(ActionEvent actionEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/proyectoprogra/catalogo-cliente.fxml"));
+            Parent root = loader.load();
+
+            Stage newStage = new Stage();
+            Scene scene = new Scene(root);
+            newStage.setScene(scene);
+
+            newStage.setMaximized(true);
+
+            newStage.show();
+
+            Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            currentStage.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 }

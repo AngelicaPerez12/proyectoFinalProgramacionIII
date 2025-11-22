@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane xmlns:fx="http://javafx.com/fxml/1"
+            xmlns="http://javafx.com/javafx/25"
+            fx:controller="com.example.proyectoprogra.controllers.CatalogoClienteController"
+            fitToWidth="true"
+            style="-fx-background-color: white;">
+
+    <content>
+        <VBox spacing="10" fillWidth="true">
+
+            <!-- BARRA SUPERIOR -->
+            <HBox alignment="CENTER_RIGHT"
+                  prefHeight="50"
+                  spacing="25"
+                  style="-fx-background-color: #FFF0DD;">
+                <padding>
+                    <Insets top="10" bottom="10" left="10" right="10"/>
+                </padding>
+                <children>
+                    <Button onAction="#vercatalogo" style="-fx-background-color: transparent;" text="Catálogo"/>
+                    <Button onAction="#hacerpedido" style="-fx-background-color: transparent;" text="Hacer Pedido"/>
+                    <Button onAction="#historial" style="-fx-background-color: transparent;" text="Historial"/>
+                    <Button onAction="#perfil" style="-fx-background-color: transparent;" text="Perfil"/>
+                </children>
+            </HBox>
+
+            <!-- CONTENEDOR DE CARDS -->
+            <TilePane fx:id="contenedorCakes"
+                      hgap="25"
+                      vgap="25"
+                      prefColumns="3"
+                      tileAlignment="TOP_CENTER"
+                      style="-fx-background-color: white;"
+                      prefWidth="Infinity">
+                <padding>
+                    <Insets top="20" right="20" bottom="20" left="20"/>
+                </padding>
+
+                <!-- CARD 1 -->
+                <VBox spacing="5" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10; -fx-padding: 10;">
+                    <ImageView fitHeight="150" fitWidth="215" preserveRatio="true">
+                        <image><Image url="@Imagenes/Imagen01.jpg"/></image>
+                    </ImageView>
+                    <Label text="Chocolatoso"><font><Font name="System Bold" size="19"/></font></Label>
+                    <Label text="Bizcocho Húmedo De Cacao Intenso"/>
+                    <Label text="Tamaño Mediano"/>
+                    <Label text="\$25"><font><Font size="18"/></font></Label>
+                    <Button text="Ordenar" prefWidth="150"/>
+                </VBox>
+
+                <!-- CARD 2 -->
+                <VBox spacing="5" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10; -fx-padding: 10;">
+                    <ImageView fitHeight="150" fitWidth="215" preserveRatio="true">
+                        <image><Image url="@Imagenes/Pastel02.jpg"/></image>
+                    </ImageView>
+                    <Label text="Aroma Café"><font><Font name="System Bold" size="19"/></font></Label>
+                    <Label text="Pastel esponjoso con infusión de café"/>
+                    <Label text="Tamaño Grande"/>
+                    <Label text="\$40"><font><Font size="18"/></font></Label>
+                    <Button text="Ordenar" prefWidth="150"/>
+                </VBox>
+
+                <!-- CARD 3 -->
+                <VBox spacing="5" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10; -fx-padding: 10;">
+                    <ImageView fitHeight="150" fitWidth="215" preserveRatio="true">
+                        <image><Image url="@Imagenes/Pastel3.jpg"/></image>
+                    </ImageView>
+                    <Label text="Limonsito"><font><Font name="System Bold" size="19"/></font></Label>
+                    <Label text="Bizcocho relleno de crema de limón"/>
+                    <Label text="Tamaño Mediano"/>
+                    <Label text="\$25"><font><Font size="18"/></font></Label>
+                    <Button text="Ordenar" prefWidth="150"/>
+                </VBox>
+
+                <!-- CARD 4 -->
+                <VBox spacing="5" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10; -fx-padding: 10;">
+                    <ImageView fitHeight="150" fitWidth="215" preserveRatio="true">
+                        <image><Image url="@Imagenes/Pastel4.jpg"/></image>
+                    </ImageView>
+                    <Label text="Fresa"><font><Font name="System Bold" size="19"/></font></Label>
+                    <Label text="Bizcocho relleno de fresas frescas"/>
+                    <Label text="Tamaño Mediano"/>
+                    <Label text="\$25"><font><Font size="18"/></font></Label>
+                    <Button text="Ordenar" prefWidth="150"/>
+                </VBox>
+
+                <!-- CARD 5 -->
+                <VBox spacing="5" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10; -fx-padding: 10;">
+                    <ImageView fitHeight="150" fitWidth="215" preserveRatio="true">
+                        <image><Image url="@Imagenes/Pastel6.jpg"/></image>
+                    </ImageView>
+                    <Label text="Canela y Manzana"><font><Font name="System Bold" size="17"/></font></Label>
+                    <Label text="Manzana caramelizada y canela"/>
+                    <Label text="Tamaño Pequeño"/>
+                    <Label text="\$15"><font><Font size="18"/></font></Label>
+                    <Button text="Ordenar" prefWidth="150"/>
+                </VBox>
+
+                <!-- CARD 6 -->
+                <VBox spacing="5" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10; -fx-padding: 10;">
+                    <ImageView fitHeight="150" fitWidth="215" preserveRatio="true">
+                        <image><Image url="@Imagenes/Pastel5.jpg"/></image>
+                    </ImageView>
+                    <Label text="Tres Leches"><font><Font name="System Bold" size="19"/></font></Label>
+                    <Label text="Bizcocho en mezcla de tres leches"/>
+                    <Label text="Tamaño Pequeño"/>
+                    <Label text="\$15"><font><Font size="18"/></font></Label>
+                    <Button text="Ordenar" prefWidth="150"/>
+                </VBox>
+
+            </TilePane>
+
+        </VBox>
+    </content>
+
+</ScrollPane>
