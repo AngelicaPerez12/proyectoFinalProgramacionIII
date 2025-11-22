@@ -4,7 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import com.example.proyectoprogra.controllers.LoginController;
+import com.example.proyectoprogra.controllers.Visualizacion.LoginController;
 
 import java.io.IOException;
 import java.net.URL;
@@ -14,7 +14,7 @@ public class HelloApplication extends Application {
     public void start(Stage stage) {
         try {
 
-            URL fxmlUrl = HelloApplication.class.getResource("/com/example/proyectoprogra/login-view.fxml");
+            URL fxmlUrl = HelloApplication.class.getResource("/com/example/proyectoprogra/Visualizacion/login-view.fxml");
             if (fxmlUrl == null) {
                 System.err.println("No se encontró login-view.fxml como recurso.");
                 return;

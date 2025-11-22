@@ -11,11 +11,14 @@ module com.example.proyectoprogra {
     requires java.sql;
 
     opens com.example.proyectoprogra to javafx.fxml;
-    opens com.example.proyectoprogra.models to javafx.fxml;
-    opens com.example.proyectoprogra.controllers to javafx.fxml;
-
-
     exports com.example.proyectoprogra;
+    opens com.example.proyectoprogra.models to javafx.fxml;
     exports com.example.proyectoprogra.models;
-    exports com.example.proyectoprogra.controllers;
+    opens com.example.proyectoprogra.controllers.Cliente to javafx.fxml;
+    exports com.example.proyectoprogra.controllers.Cliente;
+    opens com.example.proyectoprogra.controllers.Admin to javafx.fxml;
+    exports com.example.proyectoprogra.controllers.Admin;
+    opens com.example.proyectoprogra.controllers.Visualizacion to javafx.fxml;
+    exports com.example.proyectoprogra.controllers.Visualizacion;
+
 }
