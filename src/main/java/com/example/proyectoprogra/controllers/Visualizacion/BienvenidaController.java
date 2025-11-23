@@ -12,6 +12,30 @@ import java.io.IOException;
 import java.net.URL;
 
 public class BienvenidaController {
+    public void abrirRegistro(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/com/example/proyectoprogra/Visualizacion/register-view.fxml")
+            );
+            Parent root = loader.load();
+
+            Stage newStage = new Stage();
+            Scene scene = new Scene(root);
+            newStage.setScene(scene);
+
+            newStage.setMaximized(true);
+            newStage.setTitle("Registrarse");
+            newStage.show();
+
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            currentStage.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
     public void entrarallogin(ActionEvent actionEvent) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/proyectoprogra/Visualizacion/login-view.fxml"));

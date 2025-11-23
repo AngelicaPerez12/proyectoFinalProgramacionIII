@@ -4,91 +4,58 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.Glow?>
-<?import javafx.scene.effect.Reflection?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane xmlns="http://javafx.com/javafx/25"
-           xmlns:fx="http://javafx.com/fxml/1"
-           fx:controller="com.example.proyectoprogra.controllers.Visualizacion.BienvenidaController">
+<StackPane xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyectoprogra.controllers.Visualizacion.BienvenidaController">
 
-    <!-- FONDO 100% RESPONSIVO -->
-    <ImageView id="fondo"
-               preserveRatio="false"
-               fitWidth="1920"
-               fitHeight="1080"
-               opacity="0.6">
+    <ImageView id="fondo" fitHeight="1080" fitWidth="1920" opacity="0.6" preserveRatio="false">
         <image>
-            <Image url="@../Imagenes/0c307cdc084ef4ded42fb60948a61627.jpg"/>
+            <Image url="@../Imagenes/0c307cdc084ef4ded42fb60948a61627.jpg" />
         </image>
         <effect>
-            <Glow/>
+            <Glow />
         </effect>
     </ImageView>
 
     <!-- CAPA DE CONTENIDO (CENTRADA AUTOMÁTICAMENTE) -->
-    <AnchorPane prefWidth="1000" prefHeight="600">
+    <AnchorPane prefHeight="600" prefWidth="1000">
 
         <!-- Título centrado -->
-        <Label text="SWEET HARMONY"
-               textFill="#593535"
-               AnchorPane.topAnchor="80"
-               AnchorPane.leftAnchor="0"
-               AnchorPane.rightAnchor="0"
-               style="-fx-alignment: center;">
+        <Label style="-fx-alignment: center;" text="SWEET HARMONY" textFill="#593535" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="80">
             <font>
-                <Font name="Book Antiqua" size="90"/>
+                <Font name="Book Antiqua" size="90" />
             </font>
             <effect>
-                <DropShadow/>
+                <DropShadow />
             </effect>
         </Label>
 
 
-        <StackPane AnchorPane.topAnchor="170"
-                   AnchorPane.leftAnchor="0"
-                   AnchorPane.rightAnchor="0">
+        <StackPane AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="170">
 
-            <ImageView fitHeight="45" fitWidth="45"
-                       preserveRatio="true">
+            <ImageView fitHeight="45" fitWidth="45" preserveRatio="true">
                 <image>
-                    <Image url="@../Imagenes/cake.png"/>
+                    <Image url="@../Imagenes/cake.png" />
                 </image>
             </ImageView>
 
         </StackPane>
 
         <!-- Subtítulo centrado -->
-        <Label text="Descubre Nuestros Pasteles Y Sus Sorprendentes Sabores"
-               textFill="#533e3e"
-               AnchorPane.topAnchor="250"
-               AnchorPane.leftAnchor="0"
-               AnchorPane.rightAnchor="0"
-               style="-fx-alignment: center;">
+        <Label style="-fx-alignment: center;" text="Descubre Nuestros Pasteles Y Sus Sorprendentes Sabores" textFill="#533e3e" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="250">
             <font>
-                <Font name="Juice ITC" size="24"/>
+                <Font name="Juice ITC" size="24" />
             </font>
         </Label>
 
-        <!-- Botón centrado -->
-        <Button fx:id="btnentrar"
-                text="Registrate Ahora!!!"
-                underline="true"
-                onAction="#entrarallogin"
-                AnchorPane.topAnchor="350"
-                AnchorPane.leftAnchor="0"
-                AnchorPane.rightAnchor="0"
-                style="-fx-background-color: transparent; -fx-font-size: 20px; -fx-alignment: center;">
-            <font>
-                <Font name="System Bold Italic" size="20"/>
-            </font>
-            <effect>
-                <Reflection/>
-            </effect>
-        </Button>
+        <Button fx:id="btnentrar" layoutX="-8.0" layoutY="414.0" onAction="#abrirRegistro" style="-fx-background-color: transparent; -fx-font-size: 20px;" text="Registrate Ahora!!!" AnchorPane.leftAnchor="-8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="414.0" />
+
+        <Button fx:id="btnIniciarSesion" layoutX="-8.0" layoutY="338.0" onAction="#entrarallogin" style="-fx-background-color: transparent; -fx-font-size: 20px;" text="INICIAR SESION!!!" AnchorPane.leftAnchor="-8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="338.0" />
+
 
     </AnchorPane>
 
