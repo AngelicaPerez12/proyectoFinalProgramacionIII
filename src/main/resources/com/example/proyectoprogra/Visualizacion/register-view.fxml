@@ -67,7 +67,7 @@
                         <HBox alignment="CENTER" spacing="12">
                             <children>
                                 <Button fx:id="btnCrearCuentaReg" onAction="#registrarUsuario" styleClass="btn-secondary" text="Crear cuenta" />
-                                <Button fx:id="btnCancelarReg" onAction="#cerrar" styleClass="btn-secondary" text="Cancelar" />
+                                <Button fx:id="btnCancelarReg" onAction="#cerrar" styleClass="btn-secondary" text="Iniciar Sesion" />
                             </children>
                         </HBox>
 

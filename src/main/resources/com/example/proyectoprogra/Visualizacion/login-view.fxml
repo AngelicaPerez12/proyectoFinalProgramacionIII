@@ -87,7 +87,7 @@
 
                         <HBox alignment="CENTER" spacing="12">
                             <children>
-                                <Button fx:id="btnNuevo" onAction="#CerrarSesionLogin" styleClass="btn-secondary btn-full" text="Cerrar Sesion" />
+                                <Button fx:id="btnNuevo" onAction="#CerrarSesionLogin" styleClass="btn-secondary btn-full" text="Volver al Inicio" />
                             </children>
                         </HBox>
 

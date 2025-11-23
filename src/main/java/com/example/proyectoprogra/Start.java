@@ -19,9 +19,7 @@ public class Start extends Application {
                     getClass().getResource("/com/example/proyectoprogra/Visualizacion/Bienvenida.fxml")
             );
             Parent root = loader.load();
-
             Scene scene = new Scene(root);
-
             primaryStage.setMaximized(true);
             primaryStage.setScene(scene);
             primaryStage.setTitle("Sweet Harmony");

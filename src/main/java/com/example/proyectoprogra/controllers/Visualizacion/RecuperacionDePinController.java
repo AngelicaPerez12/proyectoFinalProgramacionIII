@@ -81,6 +81,11 @@ public class RecuperacionDePinController {
             int filas = ps.executeUpdate();
             if (filas > 0) {
                 mensajeRec.setText("PIN actualizado correctamente.");
+                campoEmailRec.clear();
+                campoCodigoRec.clear();
+                campoPinNuevo.clear();
+                campoPinConfirm.clear();
+
             } else {
                 mensajeRec.setText("No se encontró el usuario con ese correo.");
             }

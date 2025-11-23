@@ -1,48 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 
-<VBox xmlns="http://javafx.com/javafx/25"
-      xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.example.proyectoprogra.controllers.Visualizacion.RecuperacionDePinController"
-      spacing="14" alignment="CENTER" style="-fx-padding: 20; -fx-background-color: #f5f5f5;">
+<VBox alignment="CENTER" spacing="14" style="-fx-padding: 20; -fx-background-color: #f5f5f5;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyectoprogra.controllers.Visualizacion.RecuperacionDePinController">
 
-    <Label text="Recuperación de PIN" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+    <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Recuperación de PIN" />
 
     <GridPane hgap="10" vgap="10">
 
-        <Label text="Correo electrónico:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
-        <TextField fx:id="campoEmailRec" promptText="nombre@ejemplo.com" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+        <Label text="Correo electrónico:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <TextField fx:id="campoEmailRec" promptText="nombre@ejemplo.com" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
-        <Button text="Enviar código" onAction="#enviarCodigo"
-                GridPane.rowIndex="1" GridPane.columnIndex="1" />
+        <Button onAction="#enviarCodigo" text="Enviar código" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
-        <Label text="Código recibido:" GridPane.rowIndex="2" GridPane.columnIndex="0" />
-        <TextField fx:id="campoCodigoRec" promptText="Ingresa el código"
-                   GridPane.rowIndex="2" GridPane.columnIndex="1" />
+        <Label text="Código recibido:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <TextField fx:id="campoCodigoRec" promptText="Ingresa el código" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
-        <Label text="Nuevo PIN:" GridPane.rowIndex="3" GridPane.columnIndex="0" />
-        <PasswordField fx:id="campoPinNuevo" promptText="Nuevo PIN"
-                       GridPane.rowIndex="3" GridPane.columnIndex="1" />
+        <Label text="Nuevo PIN:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+        <PasswordField fx:id="campoPinNuevo" promptText="Nuevo PIN" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
-        <Label text="Confirmar PIN:" GridPane.rowIndex="4" GridPane.columnIndex="0" />
-        <PasswordField fx:id="campoPinConfirm" promptText="Confirma PIN"
-                       GridPane.rowIndex="4" GridPane.columnIndex="1" />
+        <Label text="Confirmar PIN:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+        <PasswordField fx:id="campoPinConfirm" promptText="Confirma PIN" GridPane.columnIndex="1" GridPane.rowIndex="4" />
 
-        <Button text="Actualizar PIN" onAction="#recuperarPin"
-                GridPane.rowIndex="5" GridPane.columnIndex="1" />
-        <Button text="Cerrar" onAction="#cerrarVentanaPIN"
-                GridPane.rowIndex="6" GridPane.columnIndex="1" />
+        <Button onAction="#recuperarPin" text="Actualizar PIN" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+        <Button onAction="#cerrarVentanaPIN" text="Volver al Inicio" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+      <columnConstraints>
+         <ColumnConstraints />
+         <ColumnConstraints />
+      </columnConstraints>
+      <rowConstraints>
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+      </rowConstraints>
 
     </GridPane>
 
-    <Label fx:id="mensajeRec" wrapText="true" style="-fx-text-fill: red;" />
+    <Label fx:id="mensajeRec" style="-fx-text-fill: red;" wrapText="true" />
 
 </VBox>

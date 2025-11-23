@@ -14,18 +14,26 @@ public class ReservasAdminController {
     public void informacionUsuario(ActionEvent actionEvent) {
     }
 
-    public void cambiarVista(String fxml, ActionEvent event) {
+    private void cambiarVista(String fxml, ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource(fxml));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
+            Parent root = loader.load();
+
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
+
+            Scene scene = new Scene(root);
+
+            stage.setScene(scene);
+
             stage.setMaximized(true);
+
             stage.show();
 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
     @FXML
     void historial(ActionEvent e) {cambiarVista("/com/example/proyectoprogra/Admin/historial-admin.fxml", e);}
 

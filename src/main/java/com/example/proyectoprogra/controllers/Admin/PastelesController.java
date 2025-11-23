@@ -1,4 +1,4 @@
-package com.example.proyectoprogra.controllers.Visualizacion;
+package com.example.proyectoprogra.controllers.Admin;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,12 +11,19 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class PastelesController {
-    public void cambiarVista(String fxml, ActionEvent event) {
+    private void cambiarVista(String fxml, ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource(fxml));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
+            Parent root = loader.load();
+
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
+
+            Scene scene = new Scene(root);
+
+            stage.setScene(scene);
+
             stage.setMaximized(true);
+
             stage.show();
 
         } catch (IOException e) {

@@ -86,13 +86,26 @@ public class RegisterController {
 
             if (filas > 0) {
                 mensajeReg.setText("Cuenta creada correctamente. Puedes iniciar sesión.");
+                if (filas > 0) {
+                    mensajeReg.setText("Cuenta creada correctamente. Puedes iniciar sesión.");
+                    campoNombreReg.clear();
+                    campoApellidoReg.clear();
+                    campoEmailReg.clear();
+                    campoContrasenaReg.clear();
+                    campoContrasenaRegConfirm.clear();
+
+                    if (onSuccessCallback != null) {
+                        onSuccessCallback.accept(email);
+                    }
+
+                } else {
+                    mensajeReg.setText("Error al crear la cuenta.");
+                }
 
                 if (onSuccessCallback != null) {
                     onSuccessCallback.accept(email);
                 }
 
-                Stage s = (Stage) btnCrearCuentaReg.getScene().getWindow();
-                s.close();
             } else {
                 mensajeReg.setText("Error al crear la cuenta.");
             }
@@ -112,11 +125,9 @@ public class RegisterController {
 
             Scene scene = new Scene(root);
             stage.setScene(scene);
-
-            // Esto asegura que la ventana se maximice
             stage.setMaximized(true);
-            stage.setFullScreen(false); // evitar modo fullscreen
-            stage.setResizable(true);   // permitir que JavaFX redimensione
+            stage.setFullScreen(false);
+            stage.setResizable(true);
 
             stage.show();
 
