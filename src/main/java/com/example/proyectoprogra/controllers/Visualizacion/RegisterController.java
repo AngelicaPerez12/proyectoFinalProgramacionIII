@@ -2,11 +2,16 @@ package com.example.proyectoprogra.controllers.Visualizacion;
 
 import com.example.proyectoprogra.ConexionDB.ConexionDB;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -99,7 +104,27 @@ public class RegisterController {
 
     @FXML
     private void cerrar() {
-        Stage s = (Stage) btnCancelarReg.getScene().getWindow();
-        s.close();
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/proyectoprogra/Visualizacion/Bienvenida.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = (Stage) btnCancelarReg.getScene().getWindow();
+
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+
+            // Esto asegura que la ventana se maximice
+            stage.setMaximized(true);
+            stage.setFullScreen(false); // evitar modo fullscreen
+            stage.setResizable(true);   // permitir que JavaFX redimensione
+
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            mensajeReg.setText("Error al abrir la pantalla de bienvenida.");
+        }
     }
+
+
 }

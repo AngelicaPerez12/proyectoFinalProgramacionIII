@@ -13,25 +13,35 @@
       xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.example.proyectoprogra.controllers.Visualizacion.RecuperacionDePinController"
       spacing="14" alignment="CENTER" style="-fx-padding: 20; -fx-background-color: #f5f5f5;">
+
     <Label text="Recuperación de PIN" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
 
     <GridPane hgap="10" vgap="10">
 
         <Label text="Correo electrónico:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
         <TextField fx:id="campoEmailRec" promptText="nombre@ejemplo.com" GridPane.rowIndex="0" GridPane.columnIndex="1" />
-        <Button text="Enviar código" onAction="#enviarCodigo" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+
+        <Button text="Enviar código" onAction="#enviarCodigo"
+                GridPane.rowIndex="1" GridPane.columnIndex="1" />
+
         <Label text="Código recibido:" GridPane.rowIndex="2" GridPane.columnIndex="0" />
-        <TextField fx:id="campoCodigoRec" promptText="Ingresa el código" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+        <TextField fx:id="campoCodigoRec" promptText="Ingresa el código"
+                   GridPane.rowIndex="2" GridPane.columnIndex="1" />
 
         <Label text="Nuevo PIN:" GridPane.rowIndex="3" GridPane.columnIndex="0" />
-        <PasswordField fx:id="campoPinNuevo" promptText="Nuevo PIN" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+        <PasswordField fx:id="campoPinNuevo" promptText="Nuevo PIN"
+                       GridPane.rowIndex="3" GridPane.columnIndex="1" />
 
         <Label text="Confirmar PIN:" GridPane.rowIndex="4" GridPane.columnIndex="0" />
-        <PasswordField fx:id="campoPinConfirm" promptText="Confirma PIN" GridPane.rowIndex="4" GridPane.columnIndex="1" />
+        <PasswordField fx:id="campoPinConfirm" promptText="Confirma PIN"
+                       GridPane.rowIndex="4" GridPane.columnIndex="1" />
 
-        <Button text="Actualizar PIN" onAction="#recuperarPin" GridPane.rowIndex="5" GridPane.columnIndex="1" />
+        <Button text="Actualizar PIN" onAction="#recuperarPin"
+                GridPane.rowIndex="5" GridPane.columnIndex="1" />
+        <Button text="Cerrar" onAction="#cerrarVentanaPIN"
+                GridPane.rowIndex="6" GridPane.columnIndex="1" />
+
     </GridPane>
-
 
     <Label fx:id="mensajeRec" wrapText="true" style="-fx-text-fill: red;" />
 

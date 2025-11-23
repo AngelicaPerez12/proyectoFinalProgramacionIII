@@ -9,6 +9,7 @@ module com.example.proyectoprogra {
     requires jbcrypt;
     requires jakarta.mail;
     requires java.sql;
+    requires java.desktop;
 
     opens com.example.proyectoprogra to javafx.fxml;
     exports com.example.proyectoprogra;
@@ -24,4 +25,5 @@ module com.example.proyectoprogra {
 
     opens com.example.proyectoprogra.controllers.Visualizacion to javafx.fxml;
     exports com.example.proyectoprogra.controllers.Visualizacion;
+
 }

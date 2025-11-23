@@ -4,10 +4,13 @@ import com.example.proyectoprogra.ConexionDB.ConexionDB;
 import com.example.proyectoprogra.models.EmailSender;
 import com.example.proyectoprogra.models.PasswordUtils;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
+import java.awt.event.ActionEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -90,6 +93,7 @@ public class RecuperacionDePinController {
 
 
 
+
     private String generarCodigo(int longitud) {
         String chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         StringBuilder codigo = new StringBuilder();
@@ -98,5 +102,11 @@ public class RecuperacionDePinController {
             codigo.append(chars.charAt(rnd.nextInt(chars.length())));
         }
         return codigo.toString();
+    }
+
+
+    public void cerrarVentanaPIN(javafx.event.ActionEvent actionEvent) {
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        stage.close();
     }
 }

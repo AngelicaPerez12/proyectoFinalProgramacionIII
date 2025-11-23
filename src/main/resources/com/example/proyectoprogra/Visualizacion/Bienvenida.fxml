@@ -10,53 +10,82 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyectoprogra.controllers.Visualizacion.BienvenidaController">
+<StackPane fx:id="rootPane" xmlns="http://javafx.com/javafx/21"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.example.proyectoprogra.controllers.Visualizacion.BienvenidaController">
 
-    <ImageView id="fondo" fitHeight="1080" fitWidth="1920" opacity="0.6" preserveRatio="false">
+    <!-- Fondo FULL SCREEN (JavaFX 21 compatible) -->
+    <ImageView fx:id="fondo"
+               preserveRatio="false"
+               opacity="0.6">
         <image>
-            <Image url="@../Imagenes/0c307cdc084ef4ded42fb60948a61627.jpg" />
+            <Image url="@../Imagenes/0c307cdc084ef4ded42fb60948a61627.jpg"/>
         </image>
         <effect>
-            <Glow />
+            <Glow/>
         </effect>
     </ImageView>
 
-    <!-- CAPA DE CONTENIDO (CENTRADA AUTOMÁTICAMENTE) -->
-    <AnchorPane prefHeight="600" prefWidth="1000">
+    <AnchorPane AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"
+                AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0">
 
-        <!-- Título centrado -->
-        <Label style="-fx-alignment: center;" text="SWEET HARMONY" textFill="#593535" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="80">
+        <!-- Título -->
+        <Label text="SWEET HARMONY" textFill="#593535"
+               AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"
+               AnchorPane.topAnchor="80"
+               style="-fx-alignment: center;">
             <font>
-                <Font name="Book Antiqua" size="90" />
+                <Font name="Book Antiqua" size="90"/>
             </font>
             <effect>
-                <DropShadow />
+                <DropShadow/>
             </effect>
         </Label>
 
-
-        <StackPane AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="170">
-
+        <!-- Icono -->
+        <StackPane AnchorPane.topAnchor="170"
+                   AnchorPane.leftAnchor="0"
+                   AnchorPane.rightAnchor="0">
             <ImageView fitHeight="45" fitWidth="45" preserveRatio="true">
                 <image>
-                    <Image url="@../Imagenes/cake.png" />
+                    <Image url="@../Imagenes/cake.png"/>
                 </image>
             </ImageView>
-
         </StackPane>
 
-        <!-- Subtítulo centrado -->
-        <Label style="-fx-alignment: center;" text="Descubre Nuestros Pasteles Y Sus Sorprendentes Sabores" textFill="#533e3e" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="250">
+        <!-- Subtítulo -->
+        <Label text="Descubre Nuestros Pasteles Y Sus Sorprendentes Sabores"
+               AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"
+               AnchorPane.topAnchor="250"
+               textFill="#533e3e"
+               style="-fx-alignment: center;">
             <font>
-                <Font name="Juice ITC" size="24" />
+                <Font name="Juice ITC" size="24"/>
             </font>
         </Label>
 
-        <Button fx:id="btnentrar" layoutX="-8.0" layoutY="414.0" onAction="#abrirRegistro" style="-fx-background-color: transparent; -fx-font-size: 20px;" text="Registrate Ahora!!!" AnchorPane.leftAnchor="-8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="414.0" />
+        <!-- Botón Iniciar Sesión -->
+        <Button fx:id="btnIniciarSesion"
+                text="INICIAR SESIÓN!!!"
+                onAction="#entrarallogin"
+                style="-fx-background-color: transparent; -fx-font-size: 20px;"
+                AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"
+                AnchorPane.topAnchor="330"/>
 
-        <Button fx:id="btnIniciarSesion" layoutX="-8.0" layoutY="338.0" onAction="#entrarallogin" style="-fx-background-color: transparent; -fx-font-size: 20px;" text="INICIAR SESION!!!" AnchorPane.leftAnchor="-8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="338.0" />
+        <!-- Botón Registro -->
+        <Button fx:id="btnentrar"
+                text="Regístrate Ahora!!!"
+                onAction="#abrirRegistro"
+                style="-fx-background-color: transparent; -fx-font-size: 20px;"
+                AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"
+                AnchorPane.topAnchor="390"/>
 
-
+        <!-- Botón Cerrar Sesión -->
+        <Button text="CERRAR SESIÓN"
+                onAction="#CerrarSesion"
+                AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"
+                AnchorPane.bottomAnchor="30"
+                style="-fx-font-size: 20px; -fx-padding: 10px;"/>
     </AnchorPane>
 
 </StackPane>

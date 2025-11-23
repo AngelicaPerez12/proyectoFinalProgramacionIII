@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -249,4 +250,35 @@ public class LoginController {
             e.printStackTrace();
         }
     }
+    @FXML
+    private void CerrarSesionLogin(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/com/example/proyectoprogra/Visualizacion/bienvenida.fxml")
+            );
+            Parent root = loader.load();
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+
+            // 🔥 MUY IMPORTANTE: maximizar ANTES de mostrar
+            stage.setMaximized(true);
+
+            // 🔥 OBLIGATORIO: forzar re-layout cuando se cambia de escena maximizada
+            stage.sizeToScene();
+            Platform.runLater(() -> {
+                stage.setMaximized(true);
+                root.requestLayout();
+            });
+
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }
