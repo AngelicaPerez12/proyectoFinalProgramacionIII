@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox spacing="8" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyectoprogra.controllers.Cliente.TicketController" style="-fx-padding:20;">
+<VBox spacing="8" style="-fx-padding:20;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyectoprogra.controllers.Cliente.TicketController">
 
-    <ImageView fx:id="imgLogo" fitWidth="120" fitHeight="60" preserveRatio="true"/>
+    <ImageView fx:id="imgLogo" fitHeight="60" fitWidth="120" preserveRatio="true">
+      <image>
+         <Image url="@../Imagenes/sweetharmony.png" />
+      </image></ImageView>
     <Label fx:id="lblTitulo" style="-fx-font-size:18px; -fx-font-weight:bold;" />
     <Label fx:id="lblId" />
     <Label fx:id="lblCliente" />
@@ -18,5 +21,5 @@
     <Label fx:id="lblDescripcion" wrapText="true" />
     <Label fx:id="lblFechaEntrega" />
     <Label fx:id="lblPrecio" style="-fx-font-size:16px; -fx-font-weight:bold;" />
-    <Button text="Cerrar" onAction="#cerrar" />
+    <Button onAction="#cerrar" prefHeight="25.0" prefWidth="123.0" text="Cerrar" />
 </VBox>

@@ -39,16 +39,6 @@ public class TicketController {
 
     @FXML private Label lblPrecio;
 
-    private final String LOGO_PATH = "file:/mnt/data/cap.png";
-
-    @FXML
-    public void initialize() {
-        try {
-            Image img = new Image(LOGO_PATH, true);
-            imgLogo.setImage(img);
-        } catch (Exception e) {
-        }
-    }
 
     public void setDatos(int idPedido, int idUsuario, String nombre, String correo,
                          String nombrePastel, String tipo, String tamano, double precio,
