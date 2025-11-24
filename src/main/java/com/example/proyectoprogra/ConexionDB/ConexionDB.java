@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConexionDB {
-    private static final String url= "jdbc:postgresql://localhost:5432/db_proyectoprogra";
+    private static final String url= "jdbc:postgresql://localhost:5432/db_proyectoProgra";
 
     private static final String USER = "postgres";
 
