@@ -1,22 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="386.0" prefWidth="387.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyectoprogra.controllers.Cliente.PerfilClienteController">
-   <children>
-      <HBox alignment="CENTER_RIGHT" prefHeight="50" prefWidth="428.0" spacing="25" style="-fx-background-color: #FFF0DD;">
-         <padding>
-            <Insets bottom="10" left="10" right="10" top="10" />
-         </padding>
-         <children>
-            <Button onAction="#vercatalogo" style="-fx-background-color: transparent;" text="Catálogo" />
-            <Button onAction="#hacerpedido" style="-fx-background-color: transparent;" text="Hacer Pedido" />
-            <Button onAction="#historial" style="-fx-background-color: transparent;" text="Historial" />
-            <Button onAction="#perfil" style="-fx-background-color: transparent;" text="Perfil" />
-         </children>
-      </HBox>
-   </children>
-</AnchorPane>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.proyectoprogra.controllers.Cliente.PerfilClienteController">
+
+    <top>
+        <HBox alignment="CENTER_RIGHT"
+              spacing="25"
+              style="-fx-background-color: #FFF0DD;">
+            <padding>
+                <Insets top="10" bottom="10" left="10" right="10"/>
+            </padding>
+
+            <Button text="Catálogo" style="-fx-background-color: transparent;" onAction="#vercatalogo"/>
+            <Button text="Hacer Pedido" style="-fx-background-color: transparent;" onAction="#hacerpedido"/>
+            <Button text="Historial" style="-fx-background-color: transparent;" onAction="#historial"/>
+            <Button text="Perfil" style="-fx-background-color: transparent;" onAction="#perfil"/>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="18" alignment="TOP_CENTER">
+            <padding><Insets top="25" left="20" right="20" bottom="20"/></padding>
+
+            <Label text="Mi Perfil"
+                   style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+
+            <GridPane hgap="15" vgap="12" alignment="CENTER">
+                <columnConstraints>
+                    <ColumnConstraints halignment="RIGHT"/>
+                    <ColumnConstraints halignment="LEFT"/>
+                </columnConstraints>
+
+                <Label text="Nombre:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtNombre" prefWidth="200" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                <Label text="Apellido:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtApellido" prefWidth="200" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                <Label text="Correo:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtCorreo" prefWidth="200" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                <Label text="Contraseña:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                <PasswordField fx:id="txtPassword" prefWidth="200" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                <Label text="Rol:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtRol" prefWidth="200" editable="false" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+            </GridPane>
+
+            <HBox spacing="20" alignment="CENTER">
+                <Button text="Guardar Cambios" onAction="#guardarCambios"/>
+
+                <Button text="Cerrar Sesión"
+                        style="-fx-background-color: #d9534f; -fx-text-fill: white;"
+                        onAction="#cerrarSesion"/>
+            </HBox>
+
+        </VBox>
+    </center>
+
+</BorderPane>

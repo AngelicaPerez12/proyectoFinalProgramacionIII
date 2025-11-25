@@ -263,10 +263,8 @@ public class LoginController {
             Scene scene = new Scene(root);
             stage.setScene(scene);
 
-            // 🔥 MUY IMPORTANTE: maximizar ANTES de mostrar
             stage.setMaximized(true);
 
-            // 🔥 OBLIGATORIO: forzar re-layout cuando se cambia de escena maximizada
             stage.sizeToScene();
             Platform.runLater(() -> {
                 stage.setMaximized(true);

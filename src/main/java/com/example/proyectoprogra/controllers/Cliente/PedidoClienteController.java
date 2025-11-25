@@ -50,7 +50,7 @@ public class PedidoClienteController {
     @FXML
     private TextField txtnombrecliente;
 
-    private int usuarioLogueadoId = 1;
+    private int usuarioLogueadoId;
 
     @FXML
     public void initialize() {
@@ -62,6 +62,7 @@ public class PedidoClienteController {
             txtnombrecliente.setText(ses.getNombre() != null ? ses.getNombre() : "");
             txtcorreocliente.setText(ses.getCorreo() != null ? ses.getCorreo() : "");
         }
+        usuarioLogueadoId = UsuarioSession.getInstancia().getIdUsuario();
     }
 
     private void cargarCategoriasDesdeDB() {
@@ -88,14 +89,12 @@ public class PedidoClienteController {
 
     @FXML
     private void confirmarpedido() {
-        // validar que hay sesión
         UsuarioSession ses = UsuarioSession.getInstancia();
         if (ses == null || ses.getIdUsuario() == 0) {
             mostrarAlerta("No has iniciado sesión. Por favor inicia sesión para hacer pedidos.");
             return;
         }
 
-        // leer formulario (nombre/correo se muestran sólo, pero no se usan como id)
         String tipo = cmbtipodepasteles.getValue();
         String tamano = cmbtamañopasteles.getValue();
         LocalDate fechaEntrega = dtfechadeentrega.getValue();
@@ -131,7 +130,7 @@ public class PedidoClienteController {
             ));
 
             PedidoDao pedidoDAO = new PedidoDao();
-            // usa el id del usuario desde la sesión (no valores fijos)
+
             int idPedido = pedidoDAO.insertarPedido(ses.getIdUsuario(), fechaEntrega, detalles);
 
             abrirTicket(idPedido, ses.getIdUsuario(), ses.getNombre(), ses.getCorreo(),
@@ -197,6 +196,24 @@ public class PedidoClienteController {
     }
 
     public void vercatalogo(ActionEvent actionEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/proyectoprogra/Cliente/catalogo-cliente.fxml"));
+            Parent root = loader.load();
+
+            Stage newStage = new Stage();
+            Scene scene = new Scene(root);
+            newStage.setScene(scene);
+
+            newStage.setMaximized(true);
+
+            newStage.show();
+
+            Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            currentStage.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void hacerpedido(ActionEvent actionEvent) {

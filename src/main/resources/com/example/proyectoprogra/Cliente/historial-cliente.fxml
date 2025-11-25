@@ -1,29 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="369.0" prefWidth="429.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyectoprogra.controllers.Cliente.HistorialClienteController">
-   <children>
-      <Label layoutY="59.0" text="Historial">
-         <font>
-            <Font size="23.0" />
-         </font>
-      </Label>
-      <HBox alignment="CENTER_RIGHT" layoutX="6.0" prefHeight="50" prefWidth="422.0" spacing="25" style="-fx-background-color: #FFF0DD;">
-         <padding>
-            <Insets bottom="10" left="10" right="10" top="10" />
-         </padding>
-         <children>
-            <Button onAction="#vercatalogo" style="-fx-background-color: transparent;" text="Catálogo" />
-            <Button onAction="#hacerpedido" style="-fx-background-color: transparent;" text="Hacer Pedido" />
-            <Button onAction="#historial" style="-fx-background-color: transparent;" text="Historial" />
-            <Button onAction="#perfil" style="-fx-background-color: transparent;" text="Perfil" />
-         </children>
-      </HBox>
-   </children>
-</AnchorPane>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.proyectoprogra.controllers.Cliente.HistorialClienteController">
+    <top>
+        <HBox alignment="CENTER_RIGHT"
+              spacing="25"
+              style="-fx-background-color: #FFF0DD;">
+            <padding>
+                <Insets top="10" bottom="10" left="10" right="10"/>
+            </padding>
+
+            <Button text="Catálogo"
+                    style="-fx-background-color: transparent;"
+                    onAction="#vercatalogo"/>
+
+            <Button text="Hacer Pedido"
+                    style="-fx-background-color: transparent;"
+                    onAction="#hacerpedido"/>
+
+            <Button text="Historial"
+                    style="-fx-background-color: transparent;"
+                    onAction="#historial"/>
+
+            <Button text="Perfil"
+                    style="-fx-background-color: transparent;"
+                    onAction="#perfil"/>
+        </HBox>
+    </top>
+    <center>
+        <VBox spacing="15" alignment="TOP_CENTER">
+            <padding><Insets top="20" left="20" right="20" bottom="20"/></padding>
+            <Label text="Historial"
+                   style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+            <TableView fx:id="tablaHistorial"
+                       prefHeight="400"
+                       prefWidth="700">
+
+                <columns>
+                    <TableColumn fx:id="colIdPedido" prefWidth="80" text="ID Pedido" />
+                    <TableColumn fx:id="colFechaPedido" prefWidth="120" text="Fecha Pedido" />
+                    <TableColumn fx:id="colFechaEntrega" prefWidth="120" text="Fecha Entrega" />
+                    <TableColumn fx:id="colEstado" prefWidth="100" text="Estado" />
+                    <TableColumn fx:id="colPastel" prefWidth="150" text="Pastel" />
+                    <TableColumn fx:id="colCantidad" prefWidth="80" text="Cantidad" />
+                    <TableColumn fx:id="colPrecio" prefWidth="80" text="Precio" />
+                    <TableColumn fx:id="colTotal" prefWidth="80" text="Total" />
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+</BorderPane>
