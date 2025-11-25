@@ -16,14 +16,11 @@ import java.net.URL;
 public class BienvenidaController {
 
     @FXML
-    private ImageView fondo; // Fondo del FXML
+    private ImageView fondo;
 
     @FXML
-    private StackPane rootPane; // Contenedor principal
+    private StackPane rootPane;
 
-    /**
-     * Ajusta el fondo para que siempre ocupe TODA la pantalla
-     */
     @FXML
     public void initialize() {
         if (fondo != null && rootPane != null) {
@@ -32,9 +29,6 @@ public class BienvenidaController {
         }
     }
 
-    /**
-     * Abre la vista de registro y cierra la actual
-     */
     public void abrirRegistro(ActionEvent event) {
         cambiarVista(event,
                 "/com/example/proyectoprogra/Visualizacion/register-view.fxml",
@@ -43,9 +37,6 @@ public class BienvenidaController {
         );
     }
 
-    /**
-     * Abre el login y aplica CSS
-     */
     public void entrarallogin(ActionEvent event) {
         cambiarVista(event,
                 "/com/example/proyectoprogra/Visualizacion/login-view.fxml",
@@ -54,25 +45,22 @@ public class BienvenidaController {
         );
     }
 
-    /**
-     * Cerrar la ventana actual
-     */
     public void CerrarSesion(ActionEvent event) {
-        Stage currentStage = (Stage) ((Node) event.getSource())
-                .getScene().getWindow();
-        currentStage.close();
+        Stage currentStage = null;
+        if (event != null && event.getSource() instanceof Node) {
+            currentStage = (Stage) ((Node) event.getSource())
+                    .getScene().getWindow();
+        } else if (rootPane != null && rootPane.getScene() != null) {
+            currentStage = (Stage) rootPane.getScene().getWindow();
+        }
+        if (currentStage != null) currentStage.close();
     }
-
-    // ============================================================
-    // MÉTODO AUXILIAR PARA CAMBIO DE ESCENAS
-    // ============================================================
 
     private void cambiarVista(ActionEvent event, String fxmlPath, String titulo, String cssPath) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
             Parent root = loader.load();
 
-            Stage stage = new Stage();
             Scene scene = new Scene(root);
 
             if (cssPath != null) {
@@ -80,12 +68,25 @@ public class BienvenidaController {
                 if (cssUrl != null) scene.getStylesheets().add(cssUrl.toExternalForm());
             }
 
-            stage.setTitle(titulo);
-            stage.setScene(scene);
-            stage.setMaximized(true);
-            stage.show();
+            Stage currentStage = null;
+            if (event != null && event.getSource() instanceof Node) {
+                currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            } else if (rootPane != null && rootPane.getScene() != null) {
+                currentStage = (Stage) rootPane.getScene().getWindow();
+            }
 
-            ((Stage) ((Node) event.getSource()).getScene().getWindow()).close();
+            if (currentStage != null) {
+                currentStage.setTitle(titulo);
+                currentStage.setScene(scene);
+                currentStage.setMaximized(true);
+                currentStage.show();
+            } else {
+                Stage stage = new Stage();
+                stage.setTitle(titulo);
+                stage.setScene(scene);
+                stage.setMaximized(true);
+                stage.show();
+            }
 
         } catch (IOException e) {
             e.printStackTrace();

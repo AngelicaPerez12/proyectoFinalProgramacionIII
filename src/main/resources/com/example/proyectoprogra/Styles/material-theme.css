@@ -1,0 +1,228 @@
+/* ========================================
+   SWEET HARMONY - MATERIAL THEME
+   Paleta de colores Material Design
+   ======================================== */
+
+/* ========== COLORES PRIMARIOS ========== */
+.primary {
+    -fx-background-color: #6200EE;
+}
+
+.primary-variant {
+    -fx-background-color: #3700B3;
+}
+
+.secondary {
+    -fx-background-color: #03DAC6;
+}
+
+.secondary-variant {
+    -fx-background-color: #018786;
+}
+
+/* ========== COLORES DE SUPERFICIE ========== */
+.background {
+    -fx-background-color: linear-gradient(to bottom right, #FFFFFF 0%, #F0E6FF 100%);
+}
+
+.surface {
+    -fx-background-color: #FFFFFF;
+}
+
+.error {
+    -fx-background-color: #B00020;
+}
+
+/* ========== COLORES DE TEXTO ========== */
+.text-primary {
+    -fx-text-fill: #000000DE;
+}
+
+.text-secondary {
+    -fx-text-fill: #00000099;
+}
+
+.text-disabled {
+    -fx-text-fill: #00000061;
+}
+
+.text-on-primary {
+    -fx-text-fill: #FFFFFF;
+}
+
+.text-on-secondary {
+    -fx-text-fill: #000000;
+}
+
+/* ========== ELEVACIONES (SOMBRAS) ========== */
+.elevation-0 {
+    -fx-effect: null;
+}
+
+.elevation-1 {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.12), 1, 0, 0, 1);
+}
+
+.elevation-2 {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.14), 2, 0, 0, 2);
+}
+
+.elevation-3 {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.16), 3, 0, 0, 3);
+}
+
+.elevation-4 {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.18), 4, 0, 0, 4);
+}
+
+.elevation-6 {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.20), 6, 0, 0, 6);
+}
+
+.elevation-8 {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.22), 8, 0, 0, 8);
+}
+
+.elevation-12 {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.24), 12, 0, 0, 12);
+}
+
+/* ========== CARDS ========== */
+.material-card {
+    -fx-background-color: white;
+    -fx-background-radius: 8;
+    -fx-padding: 24;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.14), 4, 0, 0, 2);
+}
+
+.material-card:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.20), 8, 0, 0, 4);
+}
+
+/* ========== TIPOGRAFÍA MATERIAL ========== */
+.headline1 {
+    -fx-font-size: 96px;
+    -fx-font-weight: 300;
+}
+
+.headline2 {
+    -fx-font-size: 60px;
+    -fx-font-weight: 300;
+}
+
+.headline3 {
+    -fx-font-size: 48px;
+    -fx-font-weight: 400;
+}
+
+.headline4 {
+    -fx-font-size: 34px;
+    -fx-font-weight: 400;
+}
+
+.headline5 {
+    -fx-font-size: 24px;
+    -fx-font-weight: 400;
+}
+
+.headline6 {
+    -fx-font-size: 20px;
+    -fx-font-weight: 500;
+}
+
+.subtitle1 {
+    -fx-font-size: 16px;
+    -fx-font-weight: 400;
+}
+
+.subtitle2 {
+    -fx-font-size: 14px;
+    -fx-font-weight: 500;
+}
+
+.body1 {
+    -fx-font-size: 16px;
+    -fx-font-weight: 400;
+}
+
+.body2 {
+    -fx-font-size: 14px;
+    -fx-font-weight: 400;
+}
+
+.button-text {
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+    -fx-text-transform: uppercase;
+}
+
+.caption {
+    -fx-font-size: 12px;
+    -fx-font-weight: 400;
+}
+
+.overline {
+    -fx-font-size: 10px;
+    -fx-font-weight: 400;
+    -fx-text-transform: uppercase;
+}
+
+/* ========== INPUTS MATERIAL (JavaFX Estándar) ========== */
+.material-input {
+    -fx-background-color: transparent;
+    -fx-border-color: #00000061;
+    -fx-border-width: 0 0 2 0;
+    -fx-padding: 12 0;
+    -fx-font-size: 16px;
+    -fx-text-fill: #000000DE;
+    -fx-prompt-text-fill: #00000099;
+}
+
+.material-input:focused {
+    -fx-border-color: #6200EE;
+    -fx-border-width: 0 0 2 0;
+}
+
+/* ========== BOTONES MATERIAL (JavaFX Estándar) ========== */
+.material-button-primary {
+    -fx-background-color: #6200EE;
+    -fx-text-fill: white;
+    -fx-font-weight: 700;
+    -fx-font-size: 14px;
+    -fx-background-radius: 4;
+    -fx-cursor: hand;
+}
+
+.material-button-primary:hover {
+    -fx-background-color: #7C3AED;
+}
+
+.material-button-primary:pressed {
+    -fx-background-color: #3700B3;
+}
+
+.material-button-outlined {
+    -fx-background-color: transparent;
+    -fx-text-fill: #6200EE;
+    -fx-border-color: #6200EE;
+    -fx-border-width: 2;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+    -fx-font-weight: 700;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+}
+
+.material-button-outlined:hover {
+    -fx-background-color: rgba(98, 0, 238, 0.08);
+}
+
+.material-link {
+    -fx-text-fill: #6200EE;
+    -fx-underline: false;
+    -fx-cursor: hand;
+}
+
+.material-link:hover {
+    -fx-underline: true;
+}

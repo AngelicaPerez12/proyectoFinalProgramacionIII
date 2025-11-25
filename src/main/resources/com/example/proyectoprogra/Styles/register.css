@@ -1,0 +1,159 @@
+/* ========================================
+   SWEET HARMONY - REGISTER STYLES
+   Diseño moderno inspirado en Tailwind/DaisyUI
+   ======================================== */
+
+@font-face {
+    font-family: 'PlayfairDisplay';
+    src: url('fonts/PlayfairDisplay-VariableFont_wght.ttf');
+}
+
+@font-face {
+    font-family: 'RobotoVar';
+    src: url('fonts/Roboto-VariableFont_wdth,wght.ttf');
+}
+
+/* ========== ROOT & BACKGROUND ========== */
+.root,
+.login-root {
+    -fx-font-family: "RobotoVar", "Segoe UI", Arial, sans-serif;
+}
+
+.login-root {
+    /* Gradiente verde-azul-cyan para registro */
+    -fx-background-color: linear-gradient(to bottom right, #10B981 0%, #3B82F6 50%, #06B6D4 100%);
+    -fx-padding: 40;
+    -fx-alignment: center;
+}
+
+/* ========== CONTAINER ========== */
+.login-container {
+    -fx-max-width: 560px;
+    -fx-pref-width: 560px;
+    -fx-min-width: 320px;
+    -fx-alignment: center;
+    -fx-spacing: 20;
+}
+
+/* ========== TÍTULOS ========== */
+.label.title {
+    -fx-font-family: "PlayfairDisplay", "Georgia", serif;
+    -fx-font-size: 52px;
+    -fx-font-weight: 900;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 15, 0.2, 0, 4);
+}
+
+.subtle {
+    -fx-font-family: "RobotoVar", "Segoe UI", Arial, sans-serif;
+    -fx-font-size: 16px;
+    -fx-text-fill: rgba(255, 255, 255, 0.9);
+    -fx-font-weight: 300;
+}
+
+/* ========== CARD (Tarjeta blanca) ========== */
+.card {
+    -fx-background-color: white;
+    -fx-background-radius: 20;
+    -fx-border-color: rgba(0, 0, 0, 0.05);
+    -fx-border-width: 1;
+    -fx-border-radius: 20;
+    -fx-padding: 35;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 20, 0.15, 0, 8);
+}
+
+/* ========== FORMULARIO ========== */
+.form-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #374151;
+    -fx-font-weight: 700;
+}
+
+.input-field {
+    -fx-background-color: #F3F4F6;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-border-color: #E5E7EB;
+    -fx-border-width: 2;
+    -fx-padding: 14 16;
+    -fx-pref-width: 480px;
+    -fx-font-size: 15px;
+    -fx-text-fill: #1F2937;
+}
+
+.input-field:focused {
+    -fx-border-color: #10B981;
+    -fx-border-width: 2;
+    -fx-background-color: white;
+    -fx-effect: dropshadow(gaussian, rgba(16, 185, 129, 0.2), 8, 0.2, 0, 0);
+}
+
+/* ========== BOTONES ========== */
+.btn-secondary,
+.button.btn-secondary {
+    /* Gradiente verde-azul para botón crear cuenta */
+    -fx-background-color: linear-gradient(to right, #10B981 0%, #3B82F6 100%);
+    -fx-text-fill: white;
+    -fx-font-weight: 800;
+    -fx-font-size: 15px;
+    -fx-background-radius: 12;
+    -fx-padding: 14 20;
+    -fx-border-color: transparent;
+    -fx-effect: dropshadow(gaussian, rgba(16, 185, 129, 0.4), 12, 0.3, 0, 4);
+    -fx-cursor: hand;
+}
+
+.btn-secondary:hover,
+.button.btn-secondary:hover {
+    -fx-background-color: linear-gradient(to right, #34D399 0%, #60A5FA 100%);
+    -fx-effect: dropshadow(gaussian, rgba(16, 185, 129, 0.5), 16, 0.4, 0, 6);
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+}
+
+.btn-secondary:pressed,
+.button.btn-secondary:pressed {
+    -fx-background-color: linear-gradient(to right, #059669 0%, #2563EB 100%);
+    -fx-effect: dropshadow(gaussian, rgba(16, 185, 129, 0.3), 8, 0.2, 0, 2);
+    -fx-translate-y: 2px;
+}
+
+/* Botón secundario (Iniciar Sesión) */
+.btn-outline,
+.button.btn-outline {
+    -fx-background-color: transparent;
+    -fx-text-fill: #10B981;
+    -fx-font-weight: 700;
+    -fx-font-size: 15px;
+    -fx-background-radius: 12;
+    -fx-padding: 12 18;
+    -fx-border-color: #10B981;
+    -fx-border-width: 2;
+    -fx-cursor: hand;
+}
+
+.btn-outline:hover,
+.button.btn-outline:hover {
+    -fx-background-color: #F0FDF4;
+    -fx-text-fill: #059669;
+    -fx-border-color: #059669;
+}
+
+.btn-outline:pressed,
+.button.btn-outline:pressed {
+    -fx-background-color: #DCFCE7;
+    -fx-translate-y: 1px;
+}
+
+/* ========== MENSAJES ========== */
+.message-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #DC2626;
+    -fx-font-weight: 600;
+}
+
+/* ========== RESPONSIVE ========== */
+.login-container .card,
+.login-container .card .input-field {
+    -fx-max-width: 540px;
+}

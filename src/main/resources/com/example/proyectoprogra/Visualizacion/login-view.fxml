@@ -6,107 +6,78 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToggleButton?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<StackPane styleClass="login-root" stylesheets="../Styles/login.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyectoprogra.controllers.Visualizacion.LoginController">
+<StackPane styleClass="background" stylesheets="@../Styles/material-theme.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyectoprogra.controllers.Visualizacion.LoginController">
 
-    <children>
-        <VBox fx:id="contenedorCentral" alignment="CENTER" spacing="14" styleClass="login-container">
+    <VBox alignment="CENTER" spacing="30" maxWidth="450">
+        <padding>
+            <Insets top="40" bottom="40" left="40" right="40" />
+        </padding>
 
-            <children>
-                <VBox alignment="CENTER" spacing="6">
-                    <children>
-                        <Label fx:id="tituloBienvenido" styleClass="label title" text="Bienvenido" wrapText="true" />
-                        <Label fx:id="subtituloBienvenido" styleClass="subtle" text="Inicia sesión en tu cuenta" wrapText="true" />
-                    </children>
-                </VBox>
+        <!-- Icono -->
+        <Label text="🎂" style="-fx-font-size: 80px;" />
 
-                <VBox fx:id="tarjeta" alignment="CENTER" spacing="12" styleClass="card">
-
-                    <children>
-                        <VBox alignment="CENTER" spacing="2">
-                            <children>
-                                <Label fx:id="tituloCard" styleClass="label card-title" text="Iniciar sesión" wrapText="true" />
-                                <Label fx:id="subtituloCard" styleClass="subtle" text="Introduce tus credenciales para acceder" wrapText="true" />
-                            </children>
-                        </VBox>
-
-                        <GridPane alignment="CENTER" hgap="8" vgap="8">
-
-                            <children>
-
-                                <Label fx:id="etiquetaUsuario" styleClass="form-label" text="Correo electrónico" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-
-                                <TextField fx:id="campoUsuario" promptText="nombre@ejemplo.com" styleClass="input-field" GridPane.columnIndex="0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
-
-                                <Label fx:id="etiquetaContrasena" styleClass="form-label" text="Contraseña" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-
-                                <HBox alignment="CENTER_LEFT" spacing="6" GridPane.columnIndex="0" GridPane.rowIndex="3">
-                                    <children>
-                                        <PasswordField fx:id="campoContrasena" promptText="Contraseña" styleClass="input-field" GridPane.hgrow="ALWAYS" HBox.hgrow="ALWAYS" />
-
-                                        <TextField fx:id="campoContrasenaVisible" managed="false" promptText="Contraseña" styleClass="input-field" visible="false" GridPane.hgrow="ALWAYS" HBox.hgrow="ALWAYS" />
-
-                                        <ToggleButton fx:id="showPassword" onAction="#togglePasswordVisibility" styleClass="eye-btn" text="👁" />
-                                    </children>
-                                </HBox>
-
-                                <Label fx:id="etiquetaMensaje" styleClass="message-label subtle" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="4" />
-
-                            </children>
-
-                            <columnConstraints>
-                                <ColumnConstraints />
-                            </columnConstraints>
-
-                            <rowConstraints>
-                                <RowConstraints />
-                                <RowConstraints />
-                                <RowConstraints />
-                                <RowConstraints />
-                                <RowConstraints />
-                            </rowConstraints>
-
-                        </GridPane>
-                        <HBox alignment="CENTER" spacing="12">
-                            <children>
-                                <Button fx:id="btnEntrar" onAction="#iniciarSesion" styleClass="btn-primary btn-full">
-                                    <graphic>
-                                        <Label styleClass="btn-icon" text="➜" />
-                                    </graphic>
-                                    <text>Entrar</text>
-                                </Button>
-                            </children>
-                        </HBox>
-
-                        <HBox alignment="CENTER" spacing="12">
-                            <children>
-                                <Button fx:id="btnNuevo" onAction="#CerrarSesionLogin" styleClass="btn-secondary btn-full" text="Volver al Inicio" />
-                            </children>
-                        </HBox>
-
-                        <HBox alignment="CENTER_RIGHT" spacing="10">
-                            <children>
-                                <Hyperlink fx:id="forgotLink" onAction="#abrirRecuperacionDePin" text="¿Olvidaste tu contraseña?" />
-                            </children>
-                        </HBox>
-
-                    </children>
-
-                    <padding>
-                        <Insets bottom="14" left="14" right="14" top="14" />
-                    </padding>
-
-                </VBox>
-            </children>
-
+        <!-- Título -->
+        <VBox alignment="CENTER" spacing="8">
+            <Label text="SWEET HARMONY" styleClass="headline4, text-primary" />
+            <Label text="Iniciar Sesión" styleClass="subtitle1, text-secondary" />
         </VBox>
-    </children>
+
+        <!-- Card de login -->
+        <VBox styleClass="material-card, elevation-4" spacing="20" alignment="CENTER">
+            <padding>
+                <Insets top="30" bottom="30" left="30" right="30" />
+            </padding>
+
+            <!-- Email -->
+            <VBox spacing="8" alignment="CENTER_LEFT">
+                <Label text="Correo electrónico" styleClass="subtitle2, text-primary" />
+                <TextField fx:id="campoUsuario" 
+                          promptText="nombre@ejemplo.com"
+                          styleClass="material-input"
+                          prefWidth="350" />
+            </VBox>
+
+            <!-- Password -->
+            <VBox spacing="8" alignment="CENTER_LEFT">
+                <Label text="Contraseña" styleClass="subtitle2, text-primary" />
+                <PasswordField fx:id="campoContrasena" 
+                              promptText="Tu contraseña"
+                              styleClass="material-input"
+                              prefWidth="350" />
+            </VBox>
+
+            <!-- Mensaje de error -->
+            <Label fx:id="etiquetaMensaje" styleClass="caption" textFill="red" wrapText="true" />
+
+            <!-- Botón Entrar -->
+            <Button fx:id="btnEntrar" 
+                   text="INICIAR SESIÓN" 
+                   onAction="#iniciarSesion"
+                   styleClass="material-button-primary"
+                   prefWidth="350" prefHeight="45" />
+
+            <!-- Link olvidaste contraseña -->
+            <Hyperlink fx:id="forgotLink" 
+                      text="¿Olvidaste tu contraseña?" 
+                      onAction="#abrirRecuperacionDePin"
+                      styleClass="material-link" />
+        </VBox>
+
+        <!-- Footer -->
+        <VBox alignment="CENTER" spacing="10">
+            <Label text="¿No tienes cuenta?" styleClass="caption, text-secondary" />
+            <Hyperlink fx:id="openRegisterLink" 
+                      text="Crear cuenta" 
+                      onAction="#abrirRegistro"
+                      styleClass="material-link" />
+            
+            <Hyperlink text="Volver al inicio" 
+                      onAction="#CerrarSesionLogin"
+                      styleClass="caption" />
+        </VBox>
+    </VBox>
 
 </StackPane>

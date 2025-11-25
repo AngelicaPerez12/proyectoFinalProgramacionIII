@@ -12,12 +12,14 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import com.example.proyectoprogra.models.PasswordUtils;
 
 import java.util.function.Consumer;
+import javafx.scene.layout.StackPane;
 
 public class RegisterController {
 
@@ -45,11 +47,32 @@ public class RegisterController {
     @FXML
     private Label mensajeReg;
 
+    @FXML
+    private StackPane rootPane; // añadido para aplicar CSS programáticamente
+
 
     private Consumer<String> onSuccessCallback;
 
     public void setOnSuccess(Consumer<String> callback) {
         this.onSuccessCallback = callback;
+    }
+
+    @FXML
+    public void initialize() {
+        // Aplicar stylesheet programáticamente cuando la Scene esté disponible
+        String cssPath = "/com/example/proyectoprogra/Styles/register.css";
+        if (rootPane != null) {
+            rootPane.sceneProperty().addListener((obs, oldScene, newScene) -> {
+                if (newScene != null) {
+                    URL cssUrl = getClass().getResource(cssPath);
+                    if (cssUrl != null) newScene.getStylesheets().add(cssUrl.toExternalForm());
+                }
+            });
+            if (rootPane.getScene() != null) {
+                URL cssUrl = getClass().getResource(cssPath);
+                if (cssUrl != null) rootPane.getScene().getStylesheets().add(cssUrl.toExternalForm());
+            }
+        }
     }
 
     @FXML
@@ -118,7 +141,7 @@ public class RegisterController {
     @FXML
     private void cerrar() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/proyectoprogra/Visualizacion/Bienvenida.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/proyectoprogra/Visualizacion/login-view.fxml"));
             Parent root = loader.load();
 
             Stage stage = (Stage) btnCancelarReg.getScene().getWindow();
@@ -133,7 +156,7 @@ public class RegisterController {
 
         } catch (IOException e) {
             e.printStackTrace();
-            mensajeReg.setText("Error al abrir la pantalla de bienvenida.");
+            mensajeReg.setText("Error al abrir la pantalla de inicio de sesión.");
         }
     }
 

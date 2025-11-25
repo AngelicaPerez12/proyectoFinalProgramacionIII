@@ -1,59 +1,105 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.effect.Glow?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.VBox?>
 
-<StackPane fx:id="rootPane" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyectoprogra.controllers.Visualizacion.BienvenidaController">
+<StackPane xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" 
+           fx:controller="com.example.proyectoprogra.controllers.Visualizacion.BienvenidaController"
+           styleClass="background" stylesheets="@../Styles/material-theme.css"
+           prefWidth="1000" prefHeight="700">
 
-    <ImageView fx:id="fondo" opacity="0.6" preserveRatio="false">
-        <image>
-            <Image url="@../Imagenes/0c307cdc084ef4ded42fb60948a61627.jpg" />
-        </image>
-        <effect>
-            <Glow />
-        </effect>
-    </ImageView>
+    <!-- Contenedor principal -->
+    <VBox alignment="CENTER" spacing="40" maxWidth="900">
+        <padding>
+            <Insets top="60" bottom="60" left="40" right="40" />
+        </padding>
 
-    <AnchorPane AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+        <!-- Logo y título -->
+        <VBox alignment="CENTER" spacing="20">
+            <!-- Icono de pastel (emoji grande, sin pixeles) -->
+            <Label text="🎂" style="-fx-font-size: 120px;" />
 
-        <!-- Título -->
-        <Label style="-fx-alignment: center;" text="SWEET HARMONY" textFill="#593535" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="80">
-            <font>
-                <Font name="Book Antiqua" size="90" />
-            </font>
-            <effect>
-                <DropShadow />
-            </effect>
-        </Label>
+            <Label text="SWEET HARMONY" styleClass="headline3, text-primary" />
+            <Label text="Pastelería Premium" styleClass="headline6, text-secondary" />
+        </VBox>
 
-        <!-- Icono -->
-        <StackPane AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="170">
-            <ImageView fitHeight="45" fitWidth="45" preserveRatio="true">
-                <image>
-                    <Image url="@../Imagenes/cake.png" />
-                </image>
-            </ImageView>
-        </StackPane>
+        <!-- Card principal con información -->
+        <VBox styleClass="material-card, elevation-4" spacing="30" alignment="CENTER" maxWidth="700">
+            <padding>
+                <Insets top="40" bottom="40" left="50" right="50" />
+            </padding>
 
-        <!-- Subtítulo -->
-        <Label style="-fx-alignment: center;" text="Descubre Nuestros Pasteles Y Sus Sorprendentes Sabores" textFill="#533e3e" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="250">
-            <font>
-                <Font name="Juice ITC" size="24" />
-            </font>
-        </Label>
+            <!-- Título de bienvenida -->
+            <Label text="Bienvenido a Sweet Harmony" styleClass="headline5, text-primary" textAlignment="CENTER" wrapText="true" />
 
+            <!-- Descripción -->
+            <Label text="Descubre nuestros deliciosos pasteles artesanales, personalizados especialmente para ti. Cada creación es única y está hecha con los mejores ingredientes." 
+                   styleClass="body1, text-secondary" textAlignment="CENTER" wrapText="true" maxWidth="600" />
 
-        <Button fx:id="btnIniciarSesion" onAction="#entrarallogin" style="-fx-background-color: transparent; -fx-font-size: 20px;" text="INICIAR SESIÓN!!!" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="330" />
+            <!-- Features en grid horizontal -->
+            <HBox spacing="30" alignment="CENTER">
+                <VBox.margin>
+                    <Insets top="20" />
+                </VBox.margin>
 
-        <Button fx:id="btnentrar" onAction="#abrirRegistro" style="-fx-background-color: transparent; -fx-font-size: 20px;" text="Regístrate Ahora!!!" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="390" />
-        <Button onAction="#CerrarSesion" style="-fx-background-color transparent: 20px; -fx-padding: 10px;" text="SALIR" AnchorPane.bottomAnchor="30" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" />
-    </AnchorPane>
+                <!-- Feature 1 -->
+                <VBox alignment="CENTER" spacing="10" prefWidth="180">
+                    <Label text="🍰" style="-fx-font-size: 48px;" />
+                    <Label text="50+ Sabores" styleClass="subtitle1, text-primary" />
+                    <Label text="Variedad artesanal" styleClass="caption, text-secondary" textAlignment="CENTER" wrapText="true" />
+                </VBox>
+
+                <!-- Feature 2 -->
+                <VBox alignment="CENTER" spacing="10" prefWidth="180">
+                    <Label text="✨" style="-fx-font-size: 48px;" />
+                    <Label text="Personalización" styleClass="subtitle1, text-primary" />
+                    <Label text="Diseños únicos" styleClass="caption, text-secondary" textAlignment="CENTER" wrapText="true" />
+                </VBox>
+
+                <!-- Feature 3 -->
+                <VBox alignment="CENTER" spacing="10" prefWidth="180">
+                    <Label text="🚚" style="-fx-font-size: 48px;" />
+                    <Label text="Entrega Rápida" styleClass="subtitle1, text-primary" />
+                    <Label text="A tiempo siempre" styleClass="caption, text-secondary" textAlignment="CENTER" wrapText="true" />
+                </VBox>
+            </HBox>
+
+            <!-- Botones de acción -->
+            <HBox spacing="20" alignment="CENTER">
+                <VBox.margin>
+                    <Insets top="20" />
+                </VBox.margin>
+
+                <!-- Botón primario: Iniciar Sesión -->
+                <Button fx:id="btnIniciarSesion" 
+                          text="INICIAR SESIÓN" 
+                          onAction="#entrarallogin"
+                          styleClass="material-button-primary"
+                          prefWidth="180" prefHeight="45" />
+
+                <!-- Botón secundario: Registrarse -->
+                <Button fx:id="btnRegistro" 
+                          text="CREAR CUENTA" 
+                          onAction="#abrirRegistro"
+                          styleClass="material-button-outlined"
+                          prefWidth="180" prefHeight="45" />
+            </HBox>
+        </VBox>
+
+        <!-- Footer -->
+        <VBox alignment="CENTER" spacing="8">
+            <Label text="© 2024 Sweet Harmony - Pastelería Premium" styleClass="caption, text-secondary" />
+            <Button text="Salir" 
+                      onAction="#CerrarSesion"
+                      styleClass="material-link"
+                      style="-fx-background-color: transparent;"
+                      prefWidth="80" />
+        </VBox>
+    </VBox>
 
 </StackPane>
+

@@ -1,4 +1,8 @@
-﻿
+﻿/* ========================================
+   SWEET HARMONY - LOGIN STYLES
+   Diseño moderno inspirado en Tailwind/DaisyUI
+   ======================================== */
+
 @font-face {
     font-family: 'PlayfairDisplay';
     src: url('fonts/PlayfairDisplay-VariableFont_wght.ttf');
@@ -8,137 +12,184 @@
     src: url('fonts/Roboto-VariableFont_wdth,wght.ttf');
 }
 
+/* ========== ROOT & BACKGROUND ========== */
 .root, .login-root {
     -fx-font-family: "RobotoVar", "Segoe UI", Arial, sans-serif;
 }
 
-
 .login-root {
-    -fx-background-color: #FDEEDD; 
-    -fx-padding: 28;
+    /* Gradiente vibrante purple-pink-orange */
+    -fx-background-color: linear-gradient(to bottom right, #9333EA 0%, #EC4899 50%, #F97316 100%);
+    -fx-padding: 40;
     -fx-alignment: center;
 }
 
-
+/* ========== CONTAINER ========== */
 .login-container {
-    -fx-max-width: 540px;
-    -fx-pref-width: 540px;
-    -fx-min-width: 280px;
+    -fx-max-width: 560px;
+    -fx-pref-width: 560px;
+    -fx-min-width: 320px;
     -fx-alignment: center;
+    -fx-spacing: 20;
 }
 
-
+/* ========== TÍTULOS ========== */
 .label.title {
     -fx-font-family: "PlayfairDisplay", "Georgia", serif;
-    -fx-font-size: 42px;
-    -fx-font-weight: 700;
-    -fx-text-fill: #3b2f25;
+    -fx-font-size: 56px;
+    -fx-font-weight: 900;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 15, 0.2, 0, 4);
 }
 
 .subtle {
     -fx-font-family: "RobotoVar", "Segoe UI", Arial, sans-serif;
-    -fx-font-size: 12px;
-    -fx-text-fill: #7a6b60;
+    -fx-font-size: 16px;
+    -fx-text-fill: rgba(255,255,255,0.9);
+    -fx-font-weight: 300;
 }
 
-
+/* ========== CARD (Tarjeta blanca) ========== */
 .card {
     -fx-background-color: white;
-    -fx-background-radius: 12;
-    -fx-border-color: rgba(0,0,0,0.06);
+    -fx-background-radius: 20;
+    -fx-border-color: rgba(0,0,0,0.05);
     -fx-border-width: 1;
-    -fx-padding: 18;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.04), 14, 0.08, 0, 6);
+    -fx-border-radius: 20;
+    -fx-padding: 35;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 20, 0.15, 0, 8);
 }
 
 .label.card-title {
     -fx-font-family: "PlayfairDisplay", "Georgia", serif;
-    -fx-font-size: 20px;
+    -fx-font-size: 32px;
     -fx-font-weight: 700;
-    -fx-text-fill: #211915;
+    -fx-text-fill: #1F2937;
 }
 
+/* ========== FORMULARIO ========== */
 .form-label {
-    -fx-font-size: 12px;
-    -fx-text-fill: #4d4037;
+    -fx-font-size: 14px;
+    -fx-text-fill: #374151;
     -fx-font-weight: 700;
 }
 
 .input-field {
-    -fx-background-color: #FFF3E6;
-    -fx-background-radius: 8;
-    -fx-border-radius: 8;
-    -fx-border-color: transparent;
-    -fx-padding: 10 12 10 12;
-    -fx-pref-width: 420px;
-    -fx-font-size: 13px;
+    -fx-background-color: #F3F4F6;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-border-color: #E5E7EB;
+    -fx-border-width: 2;
+    -fx-padding: 14 16;
+    -fx-pref-width: 480px;
+    -fx-font-size: 15px;
+    -fx-text-fill: #1F2937;
 }
+
 .input-field:focused {
-    -fx-border-color: rgba(0,0,0,0.08);
-    -fx-border-width: 1;
+    -fx-border-color: #9333EA;
+    -fx-border-width: 2;
+    -fx-background-color: white;
+    -fx-effect: dropshadow(gaussian, rgba(147,51,234,0.2), 8, 0.2, 0, 0);
 }
 
-
+/* ========== BOTONES ========== */
 .btn-icon {
-    -fx-font-size: 14px; 
+    -fx-font-size: 16px; 
     -fx-text-fill: white;
-    -fx-padding: 0 6 0 0;
+    -fx-padding: 0 8 0 0;
 }
-
 
 .btn-primary, .button.btn-primary {
-    -fx-background-color: linear-gradient(from 0% 0% to 0% 100%, #e3a072 0%, #cf8650 50%, #c06f3e 100%);
+    /* Gradiente purple-pink vibrante */
+    -fx-background-color: linear-gradient(to right, #9333EA 0%, #EC4899 100%);
     -fx-text-fill: white;
     -fx-font-weight: 800;
-    -fx-font-size: 14px;
-    -fx-background-radius: 10;
-    -fx-padding: 12 16 12 16;
+    -fx-font-size: 16px;
+    -fx-background-radius: 12;
+    -fx-padding: 14 20;
     -fx-pref-width: 100%;
     -fx-border-color: transparent;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 10, 0.12, 0, 3);
+    -fx-effect: dropshadow(gaussian, rgba(147,51,234,0.4), 12, 0.3, 0, 4);
+    -fx-cursor: hand;
 }
-
 
 .button.btn-primary:hover, .btn-primary:hover {
-    -fx-opacity: 0.98;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.18), 14, 0.14, 0, 5);
+    -fx-background-color: linear-gradient(to right, #A855F7 0%, #F472B6 100%);
+    -fx-effect: dropshadow(gaussian, rgba(147,51,234,0.5), 16, 0.4, 0, 6);
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
 }
+
 .button.btn-primary:pressed, .btn-primary:pressed {
-    -fx-background-color: linear-gradient(from 0% 0% to 0% 100%, #cf8650 0%, #c06f3e 100%);
-    -fx-effect: none;
-    -fx-translate-y: 1px;
+    -fx-background-color: linear-gradient(to right, #7C3AED 0%, #DB2777 100%);
+    -fx-effect: dropshadow(gaussian, rgba(147,51,234,0.3), 8, 0.2, 0, 2);
+    -fx-translate-y: 2px;
 }
+
 .btn-secondary, .button.btn-secondary {
-    -fx-background-color: #FFF3E6;
-    -fx-text-fill: #3b2f25;
+    -fx-background-color: #F3F4F6;
+    -fx-text-fill: #374151;
     -fx-font-weight: 700;
-    -fx-font-size: 13px;
+    -fx-font-size: 15px;
     -fx-background-radius: 12;
-    -fx-padding: 10 14;
-    -fx-border-color: rgba(0,0,0,0.10);
+    -fx-padding: 12 18;
+    -fx-border-color: #E5E7EB;
+    -fx-border-width: 2;
+    -fx-cursor: hand;
 }
 
 .btn-secondary:hover, .button.btn-secondary:hover {
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 8, 0.12, 0, 3);
+    -fx-background-color: white;
+    -fx-border-color: #9333EA;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0.1, 0, 3);
 }
 
+.btn-secondary:pressed, .button.btn-secondary:pressed {
+    -fx-background-color: #E5E7EB;
+    -fx-translate-y: 1px;
+}
 
+/* ========== ENLACES ========== */
 .hyperlink, .hyperlink:hyperlink {
-    -fx-text-fill: #8b5e3c;
+    -fx-text-fill: #9333EA;
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
 }
+
 .hyperlink:hover {
     -fx-underline: true;
+    -fx-text-fill: #7C3AED;
 }
+
+/* ========== MENSAJES ========== */
 .message-label {
-    -fx-font-size: 12px;
-    -fx-text-fill: #b33a3a;
+    -fx-font-size: 14px;
+    -fx-text-fill: #DC2626;
+    -fx-font-weight: 600;
 }
-.button .btn-icon { -fx-padding: 0 8 0 0; }
-@media screen and (max-width: 480px) {
-    .login-container { -fx-pref-width: 92%; }
-    .input-field { -fx-pref-width: 100%; }
-    .label.title { -fx-font-size: 34px; }
+
+/* ========== BOTÓN OJO (Toggle Password) ========== */
+.eye-btn {
+    -fx-background-color: transparent;
+    -fx-font-size: 18px;
+    -fx-padding: 8 10;
+    -fx-cursor: hand;
+    -fx-text-fill: #6B7280;
 }
-.login-container .card, .login-container .card .input-field {
-    -fx-max-width: 520px;
+
+.eye-btn:hover {
+    -fx-text-fill: #9333EA;
+    -fx-background-color: #F3F4F6;
+    -fx-background-radius: 8;
+}
+
+/* ========== RESPONSIVE ========== */
+.button .btn-icon { 
+    -fx-padding: 0 10 0 0; 
+}
+
+.login-container .card, 
+.login-container .card .input-field {
+    -fx-max-width: 540px;
 }

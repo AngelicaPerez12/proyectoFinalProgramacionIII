@@ -1,0 +1,209 @@
+/* ========================================
+   SWEET HARMONY - DISEÑO CORREGIDO
+   Colores vibrantes y buen contraste para JavaFX
+   ======================================== */
+
+@font-face {
+    font-family: 'PlayfairDisplay';
+    src: url('fonts/PlayfairDisplay-VariableFont_wght.ttf');
+}
+
+@font-face {
+    font-family: 'RobotoVar';
+    src: url('fonts/Roboto-VariableFont_wdth,wght.ttf');
+}
+
+/* ========== ROOT & BACKGROUND ========== */
+.welcome-root-new {
+    -fx-font-family: "RobotoVar", "Segoe UI", Arial, sans-serif;
+    /* Gradiente vibrante que SÍ funciona en JavaFX */
+    -fx-background-color: linear-gradient(to bottom right, #7C3AED 0%, #EC4899 50%, #F97316 100%);
+}
+
+/* ========== PARTÍCULAS FLOTANTES ========== */
+.particle {
+    -fx-fill: rgba(255, 255, 255, 0.2);
+    -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.4), 10, 0.4, 0, 0);
+}
+
+/* ========== GLASS CARD PRINCIPAL ========== */
+.glass-card {
+    -fx-background-color: rgba(255, 255, 255, 0.2);
+    -fx-background-radius: 30;
+    -fx-border-color: rgba(255, 255, 255, 0.4);
+    -fx-border-width: 2;
+    -fx-border-radius: 30;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 30, 0.4, 0, 10);
+}
+
+/* ========== TÍTULO PRINCIPAL ========== */
+.title-new {
+    -fx-font-family: "PlayfairDisplay", "Georgia", serif;
+    -fx-font-size: 72px;
+    -fx-font-weight: 900;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 20, 0.4, 0, 6);
+}
+
+/* ========== SUBTÍTULO ========== */
+.subtitle-gradient {
+    -fx-font-family: "RobotoVar", "Segoe UI", Arial, sans-serif;
+    -fx-font-size: 20px;
+    -fx-font-weight: 400;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0.3, 0, 2);
+}
+
+/* ========== ICONO PRINCIPAL ========== */
+.main-icon {
+    -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.8), 25, 0.6, 0, 0);
+}
+
+/* ========== FEATURE CARDS ========== */
+.feature-card {
+    -fx-background-color: rgba(255, 255, 255, 0.15);
+    -fx-background-radius: 20;
+    -fx-border-color: rgba(255, 255, 255, 0.3);
+    -fx-border-width: 2;
+    -fx-border-radius: 20;
+    -fx-padding: 25;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 15, 0.3, 0, 5);
+}
+
+.feature-card:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.25);
+    -fx-border-color: rgba(255, 255, 255, 0.5);
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 20, 0.4, 0, 8);
+}
+
+.feature-icon {
+    -fx-font-size: 40px;
+}
+
+.feature-title {
+    -fx-font-family: "RobotoVar", "Segoe UI", Arial, sans-serif;
+    -fx-font-size: 18px;
+    -fx-font-weight: 700;
+    -fx-text-fill: white;
+}
+
+.feature-text {
+    -fx-font-family: "RobotoVar", "Segoe UI", Arial, sans-serif;
+    -fx-font-size: 14px;
+    -fx-font-weight: 400;
+    -fx-text-fill: white;
+}
+
+/* ========== BOTÓN PRIMARIO ========== */
+.btn-modern-primary {
+    -fx-background-color: white;
+    -fx-text-fill: #7C3AED;
+    -fx-font-family: "RobotoVar", "Segoe UI", Arial, sans-serif;
+    -fx-font-weight: 800;
+    -fx-font-size: 16px;
+    -fx-background-radius: 15;
+    -fx-padding: 16 40;
+    -fx-border-color: transparent;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 15, 0.4, 0, 6);
+    -fx-cursor: hand;
+    -fx-min-width: 200px;
+}
+
+.btn-modern-primary:hover {
+    -fx-background-color: #F3F4F6;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 18, 0.5, 0, 8);
+}
+
+.btn-modern-primary:pressed {
+    -fx-background-color: #E5E7EB;
+    -fx-translate-y: 2px;
+}
+
+/* ========== BOTÓN SECUNDARIO ========== */
+.btn-modern-secondary {
+    -fx-background-color: rgba(255, 255, 255, 0.25);
+    -fx-text-fill: white;
+    -fx-font-family: "RobotoVar", "Segoe UI", Arial, sans-serif;
+    -fx-font-weight: 700;
+    -fx-font-size: 16px;
+    -fx-background-radius: 15;
+    -fx-padding: 16 40;
+    -fx-border-color: white;
+    -fx-border-width: 2;
+    -fx-border-radius: 15;
+    -fx-cursor: hand;
+    -fx-min-width: 200px;
+}
+
+.btn-modern-secondary:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.35);
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.btn-modern-secondary:pressed {
+    -fx-background-color: rgba(255, 255, 255, 0.45);
+    -fx-translate-y: 2px;
+}
+
+/* ========== BADGE ========== */
+.badge {
+    -fx-background-color: rgba(255, 255, 255, 0.3);
+    -fx-background-radius: 20;
+    -fx-padding: 8 20;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0.2, 0, 2);
+}
+
+/* ========== DIVIDER ========== */
+.divider {
+    -fx-fill: rgba(255, 255, 255, 0.3);
+}
+
+/* ========== ANIMACIONES ========== */
+@keyframes pulse {
+
+    0%,
+    100% {
+        -fx-scale-x: 1;
+        -fx-scale-y: 1;
+    }
+
+    50% {
+        -fx-scale-x: 1.05;
+        -fx-scale-y: 1.05;
+    }
+}
+
+@keyframes float-up {
+    0% {
+        -fx-translate-y: 0px;
+        -fx-opacity: 0.2;
+    }
+
+    50% {
+        -fx-opacity: 0.4;
+    }
+
+    100% {
+        -fx-translate-y: -500px;
+        -fx-opacity: 0;
+    }
+}
+
+.pulse-animation {
+    -fx-animation: pulse 2s ease-in-out infinite;
+}
+
+/* ========== FOOTER ========== */
+.footer-text {
+    -fx-font-size: 12px;
+    -fx-text-fill: white;
+    -fx-font-weight: 400;
+}
