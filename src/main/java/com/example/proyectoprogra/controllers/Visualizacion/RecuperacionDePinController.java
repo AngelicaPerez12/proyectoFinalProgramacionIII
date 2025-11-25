@@ -5,12 +5,14 @@ import com.example.proyectoprogra.models.EmailSender;
 import com.example.proyectoprogra.models.PasswordUtils;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 
-import java.awt.event.ActionEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -96,9 +98,6 @@ public class RecuperacionDePinController {
         }
     }
 
-
-
-
     private String generarCodigo(int longitud) {
         String chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         StringBuilder codigo = new StringBuilder();
@@ -109,9 +108,24 @@ public class RecuperacionDePinController {
         return codigo.toString();
     }
 
+    @FXML
+    private void cerrar(javafx.event.ActionEvent actionEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/proyectoprogra/Visualizacion/login-view.fxml"));
+            Parent root = loader.load();
+            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setMaximized(true);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            mensajeRec.setText("Error al volver al login.");
+        }
+    }
 
-    public void cerrarVentanaPIN(javafx.event.ActionEvent actionEvent) {
-        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        stage.close();
+    @FXML
+    private void cerrarVentanaPIN(javafx.event.ActionEvent actionEvent) {
+        cerrar(actionEvent);
     }
 }

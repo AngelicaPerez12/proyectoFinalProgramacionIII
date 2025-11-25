@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AgentMigrationStateService">
+    <option name="pendingSessionIds">
+      <option value="9080fa67-75f5-45b5-9e4b-a5d26cc42af9" />
+    </option>
+    <option name="pendingTurns">
+      <map>
+        <entry key="9080fa67-75f5-45b5-9e4b-a5d26cc42af9">
+          <value>
+            <set>
+              <option value="df3c5664-adb1-42c7-bf8c-4de7a15d8040" />
+              <option value="da8c6195-5cd3-46ca-8085-8ba311a61591" />
+              <option value="1e107920-cdd6-484c-91ac-7ad7d5927bab" />
+            </set>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <pendingWorkingSetItems>
+      <entry key="9080fa67-75f5-45b5-9e4b-a5d26cc42af9">
+        <set>
+          <option value="file://$PROJECT_DIR$/src/main/resources/com/example/proyectoprogra/Visualizacion/recuperacion-pin-view.fxml" />
+          <option value="file://$PROJECT_DIR$/src/main/java/com/example/proyectoprogra/controllers/Visualizacion/RecuperacionDePinController.java" />
+          <option value="file://$PROJECT_DIR$/src/main/java/com/example/proyectoprogra/controllers/Visualizacion/LoginController.java" />
+        </set>
+      </entry>
+    </pendingWorkingSetItems>
+  </component>
+</project>

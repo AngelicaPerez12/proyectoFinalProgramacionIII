@@ -135,12 +135,13 @@ public class LoginController {
             FXMLLoader loader = new FXMLLoader(
                     getClass().getResource("/com/example/proyectoprogra/Visualizacion/recuperacion-pin-view.fxml"));
             Parent root = loader.load();
-            Stage dialog = new Stage();
-            dialog.initModality(Modality.APPLICATION_MODAL);
-            dialog.setTitle("Recuperación de PIN");
-            dialog.setScene(new Scene(root));
-            dialog.setResizable(false);
-            dialog.showAndWait();
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setMaximized(true);
+            stage.setResizable(true);
+            stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
