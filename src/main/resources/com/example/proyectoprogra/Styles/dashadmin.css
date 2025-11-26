@@ -1,31 +1,41 @@
 .root {
-    -fx-color-primario: #E2A16F;
-    -fx-color-secundario: #FFF0DD;
-    -fx-color-borde: #D1D3D4;
-    -fx-color-hover: #86B0BD;
+    -fx-color-primario: #E8C7C8;
+    /* Rosa Palo Neutro */
+    -fx-color-secundario: #FAF7F2;
+    /* Blanco Crema */
+    -fx-color-borde: #D9CFC3;
+    /* Beige Arena */
+    -fx-color-hover: #4A4A4A;
+    /* Gris Topo */
+    -fx-color-texto: #1F1A17;
+    /* Negro Cacao */
 }
+
 .pane {
--fx-background-color: -fx-color-secundario;
+    -fx-background-color: -fx-color-secundario;
 }
+
 .vboxbotones {
     -fx-background-color: -fx-color-primario;
 
 }
 
-.hboxuser{
+.hboxuser {
     -fx-background-color: -fx-color-primario;
 
 }
+
 .menu-btn {
     -fx-background-color: transparent;
     -fx-cursor: hand;
     -fx-font-size: 13;
-    -fx-text-fill: black;
+    -fx-text-fill: -fx-color-texto;
 }
 
 .menu-btn:hover {
     -fx-text-fill: -fx-color-hover;
 }
+
 .contenedor-imagen {
     display: flex;
     justify-content: center;

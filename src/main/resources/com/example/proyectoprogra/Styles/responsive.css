@@ -1,0 +1,218 @@
+/* ========================================
+   SWEET HARMONY - RESPONSIVE SYSTEM
+   Sistema de diseño responsive para JavaFX
+   ======================================== */
+
+/* ========== CONTENEDORES FLEXIBLES ========== */
+.flex-container {
+    -fx-alignment: CENTER;
+}
+
+.flex-grow {
+    -fx-max-width: Infinity;
+    -fx-max-height: Infinity;
+}
+
+.flex-fill-width {
+    -fx-fill-width: true;
+}
+
+.flex-fill-height {
+    -fx-fill-height: true;
+}
+
+/* ========== ANCHOS RELATIVOS ========== */
+.width-100 {
+    -fx-pref-width: USE_COMPUTED_SIZE;
+    -fx-max-width: Infinity;
+}
+
+.width-90 {
+    -fx-max-width: 90%;
+}
+
+.width-80 {
+    -fx-max-width: 80%;
+}
+
+.width-75 {
+    -fx-max-width: 75%;
+}
+
+.width-50 {
+    -fx-max-width: 50%;
+}
+
+.width-auto {
+    -fx-pref-width: USE_COMPUTED_SIZE;
+}
+
+/* ========== ALTURAS RELATIVAS ========== */
+.height-100 {
+    -fx-pref-height: USE_COMPUTED_SIZE;
+    -fx-max-height: Infinity;
+}
+
+.height-auto {
+    -fx-pref-height: USE_COMPUTED_SIZE;
+}
+
+/* ========== IMÁGENES RESPONSIVE ========== */
+.responsive-image {
+    -fx-preserve-ratio: true;
+    -fx-smooth: true;
+}
+
+.responsive-background {
+    -fx-background-size: cover;
+    -fx-background-position: center;
+}
+
+/* ========== SCROLL PANES RESPONSIVE ========== */
+.responsive-scroll {
+    -fx-fit-to-width: true;
+    -fx-fit-to-height: true;
+}
+
+/* ========== TILEPANE RESPONSIVE ========== */
+.responsive-tile {
+    -fx-pref-columns: USE_COMPUTED_SIZE;
+    -fx-pref-rows: USE_COMPUTED_SIZE;
+}
+
+/* ========== CARDS RESPONSIVE ========== */
+.responsive-card {
+    -fx-background-color: white;
+    -fx-background-radius: 8;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.14), 4, 0, 0, 2);
+    -fx-max-width: 90%;
+    -fx-pref-width: USE_COMPUTED_SIZE;
+}
+
+.responsive-card-small {
+    -fx-max-width: 70%;
+}
+
+.responsive-card-large {
+    -fx-max-width: 95%;
+}
+
+/* ========== INPUTS RESPONSIVE ========== */
+.responsive-input {
+    -fx-pref-width: USE_COMPUTED_SIZE;
+    -fx-max-width: Infinity;
+    -fx-min-width: 200;
+}
+
+/* ========== BOTONES RESPONSIVE ========== */
+.responsive-button {
+    -fx-pref-width: USE_COMPUTED_SIZE;
+    -fx-min-width: 100;
+    -fx-max-width: 300;
+}
+
+.responsive-button-full {
+    -fx-pref-width: USE_COMPUTED_SIZE;
+    -fx-max-width: Infinity;
+}
+
+/* ========== ESPACIADO RESPONSIVE ========== */
+.spacing-small {
+    -fx-spacing: 10;
+}
+
+.spacing-medium {
+    -fx-spacing: 20;
+}
+
+.spacing-large {
+    -fx-spacing: 30;
+}
+
+/* ========== PADDING RESPONSIVE ========== */
+.padding-small {
+    -fx-padding: 10;
+}
+
+.padding-medium {
+    -fx-padding: 20;
+}
+
+.padding-large {
+    -fx-padding: 40;
+}
+
+/* ========== TABLAS RESPONSIVE ========== */
+.responsive-table {
+    -fx-pref-width: USE_COMPUTED_SIZE;
+    -fx-max-width: Infinity;
+}
+
+.responsive-table .table-column {
+    -fx-pref-width: USE_COMPUTED_SIZE;
+}
+
+/* ========== LAYOUTS RESPONSIVE ========== */
+.responsive-vbox {
+    -fx-alignment: CENTER;
+    -fx-fill-width: true;
+    -fx-max-width: Infinity;
+}
+
+.responsive-hbox {
+    -fx-alignment: CENTER;
+    -fx-fill-height: true;
+    -fx-max-height: Infinity;
+}
+
+.responsive-stackpane {
+    -fx-alignment: CENTER;
+    -fx-max-width: Infinity;
+    -fx-max-height: Infinity;
+}
+
+/* ========== BORDERPANE RESPONSIVE ========== */
+.responsive-borderpane {
+    -fx-max-width: Infinity;
+    -fx-max-height: Infinity;
+}
+
+/* ========== ANCHORPANE RESPONSIVE ========== */
+.responsive-anchorpane {
+    -fx-max-width: Infinity;
+    -fx-max-height: Infinity;
+}
+
+/* ========== GRIDPANE RESPONSIVE ========== */
+.responsive-gridpane {
+    -fx-hgap: 15;
+    -fx-vgap: 15;
+    -fx-alignment: CENTER;
+}
+
+/* ========== TEXTO RESPONSIVE ========== */
+.text-wrap {
+    -fx-wrap-text: true;
+}
+
+.text-ellipsis {
+    -fx-text-overrun: ELLIPSIS;
+}
+
+/* ========== UTILIDADES ========== */
+.center-content {
+    -fx-alignment: CENTER;
+}
+
+.fill-parent {
+    -fx-max-width: Infinity;
+    -fx-max-height: Infinity;
+    -fx-pref-width: USE_COMPUTED_SIZE;
+    -fx-pref-height: USE_COMPUTED_SIZE;
+}
+
+/* ========== LOGO RESPONSIVE ========== */
+.responsive-logo {
+    -fx-font-size: 5em;
+}

@@ -1,9 +1,9 @@
 package com.example.proyectoprogra;
 
+import com.example.proyectoprogra.utils.WindowUtils;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Start extends Application {
@@ -16,14 +16,12 @@ public class Start extends Application {
     public void start(Stage primaryStage) {
         try {
             FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource("/com/example/proyectoprogra/Visualizacion/Bienvenida.fxml")
-            );
+                    getClass().getResource("/com/example/proyectoprogra/Visualizacion/Bienvenida.fxml"));
             Parent root = loader.load();
-            Scene scene = new Scene(root);
-            primaryStage.setMaximized(true);
-            primaryStage.setScene(scene);
-            primaryStage.setTitle("Sweet Harmony");
-            primaryStage.show();
+
+            // Usar WindowUtils para configurar la ventana automáticamente
+            // Esto asegura que SIEMPRE se abra maximizada y responsive
+            WindowUtils.setupAndShowStage(primaryStage, root, "Sweet Harmony");
 
         } catch (Exception e) {
             e.printStackTrace();

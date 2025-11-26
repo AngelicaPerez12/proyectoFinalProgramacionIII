@@ -1,6 +1,7 @@
 package com.example.proyectoprogra.controllers.Visualizacion;
 
 import com.example.proyectoprogra.models.UsuarioSession;
+import com.example.proyectoprogra.utils.WindowUtils;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -170,12 +171,7 @@ public class LoginController {
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.setWidth(1000);
-            stage.setHeight(700);
-            stage.centerOnScreen();
-            stage.show();
+            WindowUtils.setupAndShowStage(stage, root, "Sweet Harmony");
 
         } catch (IOException e) {
             e.printStackTrace();

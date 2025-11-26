@@ -1,6 +1,7 @@
 package com.example.proyectoprogra.controllers.Visualizacion;
 
 import com.example.proyectoprogra.ConexionDB.ConexionDB;
+import com.example.proyectoprogra.utils.WindowUtils;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -146,13 +147,7 @@ public class RegisterController {
 
             Stage stage = (Stage) btnCancelarReg.getScene().getWindow();
 
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.setMaximized(true);
-            stage.setFullScreen(false);
-            stage.setResizable(true);
-
-            stage.show();
+            WindowUtils.setupAndShowStage(stage, root, "Iniciar Sesión");
 
         } catch (IOException e) {
             e.printStackTrace();

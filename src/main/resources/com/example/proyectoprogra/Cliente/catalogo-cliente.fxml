@@ -1,134 +1,237 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.Font?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml/1"
-            xmlns="http://javafx.com/javafx/25"
-            fx:controller="com.example.proyectoprogra.controllers.Cliente.CatalogoClienteController">
+<BorderPane xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.proyectoprogra.controllers.Cliente.CatalogoClienteController"
+            styleClass="bakery-background" stylesheets="@../Styles/bakery-theme.css,@../Styles/responsive.css">
 
+    <!-- Navbar Consistente -->
     <top>
-        <HBox alignment="CENTER_RIGHT"
-              spacing="25"
-              style="-fx-background-color: #FFF0DD;">
+        <HBox styleClass="navbar-web"
+              alignment="CENTER"
+              prefHeight="60"
+              spacing="20">
+
             <padding>
-                <Insets top="10" bottom="10" left="10" right="10"/>
+                <Insets left="20" right="20"/>
             </padding>
 
-            <Button text="Catálogo"
-                    style="-fx-background-color: transparent;"
-                    onAction="#vercatalogo"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label text="SWEET HARMONY" styleClass="navbar-logo"/>
+            <Region HBox.hgrow="ALWAYS"/>
 
-            <Button text="Hacer Pedido"
-                    style="-fx-background-color: transparent;"
-                    onAction="#hacerpedido"/>
-
-            <Button text="Historial"
-                    style="-fx-background-color: transparent;"
-                    onAction="#historial"/>
-
-            <Button text="Perfil"
-                    style="-fx-background-color: transparent;"
-                    onAction="#perfil"/>
+            <HBox spacing="8" alignment="CENTER_RIGHT">
+                <Button text="Catálogo" styleClass="navbar-button-active" onAction="#vercatalogo"/>
+                <Button text="Hacer Pedido" styleClass="navbar-button" onAction="#hacerpedido"/>
+                <Button text="Historial" styleClass="navbar-button" onAction="#historial"/>
+                <Button text="Perfil" styleClass="navbar-button" onAction="#perfil"/>
+            </HBox>
         </HBox>
     </top>
+
+    <!-- Contenido principal -->
     <center>
-        <ScrollPane fitToWidth="true" style="-fx-background-color: white;">
-            <content>
-                <VBox spacing="10" fillWidth="true">
+        <ScrollPane fitToWidth="true" fitToHeight="true" styleClass="bakery-scroll">
+            <VBox spacing="30" alignment="TOP_CENTER">
+                <padding>
+                    <Insets top="30" left="40" right="40" bottom="30"/>
+                </padding>
 
-                    <TilePane fx:id="contenedorCakes"
-                              hgap="25"
-                              vgap="25"
-                              prefColumns="3"
-                              tileAlignment="TOP_CENTER"
-                              style="-fx-background-color: white;">
-                        <padding>
-                            <Insets top="20" right="20" bottom="20" left="20"/>
-                        </padding>
+                <!-- Título mejorado -->
+                <VBox alignment="CENTER" spacing="15">
+                    <Label text="Nuestro Catálogo" styleClass="bakery-title-large" />
+                    <Label text="Descubre nuestras deliciosas creaciones artesanales" styleClass="bakery-subtitle-large" />
+                    <VBox styleClass="bakery-divider" prefHeight="2" prefWidth="200"/>
+                </VBox>
 
-                        <VBox spacing="5"
-                              style="-fx-background-color: #FFFFFF; -fx-background-radius: 10; -fx-padding: 10;">
-                            <ImageView fitHeight="150" fitWidth="215" preserveRatio="true">
+                <!-- Grid de productos mejorado -->
+                <FlowPane hgap="30" vgap="30" alignment="CENTER" prefWrapLength="950">
+                    
+                    <!-- Producto 1 - Chocolatoso -->
+                    <VBox spacing="15" styleClass="bakery-card" alignment="CENTER" prefWidth="270" prefHeight="450">
+                        <padding><Insets top="25" bottom="25" left="25" right="25"/></padding>
+                        
+                        <!-- Imagen con sombra -->
+                        <VBox alignment="CENTER" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3);">
+                            <ImageView fitHeight="200" fitWidth="220" preserveRatio="true">
                                 <image><Image url="@../Imagenes/Imagen01.jpg"/></image>
                             </ImageView>
-                            <Label text="Chocolatoso"><font><Font name="System Bold" size="19"/></font></Label>
-                            <Label text="Bizcocho Húmedo De Cacao Intenso"/>
-                            <Label text="Tamaño Mediano"/>
-                            <Label text="\$25"><font><Font size="18"/></font></Label>
-                            <Button text="Ordenar" prefWidth="150"/>
                         </VBox>
+                        
+                        <!-- Información del producto -->
+                        <VBox spacing="8" alignment="CENTER">
+                            <Label text="Chocolatoso" styleClass="bakery-title" style="-fx-font-size: 22px; -fx-font-weight: bold;" />
+                            <Label text="Bizcocho húmedo de cacao intenso con cobertura de chocolate belga" 
+                                   styleClass="bakery-label" 
+                                   style="-fx-font-size: 13px; -fx-text-alignment: center;" 
+                                   textAlignment="CENTER" 
+                                   wrapText="true"
+                                   prefWidth="220"/>
+                        </VBox>
+                        
+                        <!-- Detalles -->
+                        <HBox spacing="10" alignment="CENTER">
+                            <Label text="Tamaño:" styleClass="bakery-label" style="-fx-font-weight: bold;"/>
+                            <Label text="Mediano" styleClass="bakery-subtitle"/>
+                        </HBox>
+                        
+                        <!-- Precio destacado -->
+                        <VBox alignment="CENTER" spacing="5">
+                            <Label text="Precio" styleClass="bakery-label" style="-fx-font-size: 12px;"/>
+                            <Label text="$25.00" styleClass="bakery-title" style="-fx-font-size: 28px; -fx-text-fill: #E8C7C8; -fx-font-weight: bold;"/>
+                        </VBox>
+                        
+                        <!-- Botón mejorado -->
+                        <Button text="AGREGAR AL PEDIDO" styleClass="bakery-button-large" prefWidth="220" prefHeight="50"/>
+                    </VBox>
 
-                        <VBox spacing="5"
-                              style="-fx-background-color: #FFFFFF; -fx-background-radius: 10; -fx-padding: 10;">
-                            <ImageView fitHeight="150" fitWidth="215" preserveRatio="true">
+                    <!-- Producto 2 - Aroma Café -->
+                    <VBox spacing="15" styleClass="bakery-card" alignment="CENTER" prefWidth="270" prefHeight="450">
+                        <padding><Insets top="25" bottom="25" left="25" right="25"/></padding>
+                        
+                        <VBox alignment="CENTER" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3);">
+                            <ImageView fitHeight="200" fitWidth="220" preserveRatio="true">
                                 <image><Image url="@../Imagenes/Pastel02.jpg"/></image>
                             </ImageView>
-                            <Label text="Aroma Café"><font><Font name="System Bold" size="19"/></font></Label>
-                            <Label text="Pastel esponjoso con infusión de café"/>
-                            <Label text="Tamaño Grande"/>
-                            <Label text="\$40"><font><Font size="18"/></font></Label>
-                            <Button text="Ordenar" prefWidth="150"/>
                         </VBox>
+                        
+                        <VBox spacing="8" alignment="CENTER">
+                            <Label text="Aroma Café" styleClass="bakery-title" style="-fx-font-size: 22px; -fx-font-weight: bold;" />
+                            <Label text="Pastel esponjoso con infusión de café colombiano y crema de mantequilla" 
+                                   styleClass="bakery-label" 
+                                   style="-fx-font-size: 13px; -fx-text-alignment: center;" 
+                                   textAlignment="CENTER" 
+                                   wrapText="true"
+                                   prefWidth="220"/>
+                        </VBox>
+                        
+                        <HBox spacing="10" alignment="CENTER">
+                            <Label text="Tamaño:" styleClass="bakery-label" style="-fx-font-weight: bold;"/>
+                            <Label text="Grande" styleClass="bakery-subtitle"/>
+                        </HBox>
+                        
+                        <VBox alignment="CENTER" spacing="5">
+                            <Label text="Precio" styleClass="bakery-label" style="-fx-font-size: 12px;"/>
+                            <Label text="$40.00" styleClass="bakery-title" style="-fx-font-size: 28px; -fx-text-fill: #E8C7C8; -fx-font-weight: bold;"/>
+                        </VBox>
+                        
+                        <Button text="AGREGAR AL PEDIDO" styleClass="bakery-button-large" prefWidth="220" prefHeight="50"/>
+                    </VBox>
 
-                        <VBox spacing="5"
-                              style="-fx-background-color: #FFFFFF; -fx-background-radius: 10; -fx-padding: 10;">
-                            <ImageView fitHeight="150" fitWidth="215" preserveRatio="true">
+                    <!-- Producto 3 - Limonsito -->
+                    <VBox spacing="15" styleClass="bakery-card" alignment="CENTER" prefWidth="270" prefHeight="450">
+                        <padding><Insets top="25" bottom="25" left="25" right="25"/></padding>
+                        
+                        <VBox alignment="CENTER" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3);">
+                            <ImageView fitHeight="200" fitWidth="220" preserveRatio="true">
                                 <image><Image url="@../Imagenes/Pastel3.jpg"/></image>
                             </ImageView>
-                            <Label text="Limonsito"><font><Font name="System Bold" size="19"/></font></Label>
-                            <Label text="Bizcocho relleno de crema de limón"/>
-                            <Label text="Tamaño Mediano"/>
-                            <Label text="\$25"><font><Font size="18"/></font></Label>
-                            <Button text="Ordenar" prefWidth="150"/>
                         </VBox>
+                        
+                        <VBox spacing="8" alignment="CENTER">
+                            <Label text="Limonsito" styleClass="bakery-title" style="-fx-font-size: 22px; -fx-font-weight: bold;" />
+                            <Label text="Bizcocho relleno de crema de limón fresco con merengue italiano" 
+                                   styleClass="bakery-label" 
+                                   style="-fx-font-size: 13px; -fx-text-alignment: center;" 
+                                   textAlignment="CENTER" 
+                                   wrapText="true"
+                                   prefWidth="220"/>
+                        </VBox>
+                        
+                        <HBox spacing="10" alignment="CENTER">
+                            <Label text="Tamaño:" styleClass="bakery-label" style="-fx-font-weight: bold;"/>
+                            <Label text="Mediano" styleClass="bakery-subtitle"/>
+                        </HBox>
+                        
+                        <VBox alignment="CENTER" spacing="5">
+                            <Label text="Precio" styleClass="bakery-label" style="-fx-font-size: 12px;"/>
+                            <Label text="$25.00" styleClass="bakery-title" style="-fx-font-size: 28px; -fx-text-fill: #E8C7C8; -fx-font-weight: bold;"/>
+                        </VBox>
+                        
+                        <Button text="AGREGAR AL PEDIDO" styleClass="bakery-button-large" prefWidth="220" prefHeight="50"/>
+                    </VBox>
 
-                        <VBox spacing="5"
-                              style="-fx-background-color: #FFFFFF; -fx-background-radius: 10; -fx-padding: 10;">
-                            <ImageView fitHeight="150" fitWidth="215" preserveRatio="true">
+                    <!-- Producto 4 - Fresa -->
+                    <VBox spacing="15" styleClass="bakery-card" alignment="CENTER" prefWidth="270" prefHeight="450">
+                        <padding><Insets top="25" bottom="25" left="25" right="25"/></padding>
+                        
+                        <VBox alignment="CENTER" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3);">
+                            <ImageView fitHeight="200" fitWidth="220" preserveRatio="true">
                                 <image><Image url="@../Imagenes/Pastel4.jpg"/></image>
                             </ImageView>
-                            <Label text="Fresa"><font><Font name="System Bold" size="19"/></font></Label>
-                            <Label text="Bizcocho relleno de fresas frescas"/>
-                            <Label text="Tamaño Mediano"/>
-                            <Label text="\$25"><font><Font size="18"/></font></Label>
-                            <Button text="Ordenar" prefWidth="150"/>
                         </VBox>
+                        
+                        <VBox spacing="8" alignment="CENTER">
+                            <Label text="Fresa Delicia" styleClass="bakery-title" style="-fx-font-size: 22px; -fx-font-weight: bold;" />
+                            <Label text="Bizcocho relleno de fresas frescas con crema chantilly" 
+                                   styleClass="bakery-label" 
+                                   style="-fx-font-size: 13px; -fx-text-alignment: center;" 
+                                   textAlignment="CENTER" 
+                                   wrapText="true"
+                                   prefWidth="220"/>
+                        </VBox>
+                        
+                        <HBox spacing="10" alignment="CENTER">
+                            <Label text="Tamaño:" styleClass="bakery-label" style="-fx-font-weight: bold;"/>
+                            <Label text="Mediano" styleClass="bakery-subtitle"/>
+                        </HBox>
+                        
+                        <VBox alignment="CENTER" spacing="5">
+                            <Label text="Precio" styleClass="bakery-label" style="-fx-font-size: 12px;"/>
+                            <Label text="$25.00" styleClass="bakery-title" style="-fx-font-size: 28px; -fx-text-fill: #E8C7C8; -fx-font-weight: bold;"/>
+                        </VBox>
+                        
+                        <Button text="AGREGAR AL PEDIDO" styleClass="bakery-button-large" prefWidth="220" prefHeight="50"/>
+                    </VBox>
 
-                        <VBox spacing="5"
-                              style="-fx-background-color: #FFFFFF; -fx-background-radius: 10; -fx-padding: 10;">
-                            <ImageView fitHeight="150" fitWidth="215" preserveRatio="true">
+                    <!-- Producto 5 - Canela y Manzana -->
+                    <VBox spacing="15" styleClass="bakery-card" alignment="CENTER" prefWidth="270" prefHeight="450">
+                        <padding><Insets top="25" bottom="25" left="25" right="25"/></padding>
+                        
+                        <VBox alignment="CENTER" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3);">
+                            <ImageView fitHeight="200" fitWidth="220" preserveRatio="true">
                                 <image><Image url="@../Imagenes/Pastel6.jpg"/></image>
                             </ImageView>
-                            <Label text="Canela y Manzana">
-                                <font><Font name="System Bold" size="17"/></font>
-                            </Label>
-                            <Label text="Manzana caramelizada y canela"/>
-                            <Label text="Tamaño Pequeño"/>
-                            <Label text="\$15"><font><Font size="18"/></font></Label>
-                            <Button text="Ordenar" prefWidth="150"/>
                         </VBox>
+                        
+                        <VBox spacing="8" alignment="CENTER">
+                            <Label text="Canela y Manzana" styleClass="bakery-title" style="-fx-font-size: 22px; -fx-font-weight: bold;" />
+                            <Label text="Pastel tradicional con manzanas caramelizadas y especias aromáticas" 
+                                   styleClass="bakery-label" 
+                                   style="-fx-font-size: 13px; -fx-text-alignment: center;" 
+                                   textAlignment="CENTER" 
+                                   wrapText="true"
+                                   prefWidth="220"/>
+                        </VBox>
+                        
+                        <HBox spacing="10" alignment="CENTER">
+                            <Label text="Tamaño:" styleClass="bakery-label" style="-fx-font-weight: bold;"/>
+                            <Label text="Grande" styleClass="bakery-subtitle"/>
+                        </HBox>
+                        
+                        <VBox alignment="CENTER" spacing="5">
+                            <Label text="Precio" styleClass="bakery-label" style="-fx-font-size: 12px;"/>
+                            <Label text="$35.00" styleClass="bakery-title" style="-fx-font-size: 28px; -fx-text-fill: #E8C7C8; -fx-font-weight: bold;"/>
+                        </VBox>
+                        
+                        <Button text="AGREGAR AL PEDIDO" styleClass="bakery-button-large" prefWidth="220" prefHeight="50"/>
+                    </VBox>
 
-                        <VBox spacing="5"
-                              style="-fx-background-color: #FFFFFF; -fx-background-radius: 10; -fx-padding: 10;">
-                            <ImageView fitHeight="150" fitWidth="215" preserveRatio="true">
-                                <image><Image url="@../Imagenes/Pastel5.jpg"/></image>
-                            </ImageView>
-                            <Label text="Tres Leches"><font><Font name="System Bold" size="19"/></font></Label>
-                            <Label text="Bizcocho en mezcla de tres leches"/>
-                            <Label text="Tamaño Pequeño"/>
-                            <Label text="\$15"><font><Font size="18"/></font></Label>
-                            <Button text="Ordenar" prefWidth="150"/>
-                        </VBox>
-                    </TilePane>
+                </FlowPane>
+
+                <!-- Nota informativa -->
+                <VBox alignment="CENTER" spacing="10" style="-fx-background-color: rgba(232, 199, 200, 0.1); -fx-background-radius: 15; -fx-padding: 20;">
+                    <Label text="¿Necesitas un tamaño personalizado?" styleClass="bakery-label" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+                    <Label text="Visita la sección 'Hacer Pedido' para personalizar tu pastel" styleClass="bakery-subtitle"/>
                 </VBox>
-            </content>
+
+            </VBox>
         </ScrollPane>
     </center>
+
 </BorderPane>

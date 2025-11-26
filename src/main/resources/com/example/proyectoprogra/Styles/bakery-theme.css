@@ -1,0 +1,452 @@
+/* ========================================
+   SWEET HARMONY - MINIMAL THEME
+   Paleta minimal y profesional
+   ======================================== */
+
+/* ========== VARIABLES DE COLOR ========== */
+.root {
+    -fx-cream-white: #FAF7F2;
+    -fx-pale-rose: #E8C7C8;
+    -fx-soft-taupe: #4A4A4A;
+    -fx-sand-beige: #D9CFC3;
+    -fx-cocoa-black: #1F1A17;
+}
+
+/* ========== FONDO PRINCIPAL ========== */
+.bakery-background {
+    -fx-background-color: linear-gradient(135deg, #FAF7F2 0%, #F5F0EB 50%, #E8C7C8 100%);
+}
+
+/* ========== CARDS MINIMAL ========== */
+.bakery-card {
+    -fx-background-color: white;
+    -fx-background-radius: 20;
+    -fx-padding: 40;
+    -fx-effect: dropshadow(gaussian, rgba(217, 207, 195, 0.3), 15, 0.3, 0, 5);
+    -fx-border-color: #D9CFC3;
+    -fx-border-width: 2;
+    -fx-border-radius: 20;
+}
+
+.bakery-card-large {
+    -fx-padding: 50;
+    -fx-min-width: 550px;
+}
+
+/* ========== LOGO Y TÍTULOS ========== */
+.bakery-logo {
+    -fx-font-size: 6em;
+    -fx-effect: dropshadow(gaussian, rgba(31, 26, 23, 0.2), 10, 0.5, 0, 3);
+}
+
+.bakery-logo-large {
+    -fx-font-size: 8em;
+}
+
+.bakery-title {
+    -fx-font-family: "Segoe UI", "Arial Rounded MT Bold", sans-serif;
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1F1A17;
+    -fx-effect: dropshadow(gaussian, rgba(217, 207, 195, 0.2), 5, 0.3, 0, 2);
+}
+
+.bakery-title-large {
+    -fx-font-size: 42px;
+}
+
+.bakery-subtitle {
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-font-size: 16px;
+    -fx-text-fill: #4A4A4A;
+    -fx-font-style: italic;
+}
+
+.bakery-subtitle-large {
+    -fx-font-size: 20px;
+}
+
+/* ========== INPUTS MINIMAL ========== */
+.bakery-input {
+    -fx-background-color: white;
+    -fx-background-radius: 15;
+    -fx-border-color: #D9CFC3;
+    -fx-border-width: 2;
+    -fx-border-radius: 15;
+    -fx-padding: 12 20;
+    -fx-font-size: 14px;
+    -fx-text-fill: #4A4A4A;
+    -fx-prompt-text-fill: #4A4A4A;
+}
+
+.bakery-input-large {
+    -fx-min-height: 55px;
+    -fx-font-size: 16px;
+    -fx-padding: 15 25;
+}
+
+.bakery-input:focused {
+    -fx-border-color: #E8C7C8;
+    -fx-background-color: #FAF7F2;
+    -fx-effect: dropshadow(gaussian, rgba(232, 199, 200, 0.3), 8, 0.4, 0, 0);
+}
+
+.bakery-input:hover {
+    -fx-border-color: #E8C7C8;
+}
+
+/* ========== BOTONES MINIMAL ========== */
+.bakery-button {
+    -fx-background-color: linear-gradient(to bottom, #E8C7C8, #D9B5B6);
+    -fx-background-radius: 25;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 15 40;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(232, 199, 200, 0.4), 10, 0.4, 0, 4);
+    -fx-border-color: #D9CFC3;
+    -fx-border-width: 2;
+    -fx-border-radius: 25;
+}
+
+.bakery-button-large {
+    -fx-min-height: 60px;
+    -fx-font-size: 18px;
+    -fx-padding: 18 50;
+}
+
+.bakery-button:hover {
+    -fx-background-color: linear-gradient(to bottom, #D9B5B6, #CCA3A4);
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+    -fx-effect: dropshadow(gaussian, rgba(232, 199, 200, 0.6), 15, 0.5, 0, 6);
+}
+
+.bakery-button:pressed {
+    -fx-background-color: linear-gradient(to bottom, #CCA3A4, #BF9192);
+    -fx-scale-x: 0.98;
+    -fx-scale-y: 0.98;
+}
+
+.bakery-button-secondary {
+    -fx-background-color: transparent;
+    -fx-background-radius: 25;
+    -fx-text-fill: #4A4A4A;
+    -fx-font-size: 14px;
+    -fx-padding: 10 30;
+    -fx-cursor: hand;
+    -fx-border-color: #D9CFC3;
+    -fx-border-width: 2;
+    -fx-border-radius: 25;
+}
+
+.bakery-button-secondary:hover {
+    -fx-background-color: #E8C7C8;
+    -fx-text-fill: white;
+}
+
+/* ========== BOTONES POR DEFECTO ========== */
+.button {
+    -fx-background-color: linear-gradient(to bottom, #E8C7C8, #D9B5B6);
+    -fx-background-radius: 25;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 12 35;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(232, 199, 200, 0.4), 10, 0.4, 0, 4);
+    -fx-border-color: #D9CFC3;
+    -fx-border-width: 2;
+    -fx-border-radius: 25;
+}
+
+.button:hover {
+    -fx-background-color: linear-gradient(to bottom, #D9B5B6, #CCA3A4);
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.button:pressed {
+    -fx-background-color: linear-gradient(to bottom, #CCA3A4, #BF9192);
+    -fx-scale-x: 0.98;
+    -fx-scale-y: 0.98;
+}
+
+/* ========== TEXTFIELD Y PASSWORDFIELD POR DEFECTO ========== */
+.text-field,
+.password-field {
+    -fx-background-color: white;
+    -fx-background-radius: 15;
+    -fx-border-color: #D9CFC3;
+    -fx-border-width: 2;
+    -fx-border-radius: 15;
+    -fx-padding: 12 20;
+    -fx-font-size: 14px;
+    -fx-text-fill: #4A4A4A;
+    -fx-prompt-text-fill: #4A4A4A;
+    -fx-min-height: 45px;
+}
+
+.text-field:focused,
+.password-field:focused {
+    -fx-border-color: #E8C7C8;
+    -fx-background-color: #FAF7F2;
+    -fx-effect: dropshadow(gaussian, rgba(232, 199, 200, 0.3), 8, 0.4, 0, 0);
+}
+
+.text-field:hover,
+.password-field:hover {
+    -fx-border-color: #E8C7C8;
+}
+
+/* ========== COMBOBOX ========== */
+.combo-box {
+    -fx-background-color: white;
+    -fx-background-radius: 15;
+    -fx-border-color: #D9CFC3;
+    -fx-border-width: 2;
+    -fx-border-radius: 15;
+    -fx-min-height: 45px;
+}
+
+.combo-box .list-cell {
+    -fx-background-color: white;
+    -fx-text-fill: #4A4A4A;
+    -fx-padding: 8 15;
+}
+
+.combo-box .list-cell:filled:selected {
+    -fx-background-color: #E8C7C8;
+    -fx-text-fill: #4A4A4A;
+}
+
+.combo-box .list-cell:filled {
+    -fx-text-fill: #4A4A4A;
+}
+
+.combo-box-popup .list-view {
+    -fx-background-color: white;
+    -fx-border-color: #D9CFC3;
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+}
+
+.combo-box-popup .list-view .list-cell:hover {
+    -fx-background-color: #FAF7F2;
+}
+
+.combo-box-popup .list-view .list-cell:selected {
+    -fx-background-color: #E8C7C8;
+    -fx-text-fill: #4A4A4A;
+}
+
+.combo-box .arrow-button {
+    -fx-background-color: #E8C7C8;
+    -fx-background-radius: 0 15 15 0;
+}
+
+.combo-box .arrow {
+    -fx-background-color: #4A4A4A;
+}
+
+/* ========== DATEPICKER ========== */
+.date-picker {
+    -fx-background-color: white;
+    -fx-background-radius: 15;
+    -fx-border-color: #D9CFC3;
+    -fx-border-width: 2;
+    -fx-border-radius: 15;
+    -fx-min-height: 45px;
+}
+
+.date-picker .text-field {
+    -fx-background-color: white;
+    -fx-background-radius: 15 0 0 15;
+    -fx-text-fill: #4A4A4A;
+    -fx-prompt-text-fill: #4A4A4A;
+    -fx-padding: 8 15;
+}
+
+.date-picker .arrow-button {
+    -fx-background-color: #E8C7C8;
+    -fx-background-radius: 0 15 15 0;
+}
+
+.date-picker .arrow {
+    -fx-background-color: #4A4A4A;
+}
+
+.date-picker-popup {
+    -fx-background-color: white;
+    -fx-border-color: #D9CFC3;
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+}
+
+/* ========== TABLEVIEW ========== */
+.table-view {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-border-color: #D9CFC3;
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+}
+
+.table-view .column-header {
+    -fx-background-color: linear-gradient(to bottom, #E8C7C8, #D9CFC3);
+    -fx-text-fill: #4A4A4A;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 10;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #4A4A4A;
+    -fx-font-weight: bold;
+}
+
+.table-view .table-cell {
+    -fx-text-fill: #4A4A4A;
+    -fx-padding: 8;
+}
+
+.table-row-cell:hover {
+    -fx-background-color: #FAF7F2;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #E8C7C8;
+}
+
+.table-view .filler {
+    -fx-background-color: white;
+}
+
+/* ========== ENLACES ========== */
+.bakery-link {
+    -fx-text-fill: #E8C7C8;
+    -fx-underline: false;
+    -fx-cursor: hand;
+    -fx-font-size: 14px;
+}
+
+.bakery-link:hover {
+    -fx-text-fill: #4A4A4A;
+    -fx-underline: true;
+}
+
+/* ========== ETIQUETAS ========== */
+.bakery-label {
+    -fx-text-fill: #4A4A4A;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.bakery-message {
+    -fx-text-fill: #E8C7C8;
+    -fx-font-size: 13px;
+    -fx-font-style: italic;
+}
+
+.bakery-message-error {
+    -fx-text-fill: #DC143C;
+    -fx-font-weight: bold;
+}
+
+.bakery-message-success {
+    -fx-text-fill: #32CD32;
+    -fx-font-weight: bold;
+}
+
+/* ========== DECORACIONES ========== */
+.bakery-divider {
+    -fx-background-color: linear-gradient(to right, transparent, #D9CFC3, transparent);
+    -fx-pref-height: 2;
+    -fx-max-width: Infinity;
+}
+
+.bakery-icon-decoration {
+    -fx-font-size: 24px;
+    -fx-text-fill: #E8C7C8;
+}
+
+/* ========== SCROLLPANE ========== */
+.bakery-scroll {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+}
+
+.bakery-scroll .viewport {
+    -fx-background-color: transparent;
+}
+
+.bakery-scroll .scroll-bar {
+    -fx-background-color: transparent;
+}
+
+.bakery-scroll .scroll-bar .thumb {
+    -fx-background-color: #E8C7C8;
+    -fx-background-radius: 10;
+}
+
+.bakery-scroll .scroll-bar .thumb:hover {
+    -fx-background-color: #D9B5B6;
+}
+
+/* ========== RESPONSIVE ========== */
+.bakery-responsive-container {
+    -fx-alignment: CENTER;
+    -fx-fill-width: true;
+    -fx-max-width: Infinity;
+    -fx-spacing: 20;
+}
+
+.bakery-form-group {
+    -fx-spacing: 10;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.bakery-form-spacing-large {
+    -fx-spacing: 25;
+}
+
+/* ========== NAVBAR WEB-STYLE ========== */
+.navbar-web {
+    -fx-background-color: linear-gradient(to right, #FAF7F2, #F5F0EB);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.08), 8, 0, 0, 2);
+    -fx-padding: 0 30;
+}
+
+.navbar-logo {
+    -fx-font-family: "Segoe UI", "Arial Rounded MT Bold", sans-serif;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1F1A17;
+}
+
+.navbar-button {
+    -fx-background-color: transparent;
+    -fx-background-radius: 8;
+    -fx-text-fill: #4A4A4A;
+    -fx-font-size: 14px;
+    -fx-font-weight: 500;
+    -fx-padding: 10 20;
+    -fx-cursor: hand;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+}
+
+.navbar-button:hover {
+    -fx-background-color: rgba(232, 199, 200, 0.15);
+    -fx-text-fill: #1F1A17;
+}
+
+.navbar-button-active {
+    -fx-background-color: #E8C7C8;
+    -fx-text-fill: white;
+}
+
+.navbar-button-active:hover {
+    -fx-background-color: #D9B5B6;
+}

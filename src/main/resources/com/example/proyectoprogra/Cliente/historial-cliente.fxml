@@ -4,54 +4,79 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.proyectoprogra.controllers.Cliente.HistorialClienteController">
+<BorderPane xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.proyectoprogra.controllers.Cliente.HistorialClienteController"
+            styleClass="bakery-background" stylesheets="@../Styles/bakery-theme.css,@../Styles/responsive.css">
+
+    <!-- Navbar Consistente -->
     <top>
-        <HBox alignment="CENTER_RIGHT"
-              spacing="25"
-              style="-fx-background-color: #FFF0DD;">
+        <HBox styleClass="navbar-web"
+              alignment="CENTER"
+              prefHeight="60"
+              spacing="20">
+
             <padding>
-                <Insets top="10" bottom="10" left="10" right="10"/>
+                <Insets left="20" right="20"/>
             </padding>
 
-            <Button text="Catálogo"
-                    style="-fx-background-color: transparent;"
-                    onAction="#vercatalogo"/>
+            <!-- Spacer izquierdo -->
+            <Region HBox.hgrow="ALWAYS"/>
 
-            <Button text="Hacer Pedido"
-                    style="-fx-background-color: transparent;"
-                    onAction="#hacerpedido"/>
+            <!-- Logo/Marca CENTRADO -->
+            <Label text="SWEET HARMONY" styleClass="navbar-logo"/>
 
-            <Button text="Historial"
-                    style="-fx-background-color: transparent;"
-                    onAction="#historial"/>
+            <!-- Spacer derecho -->
+            <Region HBox.hgrow="ALWAYS"/>
 
-            <Button text="Perfil"
-                    style="-fx-background-color: transparent;"
-                    onAction="#perfil"/>
+            <!-- Botones de Navegación a la DERECHA -->
+            <HBox spacing="8" alignment="CENTER_RIGHT">
+                <Button text="Catálogo" styleClass="navbar-button" onAction="#vercatalogo"/>
+                <Button text="Hacer Pedido" styleClass="navbar-button" onAction="#hacerpedido"/>
+                <Button text="Historial" styleClass="navbar-button" onAction="#historial"/>
+                <Button text="Perfil" styleClass="navbar-button" onAction="#perfil"/>
+            </HBox>
         </HBox>
     </top>
-    <center>
-        <VBox spacing="15" alignment="TOP_CENTER">
-            <padding><Insets top="20" left="20" right="20" bottom="20"/></padding>
-            <Label text="Historial"
-                   style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
-            <TableView fx:id="tablaHistorial"
-                       prefHeight="400"
-                       prefWidth="700">
 
-                <columns>
-                    <TableColumn fx:id="colIdPedido" prefWidth="80" text="ID Pedido" />
-                    <TableColumn fx:id="colFechaPedido" prefWidth="120" text="Fecha Pedido" />
-                    <TableColumn fx:id="colFechaEntrega" prefWidth="120" text="Fecha Entrega" />
-                    <TableColumn fx:id="colEstado" prefWidth="100" text="Estado" />
-                    <TableColumn fx:id="colPastel" prefWidth="150" text="Pastel" />
-                    <TableColumn fx:id="colCantidad" prefWidth="80" text="Cantidad" />
-                    <TableColumn fx:id="colPrecio" prefWidth="80" text="Precio" />
-                    <TableColumn fx:id="colTotal" prefWidth="80" text="Total" />
-                </columns>
-            </TableView>
+    <!-- Historial de pedidos -->
+    <center>
+        <VBox spacing="30" alignment="TOP_CENTER">
+            <padding>
+                <Insets top="40" left="50" right="50" bottom="40"/>
+            </padding>
+
+            <!-- Título -->
+            <VBox alignment="CENTER" spacing="10">
+                <Label text="Mi Historial" styleClass="bakery-title-large" />
+                <Label text="Revisa todos tus pedidos anteriores" styleClass="bakery-subtitle-large" />
+            </VBox>
+
+            <!-- Card con tabla -->
+            <VBox styleClass="bakery-card" spacing="20" alignment="CENTER">
+                <padding>
+                    <Insets top="30" bottom="30" left="30" right="30"/>
+                </padding>
+
+                <TableView fx:id="tablaHistorial"
+                           prefHeight="450"
+                           prefWidth="900"
+                           style="-fx-background-color: white; -fx-background-radius: 10;">
+
+                    <columns>
+                        <TableColumn fx:id="colIdPedido" prefWidth="90" text="ID Pedido" style="-fx-alignment: CENTER;"/>
+                        <TableColumn fx:id="colFechaPedido" prefWidth="130" text="Fecha Pedido" style="-fx-alignment: CENTER;"/>
+                        <TableColumn fx:id="colFechaEntrega" prefWidth="130" text="Fecha Entrega" style="-fx-alignment: CENTER;"/>
+                        <TableColumn fx:id="colEstado" prefWidth="110" text="Estado" style="-fx-alignment: CENTER;"/>
+                        <TableColumn fx:id="colPastel" prefWidth="160" text="Pastel" style="-fx-alignment: CENTER;"/>
+                        <TableColumn fx:id="colCantidad" prefWidth="90" text="Cantidad" style="-fx-alignment: CENTER;"/>
+                        <TableColumn fx:id="colPrecio" prefWidth="90" text="Precio" style="-fx-alignment: CENTER;"/>
+                        <TableColumn fx:id="colTotal" prefWidth="90" text="Total" style="-fx-alignment: CENTER;"/>
+                    </columns>
+                </TableView>
+
+            </VBox>
+
         </VBox>
     </center>
+
 </BorderPane>

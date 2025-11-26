@@ -3,74 +3,183 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.Font?>
 
-<BorderPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.proyectoprogra.controllers.Cliente.PedidoClienteController">
+<BorderPane xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.proyectoprogra.controllers.Cliente.PedidoClienteController"
+            styleClass="bakery-background" stylesheets="@../Styles/bakery-theme.css,@../Styles/responsive.css">
 
+    <!-- Navbar Consistente -->
     <top>
-        <HBox alignment="CENTER_RIGHT"
-              spacing="25"
-              style="-fx-background-color: #FFF0DD;">
+        <HBox styleClass="navbar-web"
+              alignment="CENTER"
+              prefHeight="60"
+              spacing="20">
+
             <padding>
-                <Insets top="10" bottom="10" left="10" right="10"/>
+                <Insets left="20" right="20"/>
             </padding>
 
-            <Button text="Catálogo" style="-fx-background-color: transparent;" onAction="#vercatalogo"/>
-            <Button text="Hacer Pedido" style="-fx-background-color: transparent;" onAction="#hacerpedido"/>
-            <Button text="Historial" style="-fx-background-color: transparent;" onAction="#historial"/>
-            <Button text="Perfil" style="-fx-background-color: transparent;" onAction="#perfil"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label text="SWEET HARMONY" styleClass="navbar-logo"/>
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <HBox spacing="8" alignment="CENTER_RIGHT">
+                <Button text="Catálogo" styleClass="navbar-button" onAction="#vercatalogo"/>
+                <Button text="Hacer Pedido" styleClass="navbar-button-active" onAction="#hacerpedido"/>
+                <Button text="Historial" styleClass="navbar-button" onAction="#historial"/>
+                <Button text="Perfil" styleClass="navbar-button" onAction="#perfil"/>
+            </HBox>
         </HBox>
     </top>
 
+    <!-- Formulario de pedido mejorado -->
     <center>
-        <VBox spacing="15" alignment="TOP_CENTER">
-            <padding><Insets top="20" left="30" right="30" bottom="20"/></padding>
+        <ScrollPane fitToWidth="true" fitToHeight="true" styleClass="bakery-scroll">
+            <VBox spacing="30" alignment="TOP_CENTER" styleClass="bakery-form-spacing-large">
+                <padding>
+                    <Insets top="40" left="50" right="50" bottom="40"/>
+                </padding>
 
-            <Label text="Realizar Pedido">
-                <font><Font name="Constantia" size="21"/></font>
-            </Label>
+                <!-- Título mejorado -->
+                <VBox alignment="CENTER" spacing="15">
+                    <Label text="Realizar Pedido Personalizado" styleClass="bakery-title-large" />
+                    <Label text="Completa los detalles de tu pastel perfecto" styleClass="bakery-subtitle-large" />
+                    <VBox styleClass="bakery-divider" prefHeight="2" prefWidth="300"/>
+                </VBox>
 
-            <Label text="Completar los detalles de su pastel"/>
+                <!-- Card del formulario mejorado -->
+                <VBox styleClass="bakery-card-large" spacing="25" alignment="CENTER" prefWidth="600">
+                    <padding>
+                        <Insets top="40" bottom="40" left="50" right="50"/>
+                    </padding>
 
-            <VBox spacing="8" alignment="CENTER">
+                    <!-- Paso 1: Información Personal -->
+                    <VBox spacing="20" alignment="CENTER_LEFT">
+                        <Label text="1. Información de Contacto" styleClass="bakery-title" style="-fx-font-size: 18px;"/>
+                        
+                        <!-- Nombre -->
+                        <VBox spacing="8" alignment="CENTER_LEFT" styleClass="bakery-form-group">
+                            <Label text="Nombre Completo *" styleClass="bakery-label" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+                            <TextField fx:id="txtnombrecliente" 
+                                       styleClass="bakery-input-large" 
+                                       prefWidth="500"
+                                       promptText="Ingresa tu nombre completo"/>
+                        </VBox>
 
-                <Label text="Nombre"/>
-                <TextField fx:id="txtnombrecliente"
-                           prefWidth="220" prefHeight="22"  maxWidth="220"/>
+                        <!-- Correo -->
+                        <VBox spacing="8" alignment="CENTER_LEFT" styleClass="bakery-form-group">
+                            <Label text="Correo Electrónico *" styleClass="bakery-label" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+                            <TextField fx:id="txtcorreocliente" 
+                                       styleClass="bakery-input-large" 
+                                       prefWidth="500"
+                                       promptText="ejemplo@correo.com"/>
+                        </VBox>
+                    </VBox>
 
-                <Label text="Correo"/>
-                <TextField fx:id="txtcorreocliente"
-                           prefWidth="220" prefHeight="22"  maxWidth="220"/>
+                    <!-- Divider -->
+                    <VBox styleClass="bakery-divider" prefHeight="2" />
 
-                <Label text="Tipo de Pastel"/>
-                <ComboBox fx:id="cmbtipodepasteles"
-                          prefWidth="220" prefHeight="22"/>
+                    <!-- Paso 2: Detalles del Pastel -->
+                    <VBox spacing="20" alignment="CENTER_LEFT">
+                        <Label text="2. Detalles del Pastel" styleClass="bakery-title" style="-fx-font-size: 18px;"/>
+                        
+                        <!-- Tipo de Pastel -->
+                        <VBox spacing="8" alignment="CENTER_LEFT" styleClass="bakery-form-group">
+                            <Label text="Tipo de Pastel *" styleClass="bakery-label" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+                            <ComboBox fx:id="cmbtipodepasteles" 
+                                      styleClass="bakery-input-large" 
+                                      prefWidth="500"
+                                      promptText="Selecciona el tipo de pastel"/>
+                        </VBox>
 
-                <Label text="Tamaño"/>
-                <ComboBox fx:id="cmbtamañopasteles"
-                          prefWidth="220" prefHeight="22"/>
+                        <!-- Tamaño -->
+                        <VBox spacing="8" alignment="CENTER_LEFT" styleClass="bakery-form-group">
+                            <Label text="Tamaño *" styleClass="bakery-label" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+                            <ComboBox fx:id="cmbtamañopasteles" 
+                                      styleClass="bakery-input-large" 
+                                      prefWidth="500"
+                                      promptText="Selecciona el tamaño"/>
+                            <Label text="Pequeño (6-8 personas) | Mediano (10-12 personas) | Grande (15-20 personas)" 
+                                   styleClass="bakery-label" 
+                                   style="-fx-font-size: 11px; -fx-text-fill: #4A4A4A; -fx-opacity: 0.7;"/>
+                        </VBox>
 
-                <Label text="Fecha de Entrega"/>
-                <DatePicker fx:id="dtfechadeentrega"
-                            prefWidth="220" prefHeight="22"/>
+                        <!-- Fecha de Entrega -->
+                        <VBox spacing="8" alignment="CENTER_LEFT" styleClass="bakery-form-group">
+                            <Label text="Fecha de Entrega *" styleClass="bakery-label" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+                            <DatePicker fx:id="dtfechadeentrega" 
+                                        styleClass="bakery-input-large" 
+                                        prefWidth="500"
+                                        promptText="Selecciona la fecha"/>
+                            <Label text="Pedidos con mínimo 48 horas de anticipación" 
+                                   styleClass="bakery-label" 
+                                   style="-fx-font-size: 11px; -fx-text-fill: #E8C7C8; -fx-font-weight: bold;"/>
+                        </VBox>
+                    </VBox>
 
-                <Label text="Descripción Personalizada"/>
-                <TextField fx:id="txtdescripcionpersonalizada"
-                           prefWidth="220" prefHeight="45"  maxWidth="220"/>
+                    <!-- Divider -->
+                    <VBox styleClass="bakery-divider" prefHeight="2" />
 
-                <Button fx:id="btnconfirmarpedido"
-                        text="Confirmar Pedido"
-                        prefWidth="200"
-                        prefHeight="28"
-                        style="-fx-background-color: #E2A16F; -fx-text-fill: white;"
-                        onAction="#confirmarpedido">
-                    <font><Font name="Corbel" size="14"/></font>
-                </Button>
+                    <!-- Paso 3: Personalización -->
+                    <VBox spacing="20" alignment="CENTER_LEFT">
+                        <Label text="3. Personalización (Opcional)" styleClass="bakery-title" style="-fx-font-size: 18px;"/>
+                        
+                        <!-- Descripción Personalizada -->
+                        <VBox spacing="8" alignment="CENTER_LEFT" styleClass="bakery-form-group">
+                            <Label text="Descripción Personalizada" styleClass="bakery-label" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+                            <TextArea fx:id="txtdescripcionpersonalizada" 
+                                      styleClass="bakery-input-large" 
+                                      prefWidth="500" 
+                                      prefHeight="100"
+                                      wrapText="true"
+                                      promptText="Describe cualquier detalle especial: colores, decoración, mensaje, alergias, etc."/>
+                            <Label text="Máximo 200 caracteres" 
+                                   styleClass="bakery-label" 
+                                   style="-fx-font-size: 11px; -fx-text-fill: #4A4A4A; -fx-opacity: 0.7;"/>
+                        </VBox>
+                    </VBox>
+
+                    <!-- Divider -->
+                    <VBox styleClass="bakery-divider" prefHeight="2" />
+
+                    <!-- Resumen y botón -->
+                    <VBox spacing="20" alignment="CENTER">
+                        <!-- Nota importante -->
+                        <VBox alignment="CENTER" spacing="10" style="-fx-background-color: rgba(232, 199, 200, 0.15); -fx-background-radius: 10; -fx-padding: 15;">
+                            <Label text="Importante" styleClass="bakery-label" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+                            <Label text="Todos los campos marcados con * son obligatorios" 
+                                   styleClass="bakery-label" 
+                                   style="-fx-font-size: 12px; -fx-text-alignment: center;"
+                                   textAlignment="CENTER"
+                                   wrapText="true"/>
+                            <Label text="Recibirás una confirmación por correo electrónico" 
+                                   styleClass="bakery-label" 
+                                   style="-fx-font-size: 12px; -fx-text-alignment: center;"
+                                   textAlignment="CENTER"
+                                   wrapText="true"/>
+                        </VBox>
+
+                        <!-- Botón Confirmar mejorado -->
+                        <Button fx:id="btnconfirmarpedido"
+                                text="CONFIRMAR PEDIDO"
+                                styleClass="bakery-button-large"
+                                prefWidth="400"
+                                prefHeight="65"
+                                onAction="#confirmarpedido"
+                                style="-fx-font-size: 18px;"/>
+                        
+                        <!-- Botón Cancelar -->
+                        <Button text="Cancelar"
+                                styleClass="bakery-button-secondary"
+                                prefWidth="200"
+                                prefHeight="45"
+                                onAction="#vercatalogo"/>
+                    </VBox>
+
+                </VBox>
 
             </VBox>
-
-        </VBox>
+        </ScrollPane>
     </center>
+
 </BorderPane>

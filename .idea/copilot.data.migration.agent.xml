@@ -1,30 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="AgentMigrationStateService">
+    <option name="migrationStatus" value="IN_PROGRESS" />
     <option name="pendingSessionIds">
+      <option value="74180224-150e-4314-89a2-e56c773f1b17" />
       <option value="9080fa67-75f5-45b5-9e4b-a5d26cc42af9" />
+      <option value="b9a6c322-692c-4d49-996d-b6e4828ec3b6" />
     </option>
     <option name="pendingTurns">
       <map>
+        <entry key="74180224-150e-4314-89a2-e56c773f1b17">
+          <value>
+            <set>
+              <option value="32ade398-7a36-48c2-81b1-12a28b53c2fc" />
+              <option value="4d4328c0-4b1e-4800-b8b8-4853974e36f8" />
+              <option value="877ffb80-d858-4201-9543-521e0cd40f18" />
+              <option value="d466600f-459d-464a-8afc-d6e75b4d92a7" />
+              <option value="fc6b35c3-9de8-4a7b-86a2-287bfda84415" />
+            </set>
+          </value>
+        </entry>
         <entry key="9080fa67-75f5-45b5-9e4b-a5d26cc42af9">
           <value>
             <set>
-              <option value="df3c5664-adb1-42c7-bf8c-4de7a15d8040" />
-              <option value="da8c6195-5cd3-46ca-8085-8ba311a61591" />
               <option value="1e107920-cdd6-484c-91ac-7ad7d5927bab" />
+              <option value="da8c6195-5cd3-46ca-8085-8ba311a61591" />
+              <option value="df3c5664-adb1-42c7-bf8c-4de7a15d8040" />
             </set>
           </value>
         </entry>
       </map>
     </option>
     <pendingWorkingSetItems>
-      <entry key="9080fa67-75f5-45b5-9e4b-a5d26cc42af9">
-        <set>
-          <option value="file://$PROJECT_DIR$/src/main/resources/com/example/proyectoprogra/Visualizacion/recuperacion-pin-view.fxml" />
-          <option value="file://$PROJECT_DIR$/src/main/java/com/example/proyectoprogra/controllers/Visualizacion/RecuperacionDePinController.java" />
-          <option value="file://$PROJECT_DIR$/src/main/java/com/example/proyectoprogra/controllers/Visualizacion/LoginController.java" />
-        </set>
-      </entry>
+      <entry key="74180224-150e-4314-89a2-e56c773f1b17" />
+      <entry key="9080fa67-75f5-45b5-9e4b-a5d26cc42af9" />
     </pendingWorkingSetItems>
   </component>
 </project>

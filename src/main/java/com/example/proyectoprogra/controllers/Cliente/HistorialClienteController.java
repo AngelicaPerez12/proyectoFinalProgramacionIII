@@ -55,6 +55,7 @@ public class HistorialClienteController {
     }
 
     public void vercatalogo(ActionEvent actionEvent) {
+        System.out.println("DEBUG: HistorialClienteController.vercatalogo invoked");
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/proyectoprogra/Cliente/catalogo-cliente.fxml"));
             Parent root = loader.load();

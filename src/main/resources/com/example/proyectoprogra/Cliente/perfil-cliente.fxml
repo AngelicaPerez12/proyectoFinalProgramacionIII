@@ -4,61 +4,97 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.proyectoprogra.controllers.Cliente.PerfilClienteController">
+<BorderPane xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.proyectoprogra.controllers.Cliente.PerfilClienteController"
+            styleClass="bakery-background" stylesheets="@../Styles/bakery-theme.css,@../Styles/responsive.css">
 
+    <!-- Navbar Consistente -->
     <top>
-        <HBox alignment="CENTER_RIGHT"
-              spacing="25"
-              style="-fx-background-color: #FFF0DD;">
+        <HBox styleClass="navbar-web"
+              alignment="CENTER"
+              prefHeight="60"
+              spacing="20">
+
             <padding>
-                <Insets top="10" bottom="10" left="10" right="10"/>
+                <Insets left="20" right="20"/>
             </padding>
 
-            <Button text="Catálogo" style="-fx-background-color: transparent;" onAction="#vercatalogo"/>
-            <Button text="Hacer Pedido" style="-fx-background-color: transparent;" onAction="#hacerpedido"/>
-            <Button text="Historial" style="-fx-background-color: transparent;" onAction="#historial"/>
-            <Button text="Perfil" style="-fx-background-color: transparent;" onAction="#perfil"/>
+            <!-- Spacer izquierdo -->
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <!-- Logo/Marca CENTRADO -->
+            <Label text="SWEET HARMONY" styleClass="navbar-logo"/>
+
+            <!-- Spacer derecho -->
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <!-- Botones de Navegación a la DERECHA -->
+            <HBox spacing="8" alignment="CENTER_RIGHT">
+                <Button text="Catálogo" styleClass="navbar-button" onAction="#vercatalogo"/>
+                <Button text="Hacer Pedido" styleClass="navbar-button" onAction="#hacerpedido"/>
+                <Button text="Historial" styleClass="navbar-button" onAction="#historial"/>
+                <Button text="Perfil" styleClass="navbar-button" onAction="#perfil"/>
+            </HBox>
         </HBox>
     </top>
 
+    <!-- Perfil del usuario -->
     <center>
-        <VBox spacing="18" alignment="TOP_CENTER">
-            <padding><Insets top="25" left="20" right="20" bottom="20"/></padding>
+        <VBox spacing="30" alignment="TOP_CENTER">
+            <padding>
+                <Insets top="40" left="50" right="50" bottom="40"/>
+            </padding>
 
-            <Label text="Mi Perfil"
-                   style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+            <!-- Título -->
+            <VBox alignment="CENTER" spacing="10">
+                <Label text="Mi Perfil" styleClass="bakery-title-large" />
+                <Label text="Gestiona tu información personal" styleClass="bakery-subtitle-large" />
+            </VBox>
 
-            <GridPane hgap="15" vgap="12" alignment="CENTER">
-                <columnConstraints>
-                    <ColumnConstraints halignment="RIGHT"/>
-                    <ColumnConstraints halignment="LEFT"/>
-                </columnConstraints>
+            <!-- Card del perfil -->
+            <VBox styleClass="bakery-card-large" spacing="25" alignment="CENTER">
+                <padding>
+                    <Insets top="40" bottom="40" left="50" right="50"/>
+                </padding>
 
-                <Label text="Nombre:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-                <TextField fx:id="txtNombre" prefWidth="200" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                <!-- Formulario -->
+                <GridPane hgap="20" vgap="22" alignment="CENTER">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="RIGHT" minWidth="150"/>
+                        <ColumnConstraints halignment="LEFT" minWidth="300"/>
+                    </columnConstraints>
 
-                <Label text="Apellido:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-                <TextField fx:id="txtApellido" prefWidth="200" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                    <!-- Nombre -->
+                    <Label text="Nombre:" styleClass="bakery-label" style="-fx-font-size: 16px;" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                    <TextField fx:id="txtNombre" styleClass="bakery-input-large" prefWidth="300" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
 
-                <Label text="Correo:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
-                <TextField fx:id="txtCorreo" prefWidth="200" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                    <!-- Apellido -->
+                    <Label text="Apellido:" styleClass="bakery-label" style="-fx-font-size: 16px;" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                    <TextField fx:id="txtApellido" styleClass="bakery-input-large" prefWidth="300" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
 
-                <Label text="Contraseña:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
-                <PasswordField fx:id="txtPassword" prefWidth="200" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                    <!-- Correo -->
+                    <Label text="Correo:" styleClass="bakery-label" style="-fx-font-size: 16px;" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                    <TextField fx:id="txtCorreo" styleClass="bakery-input-large" prefWidth="300" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
 
-                <Label text="Rol:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
-                <TextField fx:id="txtRol" prefWidth="200" editable="false" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
-            </GridPane>
+                    <!-- Contraseña -->
+                    <Label text="Contraseña:" styleClass="bakery-label" style="-fx-font-size: 16px;" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                    <PasswordField fx:id="txtPassword" styleClass="bakery-input-large" prefWidth="300" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
 
-            <HBox spacing="20" alignment="CENTER">
-                <Button text="Guardar Cambios" onAction="#guardarCambios"/>
+                    <!-- Rol -->
+                    <Label text="Rol:" styleClass="bakery-label" style="-fx-font-size: 16px;" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                    <TextField fx:id="txtRol" styleClass="bakery-input-large" prefWidth="300" editable="false" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                </GridPane>
 
-                <Button text="Cerrar Sesión"
-                        style="-fx-background-color: #d9534f; -fx-text-fill: white;"
-                        onAction="#cerrarSesion"/>
-            </HBox>
+                <!-- Divider -->
+                <VBox styleClass="bakery-divider" prefHeight="2" />
+
+                <!-- Botones -->
+                <HBox spacing="25" alignment="CENTER">
+                    <Button text="GUARDAR CAMBIOS" onAction="#guardarCambios" styleClass="bakery-button-large" prefWidth="220" prefHeight="60"/>
+                    <Button text="CERRAR SESIÓN" onAction="#cerrarSesion" styleClass="bakery-button-secondary" style="-fx-min-height: 55px;" prefWidth="220" prefHeight="60"/>
+                </HBox>
+
+            </VBox>
 
         </VBox>
     </center>

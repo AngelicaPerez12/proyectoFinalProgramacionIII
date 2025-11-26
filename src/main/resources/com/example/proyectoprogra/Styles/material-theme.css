@@ -93,6 +93,8 @@
     -fx-background-radius: 8;
     -fx-padding: 24;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.14), 4, 0, 0, 2);
+    -fx-pref-width: USE_COMPUTED_SIZE;
+    -fx-max-width: Infinity;
 }
 
 .material-card:hover {
@@ -176,6 +178,9 @@
     -fx-font-size: 16px;
     -fx-text-fill: #000000DE;
     -fx-prompt-text-fill: #00000099;
+    -fx-pref-width: USE_COMPUTED_SIZE;
+    -fx-max-width: Infinity;
+    -fx-min-width: 200;
 }
 
 .material-input:focused {

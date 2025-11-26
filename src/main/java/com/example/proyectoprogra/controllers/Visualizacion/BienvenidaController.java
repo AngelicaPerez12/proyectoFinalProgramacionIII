@@ -5,7 +5,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
@@ -33,16 +32,14 @@ public class BienvenidaController {
         cambiarVista(event,
                 "/com/example/proyectoprogra/Visualizacion/register-view.fxml",
                 "Registrarse",
-                null
-        );
+                null);
     }
 
     public void entrarallogin(ActionEvent event) {
         cambiarVista(event,
                 "/com/example/proyectoprogra/Visualizacion/login-view.fxml",
                 "Iniciar Sesión",
-                "/com/example/proyectoprogra/Styles/login.css"
-        );
+                "/com/example/proyectoprogra/Styles/login.css");
     }
 
     public void CerrarSesion(ActionEvent event) {
@@ -53,7 +50,8 @@ public class BienvenidaController {
         } else if (rootPane != null && rootPane.getScene() != null) {
             currentStage = (Stage) rootPane.getScene().getWindow();
         }
-        if (currentStage != null) currentStage.close();
+        if (currentStage != null)
+            currentStage.close();
     }
 
     private void cambiarVista(ActionEvent event, String fxmlPath, String titulo, String cssPath) {
@@ -61,11 +59,10 @@ public class BienvenidaController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
             Parent root = loader.load();
 
-            Scene scene = new Scene(root);
-
             if (cssPath != null) {
                 URL cssUrl = getClass().getResource(cssPath);
-                if (cssUrl != null) scene.getStylesheets().add(cssUrl.toExternalForm());
+                if (cssUrl != null)
+                    root.getStylesheets().add(cssUrl.toExternalForm());
             }
 
             Stage currentStage = null;
@@ -76,16 +73,12 @@ public class BienvenidaController {
             }
 
             if (currentStage != null) {
-                currentStage.setTitle(titulo);
-                currentStage.setScene(scene);
-                currentStage.setMaximized(true);
-                currentStage.show();
+                // Usar WindowUtils para configurar la ventana existente
+                com.example.proyectoprogra.utils.WindowUtils.setupAndShowStage(currentStage, root, titulo);
             } else {
+                // Crear nueva ventana con WindowUtils
                 Stage stage = new Stage();
-                stage.setTitle(titulo);
-                stage.setScene(scene);
-                stage.setMaximized(true);
-                stage.show();
+                com.example.proyectoprogra.utils.WindowUtils.setupAndShowStage(stage, root, titulo);
             }
 
         } catch (IOException e) {

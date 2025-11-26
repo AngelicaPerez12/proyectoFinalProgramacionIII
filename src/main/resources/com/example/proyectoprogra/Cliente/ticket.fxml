@@ -1,25 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox spacing="8" style="-fx-padding:20;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyectoprogra.controllers.Cliente.TicketController">
+<VBox spacing="15" alignment="CENTER" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" 
+      fx:controller="com.example.proyectoprogra.controllers.Cliente.TicketController"
+      styleClass="bakery-card-large" stylesheets="@/com/example/proyectoprogra/Styles/bakery-theme.css"
+      style="-fx-background-color: white; -fx-padding: 40;">
 
-    <ImageView fx:id="imgLogo" fitHeight="60" fitWidth="120" preserveRatio="true">
-      <image>
-         <Image url="@../Imagenes/sweetharmony.png" />
-      </image></ImageView>
-    <Label fx:id="lblTitulo" style="-fx-font-size:18px; -fx-font-weight:bold;" />
-    <Label fx:id="lblId" />
-    <Label fx:id="lblCliente" />
-    <Label fx:id="lblCorreo" />
-    <Label fx:id="lblPastel" />
-    <Label fx:id="lblTipoTamano" />
-    <Label fx:id="lblDescripcion" wrapText="true" />
-    <Label fx:id="lblFechaEntrega" />
-    <Label fx:id="lblPrecio" style="-fx-font-size:16px; -fx-font-weight:bold;" />
-    <Button onAction="#cerrar" prefHeight="25.0" prefWidth="123.0" text="Cerrar" />
+    <padding>
+        <Insets top="30" bottom="30" left="40" right="40"/>
+    </padding>
+
+    <!-- Logo -->
+    <ImageView fx:id="imgLogo" fitHeight="80" fitWidth="160" preserveRatio="true">
+        <image>
+            <Image url="@/com/example/proyectoprogra/Imagenes/sweetharmony.png" />
+        </image>
+    </ImageView>
+
+    <!-- Emoji decorativo -->
+    <Label text="🎂" style="-fx-font-size: 48px;"/>
+
+    <!-- Título -->
+    <Label fx:id="lblTitulo" text="TICKET DE PEDIDO" styleClass="bakery-title" style="-fx-font-size: 24px;"/>
+
+    <!-- Divider -->
+    <VBox styleClass="bakery-divider" prefHeight="2" prefWidth="300"/>
+
+    <!-- Información del pedido -->
+    <VBox spacing="12" alignment="CENTER_LEFT">
+        <Label fx:id="lblId" styleClass="bakery-label" style="-fx-font-size: 15px;"/>
+        <Label fx:id="lblCliente" styleClass="bakery-label" style="-fx-font-size: 15px;"/>
+        <Label fx:id="lblCorreo" styleClass="bakery-subtitle" style="-fx-font-size: 14px;"/>
+        <Label fx:id="lblPastel" styleClass="bakery-title" style="-fx-font-size: 18px; -fx-text-fill: #D4AF37;"/>
+        <Label fx:id="lblTipoTamano" styleClass="bakery-label" style="-fx-font-size: 14px;"/>
+        <Label fx:id="lblDescripcion" wrapText="true" styleClass="bakery-subtitle" style="-fx-font-size: 13px;" prefWidth="350"/>
+        <Label fx:id="lblFechaEntrega" styleClass="bakery-label" style="-fx-font-size: 15px;"/>
+    </VBox>
+
+    <!-- Divider -->
+    <VBox styleClass="bakery-divider" prefHeight="2" prefWidth="300"/>
+
+    <!-- Precio total -->
+    <Label fx:id="lblPrecio" styleClass="bakery-title" style="-fx-font-size: 26px; -fx-text-fill: #D4AF37;">
+        <text>
+            <String>TOTAL: $0.00</String>
+        </text>
+    </Label>
+
+    <!-- Mensaje de agradecimiento -->
+    <Label text="✨ ¡Gracias por tu pedido! ✨" styleClass="bakery-subtitle" style="-fx-font-size: 16px;"/>
+
+    <!-- Botón cerrar -->
+    <Button onAction="#cerrar" text="CERRAR" styleClass="bakery-button" prefHeight="50" prefWidth="200"/>
+
 </VBox>

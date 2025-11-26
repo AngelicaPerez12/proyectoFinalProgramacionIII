@@ -83,6 +83,7 @@ public class CatalogoClienteController {
 
     @FXML
     void vercatalogo(ActionEvent actionEvent) {
+        System.out.println("DEBUG: CatalogoClienteController.vercatalogo invoked");
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/proyectoprogra/Cliente/catalogo-cliente.fxml"));
             Parent root = loader.load();
