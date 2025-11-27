@@ -3,123 +3,126 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<StackPane xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" 
-           fx:controller="com.example.proyectoprogra.controllers.Visualizacion.BienvenidaController"
-           styleClass="bakery-background" stylesheets="@../Styles/bakery-theme.css,@../Styles/responsive.css">
+<ScrollPane xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.proyectoprogra.controllers.Visualizacion.BienvenidaController"
+            fitToWidth="true"
+            style="-fx-background-color: transparent;"
+            stylesheets="@../Styles/bakery-theme.css,@../Styles/responsive.css">
 
-    <!-- Contenedor principal -->
-    <VBox alignment="CENTER" spacing="40" fillWidth="true" styleClass="bakery-responsive-container">
-        <padding>
-            <Insets top="50" bottom="50" left="40" right="40" />
-        </padding>
+    <content>
+        <StackPane styleClass="bakery-background">
 
-        <!-- Logo y título -->
-        <VBox alignment="CENTER" spacing="15">
-            <!-- Logo grande de cupcake -->
-            <Label text="🧁" styleClass="bakery-logo-large, responsive-logo" />
-            <Label text="✨" styleClass="bakery-icon-decoration" style="-fx-font-size: 28px;" />
-        </VBox>
+            <!-- Contenedor principal -->
+            <VBox alignment="CENTER" spacing="40" fillWidth="true" styleClass="bakery-responsive-container">
+                <padding>
+                    <Insets top="50" bottom="50" left="40" right="40" />
+                </padding>
 
-        <!-- Título principal -->
-        <VBox alignment="CENTER" spacing="10">
-            <Label text="SWEET HARMONY" styleClass="bakery-title-large" />
-            <Label text="Pastelería Artesanal Premium" styleClass="bakery-subtitle-large" />
-        </VBox>
+                <!-- Logo y título -->
+                <VBox alignment="CENTER" spacing="15">
+                    <Label text="🧁" styleClass="bakery-logo-large, responsive-logo" />
+                    <Label text="✨" styleClass="bakery-icon-decoration" style="-fx-font-size: 28px;" />
+                </VBox>
 
-        <!-- Card principal con información -->
-        <VBox styleClass="bakery-card-large, responsive-card" spacing="30" alignment="CENTER">
-            <padding>
-                <Insets top="50" bottom="50" left="50" right="50" />
-            </padding>
+                <!-- Título principal -->
+                <VBox alignment="CENTER" spacing="10">
+                    <Label text="SWEET HARMONY" styleClass="bakery-title-large" />
+                    <Label text="Pastelería Artesanal Premium" styleClass="bakery-subtitle-large" />
+                </VBox>
 
-            <!-- Título de bienvenida -->
-            <VBox alignment="CENTER" spacing="8">
-                <Label text="Bienvenido a Sweet Harmony" styleClass="bakery-title" style="-fx-font-size: 28px;" textAlignment="CENTER" wrapText="true" />
-                <HBox alignment="CENTER" spacing="5">
-                    <Label text="🍰" style="-fx-font-size: 20px;" />
-                    <Label text="Donde cada pastel cuenta una historia" styleClass="bakery-subtitle" />
-                    <Label text="🍰" style="-fx-font-size: 20px;" />
-                </HBox>
+                <!-- Card principal -->
+                <VBox styleClass="bakery-card-large, responsive-card" spacing="30" alignment="CENTER">
+                    <padding>
+                        <Insets top="50" bottom="50" left="50" right="50" />
+                    </padding>
+
+                    <!-- Título -->
+                    <VBox alignment="CENTER" spacing="8">
+                        <Label text="Bienvenido a Sweet Harmony" styleClass="bakery-title" style="-fx-font-size: 28px;" textAlignment="CENTER" wrapText="true" />
+                        <HBox alignment="CENTER" spacing="5">
+                            <Label text="🍰" style="-fx-font-size: 20px;" />
+                            <Label text="Donde cada pastel cuenta una historia" styleClass="bakery-subtitle" />
+                            <Label text="🍰" style="-fx-font-size: 20px;" />
+                        </HBox>
+                    </VBox>
+
+                    <VBox styleClass="bakery-divider" prefHeight="2" />
+
+                    <!-- Descripción -->
+                    <Label text="Descubre nuestros deliciosos pasteles artesanales, personalizados especialmente para ti. Cada creación es única y está hecha con amor y los mejores ingredientes."
+                           styleClass="bakery-label" style="-fx-font-size: 16px; -fx-text-fill: #8B4513;"
+                           textAlignment="CENTER" wrapText="true" maxWidth="600" />
+
+                    <!-- Features -->
+                    <HBox spacing="40" alignment="CENTER">
+                        <VBox.margin>
+                            <Insets top="20" />
+                        </VBox.margin>
+
+                        <VBox alignment="CENTER" spacing="12" prefWidth="180">
+                            <Label text="🍰" style="-fx-font-size: 52px;" />
+                            <Label text="50+ Sabores" styleClass="bakery-label" style="-fx-font-size: 16px;" />
+                            <Label text="Variedad artesanal" styleClass="bakery-subtitle" style="-fx-font-size: 13px;" textAlignment="CENTER" wrapText="true" />
+                        </VBox>
+
+                        <VBox alignment="CENTER" spacing="12" prefWidth="180">
+                            <Label text="✨" style="-fx-font-size: 52px;" />
+                            <Label text="Personalización" styleClass="bakery-label" style="-fx-font-size: 16px;" />
+                            <Label text="Diseños únicos" styleClass="bakery-subtitle" style="-fx-font-size: 13px;" textAlignment="CENTER" wrapText="true" />
+                        </VBox>
+
+                        <VBox alignment="CENTER" spacing="12" prefWidth="180">
+                            <Label text="🚚" style="-fx-font-size: 52px;" />
+                            <Label text="Entrega Rápida" styleClass="bakery-label" style="-fx-font-size: 16px;" />
+                            <Label text="A tiempo siempre" styleClass="bakery-subtitle" style="-fx-font-size: 13px;" textAlignment="CENTER" wrapText="true" />
+                        </VBox>
+                    </HBox>
+
+                    <VBox styleClass="bakery-divider" prefHeight="2" />
+
+                    <!-- Botones -->
+                    <VBox spacing="18" alignment="CENTER">
+                        <VBox.margin>
+                            <Insets top="10" />
+                        </VBox.margin>
+
+                        <Button fx:id="btnIniciarSesion"
+                                text="INICIAR SESIÓN 🎂"
+                                onAction="#entrarallogin"
+                                styleClass="bakery-button-large"
+                                prefWidth="350" prefHeight="65" />
+
+                        <Button fx:id="btnRegistro"
+                                text="CREAR CUENTA NUEVA ✨"
+                                onAction="#abrirRegistro"
+                                styleClass="bakery-button-secondary"
+                                style="-fx-min-height: 60px; -fx-font-size: 16px;"
+                                prefWidth="350" prefHeight="60" />
+                    </VBox>
+                </VBox>
+
+                <!-- Footer -->
+                <VBox alignment="CENTER" spacing="10">
+                    <HBox alignment="CENTER" spacing="5">
+                        <Label text="🧁" style="-fx-font-size: 16px;" />
+                        <Label text="© 2024 Sweet Harmony - Pastelería Premium" styleClass="bakery-subtitle" style="-fx-font-size: 13px;" />
+                        <Label text="🧁" style="-fx-font-size: 16px;" />
+                    </HBox>
+                    <Button text="Salir"
+                            onAction="#CerrarSesion"
+                            styleClass="bakery-link"
+                            style="-fx-background-color: transparent; -fx-font-size: 13px;"
+                            prefWidth="80" />
+                </VBox>
             </VBox>
 
-            <!-- Divider decorativo -->
-            <VBox styleClass="bakery-divider" prefHeight="2" />
+        </StackPane>
+    </content>
 
-            <!-- Descripción -->
-            <Label text="Descubre nuestros deliciosos pasteles artesanales, personalizados especialmente para ti. Cada creación es única y está hecha con amor y los mejores ingredientes." 
-                   styleClass="bakery-label" style="-fx-font-size: 16px; -fx-text-fill: #8B4513;" textAlignment="CENTER" wrapText="true" maxWidth="600" />
-
-            <!-- Features en grid horizontal -->
-            <HBox spacing="40" alignment="CENTER">
-                <VBox.margin>
-                    <Insets top="20" />
-                </VBox.margin>
-
-                <!-- Feature 1 -->
-                <VBox alignment="CENTER" spacing="12" prefWidth="180">
-                    <Label text="🍰" style="-fx-font-size: 52px;" />
-                    <Label text="50+ Sabores" styleClass="bakery-label" style="-fx-font-size: 16px;" />
-                    <Label text="Variedad artesanal" styleClass="bakery-subtitle" style="-fx-font-size: 13px;" textAlignment="CENTER" wrapText="true" />
-                </VBox>
-
-                <!-- Feature 2 -->
-                <VBox alignment="CENTER" spacing="12" prefWidth="180">
-                    <Label text="✨" style="-fx-font-size: 52px;" />
-                    <Label text="Personalización" styleClass="bakery-label" style="-fx-font-size: 16px;" />
-                    <Label text="Diseños únicos" styleClass="bakery-subtitle" style="-fx-font-size: 13px;" textAlignment="CENTER" wrapText="true" />
-                </VBox>
-
-                <!-- Feature 3 -->
-                <VBox alignment="CENTER" spacing="12" prefWidth="180">
-                    <Label text="🚚" style="-fx-font-size: 52px;" />
-                    <Label text="Entrega Rápida" styleClass="bakery-label" style="-fx-font-size: 16px;" />
-                    <Label text="A tiempo siempre" styleClass="bakery-subtitle" style="-fx-font-size: 13px;" textAlignment="CENTER" wrapText="true" />
-                </VBox>
-            </HBox>
-
-            <!-- Divider -->
-            <VBox styleClass="bakery-divider" prefHeight="2" />
-
-            <!-- Botones de acción GRANDES -->
-            <VBox spacing="18" alignment="CENTER">
-                <VBox.margin>
-                    <Insets top="10" />
-                </VBox.margin>
-
-                <!-- Botón primario: Iniciar Sesión -->
-                <Button fx:id="btnIniciarSesion" 
-                          text="INICIAR SESIÓN 🎂" 
-                          onAction="#entrarallogin"
-                          styleClass="bakery-button-large"
-                          prefWidth="350" prefHeight="65" />
-
-                <!-- Botón secundario: Registrarse -->
-                <Button fx:id="btnRegistro" 
-                          text="CREAR CUENTA NUEVA ✨" 
-                          onAction="#abrirRegistro"
-                          styleClass="bakery-button-secondary"
-                          style="-fx-min-height: 60px; -fx-font-size: 16px;"
-                          prefWidth="350" prefHeight="60" />
-            </VBox>
-        </VBox>
-
-        <!-- Footer -->
-        <VBox alignment="CENTER" spacing="10">
-            <HBox alignment="CENTER" spacing="5">
-                <Label text="🧁" style="-fx-font-size: 16px;" />
-                <Label text="© 2024 Sweet Harmony - Pastelería Premium" styleClass="bakery-subtitle" style="-fx-font-size: 13px;" />
-                <Label text="🧁" style="-fx-font-size: 16px;" />
-            </HBox>
-            <Button text="Salir" 
-                      onAction="#CerrarSesion"
-                      styleClass="bakery-link"
-                      style="-fx-background-color: transparent; -fx-font-size: 13px;"
-                      prefWidth="80" />
-        </VBox>
-    </VBox>
-
-</StackPane>
+</ScrollPane>

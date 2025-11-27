@@ -7,21 +7,16 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox spacing="15" alignment="CENTER" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" 
+<?import java.lang.String?>
+<VBox spacing="15" alignment="CENTER" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.example.proyectoprogra.controllers.Cliente.TicketController"
-      styleClass="bakery-card-large" stylesheets="@/com/example/proyectoprogra/Styles/bakery-theme.css"
+      styleClass="bakery-card-large" stylesheets="@../Styles/bakery-theme.css"
       style="-fx-background-color: white; -fx-padding: 40;">
 
     <padding>
         <Insets top="30" bottom="30" left="40" right="40"/>
     </padding>
 
-    <!-- Logo -->
-    <ImageView fx:id="imgLogo" fitHeight="80" fitWidth="160" preserveRatio="true">
-        <image>
-            <Image url="@/com/example/proyectoprogra/Imagenes/sweetharmony.png" />
-        </image>
-    </ImageView>
 
     <!-- Emoji decorativo -->
     <Label text="🎂" style="-fx-font-size: 48px;"/>
@@ -47,11 +42,10 @@
     <VBox styleClass="bakery-divider" prefHeight="2" prefWidth="300"/>
 
     <!-- Precio total -->
-    <Label fx:id="lblPrecio" styleClass="bakery-title" style="-fx-font-size: 26px; -fx-text-fill: #D4AF37;">
-        <text>
-            <String>TOTAL: $0.00</String>
-        </text>
-    </Label>
+    <Label fx:id="lblPrecio"
+           text="TOTAL: $0.00"
+           styleClass="bakery-title"
+           style="-fx-font-size: 26px; -fx-text-fill: #D4AF37;"/>
 
     <!-- Mensaje de agradecimiento -->
     <Label text="✨ ¡Gracias por tu pedido! ✨" styleClass="bakery-subtitle" style="-fx-font-size: 16px;"/>

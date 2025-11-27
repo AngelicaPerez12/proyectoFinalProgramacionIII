@@ -1,5 +1,6 @@
 package com.example.proyectoprogra.controllers.Cliente;
 
+import com.example.proyectoprogra.models.EmailUtils;
 import com.example.proyectoprogra.models.UsuarioSession;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -132,6 +133,25 @@ public class PedidoClienteController {
             PedidoDao pedidoDAO = new PedidoDao();
 
             int idPedido = pedidoDAO.insertarPedido(ses.getIdUsuario(), fechaEntrega, detalles);
+
+            abrirTicket(idPedido, ses.getIdUsuario(), ses.getNombre(), ses.getCorreo(),
+                    elegido.getNombre(), tipo, tamano, precioUnitario, descripcion, fechaEntrega);
+
+            mostrarAlerta("Pedido creado. ID: " + idPedido);
+
+            EmailUtils.enviarCorreo(
+                    ses.getCorreo(),
+                    "Confirmación de Pedido #" + idPedido,
+                    "Hola " + ses.getNombre() + ",\n\n" +
+                            "Tu pedido ha sido confirmado.\n" +
+                            "Pastel: " + elegido.getNombre() + "\n" +
+                            "Categoría: " + tipo + "\n" +
+                            "Tamaño: " + tamano + "\n" +
+                            "Entrega: " + fechaEntrega + "\n" +
+                            "Total: $" + precioUnitario + "\n\n" +
+                            "Gracias por tu compra :)"
+            );
+            // -----------------------------------------------------
 
             abrirTicket(idPedido, ses.getIdUsuario(), ses.getNombre(), ses.getCorreo(),
                     elegido.getNombre(), tipo, tamano, precioUnitario, descripcion, fechaEntrega);
