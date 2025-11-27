@@ -45,7 +45,7 @@ public class PedidoClienteController {
     private TextField txtcorreocliente;
 
     @FXML
-    private TextField txtdescripcionpersonalizada;
+    private TextArea txtdescripcionpersonalizada;
 
     @FXML
     private TextField txtnombrecliente;

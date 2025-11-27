@@ -83,7 +83,7 @@
                         <!-- Precio destacado -->
                         <VBox alignment="CENTER" spacing="5">
                             <Label text="Precio" styleClass="bakery-label" style="-fx-font-size: 12px;"/>
-                            <Label text="$25.00" styleClass="bakery-title" style="-fx-font-size: 28px; -fx-text-fill: #E8C7C8; -fx-font-weight: bold;"/>
+                            <Label text="\$25.00" styleClass="bakery-title" style="-fx-font-size: 28px; -fx-text-fill: #E8C7C8; -fx-font-weight: bold;"/>
                         </VBox>
                         
                         <!-- Botón mejorado -->
@@ -117,7 +117,7 @@
                         
                         <VBox alignment="CENTER" spacing="5">
                             <Label text="Precio" styleClass="bakery-label" style="-fx-font-size: 12px;"/>
-                            <Label text="$40.00" styleClass="bakery-title" style="-fx-font-size: 28px; -fx-text-fill: #E8C7C8; -fx-font-weight: bold;"/>
+                            <Label text="\$40.00" styleClass="bakery-title" style="-fx-font-size: 28px; -fx-text-fill: #E8C7C8; -fx-font-weight: bold;"/>
                         </VBox>
                         
                         <Button text="AGREGAR AL PEDIDO" styleClass="bakery-button-large" prefWidth="220" prefHeight="50"/>
@@ -150,7 +150,7 @@
                         
                         <VBox alignment="CENTER" spacing="5">
                             <Label text="Precio" styleClass="bakery-label" style="-fx-font-size: 12px;"/>
-                            <Label text="$25.00" styleClass="bakery-title" style="-fx-font-size: 28px; -fx-text-fill: #E8C7C8; -fx-font-weight: bold;"/>
+                            <Label text="\$25.00" styleClass="bakery-title" style="-fx-font-size: 28px; -fx-text-fill: #E8C7C8; -fx-font-weight: bold;"/>
                         </VBox>
                         
                         <Button text="AGREGAR AL PEDIDO" styleClass="bakery-button-large" prefWidth="220" prefHeight="50"/>
@@ -183,7 +183,7 @@
                         
                         <VBox alignment="CENTER" spacing="5">
                             <Label text="Precio" styleClass="bakery-label" style="-fx-font-size: 12px;"/>
-                            <Label text="$25.00" styleClass="bakery-title" style="-fx-font-size: 28px; -fx-text-fill: #E8C7C8; -fx-font-weight: bold;"/>
+                            <Label text="\$25.00" styleClass="bakery-title" style="-fx-font-size: 28px; -fx-text-fill: #E8C7C8; -fx-font-weight: bold;"/>
                         </VBox>
                         
                         <Button text="AGREGAR AL PEDIDO" styleClass="bakery-button-large" prefWidth="220" prefHeight="50"/>
@@ -216,7 +216,7 @@
                         
                         <VBox alignment="CENTER" spacing="5">
                             <Label text="Precio" styleClass="bakery-label" style="-fx-font-size: 12px;"/>
-                            <Label text="$35.00" styleClass="bakery-title" style="-fx-font-size: 28px; -fx-text-fill: #E8C7C8; -fx-font-weight: bold;"/>
+                            <Label text="\$35.00" styleClass="bakery-title" style="-fx-font-size: 28px; -fx-text-fill: #E8C7C8; -fx-font-weight: bold;"/>
                         </VBox>
                         
                         <Button text="AGREGAR AL PEDIDO" styleClass="bakery-button-large" prefWidth="220" prefHeight="50"/>

@@ -56,12 +56,12 @@
                     <!-- Paso 1: Información Personal -->
                     <VBox spacing="20" alignment="CENTER_LEFT">
                         <Label text="1. Información de Contacto" styleClass="bakery-title" style="-fx-font-size: 18px;"/>
-                        
+
                         <!-- Nombre -->
                         <VBox spacing="8" alignment="CENTER_LEFT" styleClass="bakery-form-group">
                             <Label text="Nombre Completo *" styleClass="bakery-label" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
-                            <TextField fx:id="txtnombrecliente" 
-                                       styleClass="bakery-input-large" 
+                            <TextField fx:id="txtnombrecliente"
+                                       styleClass="bakery-input-large"
                                        prefWidth="500"
                                        promptText="Ingresa tu nombre completo"/>
                         </VBox>
@@ -69,8 +69,8 @@
                         <!-- Correo -->
                         <VBox spacing="8" alignment="CENTER_LEFT" styleClass="bakery-form-group">
                             <Label text="Correo Electrónico *" styleClass="bakery-label" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
-                            <TextField fx:id="txtcorreocliente" 
-                                       styleClass="bakery-input-large" 
+                            <TextField fx:id="txtcorreocliente"
+                                       styleClass="bakery-input-large"
                                        prefWidth="500"
                                        promptText="ejemplo@correo.com"/>
                         </VBox>
@@ -82,12 +82,12 @@
                     <!-- Paso 2: Detalles del Pastel -->
                     <VBox spacing="20" alignment="CENTER_LEFT">
                         <Label text="2. Detalles del Pastel" styleClass="bakery-title" style="-fx-font-size: 18px;"/>
-                        
+
                         <!-- Tipo de Pastel -->
                         <VBox spacing="8" alignment="CENTER_LEFT" styleClass="bakery-form-group">
                             <Label text="Tipo de Pastel *" styleClass="bakery-label" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
-                            <ComboBox fx:id="cmbtipodepasteles" 
-                                      styleClass="bakery-input-large" 
+                            <ComboBox fx:id="cmbtipodepasteles"
+                                      styleClass="bakery-input-large"
                                       prefWidth="500"
                                       promptText="Selecciona el tipo de pastel"/>
                         </VBox>
@@ -95,24 +95,24 @@
                         <!-- Tamaño -->
                         <VBox spacing="8" alignment="CENTER_LEFT" styleClass="bakery-form-group">
                             <Label text="Tamaño *" styleClass="bakery-label" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
-                            <ComboBox fx:id="cmbtamañopasteles" 
-                                      styleClass="bakery-input-large" 
+                            <ComboBox fx:id="cmbtamañopasteles"
+                                      styleClass="bakery-input-large"
                                       prefWidth="500"
                                       promptText="Selecciona el tamaño"/>
-                            <Label text="Pequeño (6-8 personas) | Mediano (10-12 personas) | Grande (15-20 personas)" 
-                                   styleClass="bakery-label" 
+                            <Label text="Pequeño (6-8 personas) | Mediano (10-12 personas) | Grande (15-20 personas)"
+                                   styleClass="bakery-label"
                                    style="-fx-font-size: 11px; -fx-text-fill: #4A4A4A; -fx-opacity: 0.7;"/>
                         </VBox>
 
                         <!-- Fecha de Entrega -->
                         <VBox spacing="8" alignment="CENTER_LEFT" styleClass="bakery-form-group">
                             <Label text="Fecha de Entrega *" styleClass="bakery-label" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
-                            <DatePicker fx:id="dtfechadeentrega" 
-                                        styleClass="bakery-input-large" 
+                            <DatePicker fx:id="dtfechadeentrega"
+                                        styleClass="bakery-input-large"
                                         prefWidth="500"
                                         promptText="Selecciona la fecha"/>
-                            <Label text="Pedidos con mínimo 48 horas de anticipación" 
-                                   styleClass="bakery-label" 
+                            <Label text="Pedidos con mínimo 48 horas de anticipación"
+                                   styleClass="bakery-label"
                                    style="-fx-font-size: 11px; -fx-text-fill: #E8C7C8; -fx-font-weight: bold;"/>
                         </VBox>
                     </VBox>
@@ -123,18 +123,18 @@
                     <!-- Paso 3: Personalización -->
                     <VBox spacing="20" alignment="CENTER_LEFT">
                         <Label text="3. Personalización (Opcional)" styleClass="bakery-title" style="-fx-font-size: 18px;"/>
-                        
+
                         <!-- Descripción Personalizada -->
                         <VBox spacing="8" alignment="CENTER_LEFT" styleClass="bakery-form-group">
                             <Label text="Descripción Personalizada" styleClass="bakery-label" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
-                            <TextArea fx:id="txtdescripcionpersonalizada" 
-                                      styleClass="bakery-input-large" 
-                                      prefWidth="500" 
+                            <TextArea fx:id="txtdescripcionpersonalizada"
+                                      styleClass="bakery-input-large"
+                                      prefWidth="500"
                                       prefHeight="100"
                                       wrapText="true"
                                       promptText="Describe cualquier detalle especial: colores, decoración, mensaje, alergias, etc."/>
-                            <Label text="Máximo 200 caracteres" 
-                                   styleClass="bakery-label" 
+                            <Label text="Máximo 200 caracteres"
+                                   styleClass="bakery-label"
                                    style="-fx-font-size: 11px; -fx-text-fill: #4A4A4A; -fx-opacity: 0.7;"/>
                         </VBox>
                     </VBox>
@@ -147,13 +147,13 @@
                         <!-- Nota importante -->
                         <VBox alignment="CENTER" spacing="10" style="-fx-background-color: rgba(232, 199, 200, 0.15); -fx-background-radius: 10; -fx-padding: 15;">
                             <Label text="Importante" styleClass="bakery-label" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
-                            <Label text="Todos los campos marcados con * son obligatorios" 
-                                   styleClass="bakery-label" 
+                            <Label text="Todos los campos marcados con * son obligatorios"
+                                   styleClass="bakery-label"
                                    style="-fx-font-size: 12px; -fx-text-alignment: center;"
                                    textAlignment="CENTER"
                                    wrapText="true"/>
-                            <Label text="Recibirás una confirmación por correo electrónico" 
-                                   styleClass="bakery-label" 
+                            <Label text="Recibirás una confirmación por correo electrónico"
+                                   styleClass="bakery-label"
                                    style="-fx-font-size: 12px; -fx-text-alignment: center;"
                                    textAlignment="CENTER"
                                    wrapText="true"/>
@@ -167,7 +167,7 @@
                                 prefHeight="65"
                                 onAction="#confirmarpedido"
                                 style="-fx-font-size: 18px;"/>
-                        
+
                         <!-- Botón Cancelar -->
                         <Button text="Cancelar"
                                 styleClass="bakery-button-secondary"
