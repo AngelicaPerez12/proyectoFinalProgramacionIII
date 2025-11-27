@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.effect.ImageInput?>
 <?import javafx.geometry.Insets?>
 
 <AnchorPane xmlns="http://javafx.com/javafx/25"
@@ -11,104 +9,31 @@
             stylesheets="@../Styles/dashadmin.css"
             fx:controller="com.example.proyectoprogra.controllers.Admin.PastelesController">
 
-    <HBox fx:id="hboxuser"
-          styleClass="hboxuser"
-          AnchorPane.topAnchor="0"
-          AnchorPane.leftAnchor="0"
-          AnchorPane.rightAnchor="0"
-          prefHeight="55">
-
-        <children>
-            <Region HBox.hgrow="ALWAYS" />
-            <Button onAction="#informacionUsuario" style="-fx-background-color: transparent;">
-                <effect>
-                    <ImageInput>
-                        <source><Image url="@../Imagenes/user.png"/></source>
-                    </ImageInput>
-                </effect>
-            </Button>
-        </children>
-
-        <padding>
-            <Insets top="8" bottom="8" left="15" right="20"/>
-        </padding>
-    </HBox>
-
-    <VBox fx:id="vboxbotones"
-          styleClass="vboxbotones"
-          prefWidth="150"
-          AnchorPane.topAnchor="55"
-          AnchorPane.bottomAnchor="0"
-          AnchorPane.leftAnchor="0">
-
-        <children>
-
-            <Label text="Navegación" style="-fx-font-weight: bold; -fx-font-size: 14;" />
-
-            <VBox spacing="15">
-
-                <HBox spacing="10" alignment="CENTER_LEFT">
-                    <ImageView fitHeight="25" fitWidth="25" preserveRatio="true">
-                        <image><Image url="@../Imagenes/cake.png"/></image>
-                    </ImageView>
-                    <Button text="Pasteles" fx:id="btnpastel" styleClass="menu-btn" onAction="#inforPasteles"/>
-                </HBox>
-
-                <HBox spacing="10" alignment="CENTER_LEFT">
-                    <ImageView fitHeight="25" fitWidth="25" preserveRatio="true">
-                        <image><Image url="@../Imagenes/checkout.png"/></image>
-                    </ImageView>
-                    <Button text="Historial" fx:id="btnpedidos" styleClass="menu-btn" onAction="#pedidos"/>
-                </HBox>
-
-                <HBox spacing="10" alignment="CENTER_LEFT">
-                    <ImageView fitHeight="25" fitWidth="25" preserveRatio="true">
-                        <image><Image url="@../Imagenes/file.png"/></image>
-                    </ImageView>
-                    <Button text="Pedidos" fx:id="btnhistorial" styleClass="menu-btn" onAction="#historial"/>
-                </HBox>
-
-                <HBox spacing="10" alignment="CENTER_LEFT">
-                    <ImageView fitHeight="25" fitWidth="25" preserveRatio="true">
-                        <image><Image url="@../Imagenes/report.png"/></image>
-                    </ImageView>
-                    <Button text="Reportes" fx:id="btnreportes" styleClass="menu-btn" onAction="#resportes"/>
-                </HBox>
-
-            </VBox>
-
-        </children>
-
-        <padding><Insets top="20" left="15"/></padding>
-    </VBox>
-
     <VBox spacing="15"
           AnchorPane.topAnchor="0"
-          AnchorPane.leftAnchor="140"
+          AnchorPane.leftAnchor="0"
           AnchorPane.rightAnchor="0"
           AnchorPane.bottomAnchor="0"
           style="-fx-padding: 20;">
 
-        <Label text="Pasteles" style="-fx-font-size: 24;" />
+        <Label text="Pasteles" style="-fx-font-size: 24;"/>
 
         <HBox spacing="10">
             <Button text="+ Nuevo Producto" />
-            <TextField promptText="Buscar productos" HBox.hgrow="ALWAYS" fx:id="txtBuscar"  />
+            <TextField promptText="Buscar productos" HBox.hgrow="ALWAYS" fx:id="txtBuscar"/>
         </HBox>
 
-            <TableView fx:id="tablaPasteles">
-                <columns>
-
-                    <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
-                    <TableColumn fx:id="colNombre" text="Nombre" prefWidth="150"/>
-                    <TableColumn fx:id="colDescripcion" text="Descripción" prefWidth="200"/>
-                    <TableColumn fx:id="colCategoria" text="ID Categoría" prefWidth="100"/>
-                    <TableColumn fx:id="colTamano" text="ID Tamaño" prefWidth="100"/>
-                    <TableColumn fx:id="colSabor" text="ID Sabor" prefWidth="100"/>
-                    <TableColumn fx:id="colPrecio" text="Precio Base" prefWidth="100"/>
-
-                </columns>
-            </TableView>
+        <TableView fx:id="tablaPasteles" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+                <TableColumn fx:id="colNombre" text="Nombre" prefWidth="150"/>
+                <TableColumn fx:id="colDescripcion" text="Descripción" prefWidth="200"/>
+                <TableColumn fx:id="colCategoria" text="ID Categoría" prefWidth="100"/>
+                <TableColumn fx:id="colTamano" text="ID Tamaño" prefWidth="100"/>
+                <TableColumn fx:id="colSabor" text="ID Sabor" prefWidth="100"/>
+                <TableColumn fx:id="colPrecio" text="Precio Base" prefWidth="100"/>
+            </columns>
+        </TableView>
 
     </VBox>
 

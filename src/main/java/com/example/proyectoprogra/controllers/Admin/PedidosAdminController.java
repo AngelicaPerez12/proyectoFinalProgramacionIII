@@ -45,29 +45,28 @@ public class PedidosAdminController implements Initializable {
         colTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
 
         tablaPedidos.setItems(AdminHistorialDao.obtenerPedidosPendientes());
-
-
     }
+
     @FXML
     private void refrescarTabla(ActionEvent event) {
         tablaPedidos.setItems(AdminHistorialDao.obtenerPedidosPendientes());
         tablaPedidos.refresh();
     }
+
     public void informacionUsuario(ActionEvent actionEvent) {
+        // Implementación futura
     }
 
+    // Cambiar vista sin maximizar
     private void cambiarVista(String fxml, ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
             Parent root = loader.load();
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
             Scene scene = new Scene(root);
-
             stage.setScene(scene);
 
-            stage.setMaximized(true);
 
             stage.show();
 
@@ -76,16 +75,17 @@ public class PedidosAdminController implements Initializable {
         }
     }
 
-    @FXML
-    void historial(ActionEvent e) {cambiarVista("/com/example/proyectoprogra/Admin/historial-admin.fxml", e);}
 
     @FXML
-    void inforPasteles(ActionEvent e) {cambiarVista("/com/example/proyectoprogra/Admin/pasteles-admin.fxml",e );}
+    void historial(ActionEvent e) { cambiarVista("/com/example/proyectoprogra/Admin/historial-admin.fxml", e); }
 
     @FXML
-    void pedidos(ActionEvent e) {cambiarVista("/com/example/proyectoprogra/Admin/pedidos-admin.fxml", e);}
+    void inforPasteles(ActionEvent e) { cambiarVista("/com/example/proyectoprogra/Admin/pasteles-admin.fxml", e); }
 
     @FXML
-    void resportes(ActionEvent e) {cambiarVista("/com/example/proyectoprogra/Admin/reportes-admin-view.fxml", e);}
+    void pedidos(ActionEvent e) { cambiarVista("/com/example/proyectoprogra/Admin/pedidos-admin.fxml", e); }
+
+    @FXML
+    void resportes(ActionEvent e) { cambiarVista("/com/example/proyectoprogra/Admin/reportes-admin-view.fxml", e); }
 
 }

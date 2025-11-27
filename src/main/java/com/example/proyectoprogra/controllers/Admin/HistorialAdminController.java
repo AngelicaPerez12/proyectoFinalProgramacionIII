@@ -20,9 +20,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class HistorialAdminController  implements Initializable {
-    @FXML private TableView<Historial> tablaHistorial;
+public class HistorialAdminController implements Initializable {
 
+    @FXML private TableView<Historial> tablaHistorial;
     @FXML private TableColumn<Historial, Integer> colIdPedido;
     @FXML private TableColumn<Historial, String> colCliente;
     @FXML private TableColumn<Historial, String> colFechaPedido;
@@ -32,12 +32,11 @@ public class HistorialAdminController  implements Initializable {
     @FXML private TableColumn<Historial, Integer> colCantidad;
     @FXML private TableColumn<Historial, Double> colPrecio;
     @FXML private TableColumn<Historial, Double> colTotal;
-    @FXML private TableColumn<Historial, Void> colAccion; // Nueva columna
+    @FXML private TableColumn<Historial, Void> colAccion; // Columna de acción
 
-
-
+    @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        // Configuración de columnas
         colIdPedido.setCellValueFactory(new PropertyValueFactory<>("idPedido"));
         colCliente.setCellValueFactory(new PropertyValueFactory<>("cliente"));
         colFechaPedido.setCellValueFactory(new PropertyValueFactory<>("fechaPedido"));
@@ -48,8 +47,10 @@ public class HistorialAdminController  implements Initializable {
         colPrecio.setCellValueFactory(new PropertyValueFactory<>("precio"));
         colTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
 
+        // Cargar datos
         tablaHistorial.setItems(AdminHistorialDao.obtenerTodosLosPedidos());
 
+        // Configuración de la columna con ComboBox
         colAccion.setCellFactory(param -> new TableCell<>() {
             private final ComboBox<String> comboEstado = new ComboBox<>();
 
@@ -57,12 +58,12 @@ public class HistorialAdminController  implements Initializable {
                 comboEstado.getItems().addAll("Pendiente", "En proceso", "Listo", "Entregado");
                 comboEstado.setOnAction(e -> {
                     Historial pedido = getTableView().getItems().get(getIndex());
-                    String nuevoEstado = comboEstado.getValue();
-                    pedido.setEstado(nuevoEstado); // Actualiza modelo en memoria
-
-                    AdminHistorialDao.actualizarEstado(pedido.getIdPedido(), nuevoEstado);
-
-                    tablaHistorial.refresh();
+                    if (pedido != null) {
+                        String nuevoEstado = comboEstado.getValue();
+                        pedido.setEstado(nuevoEstado);
+                        AdminHistorialDao.actualizarEstado(pedido.getIdPedido(), nuevoEstado);
+                        tablaHistorial.refresh();
+                    }
                 });
             }
 
@@ -73,29 +74,26 @@ public class HistorialAdminController  implements Initializable {
                     setGraphic(null);
                 } else {
                     Historial pedido = getTableView().getItems().get(getIndex());
-                    comboEstado.setValue(pedido.getEstado());
+                    if (pedido != null) comboEstado.setValue(pedido.getEstado());
                     setGraphic(comboEstado);
                 }
             }
         });
     }
 
+    // Método vacío para compatibilidad
+    public void informacionUsuario(ActionEvent actionEvent) {}
 
-
-    public void informacionUsuario(ActionEvent actionEvent) {
-    }
+    // Cambiar vista sin forzar maximizado
     private void cambiarVista(String fxml, ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
             Parent root = loader.load();
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
             Scene scene = new Scene(root);
 
             stage.setScene(scene);
-
-            stage.setMaximized(true);
 
             stage.show();
 
@@ -104,18 +102,20 @@ public class HistorialAdminController  implements Initializable {
         }
     }
 
-    @FXML
-    void historial(ActionEvent e) {cambiarVista("/com/example/proyectoprogra/Admin/historial-admin.fxml", e);}
 
     @FXML
-    void inforPasteles(ActionEvent e) {cambiarVista("/com/example/proyectoprogra/Admin/pasteles-admin.fxml",e );}
+    void historial(ActionEvent e) { cambiarVista("/com/example/proyectoprogra/Admin/historial-admin.fxml", e); }
 
     @FXML
-    void pedidos(ActionEvent e) {cambiarVista("/com/example/proyectoprogra/Admin/pedidos-admin.fxml", e);}
+    void inforPasteles(ActionEvent e) { cambiarVista("/com/example/proyectoprogra/Admin/pasteles-admin.fxml", e); }
 
     @FXML
-    void resportes(ActionEvent e) {cambiarVista("/com/example/proyectoprogra/Admin/reportes-admin-view.fxml", e);}
+    void pedidos(ActionEvent e) { cambiarVista("/com/example/proyectoprogra/Admin/pedidos-admin.fxml", e); }
 
+    @FXML
+    void resportes(ActionEvent e) { cambiarVista("/com/example/proyectoprogra/Admin/reportes-admin-view.fxml", e); }
+
+    @FXML
     public void refrescarTabla(ActionEvent actionEvent) {
         tablaHistorial.setItems(AdminHistorialDao.obtenerTodosLosPedidos());
         tablaHistorial.refresh();

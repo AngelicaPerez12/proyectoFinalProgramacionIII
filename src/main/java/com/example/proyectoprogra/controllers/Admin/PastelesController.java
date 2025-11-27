@@ -34,7 +34,7 @@ public class PastelesController {
 
     @FXML
     public void initialize() {
-
+        // Configuración de columnas
         colId.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("idPastel"));
         colNombre.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("nombre"));
         colDescripcion.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("descripcion"));
@@ -45,23 +45,21 @@ public class PastelesController {
 
         listaPasteles = AdminPastelDao.obtenerTodos();
 
+        // Filtro
         FilteredList<Pastel> filtro = new FilteredList<>(listaPasteles, p -> true);
 
         txtBuscar.textProperty().addListener((obs, oldVal, newVal) -> {
-            String texto = newVal.toLowerCase();
+            String texto = (newVal == null ? "" : newVal.toLowerCase());
 
             filtro.setPredicate(pastel -> {
+                if (texto.isEmpty()) return true;
 
-                if (texto == null || texto.isEmpty()) return true;
-
-                if (pastel.getNombre().toLowerCase().contains(texto)) return true;
-                if (pastel.getDescripcion().toLowerCase().contains(texto)) return true;
-                if (String.valueOf(pastel.getIdCategoria()).contains(texto)) return true;
-                if (String.valueOf(pastel.getIdTamano()).contains(texto)) return true;
-                if (String.valueOf(pastel.getIdSabor()).contains(texto)) return true;
-                if (String.valueOf(pastel.getPrecioBase()).contains(texto)) return true;
-
-                return false;
+                return pastel.getNombre().toLowerCase().contains(texto) ||
+                        pastel.getDescripcion().toLowerCase().contains(texto) ||
+                        String.valueOf(pastel.getIdCategoria()).contains(texto) ||
+                        String.valueOf(pastel.getIdTamano()).contains(texto) ||
+                        String.valueOf(pastel.getIdSabor()).contains(texto) ||
+                        String.valueOf(pastel.getPrecioBase()).contains(texto);
             });
         });
 
@@ -69,18 +67,16 @@ public class PastelesController {
         sorted.comparatorProperty().bind(tablaPasteles.comparatorProperty());
         tablaPasteles.setItems(sorted);
     }
+
     private void cambiarVista(String fxml, ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
             Parent root = loader.load();
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
             Scene scene = new Scene(root);
-
             stage.setScene(scene);
 
-            stage.setMaximized(true);
 
             stage.show();
 
@@ -89,21 +85,18 @@ public class PastelesController {
         }
     }
 
-    @FXML
-    void historial(ActionEvent e) {cambiarVista("/com/example/proyectoprogra/Admin/historial-admin.fxml", e);}
 
     @FXML
-    void inforPasteles(ActionEvent e) {cambiarVista("/com/example/proyectoprogra/Admin/pasteles-admin.fxml",e );}
+    void historial(ActionEvent e) { cambiarVista("/com/example/proyectoprogra/Admin/historial-admin.fxml", e); }
 
     @FXML
-    void pedidos(ActionEvent e) {cambiarVista("/com/example/proyectoprogra/Admin/pedidos-admin.fxml", e);}
+    void inforPasteles(ActionEvent e) { cambiarVista("/com/example/proyectoprogra/Admin/pasteles-admin.fxml", e); }
 
     @FXML
-    void resportes(ActionEvent e) {cambiarVista("/com/example/proyectoprogra/Admin/reportes-admin-view.fxml", e);}
+    void pedidos(ActionEvent e) { cambiarVista("/com/example/proyectoprogra/Admin/pedidos-admin.fxml", e); }
 
-    public void informacionUsuario(ActionEvent actionEvent) {
-    }
+    @FXML
+    void resportes(ActionEvent e) { cambiarVista("/com/example/proyectoprogra/Admin/reportes-admin-view.fxml", e); }
+
+    public void informacionUsuario(ActionEvent actionEvent) {}
 }
-
-
-

@@ -1,90 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.effect.ImageInput?>
 
 <AnchorPane xmlns="http://javafx.com/javafx/25"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.example.proyectoprogra.controllers.Admin.HistorialAdminController"
             stylesheets="@../Styles/dashadmin.css">
 
-    <HBox fx:id="hboxuser"
-          styleClass="hboxuser"
-          AnchorPane.topAnchor="0"
-          AnchorPane.leftAnchor="0"
-          AnchorPane.rightAnchor="0"
-          prefHeight="55">
-
-        <children>
-            <Region HBox.hgrow="ALWAYS" />
-            <Button onAction="#informacionUsuario" style="-fx-background-color: transparent;">
-                <effect>
-                    <ImageInput>
-                        <source><Image url="@../Imagenes/user.png"/></source>
-                    </ImageInput>
-                </effect>
-            </Button>
-        </children>
-
-        <padding>
-            <Insets top="8" bottom="8" left="15" right="20"/>
-        </padding>
-    </HBox>
-
-    <VBox fx:id="vboxbotones"
-          styleClass="vboxbotones"
-          prefWidth="150"
-          AnchorPane.topAnchor="55"
-          AnchorPane.bottomAnchor="0"
-          AnchorPane.leftAnchor="0">
-
-        <children>
-
-            <Label text="Navegación" style="-fx-font-weight: bold; -fx-font-size: 14;" />
-
-            <VBox spacing="15">
-
-                <HBox spacing="10" alignment="CENTER_LEFT">
-                    <ImageView fitHeight="25" fitWidth="25" preserveRatio="true">
-                        <image><Image url="@../Imagenes/cake.png"/></image>
-                    </ImageView>
-                    <Button text="Pasteles" fx:id="btnpastel" styleClass="menu-btn" onAction="#inforPasteles"/>
-                </HBox>
-
-                <HBox spacing="10" alignment="CENTER_LEFT">
-                    <ImageView fitHeight="25" fitWidth="25" preserveRatio="true">
-                        <image><Image url="@../Imagenes/checkout.png"/></image>
-                    </ImageView>
-                    <Button text="Historial" fx:id="btnpedidos" styleClass="menu-btn" onAction="#pedidos"/>
-                </HBox>
-
-                <HBox spacing="10" alignment="CENTER_LEFT">
-                    <ImageView fitHeight="25" fitWidth="25" preserveRatio="true">
-                        <image><Image url="@../Imagenes/file.png"/></image>
-                    </ImageView>
-                    <Button text="Pedidos" fx:id="btnhistorial" styleClass="menu-btn-selected" onAction="#historial"/>
-                </HBox>
-
-                <HBox spacing="10" alignment="CENTER_LEFT">
-                    <ImageView fitHeight="25" fitWidth="25" preserveRatio="true">
-                        <image><Image url="@../Imagenes/report.png"/></image>
-                    </ImageView>
-                    <Button text="Reportes" fx:id="btnreportes" styleClass="menu-btn" onAction="#resportes"/>
-                </HBox>
-
-            </VBox>
-
-        </children>
-
-        <padding><Insets top="20" left="15"/></padding>
-    </VBox>
-
     <VBox spacing="15"
           AnchorPane.topAnchor="0"
-          AnchorPane.leftAnchor="150"
+          AnchorPane.leftAnchor="0"
           AnchorPane.rightAnchor="0"
           AnchorPane.bottomAnchor="0"
           style="-fx-padding: 20;">

@@ -1,19 +1,14 @@
 package com.example.proyectoprogra.controllers.Visualizacion;
 
 import com.example.proyectoprogra.models.UsuarioSession;
-import com.example.proyectoprogra.utils.WindowUtils;
-import javafx.application.Platform;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 import com.example.proyectoprogra.models.PasswordUtils;
 import com.example.proyectoprogra.ConexionDB.ConexionDB;
+
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -23,21 +18,16 @@ import java.sql.SQLException;
 
 public class LoginController {
 
-    @FXML
-    private TextField campoUsuario;
-    @FXML
-    private PasswordField campoContrasena;
-    @FXML
-    private Label etiquetaMensaje;
-    @FXML
-    private Button btnEntrar;
-    @FXML
-    private Hyperlink forgotLink;
-    @FXML
-    private Hyperlink openRegisterLink;
+    @FXML private TextField campoUsuario;
+    @FXML private PasswordField campoContrasena;
+    @FXML private Label etiquetaMensaje;
+    @FXML private Button btnEntrar;
+    @FXML private Hyperlink forgotLink;
+    @FXML private Hyperlink openRegisterLink;
 
     @FXML
     public void initialize() {
+        // Inicialización si es necesaria
     }
 
     @FXML
@@ -74,9 +64,13 @@ public class LoginController {
                 Stage stage = (Stage) btnEntrar.getScene().getWindow();
                 stage.close();
 
-                abrirVentana(rol.equalsIgnoreCase("Administrador")
-                        ? "/com/example/proyectoprogra/Admin/dashboard-admin.fxml"
-                        : "/com/example/proyectoprogra/Cliente/dashboard-cliente.fxml");
+                // Abrir dashboard según rol
+                abrirVentana(
+                        rol.equalsIgnoreCase("Administrador")
+                                ? "/com/example/proyectoprogra/Admin/dashboard-admin.fxml"
+                                : "/com/example/proyectoprogra/Cliente/dashboard-cliente.fxml",
+                        "Dashboard"
+                );
 
             } else {
                 etiquetaMensaje.setText("Usuario o contraseña incorrectos.");
@@ -90,97 +84,71 @@ public class LoginController {
 
     @FXML
     private void abrirRegistro() {
+        cambiarVista(
+                "/com/example/proyectoprogra/Visualizacion/register-view.fxml",
+                "Registrarse",
+                "/com/example/proyectoprogra/Styles/bakery-theme.css"
+        );
+    }
+
+    @FXML
+    private void abrirRecuperacionDePin() {
+        cambiarVista(
+                "/com/example/proyectoprogra/Visualizacion/recuperacion-pin-view.fxml",
+                "Recuperar PIN",
+                null
+        );
+    }
+
+    @FXML
+    private void CerrarSesionLogin() {
+        cambiarVista(
+                "/com/example/proyectoprogra/Visualizacion/Bienvenida.fxml",
+                "Sweet Harmony",
+                null
+        );
+    }
+
+
+    private void cambiarVista(String fxmlPath, String titulo, String cssPath) {
         try {
-            FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource("/com/example/proyectoprogra/Visualizacion/register-view.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
             Parent root = loader.load();
-            Object ctrl = loader.getController();
-            if (ctrl instanceof RegisterController rc) {
-                rc.setOnSuccess(email -> Platform.runLater(() -> {
-                    try {
-                        FXMLLoader loginLoader = new FXMLLoader(
-                                getClass().getResource("/com/example/proyectoprogra/Visualizacion/login-view.fxml"));
-                        Parent loginRoot = loginLoader.load();
-                        Object possibleCtrl = loginLoader.getController();
-                        if (possibleCtrl instanceof LoginController newLogin) {
-                            newLogin.preFillEmail(email);
-                        }
 
-                        Stage stage = (Stage) campoUsuario.getScene().getWindow();
-                        Scene scene = new Scene(loginRoot);
-                        stage.setScene(scene);
-                        stage.setMaximized(true);
-                        stage.show();
-
-                    } catch (IOException ex) {
-                        ex.printStackTrace();
-                    }
-                }));
+            if (cssPath != null) {
+                root.getStylesheets().add(getClass().getResource(cssPath).toExternalForm());
             }
 
             Stage stage = (Stage) campoUsuario.getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.setMaximized(true);
-            stage.setResizable(true);
+            stage.getScene().setRoot(root);
+            stage.setTitle(titulo);
             stage.show();
 
         } catch (IOException e) {
             e.printStackTrace();
+            System.out.println("❌ Error cargando: " + fxmlPath);
         }
     }
 
-    @FXML
-    private void abrirRecuperacionDePin(ActionEvent event) {
+    // Abrir un Stage nuevo (dashboard)
+    private void abrirVentana(String fxmlPath, String titulo) {
         try {
-            FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource("/com/example/proyectoprogra/Visualizacion/recuperacion-pin-view.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
             Parent root = loader.load();
-
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.setMaximized(true);
-            stage.setResizable(true);
+            Stage stage = new Stage();
+            stage.setScene(new javafx.scene.Scene(root));
+            stage.setTitle(titulo);
+            stage.setMaximized(true); // Ahora sí se abre maximizado
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
+            System.out.println("❌ Error cargando: " + fxmlPath);
         }
     }
 
-    private void abrirVentana(String rutaFXML) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(rutaFXML));
-            Parent root = loader.load();
-            Stage newStage = new Stage();
-            Scene scene = new Scene(root);
-            newStage.setScene(scene);
-            newStage.setMaximized(true);
-            newStage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    private void CerrarSesionLogin(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource("/com/example/proyectoprogra/Visualizacion/Bienvenida.fxml"));
-            Parent root = loader.load();
-
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            WindowUtils.setupAndShowStage(stage, root, "Sweet Harmony");
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
+    // Rellenar email si viene de registro o recuperación
     public void preFillEmail(String email) {
-        if (email == null) return;
-        if (campoUsuario != null) {
+        if (email != null && campoUsuario != null) {
             campoUsuario.setText(email);
             campoUsuario.requestFocus();
         }

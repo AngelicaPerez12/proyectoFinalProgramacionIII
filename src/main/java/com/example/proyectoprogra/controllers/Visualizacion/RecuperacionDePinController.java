@@ -3,6 +3,7 @@ package com.example.proyectoprogra.controllers.Visualizacion;
 import com.example.proyectoprogra.ConexionDB.ConexionDB;
 import com.example.proyectoprogra.models.EmailSender;
 import com.example.proyectoprogra.models.PasswordUtils;
+import com.example.proyectoprogra.utils.WindowUtils;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -11,7 +12,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
+import javafx.event.ActionEvent;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -20,21 +21,15 @@ import java.util.Random;
 
 public class RecuperacionDePinController {
 
-    @FXML
-    private TextField campoEmailRec, campoCodigoRec;
-
-    @FXML
-    private PasswordField campoPinNuevo, campoPinConfirm;
-
-    @FXML
-    private Label mensajeRec;
+    @FXML private TextField campoEmailRec, campoCodigoRec;
+    @FXML private PasswordField campoPinNuevo, campoPinConfirm;
+    @FXML private Label mensajeRec;
 
     private String codigoGenerado;
 
     @FXML
     private void enviarCodigo() {
         String email = campoEmailRec.getText().trim();
-
         if (email.isEmpty()) {
             mensajeRec.setText("Ingresa tu correo.");
             return;
@@ -68,7 +63,6 @@ public class RecuperacionDePinController {
         }
 
         String hashedPin = PasswordUtils.hashPassword(nuevoPin);
-
         actualizarPinEnBD(email, hashedPin);
     }
 
@@ -87,7 +81,6 @@ public class RecuperacionDePinController {
                 campoCodigoRec.clear();
                 campoPinNuevo.clear();
                 campoPinConfirm.clear();
-
             } else {
                 mensajeRec.setText("No se encontró el usuario con ese correo.");
             }
@@ -109,23 +102,40 @@ public class RecuperacionDePinController {
     }
 
     @FXML
-    private void cerrar(javafx.event.ActionEvent actionEvent) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/proyectoprogra/Visualizacion/login-view.fxml"));
-            Parent root = loader.load();
-            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.setMaximized(true);
-            stage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-            mensajeRec.setText("Error al volver al login.");
-        }
+    private void cerrar(ActionEvent event) {
+        cambiarVista("/com/example/proyectoprogra/Visualizacion/login-view.fxml", "Iniciar Sesión", null, event);
     }
 
     @FXML
-    private void cerrarVentanaPIN(javafx.event.ActionEvent actionEvent) {
-        cerrar(actionEvent);
+    private void cerrarVentanaPIN(ActionEvent event) {
+        cerrar(event);
+    }
+
+    /**
+     * Método centralizado para cambiar vistas dentro del mismo Stage
+     * sin ScrollPane ni maximizar
+     */
+    private void cambiarVista(String fxmlPath, String titulo, String cssPath, ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
+            Parent root = loader.load();
+
+            if (cssPath != null) {
+                root.getStylesheets().add(getClass().getResource(cssPath).toExternalForm());
+            }
+
+            Stage stage = (event != null && event.getSource() instanceof Node)
+                    ? (Stage) ((Node) event.getSource()).getScene().getWindow()
+                    : (Stage) campoEmailRec.getScene().getWindow();
+
+            // Reemplazamos el root actual sin forzar scroll ni maximizar
+            stage.getScene().setRoot(root);
+            stage.setTitle(titulo);
+            stage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            mensajeRec.setText("Error al cargar la vista: " + fxmlPath);
+        }
     }
 }
