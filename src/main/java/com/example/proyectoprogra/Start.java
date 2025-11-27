@@ -18,9 +18,6 @@ public class Start extends Application {
             FXMLLoader loader = new FXMLLoader(
                     getClass().getResource("/com/example/proyectoprogra/Visualizacion/Bienvenida.fxml"));
             Parent root = loader.load();
-
-            // Usar WindowUtils para configurar la ventana automáticamente
-            // Esto asegura que SIEMPRE se abra maximizada y responsive
             WindowUtils.setupAndShowStage(primaryStage, root, "Sweet Harmony");
 
         } catch (Exception e) {
