@@ -193,8 +193,5 @@ public class DashboardAdminController {
     void pedidos(ActionEvent e) {cambiarVista("/com/example/proyectoprogra/Admin/pedidos-admin.fxml",e );}
 
     @FXML
-    void reservas(ActionEvent e) {cambiarVista("/com/example/proyectoprogra/Admin/reservas-admin.fxml",e );}
-
-    @FXML
     void resportes(ActionEvent e) {cambiarVista("/com/example/proyectoprogra/Admin/reportes-admin-view.fxml",e);}
 }

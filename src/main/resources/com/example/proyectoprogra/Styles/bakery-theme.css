@@ -14,8 +14,14 @@
 
 /* ========== FONDO PRINCIPAL ========== */
 .bakery-background {
-    -fx-background-color: linear-gradient(135deg, #FAF7F2 0%, #F5F0EB 50%, #E8C7C8 100%);
+    -fx-background-color: linear-gradient(
+        from 0% 0% to 100% 100%,
+        #FAF7F2 0%,
+        #F5F0EB 50%,
+        #E8C7C8 100%
+    );
 }
+
 
 /* ========== CARDS MINIMAL ========== */
 .bakery-card {
@@ -363,8 +369,9 @@
 .bakery-divider {
     -fx-background-color: linear-gradient(to right, transparent, #D9CFC3, transparent);
     -fx-pref-height: 2;
-    -fx-max-width: Infinity;
+    -fx-max-width: -1;
 }
+
 
 .bakery-icon-decoration {
     -fx-font-size: 24px;

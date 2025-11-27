@@ -63,13 +63,6 @@
 
                 <HBox spacing="10" alignment="CENTER_LEFT">
                     <ImageView fitHeight="25" fitWidth="25" preserveRatio="true">
-                        <image><Image url="@../Imagenes/notes.png"/></image>
-                    </ImageView>
-                    <Button text="Reservas" fx:id="btnreservas" styleClass="menu-btn" onAction="#reservas"/>
-                </HBox>
-
-                <HBox spacing="10" alignment="CENTER_LEFT">
-                    <ImageView fitHeight="25" fitWidth="25" preserveRatio="true">
                         <image><Image url="@../Imagenes/file.png"/></image>
                     </ImageView>
                     <Button text="Historial" fx:id="btnhistorial" styleClass="menu-btn" onAction="#historial"/>
@@ -100,20 +93,22 @@
 
         <HBox spacing="10">
             <Button text="+ Nuevo Producto" />
-            <TextField promptText="Buscar productos" HBox.hgrow="ALWAYS" />
+            <TextField promptText="Buscar productos" HBox.hgrow="ALWAYS" fx:id="txtBuscar"  />
         </HBox>
 
-        <TableView VBox.vgrow="ALWAYS">
-            <columns>
-                <TableColumn text="Id" />
-                <TableColumn text="Nombre" />
-                <TableColumn text="Descripción" />
-                <TableColumn text="IdCategoria" />
-                <TableColumn text="IdTamaño" />
-                <TableColumn text="Precio" />
-                <TableColumn text="Sabor" />
-            </columns>
-        </TableView>
+            <TableView fx:id="tablaPasteles">
+                <columns>
+
+                    <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+                    <TableColumn fx:id="colNombre" text="Nombre" prefWidth="150"/>
+                    <TableColumn fx:id="colDescripcion" text="Descripción" prefWidth="200"/>
+                    <TableColumn fx:id="colCategoria" text="ID Categoría" prefWidth="100"/>
+                    <TableColumn fx:id="colTamano" text="ID Tamaño" prefWidth="100"/>
+                    <TableColumn fx:id="colSabor" text="ID Sabor" prefWidth="100"/>
+                    <TableColumn fx:id="colPrecio" text="Precio Base" prefWidth="100"/>
+
+                </columns>
+            </TableView>
 
     </VBox>
 

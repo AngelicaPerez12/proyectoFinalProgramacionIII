@@ -9,8 +9,8 @@
 }
 
 .flex-grow {
-    -fx-max-width: Infinity;
-    -fx-max-height: Infinity;
+    -fx-max-width: 999999; /* Infinity no es válido */
+    -fx-max-height: 999999;
 }
 
 .flex-fill-width {
@@ -23,38 +23,38 @@
 
 /* ========== ANCHOS RELATIVOS ========== */
 .width-100 {
-    -fx-pref-width: USE_COMPUTED_SIZE;
-    -fx-max-width: Infinity;
+    -fx-pref-width: -1; /* USE_COMPUTED_SIZE */
+    -fx-max-width: 999999;
 }
 
 .width-90 {
-    -fx-max-width: 90%;
+    -fx-pref-width: 90%;
 }
 
 .width-80 {
-    -fx-max-width: 80%;
+    -fx-pref-width: 80%;
 }
 
 .width-75 {
-    -fx-max-width: 75%;
+    -fx-pref-width: 75%;
 }
 
 .width-50 {
-    -fx-max-width: 50%;
+    -fx-pref-width: 50%;
 }
 
 .width-auto {
-    -fx-pref-width: USE_COMPUTED_SIZE;
+    -fx-pref-width: -1;
 }
 
 /* ========== ALTURAS RELATIVAS ========== */
 .height-100 {
-    -fx-pref-height: USE_COMPUTED_SIZE;
-    -fx-max-height: Infinity;
+    -fx-pref-height: -1;
+    -fx-max-height: 999999;
 }
 
 .height-auto {
-    -fx-pref-height: USE_COMPUTED_SIZE;
+    -fx-pref-height: -1;
 }
 
 /* ========== IMÁGENES RESPONSIVE ========== */
@@ -63,6 +63,7 @@
     -fx-smooth: true;
 }
 
+/* ========== BACKGROUND RESPONSIVE ========== */
 .responsive-background {
     -fx-background-size: cover;
     -fx-background-position: center;
@@ -76,8 +77,8 @@
 
 /* ========== TILEPANE RESPONSIVE ========== */
 .responsive-tile {
-    -fx-pref-columns: USE_COMPUTED_SIZE;
-    -fx-pref-rows: USE_COMPUTED_SIZE;
+    -fx-pref-columns: -1;
+    -fx-pref-rows: -1;
 }
 
 /* ========== CARDS RESPONSIVE ========== */
@@ -87,7 +88,7 @@
     -fx-padding: 20;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.14), 4, 0, 0, 2);
     -fx-max-width: 90%;
-    -fx-pref-width: USE_COMPUTED_SIZE;
+    -fx-pref-width: -1;
 }
 
 .responsive-card-small {
@@ -100,21 +101,21 @@
 
 /* ========== INPUTS RESPONSIVE ========== */
 .responsive-input {
-    -fx-pref-width: USE_COMPUTED_SIZE;
-    -fx-max-width: Infinity;
+    -fx-pref-width: -1;
+    -fx-max-width: 999999;
     -fx-min-width: 200;
 }
 
 /* ========== BOTONES RESPONSIVE ========== */
 .responsive-button {
-    -fx-pref-width: USE_COMPUTED_SIZE;
+    -fx-pref-width: -1;
     -fx-min-width: 100;
     -fx-max-width: 300;
 }
 
 .responsive-button-full {
-    -fx-pref-width: USE_COMPUTED_SIZE;
-    -fx-max-width: Infinity;
+    -fx-pref-width: -1;
+    -fx-max-width: 999999;
 }
 
 /* ========== ESPACIADO RESPONSIVE ========== */
@@ -145,43 +146,43 @@
 
 /* ========== TABLAS RESPONSIVE ========== */
 .responsive-table {
-    -fx-pref-width: USE_COMPUTED_SIZE;
-    -fx-max-width: Infinity;
+    -fx-pref-width: -1;
+    -fx-max-width: 999999;
 }
 
 .responsive-table .table-column {
-    -fx-pref-width: USE_COMPUTED_SIZE;
+    -fx-pref-width: -1;
 }
 
 /* ========== LAYOUTS RESPONSIVE ========== */
 .responsive-vbox {
     -fx-alignment: CENTER;
     -fx-fill-width: true;
-    -fx-max-width: Infinity;
+    -fx-max-width: 999999;
 }
 
 .responsive-hbox {
     -fx-alignment: CENTER;
     -fx-fill-height: true;
-    -fx-max-height: Infinity;
+    -fx-max-height: 999999;
 }
 
 .responsive-stackpane {
     -fx-alignment: CENTER;
-    -fx-max-width: Infinity;
-    -fx-max-height: Infinity;
+    -fx-max-width: 999999;
+    -fx-max-height: 999999;
 }
 
 /* ========== BORDERPANE RESPONSIVE ========== */
 .responsive-borderpane {
-    -fx-max-width: Infinity;
-    -fx-max-height: Infinity;
+    -fx-max-width: 999999;
+    -fx-max-height: 999999;
 }
 
 /* ========== ANCHORPANE RESPONSIVE ========== */
 .responsive-anchorpane {
-    -fx-max-width: Infinity;
-    -fx-max-height: Infinity;
+    -fx-max-width: 999999;
+    -fx-max-height: 999999;
 }
 
 /* ========== GRIDPANE RESPONSIVE ========== */
@@ -197,7 +198,7 @@
 }
 
 .text-ellipsis {
-    -fx-text-overrun: ELLIPSIS;
+    -fx-text-overrun: ellipsis;
 }
 
 /* ========== UTILIDADES ========== */
@@ -206,10 +207,10 @@
 }
 
 .fill-parent {
-    -fx-max-width: Infinity;
-    -fx-max-height: Infinity;
-    -fx-pref-width: USE_COMPUTED_SIZE;
-    -fx-pref-height: USE_COMPUTED_SIZE;
+    -fx-max-width: 999999;
+    -fx-max-height: 999999;
+    -fx-pref-width: -1;
+    -fx-pref-height: -1;
 }
 
 /* ========== LOGO RESPONSIVE ========== */

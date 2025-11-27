@@ -10,6 +10,7 @@ module com.example.proyectoprogra {
     requires jakarta.mail;
     requires java.sql;
     requires java.desktop;
+    requires javafx.base;
 
     opens com.example.proyectoprogra to javafx.fxml;
 
