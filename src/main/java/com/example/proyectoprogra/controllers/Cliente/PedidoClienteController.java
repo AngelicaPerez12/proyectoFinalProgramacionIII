@@ -151,7 +151,6 @@ public class PedidoClienteController {
                             "Total: $" + precioUnitario + "\n\n" +
                             "Gracias por tu compra :)"
             );
-            // -----------------------------------------------------
 
             abrirTicket(idPedido, ses.getIdUsuario(), ses.getNombre(), ses.getCorreo(),
                     elegido.getNombre(), tipo, tamano, precioUnitario, descripcion, fechaEntrega);

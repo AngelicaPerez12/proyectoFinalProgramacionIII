@@ -41,7 +41,7 @@ public class PastelesController {
         colCategoria.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("idCategoria"));
         colTamano.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("idTamano"));
         colSabor.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("idSabor"));
-        colPrecio.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("precio_base"));
+        colPrecio.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("precioBase"));
 
         listaPasteles = AdminPastelDao.obtenerTodos();
 

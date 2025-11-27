@@ -12,9 +12,9 @@ public class Historial {
     private int cantidad;
     private double precio;
     private double total;
-    private String cliente; // 👉 nuevo campo
+    private String cliente;
 
-    // Constructor para cliente
+
     public Historial(int idPedido, LocalDate fechaPedido, LocalDate fechaEntrega,
                      String estado, String pastel, int cantidad, double precio, String cliente) {
         this.idPedido = idPedido;
@@ -28,7 +28,6 @@ public class Historial {
         this.cliente = cliente;
     }
 
-    // Constructor para el cliente normal (por si lo sigues usando)
     public Historial(int idPedido, LocalDate fechaPedido, LocalDate fechaEntrega,
                      String estado, String pastel, int cantidad, double precio) {
         this(idPedido, fechaPedido, fechaEntrega, estado, pastel, cantidad, precio, null);
@@ -43,7 +42,9 @@ public class Historial {
     public double getPrecio() { return precio; }
     public double getTotal() { return total; }
 
-    // 👉 getters y setters del nuevo campo
     public String getCliente() { return cliente; }
     public void setCliente(String cliente) { this.cliente = cliente; }
+
+    public void setEstado(String nuevoEstado) {
+    }
 }

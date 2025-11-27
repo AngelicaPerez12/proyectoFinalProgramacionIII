@@ -101,23 +101,19 @@ public class DashboardClienteController {
             System.out.println("DEBUG: Resource URL = " + res);
             if (res == null) {
                 System.out.println("DEBUG: catalogo-cliente.fxml not found on classpath");
-                // mostrar fallback
                 showCatalogFallback(actionEvent);
                 return;
             }
 
-            // Read FXML as text
             String content;
             try (InputStream is = res.openStream()) {
                 byte[] data = is.readAllBytes();
                 content = new String(data, StandardCharsets.UTF_8);
             }
 
-            // Normalize image relative paths like @../Imagenes/... to absolute classpath @/com/example/proyectoprogra/Imagenes/...
-            content = content.replaceAll("@\\.\\./Imagenes/", "@/com/example/proyectoprogra/Imagenes/");
+             content = content.replaceAll("@\\.\\./Imagenes/", "@/com/example/proyectoprogra/Imagenes/");
 
-            // Replace Label attributes like text="$25" by converting them to child text nodes to avoid KeyPath parsing
-            Pattern p = Pattern.compile("<Label([^>]*?)\\s+text=\"(\\$[^\"]+)\"([^>]*)/\\s*>", Pattern.CASE_INSENSITIVE);
+             Pattern p = Pattern.compile("<Label([^>]*?)\\s+text=\"(\\$[^\"]+)\"([^>]*)/\\s*>", Pattern.CASE_INSENSITIVE);
             Matcher m = p.matcher(content);
             StringBuffer sb = new StringBuffer();
             while (m.find()) {
@@ -134,7 +130,6 @@ public class DashboardClienteController {
 
             System.out.println("DEBUG: Fixed FXML preview (first 400 chars):\n" + fixed.substring(0, Math.min(fixed.length(), 400)));
 
-            // Load from corrected content
             try (ByteArrayInputStream bais = new ByteArrayInputStream(fixed.getBytes(StandardCharsets.UTF_8))) {
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(res);
@@ -155,19 +150,16 @@ public class DashboardClienteController {
         } catch (Exception e) {
             System.out.println("DEBUG: Exception loading catalog FXML: " + e);
             e.printStackTrace();
-            // Si falla la carga del FXML, mostrar una vista programática de respaldo
-            showCatalogFallback(actionEvent);
+             showCatalogFallback(actionEvent);
         }
 
     }
 
-    // Fallback programático: crea una ventana simple con algunos productos tomados de recursos
-    private void showCatalogFallback(ActionEvent actionEvent) {
+      private void showCatalogFallback(ActionEvent actionEvent) {
         try {
             BorderPane root = new BorderPane();
             root.setStyle("-fx-background-color: linear-gradient(to right, #FFF8E7, #FFE4E1);");
 
-            // Navbar
             HBox nav = new HBox(12);
             nav.setPadding(new Insets(10, 20, 10, 20));
             ImageView logo = new ImageView(new Image(getClass().getResourceAsStream("/com/example/proyectoprogra/Imagenes/sweetharmony.png")));
@@ -192,7 +184,6 @@ public class DashboardClienteController {
             nav.getChildren().addAll(logo, title, spacer, btnCatalog, btnPedido, btnHist, btnPerfil);
             root.setTop(nav);
 
-            // Center: catálogo simple
             ScrollPane scroll = new ScrollPane();
             scroll.setFitToWidth(true);
             VBox container = new VBox(20);
@@ -202,7 +193,7 @@ public class DashboardClienteController {
             products.setHgap(20);
             products.setVgap(20);
 
-            // Añadir 5 productos de ejemplo
+
             String[] imgs = {"Imagen01.jpg","Pastel02.jpg","Pastel3.jpg","Pastel4.jpg","Pastel6.jpg"};
             String[] names = {"Chocolatoso","Aroma Café","Limonsito","Fresa","Canela y Manzana"};
             String[] prices = {"$25","$40","$25","$25","$35"};

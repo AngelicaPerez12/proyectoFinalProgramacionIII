@@ -49,7 +49,7 @@ public class RegisterController {
     private Label mensajeReg;
 
     @FXML
-    private StackPane rootPane; // añadido para aplicar CSS programáticamente
+    private StackPane rootPane;
 
 
     private Consumer<String> onSuccessCallback;

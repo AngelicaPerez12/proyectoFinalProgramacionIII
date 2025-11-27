@@ -12,7 +12,6 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) {
         try {
-            // Cargar Bienvenida con MaterialFX
             URL fxmlUrl = HelloApplication.class
                     .getResource("/com/example/proyectoprogra/Visualizacion/Bienvenida.fxml");
             if (fxmlUrl == null) {

@@ -8,8 +8,8 @@ import java.util.Properties;
 
 public class EmailUtils {
     public static void enviarCorreo(String destino, String asunto, String mensaje) {
-        final String remitente = "ml23011@ues.edu.sv"; // TU CORREO
-        final String clave = "zqrcxkztpbkiwlja"; // CLAVE DE APP (NO TU PASSWORD)
+        final String remitente = "ml23011@ues.edu.sv";
+        final String clave = "zqrcxkztpbkiwlja";
 
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");

@@ -64,7 +64,7 @@
                     <ImageView fitHeight="25" fitWidth="25" preserveRatio="true">
                         <image><Image url="@../Imagenes/checkout.png" /></image>
                     </ImageView>
-                    <Button fx:id="btnpedidos" onAction="#pedidos" styleClass="menu-btn" text="Pedidos" />
+                    <Button fx:id="btnpedidos" onAction="#pedidos" styleClass="menu-btn" text="Historial" />
                 </HBox>
 
                 <HBox alignment="CENTER_LEFT" spacing="10" />
@@ -73,7 +73,7 @@
                     <ImageView fitHeight="25" fitWidth="25" preserveRatio="true">
                         <image><Image url="@../Imagenes/file.png" /></image>
                     </ImageView>
-                    <Button fx:id="btnhistorial" onAction="#historial" styleClass="menu-btn" text="Historial" />
+                    <Button fx:id="btnhistorial" onAction="#historial" styleClass="menu-btn" text="Pedidos" />
                 </HBox>
 
                 <HBox alignment="CENTER_LEFT" spacing="10">

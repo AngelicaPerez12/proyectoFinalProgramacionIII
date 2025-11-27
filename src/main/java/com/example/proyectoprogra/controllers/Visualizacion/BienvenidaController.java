@@ -73,10 +73,8 @@ public class BienvenidaController {
             }
 
             if (currentStage != null) {
-                // Usar WindowUtils para configurar la ventana existente
                 com.example.proyectoprogra.utils.WindowUtils.setupAndShowStage(currentStage, root, titulo);
             } else {
-                // Crear nueva ventana con WindowUtils
                 Stage stage = new Stage();
                 com.example.proyectoprogra.utils.WindowUtils.setupAndShowStage(stage, root, titulo);
             }
