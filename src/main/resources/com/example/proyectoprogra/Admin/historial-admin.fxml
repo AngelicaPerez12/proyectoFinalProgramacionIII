@@ -1,43 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.geometry.Insets?>
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/25"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.proyectoprogra.controllers.Admin.HistorialAdminController"
-            stylesheets="@../css/dashadmin.css">
+<AnchorPane stylesheets="@../css/dashadmin.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyectoprogra.controllers.Admin.HistorialAdminController">
 
-    <VBox spacing="15"
-          AnchorPane.topAnchor="0"
-          AnchorPane.leftAnchor="0"
-          AnchorPane.rightAnchor="0"
-          AnchorPane.bottomAnchor="0"
-          style="-fx-padding: 20;">
+    <!-- ScrollPane que contiene todo -->
+    <ScrollPane fitToHeight="true" fitToWidth="true" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+        <content>
+            <VBox spacing="12" style="-fx-padding: 17;">
 
-        <Label text="Historial de Todos los Pedidos" style="-fx-font-size: 24; -fx-font-weight: bold;"/>
+                <!-- Título -->
+                <Label style="-fx-font-size: 20; -fx-font-weight: bold;" text="Historial de Todos los Pedidos" />
 
-        <Button text="Refrescar Tabla" fx:id="btnRefrescar" onAction="#refrescarTabla"
-                style="-fx-font-size: 14; -fx-padding: 5 10 5 10;"/>
+                <!-- Botón refrescar -->
+                <Button fx:id="btnRefrescar" onAction="#refrescarTabla" style="-fx-font-size: 12; -fx-padding: 4 8 4 8;" text="Refrescar Tabla" />
 
-        <TableView fx:id="tablaHistorial" VBox.vgrow="ALWAYS" prefWidth="1100">
+                <!-- Contenedor tabla + CRUD -->
+                <HBox spacing="16" VBox.vgrow="ALWAYS">
 
-            <columns>
-                <TableColumn fx:id="colIdPedido" text="ID" prefWidth="70"/>
-                <TableColumn fx:id="colCliente" text="Cliente" prefWidth="140"/>
-                <TableColumn fx:id="colFechaPedido" text="Fecha Pedido" prefWidth="150"/>
-                <TableColumn fx:id="colFechaEntrega" text="Fecha Entrega" prefWidth="150"/>
-                <TableColumn fx:id="colEstado" text="Estado" prefWidth="120"/>
-                <TableColumn fx:id="colPastel" text="Pastel" prefWidth="200"/>
-                <TableColumn fx:id="colCantidad" text="Cant." prefWidth="70"/>
-                <TableColumn fx:id="colPrecio" text="Precio" prefWidth="100"/>
-                <TableColumn fx:id="colTotal" text="Total" prefWidth="100"/>
-                <TableColumn fx:id="colAccion" text="Cambiar Estado" prefWidth="150"/>
-            </columns>
+                    <!-- Tabla de Historial -->
+                    <TableView fx:id="tablaHistorial" prefWidth="680" HBox.hgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="colIdPedido" prefWidth="60" text="ID" />
+                            <TableColumn fx:id="colCliente" prefWidth="120" text="Cliente" />
+                            <TableColumn fx:id="colFechaPedido" prefWidth="130" text="Fecha Pedido" />
+                            <TableColumn fx:id="colFechaEntrega" prefWidth="130" text="Fecha Entrega" />
+                            <TableColumn fx:id="colEstado" prefWidth="100" text="Estado" />
+                            <TableColumn fx:id="colPastel" prefWidth="170" text="Pastel" />
+                            <TableColumn fx:id="colCantidad" prefWidth="60" text="Cant." />
+                            <TableColumn fx:id="colPrecio" prefWidth="85" text="Precio" />
+                            <TableColumn fx:id="colTotal" prefWidth="85" text="Total" />
+                            <TableColumn fx:id="colAccion" prefWidth="130" text="Cambiar Estado" />
+                        </columns>
+                    </TableView>
 
-        </TableView>
+                    <!-- Panel CRUD -->
+                    <VBox prefWidth="255" spacing="8" style="-fx-border-color: #ccc; -fx-border-width: 1; -fx-padding: 8;">
 
-    </VBox>
+                        <Label style="-fx-font-size: 16; -fx-font-weight: bold;" text="Pedidos" />
+                        <Label text="ID Pedido" />
+                        <TextField fx:id="txtIdPedido" editable="false" />
+                        <Label text="Cliente" />
+                        <TextField fx:id="txtCliente" />
+                        <Label text="Pastel" />
+                        <TextField fx:id="txtPastel" />
+                        <Label text="Cantidad" />
+                        <TextField fx:id="txtCantidad" />
+                        <Label text="Precio" />
+                        <TextField fx:id="txtPrecio" />
+                        <Label text="Estado" />
+                        <ComboBox fx:id="cmbEstado">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="Pendiente" />
+                                    <String fx:value="En Proceso" />
+                                    <String fx:value="Entregado" />
+                                    <String fx:value="Cancelado" />
+                                </FXCollections>
+                            </items>
+                        </ComboBox>
+
+                        <!-- Botones CRUD -->
+                        <HBox spacing="8">
+                            <Button fx:id="btnAgregar" onAction="#agregarPedido" text="Agregar" HBox.hgrow="ALWAYS" />
+                            <Button fx:id="btnActualizar" onAction="#actualizarPedido" text="Actualizar" HBox.hgrow="ALWAYS" />
+                        </HBox>
+                        <Button fx:id="btnEliminar" maxWidth="Infinity" onAction="#eliminarPedido" text="Eliminar" />
+                        <Button fx:id="btnCorreo" maxWidth="Infinity" onAction="#mostrarFormularioCorreo" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text="Enviar Correo" />
+
+                        <!-- Formulario de correo oculto inicialmente -->
+                        <VBox fx:id="formularioCorreo" managed="false" spacing="6" style="-fx-border-color: #aaa; -fx-border-width: 1; -fx-padding: 8;" visible="false">
+                            <Label style="-fx-font-weight: bold;" text="Enviar correo al cliente" />
+                            <Label text="Asunto" />
+                            <TextField fx:id="txtAsunto" promptText="Asunto del correo" />
+                            <Label text="Mensaje" />
+                            <TextArea fx:id="txtMensaje" prefRowCount="4" promptText="Mensaje a enviar..." />
+                            <Button fx:id="btnEnviarCorreo" maxWidth="Infinity" onAction="#enviarCorreo" style="-fx-background-color: #2196F3; -fx-text-fill: white;" text="Enviar" />
+                        </VBox>
+
+                    </VBox>
+
+                </HBox>
+
+            </VBox>
+        </content>
+    </ScrollPane>
 
 </AnchorPane>
