@@ -18,7 +18,8 @@ public class NuevoPastelController { @FXML private TextField txtNombre;
     @FXML private ComboBox<Opciones> comboCategoria;
     @FXML private ComboBox<Opciones> comboTamano;
     @FXML private ComboBox<Opciones> comboSabor;
-
+    @FXML private TextField txtNuevoSabor;
+    @FXML private TextField txtDescripcionSabor;
     @FXML
     public void initialize() {
         comboCategoria.setItems(CmbDao.obtenerCategorias());
@@ -75,5 +76,34 @@ public class NuevoPastelController { @FXML private TextField txtNombre;
     private void cerrar(ActionEvent e) {
         Stage stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         stage.close();
+    }
+    public void agregarSabor(ActionEvent actionEvent) {
+        try {
+            String nombre = txtNuevoSabor.getText().trim();
+            String descripcion = txtDescripcionSabor.getText().trim();
+
+            if (nombre.isEmpty() || descripcion.isEmpty()) {
+                throw new Exception("Debes ingresar nombre y descripción del sabor.");
+            }
+
+            int id = CmbDao.insertarSabor(nombre, descripcion);
+
+            Opciones sabor = new Opciones(id, nombre);
+
+            comboSabor.getItems().add(sabor);
+            txtNuevoSabor.clear();
+            txtDescripcionSabor.clear();
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText(null);
+            alert.setContentText("Sabor agregado correctamente.");
+            alert.show();
+
+        } catch (Exception ex) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Error al agregar sabor");
+            alert.setContentText(ex.getMessage());
+            alert.show();
+        }
     }
 }

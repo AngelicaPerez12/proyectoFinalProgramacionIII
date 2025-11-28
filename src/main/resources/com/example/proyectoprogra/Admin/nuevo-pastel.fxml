@@ -32,6 +32,21 @@
         <ComboBox fx:id="comboSabor" promptText="Seleccionar sabor"
                   style="-fx-padding: 8; -fx-border-radius: 5; -fx-background-radius: 5; -fx-border-color: #cccccc;" />
 
+        <VBox spacing="8" style="-fx-background-color: #ffffff; -fx-padding: 12; -fx-border-radius: 8; -fx-background-radius: 8; -fx-border-color: #dddddd;">
+
+            <Label text="Agregar Nuevo Sabor"
+                   style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #4a4a4a;" />
+
+            <TextField fx:id="txtNuevoSabor" promptText="Nombre del sabor"
+                       style="-fx-padding: 8; -fx-border-color: #cccccc; -fx-background-radius: 5; -fx-border-radius: 5;" />
+
+            <TextField fx:id="txtDescripcionSabor" promptText="Descripción del sabor"
+                       style="-fx-padding: 8; -fx-border-color: #cccccc; -fx-background-radius: 5; -fx-border-radius: 5;" />
+
+            <Button text="Guardar Sabor" onAction="#agregarSabor"
+                    style="-fx-background-color: #E8C7C8; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8; -fx-background-radius: 6;" />
+        </VBox>
+
         <TextField fx:id="txtPrecio" promptText="Precio Base"
                    style="-fx-padding: 8; -fx-border-radius: 5; -fx-background-radius: 5; -fx-border-color: #cccccc;" />
     </VBox>
