@@ -1,7 +1,6 @@
 package com.example.proyectoprogra.controllers.Cliente;
 
 import com.example.proyectoprogra.DAO.HistorialDao;
-import com.example.proyectoprogra.DAO.PedidoDao;
 import com.example.proyectoprogra.models.Historial;
 import com.example.proyectoprogra.models.UsuarioSession;
 import javafx.event.ActionEvent;
@@ -15,7 +14,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.List;
 
 public class HistorialClienteController {
     @FXML private TableView<Historial> tablaHistorial;
@@ -29,12 +27,11 @@ public class HistorialClienteController {
     @FXML private TableColumn<Historial, Double> colPrecio;
     @FXML private TableColumn<Historial, Double> colTotal;
 
-    private int idUsuario;
+    @FXML private TableColumn<Historial, Void> colAcciones;
 
     @FXML
-    private TableColumn<Historial, Void> colAcciones;
-    @FXML
     public void initialize() {
+        // Configurar columnas
         colIdPedido.setCellValueFactory(new PropertyValueFactory<>("idPedido"));
         colFechaPedido.setCellValueFactory(new PropertyValueFactory<>("fechaPedido"));
         colFechaEntrega.setCellValueFactory(new PropertyValueFactory<>("fechaEntrega"));
@@ -51,8 +48,10 @@ public class HistorialClienteController {
             return;
         }
 
+        // Cargar historial del usuario
         tablaHistorial.setItems(HistorialDao.obtenerHistorial(idUsuario));
 
+        // Agregar botón cancelar
         agregarBotonCancelar();
     }
 
@@ -62,18 +61,32 @@ public class HistorialClienteController {
 
             {
                 btn.setStyle("-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-background-radius: 5;");
+
                 btn.setOnAction(e -> {
                     Historial seleccionado = getTableView().getItems().get(getIndex());
+                    String estado = seleccionado.getEstado();
 
+                    // Verificar si se puede cancelar
+                    if (estado.equalsIgnoreCase("En proceso") ||
+                            estado.equalsIgnoreCase("Listo") ||
+                            estado.equalsIgnoreCase("Entregado")) {
+
+                        Alert alerta = new Alert(Alert.AlertType.WARNING);
+                        alerta.setTitle("No se puede cancelar");
+                        alerta.setHeaderText("El pedido no puede ser cancelado");
+                        alerta.setContentText("El estado del pedido es '" + estado + "'.");
+                        alerta.show();
+                        return;
+                    }
+
+                    // Confirmación de cancelación
                     Alert confirmar = new Alert(Alert.AlertType.CONFIRMATION);
                     confirmar.setTitle("Confirmación");
                     confirmar.setHeaderText("¿Cancelar pedido?");
                     confirmar.setContentText("Esta acción eliminará el pedido del historial.");
 
                     if (confirmar.showAndWait().get() == ButtonType.OK) {
-
                         boolean exito = HistorialDao.cancelarPedido(seleccionado.getIdPedido());
-
                         if (exito) {
                             getTableView().getItems().remove(seleccionado);
 
@@ -98,89 +111,41 @@ public class HistorialClienteController {
             }
         });
     }
+
+    // Métodos de navegación
     public void vercatalogo(ActionEvent actionEvent) {
-        System.out.println("DEBUG: HistorialClienteController.vercatalogo invoked");
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/proyectoprogra/Cliente/catalogo-cliente.fxml"));
-            Parent root = loader.load();
-
-            Stage newStage = new Stage();
-            Scene scene = new Scene(root);
-            newStage.setScene(scene);
-
-            newStage.setMaximized(true);
-
-            newStage.show();
-
-            Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            currentStage.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        abrirVista("/com/example/proyectoprogra/Cliente/catalogo-cliente.fxml", actionEvent);
     }
 
     public void hacerpedido(ActionEvent actionEvent) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/proyectoprogra/Cliente/pedido-cliente.fxml"));
-            Parent root = loader.load();
-
-            Stage newStage = new Stage();
-            Scene scene = new Scene(root);
-            newStage.setScene(scene);
-
-            newStage.setMaximized(true);
-
-            newStage.show();
-
-            Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            currentStage.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        abrirVista("/com/example/proyectoprogra/Cliente/pedido-cliente.fxml", actionEvent);
     }
 
     public void historial(ActionEvent actionEvent) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/proyectoprogra/Cliente/historial-cliente.fxml"));
-            Parent root = loader.load();
-
-            Stage newStage = new Stage();
-            Scene scene = new Scene(root);
-            newStage.setScene(scene);
-
-            newStage.setMaximized(true);
-
-            newStage.show();
-
-            Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            currentStage.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        abrirVista("/com/example/proyectoprogra/Cliente/historial-cliente.fxml", actionEvent);
     }
 
     public void perfil(ActionEvent actionEvent) {
+        abrirVista("/com/example/proyectoprogra/Cliente/perfil-cliente.fxml", actionEvent);
+    }
+
+    // Método auxiliar para abrir nuevas vistas
+    private void abrirVista(String fxml, ActionEvent actionEvent) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/proyectoprogra/Cliente/perfil-cliente.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
             Parent root = loader.load();
 
-            Stage newStage = new Stage();
-            Scene scene = new Scene(root);
-            newStage.setScene(scene);
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setMaximized(true);
+            stage.show();
 
-            newStage.setMaximized(true);
-
-            newStage.show();
-
+            // Cerrar ventana actual
             Stage currentStage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             currentStage.close();
 
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 }

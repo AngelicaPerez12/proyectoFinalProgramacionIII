@@ -1,26 +1,26 @@
 package com.example.proyectoprogra.controllers.Admin;
 
 import com.example.proyectoprogra.DAO.AdminHistorialDao;
+import com.example.proyectoprogra.models.EmailUtils;
 import com.example.proyectoprogra.models.Historial;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
+import javafx.scene.layout.VBox;
 
-import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class HistorialAdminController implements Initializable {
+    // Campos del formulario de correo
+    @FXML private VBox formularioCorreo;
+    @FXML private TextField txtAsunto;
+    @FXML private TextArea txtMensaje;
+    @FXML private Button btnCorreo;
 
     @FXML private TableView<Historial> tablaHistorial;
     @FXML private TableColumn<Historial, Integer> colIdPedido;
@@ -32,7 +32,19 @@ public class HistorialAdminController implements Initializable {
     @FXML private TableColumn<Historial, Integer> colCantidad;
     @FXML private TableColumn<Historial, Double> colPrecio;
     @FXML private TableColumn<Historial, Double> colTotal;
-    @FXML private TableColumn<Historial, Void> colAccion; // Columna de acción
+    @FXML private TableColumn<Historial, Void> colAccion;
+
+    // Campos CRUD
+    @FXML private TextField txtIdPedido;
+    @FXML private TextField txtCliente;
+    @FXML private TextField txtPastel;
+    @FXML private TextField txtCantidad;
+    @FXML private TextField txtPrecio;
+    @FXML private ComboBox<String> cmbEstado;
+
+    @FXML private Button btnAgregar;
+    @FXML private Button btnActualizar;
+    @FXML private Button btnEliminar;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -47,13 +59,11 @@ public class HistorialAdminController implements Initializable {
         colPrecio.setCellValueFactory(new PropertyValueFactory<>("precio"));
         colTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
 
-        // Cargar datos
         tablaHistorial.setItems(AdminHistorialDao.obtenerTodosLosPedidos());
 
-        // Configuración de la columna con ComboBox
+        // Configuración de ComboBox en columna Accion
         colAccion.setCellFactory(param -> new TableCell<>() {
             private final ComboBox<String> comboEstado = new ComboBox<>();
-
             {
                 comboEstado.getItems().addAll("Pendiente", "En proceso", "Listo", "Entregado");
                 comboEstado.setOnAction(e -> {
@@ -79,45 +89,165 @@ public class HistorialAdminController implements Initializable {
                 }
             }
         });
+
+        // Inicializar ComboBox del CRUD
+        cmbEstado.getItems().addAll("Pendiente", "En proceso", "Listo", "Entregado");
+
+        // Seleccionar fila de la tabla para llenar el panel CRUD
+        tablaHistorial.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                txtIdPedido.setText(String.valueOf(newSelection.getIdPedido()));
+                txtCliente.setText(newSelection.getCliente());
+                txtPastel.setText(newSelection.getPastel());
+                txtCantidad.setText(String.valueOf(newSelection.getCantidad()));
+                txtPrecio.setText(String.valueOf(newSelection.getPrecio()));
+                cmbEstado.setValue(newSelection.getEstado());
+            }
+        });
     }
 
-    // Método vacío para compatibilidad
-    public void informacionUsuario(ActionEvent actionEvent) {}
+    // ------------------ MÉTODOS CRUD ------------------
 
-    // Cambiar vista sin forzar maximizado
-    private void cambiarVista(String fxml, ActionEvent event) {
+    @FXML
+    public void agregarPedido(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
-            Parent root = loader.load();
+            // Obtener datos desde los campos del panel CRUD
+            String cliente = txtCliente.getText();
+            String pastel = txtPastel.getText();
+            int cantidad = Integer.parseInt(txtCantidad.getText());
+            double precio = Double.parseDouble(txtPrecio.getText());
+            String estado = cmbEstado.getValue();
+            LocalDate fechaPedido = LocalDate.now();
+            LocalDate fechaEntrega = LocalDate.now().plusDays(2); // ejemplo de entrega
 
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
+            // Crear objeto Historial correctamente (total se calcula dentro del modelo)
+            Historial nuevo = new Historial(0, fechaPedido, fechaEntrega, estado, pastel, cantidad, precio, cliente);
 
-            stage.setScene(scene);
+            // Insertar en la base de datos
+            AdminHistorialDao.agregarPedido(nuevo);
 
-            stage.show();
+            // Refrescar la tabla y limpiar campos
+            refrescarTabla(null);
+            limpiarCampos();
 
-        } catch (IOException e) {
+        } catch (NumberFormatException e) {
+            System.out.println("Error: cantidad o precio no son válidos");
+            e.printStackTrace();
+        } catch (Exception e) {
+            System.out.println("Error al agregar pedido");
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void actualizarPedido(ActionEvent event) {
+        try {
+            // Obtener datos del panel CRUD
+            int id = Integer.parseInt(txtIdPedido.getText());
+            String cliente = txtCliente.getText();
+            String pastel = txtPastel.getText();
+            int cantidad = Integer.parseInt(txtCantidad.getText());
+            double precio = Double.parseDouble(txtPrecio.getText());
+            String estado = cmbEstado.getValue();
+
+            // Crear objeto Historial usando constructor simplificado
+            Historial actualizado = new Historial(id, estado, pastel, cantidad, precio, cliente);
+
+            // Actualizar en la base de datos
+            AdminHistorialDao.actualizarPedido(actualizado);
+
+            // Refrescar tabla y limpiar campos
+            refrescarTabla(null);
+            limpiarCampos();
+
+        } catch (NumberFormatException e) {
+            System.out.println("Error: cantidad o precio no válidos");
+            e.printStackTrace();
+        } catch (Exception e) {
+            System.out.println("Error al actualizar pedido");
             e.printStackTrace();
         }
     }
 
 
     @FXML
-    void historial(ActionEvent e) { cambiarVista("/com/example/proyectoprogra/Admin/historial-admin.fxml", e); }
+    public void eliminarPedido(ActionEvent event) {
+        try {
+            int id = Integer.parseInt(txtIdPedido.getText());
+            AdminHistorialDao.eliminarPedido(id);
+            refrescarTabla(null);
+            limpiarCampos();
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error al eliminar pedido");
+        }
+    }
 
-    @FXML
-    void inforPasteles(ActionEvent e) { cambiarVista("/com/example/proyectoprogra/Admin/pasteles-admin.fxml", e); }
+    private void limpiarCampos() {
+        txtIdPedido.clear();
+        txtCliente.clear();
+        txtPastel.clear();
+        txtCantidad.clear();
+        txtPrecio.clear();
+        cmbEstado.setValue(null);
+    }
 
-    @FXML
-    void pedidos(ActionEvent e) { cambiarVista("/com/example/proyectoprogra/Admin/pedidos-admin.fxml", e); }
+    // ------------------ RESTO DE MÉTODOS EXISTENTES ------------------
 
-    @FXML
-    void resportes(ActionEvent e) { cambiarVista("/com/example/proyectoprogra/Admin/reportes-admin-view.fxml", e); }
-
-    @FXML
     public void refrescarTabla(ActionEvent actionEvent) {
         tablaHistorial.setItems(AdminHistorialDao.obtenerTodosLosPedidos());
         tablaHistorial.refresh();
+    }
+
+    @FXML
+    public void mostrarFormularioCorreo(ActionEvent actionEvent) {
+        boolean visible = formularioCorreo.isVisible();
+        formularioCorreo.setVisible(!visible);
+        formularioCorreo.setManaged(!visible);
+
+        // Si hay un pedido seleccionado, rellenar automáticamente
+        Historial seleccionado = tablaHistorial.getSelectionModel().getSelectedItem();
+        if (seleccionado != null) {
+            txtAsunto.setText("Información de su pedido #" + seleccionado.getIdPedido());
+            txtMensaje.setText("Hola " + seleccionado.getCliente() + ",\n\n" +
+                    "Su pedido de " + seleccionado.getCantidad() + " " + seleccionado.getPastel() +
+                    " está actualmente en estado: " + seleccionado.getEstado() + ".\n" +
+                    "Fecha de entrega estimada: " + seleccionado.getFechaEntrega() + ".\n\n" +
+                    "¡Gracias por su preferencia!");
+        }
+    }
+
+
+    @FXML
+    public void enviarCorreo(ActionEvent actionEvent) {
+        String cliente = txtCliente.getText(); // Aquí puedes usar el email real del cliente
+        String asunto = txtAsunto.getText();
+        String mensaje = txtMensaje.getText();
+
+        try {
+            // Enviar correo usando EmailUtils
+            EmailUtils.enviarCorreo(cliente, asunto, mensaje);
+
+            // Mensaje de confirmación (opcional)
+            Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+            alerta.setTitle("Correo enviado");
+            alerta.setHeaderText(null);
+            alerta.setContentText("El correo ha sido enviado correctamente a " + cliente);
+            alerta.showAndWait();
+
+            // Ocultar y limpiar formulario después de enviar
+            txtAsunto.clear();
+            txtMensaje.clear();
+            formularioCorreo.setVisible(false);
+            formularioCorreo.setManaged(false);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setTitle("Error");
+            alerta.setHeaderText("No se pudo enviar el correo");
+            alerta.setContentText(e.getMessage());
+            alerta.showAndWait();
+        }
     }
 }

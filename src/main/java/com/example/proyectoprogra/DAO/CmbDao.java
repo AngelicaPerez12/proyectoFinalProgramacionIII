@@ -76,4 +76,26 @@ public class CmbDao {
 
         return lista;
     }
+    public static int insertarSabor(String nombre, String descripcion) {
+        int idGenerado = 0;
+
+        String sql = "INSERT INTO tbl_sabores(nombre, descripcion) VALUES (?, ?) RETURNING id";
+
+        try (Connection conn = ConexionDB.getConection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, nombre);
+            stmt.setString(2, descripcion);
+
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                idGenerado = rs.getInt("id");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return idGenerado;
+    }
 }
