@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 
-<ScrollPane fitToWidth="true" fitToHeight="true" style="-fx-background-color: transparent;" stylesheets="@../css/register.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyectoprogra.controllers.Visualizacion.RegisterController">
+<ScrollPane fitToWidth="true" fitToHeight="true" style="-fx-background-color: transparent;" stylesheets="@../css/bakery-theme.css,@../css/register.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyectoprogra.controllers.Visualizacion.RegisterController">
     <content>
         <StackPane styleClass="bakery-background">
             <VBox alignment="CENTER" spacing="30" fillWidth="true" styleClass="bakery-responsive-container, bakery-form-spacing-large">

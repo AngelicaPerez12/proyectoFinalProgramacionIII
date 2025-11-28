@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 
 <AnchorPane styleClass="pane"
-            stylesheets="@../css/dashadmin.css"
+            stylesheets="@../css/admin.css"
             AnchorPane.bottomAnchor="0"
             AnchorPane.leftAnchor="0"
             AnchorPane.rightAnchor="0"

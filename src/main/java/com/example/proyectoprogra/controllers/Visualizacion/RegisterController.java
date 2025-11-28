@@ -2,11 +2,11 @@ package com.example.proyectoprogra.controllers.Visualizacion;
 
 import com.example.proyectoprogra.ConexionDB.ConexionDB;
 import com.example.proyectoprogra.models.PasswordUtils;
-import com.example.proyectoprogra.utils.WindowUtils;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
@@ -16,8 +16,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.function.Consumer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class RegisterController {
+
+    private static final Logger LOGGER = Logger.getLogger(RegisterController.class.getName());
 
     @FXML private TextField campoNombreReg;
     @FXML private TextField campoApellidoReg;
@@ -92,8 +96,8 @@ public class RegisterController {
             }
 
         } catch (SQLException e) {
+            LOGGER.log(Level.SEVERE, "Error al crear usuario", e);
             mensajeReg.setText("Error de conexión: " + e.getMessage());
-            e.printStackTrace();
         }
     }
 
@@ -115,16 +119,23 @@ public class RegisterController {
             Parent root = loader.load();
 
             if (cssPath != null) {
-                root.getStylesheets().add(getClass().getResource(cssPath).toExternalForm());
+                URL cssUrl = getClass().getResource(cssPath);
+                if (cssUrl != null) root.getStylesheets().add(cssUrl.toExternalForm());
             }
 
             Stage stage = (Stage) sourceNode.getScene().getWindow();
+            // reemplazamos root y aplicamos stylesheets de la nueva vista
             stage.getScene().setRoot(root);
+            stage.getScene().getStylesheets().clear();
+            if (root.getStylesheets() != null && !root.getStylesheets().isEmpty()) {
+                stage.getScene().getStylesheets().addAll(root.getStylesheets());
+            }
+
             stage.setTitle(titulo);
             stage.show();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            LOGGER.log(Level.SEVERE, "Error al cargar la vista: " + fxmlPath, e);
             mensajeReg.setText("Error al cargar la vista: " + fxmlPath);
         }
     }

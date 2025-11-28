@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<ScrollPane fitToHeight="true" fitToWidth="true" style="-fx-background-color: transparent;" stylesheets="@../css/bienvenida.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyectoprogra.controllers.Visualizacion.BienvenidaController">
+<ScrollPane fitToHeight="true" fitToWidth="true" style="-fx-background-color: transparent;" stylesheets="@../css/bakery-theme.css,@../css/bienvenida.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyectoprogra.controllers.Visualizacion.BienvenidaController">
     <content>
         <StackPane fx:id="rootPane" styleClass="bakery-background">
 

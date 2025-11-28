@@ -21,17 +21,13 @@
 
 /* ========== FONDO PRINCIPAL ========== */
 .bakery-background {
-    -fx-background-color: linear-gradient(
-        135deg,
-        #FAF7F2 0%,
-        #F5F0EB 50%,
-        #E8C7C8 100%
-    );
+    /* JavaFX linear-gradient syntax: linear-gradient(from x1 y1 to x2 y2, color stop, ...) */
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #FAF7F2 0%, #F5F0EB 50%, #E8C7C8 100%);
 }
 
 /* ========== CARDS MODERNOS ========== */
 .bakery-card {
-    -fx-background-color: white;
+    -fx-background-color: #FFFFFF;
     -fx-background-radius: 16;
     -fx-padding: 30;
     -fx-effect: dropshadow(gaussian, rgba(31, 26, 23, 0.08), 20, 0, 0, 4);
@@ -45,7 +41,7 @@
 }
 
 .bakery-card-large {
-    -fx-background-color: white;
+    -fx-background-color: #FFFFFF;
     -fx-background-radius: 20;
     -fx-padding: 50;
     -fx-effect: dropshadow(gaussian, rgba(31, 26, 23, 0.1), 25, 0, 0, 6);
@@ -130,7 +126,7 @@
 /* ========== BOTONES MODERNOS ========== */
 .bakery-button,
 .button {
-    -fx-background-color: linear-gradient(to bottom, #E8C7C8 0%, #DDB8B9 100%);
+    -fx-background-color: linear-gradient(from 0% 0% to 0% 100%, #E8C7C8 0%, #DDB8B9 100%);
     -fx-background-radius: 12;
     -fx-text-fill: white;
     -fx-font-size: 15px;
@@ -152,7 +148,7 @@
 
 .bakery-button:hover,
 .button:hover {
-    -fx-background-color: linear-gradient(to bottom, #DDB8B9 0%, #D2A7A8 100%);
+    -fx-background-color: linear-gradient(from 0% 0% to 0% 100%, #DDB8B9 0%, #D2A7A8 100%);
     -fx-effect: dropshadow(gaussian, rgba(232, 199, 200, 0.5), 16, 0, 0, 6);
     -fx-scale-x: 1.02;
     -fx-scale-y: 1.02;
@@ -160,7 +156,7 @@
 
 .bakery-button:pressed,
 .button:pressed {
-    -fx-background-color: linear-gradient(to bottom, #D2A7A8 0%, #C79697 100%);
+    -fx-background-color: linear-gradient(from 0% 0% to 0% 100%, #D2A7A8 0%, #C79697 100%);
     -fx-effect: dropshadow(gaussian, rgba(232, 199, 200, 0.3), 8, 0, 0, 2);
     -fx-scale-x: 0.98;
     -fx-scale-y: 0.98;
@@ -192,7 +188,7 @@
 
 /* ========== COMBOBOX MODERNO ========== */
 .combo-box {
-    -fx-background-color: white;
+    -fx-background-color: #FFFFFF;
     -fx-background-radius: 12;
     -fx-border-color: #E0E0E0;
     -fx-border-width: 1.5;
@@ -208,7 +204,7 @@
 }
 
 .combo-box .list-cell {
-    -fx-background-color: white;
+    -fx-background-color: #FFFFFF;
     -fx-text-fill: #1F1A17;
     -fx-padding: 10 16;
     -fx-font-size: 14px;
@@ -224,7 +220,7 @@
 }
 
 .combo-box-popup .list-view {
-    -fx-background-color: white;
+    -fx-background-color: #FFFFFF;
     -fx-border-color: #E0E0E0;
     -fx-border-width: 1;
     -fx-border-radius: 12;
@@ -246,12 +242,12 @@
 }
 
 .combo-box .arrow {
-    -fx-background-color: white;
+    -fx-background-color: #FFFFFF;
 }
 
 /* ========== DATEPICKER MODERNO ========== */
 .date-picker {
-    -fx-background-color: white;
+    -fx-background-color: #FFFFFF;
     -fx-background-radius: 12;
     -fx-border-color: #E0E0E0;
     -fx-border-width: 1.5;
@@ -281,11 +277,11 @@
 }
 
 .date-picker .arrow {
-    -fx-background-color: white;
+    -fx-background-color: #FFFFFF;
 }
 
 .date-picker-popup {
-    -fx-background-color: white;
+    -fx-background-color: #FFFFFF;
     -fx-border-color: #E0E0E0;
     -fx-border-width: 1;
     -fx-border-radius: 12;
@@ -294,7 +290,7 @@
 
 /* ========== TABLEVIEW MODERNO ========== */
 .table-view {
-    -fx-background-color: white;
+    -fx-background-color: #FFFFFF;
     -fx-background-radius: 12;
     -fx-border-color: transparent;
     -fx-border-width: 0;
@@ -329,7 +325,7 @@
 }
 
 .table-row-cell {
-    -fx-background-color: white;
+    -fx-background-color: #FFFFFF;
     -fx-border-color: transparent;
 }
 
@@ -351,7 +347,7 @@
 }
 
 .table-view .filler {
-    -fx-background-color: white;
+    -fx-background-color: #FFFFFF;
 }
 
 /* ========== SCROLLPANE MODERNO ========== */

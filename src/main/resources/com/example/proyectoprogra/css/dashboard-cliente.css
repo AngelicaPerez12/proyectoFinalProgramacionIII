@@ -1,119 +1,137 @@
-/* ========================================
-   DASHBOARD CLIENTE - CSS EXCLUSIVO
-   Paleta Sweet Harmony
-   ======================================== */
+/* dashboard-cliente.css - estilo moderno coherente con el tema bakery (valores literales para compatibilidad JavaFX 21) */
 
-/* ========== FONDO PRINCIPAL ========== */
+/* Colores literales */
+/* primary: #D97941, primary-dark: #C56A35, bg: #FAF9F7, surface: #FFFFFF, muted: #6C6C6C, text: #2b2f33 */
+
+/* Root AnchorPane */
 .anchor-pane {
-    -fx-background-color: linear-gradient(to bottom right, #D4A574 0%, #C89563 100%);
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #FFF7F2 0%, #FAF9F7 100%);
+    -fx-font-family: "Segoe UI", "Roboto", "Helvetica Neue", Arial;
 }
 
-/* ========== NAVBAR ========== */
-.h-box {
-    -fx-background-color: #FFFFFF;
-    -fx-effect: dropshadow(gaussian, #8B6F5C, 15, 0.1, 0, 3);
+/* NAVBAR */
+.navbar-web {
+    -fx-background-color: transparent;
+    -fx-padding: 12 24;
+    -fx-alignment: center-left;
 }
 
-/* ========== TODOS LOS LABELS ========== */
-.label {
-    -fx-text-fill: #FFFFFF;
-    -fx-font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-    -fx-font-size: 16px;
-}
-
-/* ========== NAVBAR LOGO ========== */
 .navbar-logo {
-    -fx-font-size: 24px;
+    -fx-font-size: 20px;
     -fx-font-weight: 800;
-    -fx-text-fill: #D4A574;
-    -fx-letter-spacing: 1px;
+    -fx-text-fill: #C56A35; /* primary-dark */
 }
 
-/* ========== BOTONES NAVBAR ========== */
 .navbar-button {
     -fx-background-color: transparent;
-    -fx-background-radius: 10px;
-    -fx-text-fill: #8B6F5C;
-    -fx-font-size: 14px;
+    -fx-text-fill: #2b2f33; /* text */
     -fx-font-weight: 600;
-    -fx-padding: 12px 20px;
-    -fx-cursor: hand;
+    -fx-padding: 8 12;
+    -fx-background-radius: 10px;
 }
 
 .navbar-button:hover {
-    -fx-background-color: #FFF8F0;
-    -fx-text-fill: #D4A574;
+    -fx-background-color: rgba(217,207,195,0.35);
 }
 
-.navbar-button:pressed {
-    -fx-background-color: #F5EFE7;
+/* Hero card */
+.hero-card {
+    -fx-background-color: #FFFFFF; /* surface */
+    -fx-background-radius: 18;
+    -fx-padding: 24;
+    -fx-effect: dropshadow(gaussian, rgba(43,47,51,0.08), 12, 0, 0, 6);
 }
 
-/* ========== ÁREA DE CONTENIDO ========== */
-#contentArea,
-#inicioContent {
-    -fx-background-color: transparent;
-}
-
-/* ========== TÍTULOS ========== */
-.bakery-title-large {
-    -fx-font-size: 56px;
+.hero-title {
+    -fx-font-size: 36px; /* solicitado */
     -fx-font-weight: 800;
-    -fx-text-fill: #FFFFFF;
-    -fx-effect: dropshadow(gaussian, #8B6F5C, 10, 0.2, 0, 4);
+    -fx-text-fill: #2b2f33; /* text */
+}
+
+.hero-subtitle {
+    -fx-font-size: 15px;
+    -fx-text-fill: #6C6C6C; /* muted */
+}
+
+/* TITULOS PRINCIPALES (compatibles con las clases usadas en FXML) */
+.bakery-title-large {
+    -fx-font-size: 36px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #2b2f33;
 }
 
 .bakery-subtitle-large {
-    -fx-font-size: 22px;
-    -fx-font-weight: 500;
-    -fx-text-fill: #FFF8F0;
+    -fx-font-size: 18px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #6C6C6C;
 }
 
-.bakery-subtitle {
-    -fx-font-size: 19px;
-    -fx-text-fill: #FFF8F0;
-    -fx-font-weight: 400;
-}
-
-.bakery-label {
-    -fx-font-size: 15px;
-    -fx-text-fill: #FFF8F0;
-    -fx-font-weight: 400;
-}
-
+/* título estándar usado en varias partes */
 .bakery-title {
-    -fx-font-size: 52px;
-    -fx-font-weight: 800;
-    -fx-text-fill: #FFFFFF;
-    -fx-effect: dropshadow(gaussian, #8B6F5C, 8, 0.2, 0, 3);
+    -fx-font-size: 24px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #2b2f33;
 }
 
-/* ========== BOTONES PRINCIPALES ========== */
+/* Stat cards */
+.stats-row {
+    -fx-padding: 8 0 0 0;
+}
+
+.stat-card {
+    -fx-background-color: #FFFFFF; /* surface */
+    -fx-background-radius: 14;
+    -fx-padding: 20 18;
+    -fx-alignment: center;
+    -fx-effect: dropshadow(gaussian, rgba(43,47,51,0.06), 10, 0, 0, 4);
+    -fx-pref-width: 260; /* más ancho */
+}
+
+.stat-number {
+    -fx-font-size: 44px; /* más grande */
+    -fx-font-weight: 800;
+    -fx-text-fill: #D97941; /* primary */
+}
+
+.stat-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #6C6C6C; /* muted */
+}
+
+/* Destacar la tarjeta de Valoraciones */
+.stat-card-highlight {
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #FFD59B 0%, #FFB66A 100%);
+    -fx-text-fill: white;
+}
+
+.stat-card-highlight .stat-number {
+    -fx-text-fill: #5A2E00; /* contraste oscuro */
+}
+
+.stat-card-highlight .stat-label {
+    -fx-text-fill: #4A2A00;
+}
+
+/* CTA / Buttons */
 .bakery-button-large {
-    -fx-background-color: #FFFFFF;
-    -fx-background-radius: 16px;
-    -fx-text-fill: #D4A574;
-    -fx-font-size: 16px;
+    -fx-background-color: #D97941; /* primary */
+    -fx-text-fill: white;
+    -fx-background-radius: 12px;
+    -fx-padding: 12 20;
     -fx-font-weight: 700;
-    -fx-padding: 20px 40px;
-    -fx-cursor: hand;
-    -fx-effect: dropshadow(gaussian, #8B6F5C, 20, 0.15, 0, 8);
 }
 
 .bakery-button-large:hover {
-    -fx-background-color: #E0B685;
-    -fx-text-fill: #FFFFFF;
-    -fx-effect: dropshadow(gaussian, #D4A574, 25, 0.3, 0, 10);
-    -fx-scale-x: 1.05;
-    -fx-scale-y: 1.05;
+    -fx-background-color: #C56A35; /* primary-dark */
 }
 
-.bakery-button-large:pressed {
-    -fx-scale-x: 0.98;
-    -fx-scale-y: 0.98;
+.info-text {
+    -fx-font-size: 14px;
+    -fx-text-fill: #6C6C6C; /* muted */
 }
 
-/* ========== V-BOX ========== */
-.v-box {
-    -fx-background-color: transparent;
+/* Ajustes responsive básicos (JavaFX no soporta todos los @media CSS) */
+@media (max-width: 800px) {
+    .stats-row { -fx-spacing: 12; -fx-alignment: center-left; }
+    .stat-card { -fx-pref-width: 160; }
 }

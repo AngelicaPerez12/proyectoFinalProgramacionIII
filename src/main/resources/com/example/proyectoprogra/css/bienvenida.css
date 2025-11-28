@@ -166,14 +166,25 @@
    LINKS
    =========================== */
 .bakery-link {
-    -fx-text-fill: #3A2E2A;
-    -fx-font-size: 12px;
-    -fx-underline: false;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-text-fill: #3A2E2A; /* color oscuro por defecto */
+    -fx-font-size: 13px;
+    -fx-font-weight: 600;
+    -fx-padding: 6 10;
+    -fx-cursor: hand;
+    -fx-background-insets: 0;
 }
 
 .bakery-link:hover {
-    -fx-text-fill: #D97941;
+    -fx-text-fill: #D97941; /* color primario al pasar */
     -fx-underline: true;
+}
+
+.bakery-link:focused {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-effect: none;
 }
 
 /* ===========================

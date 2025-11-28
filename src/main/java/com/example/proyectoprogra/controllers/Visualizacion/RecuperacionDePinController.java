@@ -3,7 +3,6 @@ package com.example.proyectoprogra.controllers.Visualizacion;
 import com.example.proyectoprogra.ConexionDB.ConexionDB;
 import com.example.proyectoprogra.models.EmailSender;
 import com.example.proyectoprogra.models.PasswordUtils;
-import com.example.proyectoprogra.utils.WindowUtils;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -14,12 +13,17 @@ import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 import javafx.event.ActionEvent;
 
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class RecuperacionDePinController {
+
+    private static final Logger LOGGER = Logger.getLogger(RecuperacionDePinController.class.getName());
 
     @FXML private TextField campoEmailRec, campoCodigoRec;
     @FXML private PasswordField campoPinNuevo, campoPinConfirm;
@@ -86,7 +90,7 @@ public class RecuperacionDePinController {
             }
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOGGER.log(Level.SEVERE, "Error al actualizar PIN", e);
             mensajeRec.setText("Error al actualizar el PIN.");
         }
     }
@@ -121,7 +125,10 @@ public class RecuperacionDePinController {
             Parent root = loader.load();
 
             if (cssPath != null) {
-                root.getStylesheets().add(getClass().getResource(cssPath).toExternalForm());
+                URL cssUrl = getClass().getResource(cssPath);
+                if (cssUrl != null) {
+                    root.getStylesheets().add(cssUrl.toExternalForm());
+                }
             }
 
             Stage stage = (event != null && event.getSource() instanceof Node)
@@ -130,11 +137,18 @@ public class RecuperacionDePinController {
 
             // Reemplazamos el root actual sin forzar scroll ni maximizar
             stage.getScene().setRoot(root);
+
+            // Asegurar que las hojas de estilo de la nueva vista se apliquen al Scene
+            stage.getScene().getStylesheets().clear();
+            if (root.getStylesheets() != null && !root.getStylesheets().isEmpty()) {
+                stage.getScene().getStylesheets().addAll(root.getStylesheets());
+            }
+
             stage.setTitle(titulo);
             stage.show();
 
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.log(Level.SEVERE, "Error al cargar la vista: " + fxmlPath, e);
             mensajeRec.setText("Error al cargar la vista: " + fxmlPath);
         }
     }
