@@ -11,6 +11,9 @@ module com.example.proyectoprogra {
     requires java.sql;
     requires java.desktop;
     requires javafx.base;
+    requires itextpdf;
+    requires org.apache.poi.poi;
+    requires org.apache.poi.ooxml;
 
     opens com.example.proyectoprogra to javafx.fxml;
 
