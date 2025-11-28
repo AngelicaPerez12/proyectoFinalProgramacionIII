@@ -4,41 +4,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1"
+<BorderPane xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.example.proyectoprogra.controllers.Cliente.HistorialClienteController"
-            styleClass="bakery-background" stylesheets="@../Styles/bakery-theme.css,@../Styles/responsive.css">
+            styleClass="bakery-background"
+            stylesheets="@../Styles/bakery-theme.css,@../Styles/responsive.css">
 
-    <!-- Navbar Consistente -->
-    <top>
-        <HBox styleClass="navbar-web"
-              alignment="CENTER"
-              prefHeight="60"
-              spacing="20">
-
-            <padding>
-                <Insets left="20" right="20"/>
-            </padding>
-
-            <!-- Spacer izquierdo -->
-            <Region HBox.hgrow="ALWAYS"/>
-
-            <!-- Logo/Marca CENTRADO -->
-            <Label text="SWEET HARMONY" styleClass="navbar-logo"/>
-
-            <!-- Spacer derecho -->
-            <Region HBox.hgrow="ALWAYS"/>
-
-            <!-- Botones de Navegación a la DERECHA -->
-            <HBox spacing="8" alignment="CENTER_RIGHT">
-                <Button text="Catálogo" styleClass="navbar-button" onAction="#vercatalogo"/>
-                <Button text="Hacer Pedido" styleClass="navbar-button" onAction="#hacerpedido"/>
-                <Button text="Historial" styleClass="navbar-button" onAction="#historial"/>
-                <Button text="Perfil" styleClass="navbar-button" onAction="#perfil"/>
-            </HBox>
-        </HBox>
-    </top>
-
-    <!-- Historial de pedidos -->
+    <!-- Contenido principal -->
     <center>
         <VBox spacing="30" alignment="TOP_CENTER">
             <padding>
@@ -63,15 +35,16 @@
                            style="-fx-background-color: white; -fx-background-radius: 10;">
 
                     <columns>
-                        <TableColumn fx:id="colIdPedido" prefWidth="90" text="ID Pedido" style="-fx-alignment: CENTER;"/>
-                        <TableColumn fx:id="colFechaPedido" prefWidth="130" text="Fecha Pedido" style="-fx-alignment: CENTER;"/>
-                        <TableColumn fx:id="colFechaEntrega" prefWidth="130" text="Fecha Entrega" style="-fx-alignment: CENTER;"/>
-                        <TableColumn fx:id="colEstado" prefWidth="110" text="Estado" style="-fx-alignment: CENTER;"/>
-                        <TableColumn fx:id="colPastel" prefWidth="160" text="Pastel" style="-fx-alignment: CENTER;"/>
-                        <TableColumn fx:id="colCantidad" prefWidth="90" text="Cantidad" style="-fx-alignment: CENTER;"/>
-                        <TableColumn fx:id="colPrecio" prefWidth="90" text="Precio" style="-fx-alignment: CENTER;"/>
-                        <TableColumn fx:id="colTotal" prefWidth="90" text="Total" style="-fx-alignment: CENTER;"/>
+                        <TableColumn fx:id="colIdPedido" text="ID Pedido" prefWidth="90" />
+                        <TableColumn fx:id="colFechaPedido" text="Fecha Pedido" prefWidth="130" />
+                        <TableColumn fx:id="colFechaEntrega" text="Fecha Entrega" prefWidth="130" />
+                        <TableColumn fx:id="colEstado" text="Estado" prefWidth="110" />
+                        <TableColumn fx:id="colPastel" text="Pastel" prefWidth="160" />
+                        <TableColumn fx:id="colCantidad" text="Cantidad" prefWidth="90" />
+                        <TableColumn fx:id="colPrecio" text="Precio" prefWidth="90" />
+                        <TableColumn fx:id="colTotal" text="Total" prefWidth="90" />
                     </columns>
+
                 </TableView>
 
             </VBox>

@@ -4,41 +4,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1"
+<BorderPane xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.example.proyectoprogra.controllers.Cliente.PerfilClienteController"
-            styleClass="bakery-background" stylesheets="@../Styles/bakery-theme.css,@../Styles/responsive.css">
+            styleClass="bakery-background"
+            stylesheets="@../Styles/bakery-theme.css,@../Styles/responsive.css">
 
-    <!-- Navbar Consistente -->
-    <top>
-        <HBox styleClass="navbar-web"
-              alignment="CENTER"
-              prefHeight="60"
-              spacing="20">
-
-            <padding>
-                <Insets left="20" right="20"/>
-            </padding>
-
-            <!-- Spacer izquierdo -->
-            <Region HBox.hgrow="ALWAYS"/>
-
-            <!-- Logo/Marca CENTRADO -->
-            <Label text="SWEET HARMONY" styleClass="navbar-logo"/>
-
-            <!-- Spacer derecho -->
-            <Region HBox.hgrow="ALWAYS"/>
-
-            <!-- Botones de Navegación a la DERECHA -->
-            <HBox spacing="8" alignment="CENTER_RIGHT">
-                <Button text="Catálogo" styleClass="navbar-button" onAction="#vercatalogo"/>
-                <Button text="Hacer Pedido" styleClass="navbar-button" onAction="#hacerpedido"/>
-                <Button text="Historial" styleClass="navbar-button" onAction="#historial"/>
-                <Button text="Perfil" styleClass="navbar-button" onAction="#perfil"/>
-            </HBox>
-        </HBox>
-    </top>
-
-    <!-- Perfil del usuario -->
+    <!-- Contenido SIN NAVBAR -->
     <center>
         <VBox spacing="30" alignment="TOP_CENTER">
             <padding>
@@ -51,7 +23,7 @@
                 <Label text="Gestiona tu información personal" styleClass="bakery-subtitle-large" />
             </VBox>
 
-            <!-- Card del perfil -->
+            <!-- Card -->
             <VBox styleClass="bakery-card-large" spacing="25" alignment="CENTER">
                 <padding>
                     <Insets top="40" bottom="40" left="50" right="50"/>
@@ -90,8 +62,18 @@
 
                 <!-- Botones -->
                 <HBox spacing="25" alignment="CENTER">
-                    <Button text="GUARDAR CAMBIOS" onAction="#guardarCambios" styleClass="bakery-button-large" prefWidth="220" prefHeight="60"/>
-                    <Button text="CERRAR SESIÓN" onAction="#cerrarSesion" styleClass="bakery-button-secondary" style="-fx-min-height: 55px;" prefWidth="220" prefHeight="60"/>
+                    <Button text="GUARDAR CAMBIOS"
+                            onAction="#guardarCambios"
+                            styleClass="bakery-button-large"
+                            prefWidth="220"
+                            prefHeight="60"/>
+
+                    <Button text="CERRAR SESIÓN"
+                            onAction="#cerrarSesion"
+                            styleClass="bakery-button-secondary"
+                            style="-fx-min-height: 55px;"
+                            prefWidth="220"
+                            prefHeight="60"/>
                 </HBox>
 
             </VBox>

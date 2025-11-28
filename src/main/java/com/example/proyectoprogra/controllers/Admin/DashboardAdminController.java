@@ -203,42 +203,17 @@ public class DashboardAdminController {
             // Cerrar sesión
             UsuarioSession.getInstancia().cerrarSesion();
 
-            // Cargar la vista de bienvenida
+            // Cargar la vista
             FXMLLoader loader = new FXMLLoader(getClass().getResource(
                     "/com/example/proyectoprogra/Visualizacion/Bienvenida.fxml"
             ));
             Parent root = loader.load();
 
-            // Forzar scroll si existe
-            ScrollPane scroll = (ScrollPane) root.lookup("#scrollPane");
-            if (scroll != null) {
-                scroll.setFitToWidth(true);
-                scroll.setPannable(true);
-                scroll.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
-            }
-
-
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-
-
-            stage.setMaximized(false);
-            stage.setResizable(true);
-            stage.setWidth(950);
-            stage.setHeight(700);
-            stage.centerOnScreen();
-
-            stage.setTitle("Sweet Harmony - Bienvenida");
-            stage.show();
+            // Cambiar el root de la escena actual (como tu otro método)
+            ((Node) event.getSource()).getScene().setRoot(root);
 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
-
-
-
 }
