@@ -2,6 +2,7 @@ package com.example.proyectoprogra.controllers.Admin;
 
 import com.example.proyectoprogra.DAO.AdminHistorialDao;
 import com.example.proyectoprogra.models.Historial;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -32,6 +34,8 @@ public class PedidosAdminController implements Initializable {
     @FXML private TableColumn<Historial, Double> colTotal;
     @FXML private TableColumn<Historial, Void> colAccion;
 
+    @FXML private TextField txtBuscar;
+    private FilteredList<Historial> filteredPedidos;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         colIdPedido.setCellValueFactory(new PropertyValueFactory<>("idPedido"));
@@ -44,7 +48,30 @@ public class PedidosAdminController implements Initializable {
         colPrecio.setCellValueFactory(new PropertyValueFactory<>("precio"));
         colTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
 
-        tablaPedidos.setItems(AdminHistorialDao.obtenerPedidosPendientes());
+        filteredPedidos = new FilteredList<>(AdminHistorialDao.obtenerPedidosPendientes(), p -> true);
+
+        txtBuscar.textProperty().addListener((observable, oldValue, newValue) -> {
+            String filtro = newValue.toLowerCase();
+
+            filteredPedidos.setPredicate(pedido -> {
+                if (filtro == null || filtro.isEmpty()) {
+                    return true;
+                }
+
+                if (pedido.getCliente().toLowerCase().contains(filtro)) {
+                    return true;
+                } else if (pedido.getPastel().toLowerCase().contains(filtro)) {
+                    return true;
+                } else if (String.valueOf(pedido.getPrecio()).contains(filtro)) {
+                    return true;
+                }
+
+                return false;
+            });
+        });
+
+        tablaPedidos.setItems(filteredPedidos);
+
     }
 
     @FXML
@@ -87,5 +114,6 @@ public class PedidosAdminController implements Initializable {
 
     @FXML
     void resportes(ActionEvent e) { cambiarVista("/com/example/proyectoprogra/Admin/reportes-admin-view.fxml", e); }
+
 
 }

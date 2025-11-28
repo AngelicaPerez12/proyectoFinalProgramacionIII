@@ -13,8 +13,10 @@
 
         <Label text="Pedidos" style="-fx-font-size: 24; -fx-font-weight: bold;" />
 
-        <Button fx:id="btnRefrescar" onAction="#refrescarTabla" style="-fx-font-size: 14; -fx-padding: 5 10 5 10;" text="Refrescar Tabla" />
-
+        <HBox spacing="10">
+            <TextField fx:id="txtBuscar" promptText="Buscar por cliente, pastel o precio..." HBox.hgrow="ALWAYS"/>
+            <Button fx:id="btnRefrescar" onAction="#refrescarTabla" style="-fx-font-size: 14; -fx-padding: 5 10 5 10;" text="Refrescar Tabla" />
+        </HBox>
         <TableView fx:id="tablaPedidos" VBox.vgrow="ALWAYS">
 
             <columns>
