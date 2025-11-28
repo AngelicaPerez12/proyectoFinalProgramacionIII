@@ -43,6 +43,7 @@
                         <TableColumn fx:id="colCantidad" text="Cantidad" prefWidth="90" />
                         <TableColumn fx:id="colPrecio" text="Precio" prefWidth="90" />
                         <TableColumn fx:id="colTotal" text="Total" prefWidth="90" />
+                        <TableColumn fx:id="colAcciones" text="Acciones" prefWidth="120" />
                     </columns>
 
                 </TableView>

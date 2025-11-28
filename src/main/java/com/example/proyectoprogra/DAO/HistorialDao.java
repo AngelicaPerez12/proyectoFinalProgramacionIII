@@ -53,4 +53,35 @@ public class HistorialDao {
 
         return lista;
     }
+    public static boolean cancelarPedido(int idPedido) {
+        String deleteDetalle = "DELETE FROM tbl_pedido_detalle WHERE id_pedido = ?";
+        String deletePedido = "DELETE FROM tbl_pedidos WHERE id_pedido = ?";
+
+        try (Connection conn = ConexionDB.getConection()) {
+
+            conn.setAutoCommit(false);
+
+            try (PreparedStatement stmt1 = conn.prepareStatement(deleteDetalle);
+                 PreparedStatement stmt2 = conn.prepareStatement(deletePedido)) {
+
+                stmt1.setInt(1, idPedido);
+                stmt1.executeUpdate();
+
+                stmt2.setInt(1, idPedido);
+                stmt2.executeUpdate();
+
+                conn.commit();
+                return true;
+
+            } catch (Exception e) {
+                conn.rollback();
+                e.printStackTrace();
+                return false;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

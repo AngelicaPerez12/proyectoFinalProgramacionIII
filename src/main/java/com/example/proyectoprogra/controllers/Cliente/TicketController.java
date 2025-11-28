@@ -39,9 +39,12 @@ public class TicketController {
 
     @FXML private Label lblPrecio;
 
+    @FXML
+    private Label lblSabor;
+
 
     public void setDatos(int idPedido, int idUsuario, String nombre, String correo,
-                         String nombrePastel, String tipo, String tamano, double precio,
+                         String nombrePastel, String tipo, String tamano, String sabor,  double precio,
                          String descripcion, LocalDate fechaEntrega) {
 
         lblTitulo.setText("Ticket de Pedido");
@@ -49,6 +52,7 @@ public class TicketController {
         lblCliente.setText("Cliente: " + (nombre == null || nombre.isBlank() ? "-" : nombre));
         lblCorreo.setText("Correo: " + (correo == null || correo.isBlank() ? "-" : correo));
         lblPastel.setText("Pastel: " + nombrePastel);
+        lblSabor.setText("Sabor: " + (sabor == null || sabor.isBlank() ? "-" : sabor));
         lblTipoTamano.setText("Tipo: " + tipo + " | Tamaño: " + tamano);
         lblDescripcion.setText("Descripción: " + (descripcion == null || descripcion.isBlank() ? "-" : descripcion));
         lblFechaEntrega.setText("Fecha entrega: " + fechaEntrega.toString());

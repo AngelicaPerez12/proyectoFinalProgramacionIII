@@ -76,6 +76,13 @@
                                    styleClass="bakery-label"
                                    style="-fx-font-size: 11px; -fx-text-fill: #4A4A4A; -fx-opacity: 0.7;"/>
                         </VBox>
+                        <VBox spacing="8" alignment="CENTER_LEFT" styleClass="bakery-form-group">
+                            <Label text="Sabor del Pastel *" styleClass="bakery-label" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+                            <ComboBox fx:id="cmbsaborpastel"
+                                      styleClass="bakery-input-large"
+                                      prefWidth="500"
+                                      promptText="Selecciona el sabor"/>
+                        </VBox>
 
                         <VBox spacing="8" alignment="CENTER_LEFT" styleClass="bakery-form-group">
                             <Label text="Fecha de Entrega *" styleClass="bakery-label" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>

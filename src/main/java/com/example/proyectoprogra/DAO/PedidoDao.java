@@ -12,7 +12,7 @@ import java.util.List;
 public class PedidoDao {
     public int insertarPedido(int idUsuario, LocalDate fechaEntrega, List<PedidoDetalle> detalles) throws SQLException {
         String sqlInsertPedido = "INSERT INTO tbl_pedidos (id_usuario, fecha_entrega, estado) VALUES (?, ?, 'pendiente') RETURNING id_pedido";
-        String sqlInsertDetalle = "INSERT INTO tbl_pedido_detalle (id_pedido, id_pastel, id_categoria, id_tamano, cantidad, precio_unitario, descripcion_personalizada) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String sqlInsertDetalle = "INSERT INTO tbl_pedido_detalle (id_pedido, id_pastel, id_categoria, id_tamano, id_sabor, cantidad, precio_unitario, descripcion_personalizada) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         Connection conn = null;
         PreparedStatement psPedido = null;
         PreparedStatement psDetalle = null;
@@ -40,9 +40,10 @@ public class PedidoDao {
                 psDetalle.setInt(2, d.getIdPastel());
                 psDetalle.setInt(3, d.getIdCategoria());
                 psDetalle.setInt(4, d.getIdTamano());
-                psDetalle.setInt(5, d.getCantidad());
-                psDetalle.setDouble(6, d.getPrecioUnitario());
-                psDetalle.setString(7, d.getDescripcionPersonalizada());
+                psDetalle.setInt(5, d.getIdSabor());
+                psDetalle.setInt(6, d.getCantidad());
+                psDetalle.setDouble(7, d.getPrecioUnitario());
+                psDetalle.setString(8, d.getDescripcionPersonalizada());
                 psDetalle.addBatch();
             }
             psDetalle.executeBatch();

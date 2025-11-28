@@ -10,8 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -33,6 +32,8 @@ public class HistorialClienteController {
     private int idUsuario;
 
     @FXML
+    private TableColumn<Historial, Void> colAcciones;
+    @FXML
     public void initialize() {
         colIdPedido.setCellValueFactory(new PropertyValueFactory<>("idPedido"));
         colFechaPedido.setCellValueFactory(new PropertyValueFactory<>("fechaPedido"));
@@ -52,8 +53,51 @@ public class HistorialClienteController {
 
         tablaHistorial.setItems(HistorialDao.obtenerHistorial(idUsuario));
 
+        agregarBotonCancelar();
     }
 
+    private void agregarBotonCancelar() {
+        colAcciones.setCellFactory(columna -> new TableCell<Historial, Void>() {
+            private final Button btn = new Button("Cancelar");
+
+            {
+                btn.setStyle("-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-background-radius: 5;");
+                btn.setOnAction(e -> {
+                    Historial seleccionado = getTableView().getItems().get(getIndex());
+
+                    Alert confirmar = new Alert(Alert.AlertType.CONFIRMATION);
+                    confirmar.setTitle("Confirmación");
+                    confirmar.setHeaderText("¿Cancelar pedido?");
+                    confirmar.setContentText("Esta acción eliminará el pedido del historial.");
+
+                    if (confirmar.showAndWait().get() == ButtonType.OK) {
+
+                        boolean exito = HistorialDao.cancelarPedido(seleccionado.getIdPedido());
+
+                        if (exito) {
+                            getTableView().getItems().remove(seleccionado);
+
+                            Alert ok = new Alert(Alert.AlertType.INFORMATION);
+                            ok.setTitle("Pedido cancelado");
+                            ok.setHeaderText(null);
+                            ok.setContentText("El pedido ha sido cancelado exitosamente.");
+                            ok.show();
+                        }
+                    }
+                });
+            }
+
+            @Override
+            protected void updateItem(Void item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty) {
+                    setGraphic(null);
+                } else {
+                    setGraphic(btn);
+                }
+            }
+        });
+    }
     public void vercatalogo(ActionEvent actionEvent) {
         System.out.println("DEBUG: HistorialClienteController.vercatalogo invoked");
         try {

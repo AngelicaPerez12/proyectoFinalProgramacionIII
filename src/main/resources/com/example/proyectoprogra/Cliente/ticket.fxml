@@ -33,6 +33,7 @@
         <Label fx:id="lblCliente" styleClass="bakery-label" style="-fx-font-size: 15px;"/>
         <Label fx:id="lblCorreo" styleClass="bakery-subtitle" style="-fx-font-size: 14px;"/>
         <Label fx:id="lblPastel" styleClass="bakery-title" style="-fx-font-size: 18px; -fx-text-fill: #D4AF37;"/>
+        <Label fx:id="lblSabor" styleClass="bakery-label" style="-fx-font-size: 14px;"/>
         <Label fx:id="lblTipoTamano" styleClass="bakery-label" style="-fx-font-size: 14px;"/>
         <Label fx:id="lblDescripcion" wrapText="true" styleClass="bakery-subtitle" style="-fx-font-size: 13px;" prefWidth="350"/>
         <Label fx:id="lblFechaEntrega" styleClass="bakery-label" style="-fx-font-size: 15px;"/>
