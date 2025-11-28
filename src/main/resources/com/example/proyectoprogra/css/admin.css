@@ -1,0 +1,369 @@
+/* ============================================================
+   PALETA DE COLORES – Sweet Harmony Admin
+   ============================================================ */
+.root {
+    -fx-color-primario: #D97941;
+    -fx-color-primario-hover: #E38B51;
+    -fx-color-secundario: #3A2E2A;
+    -fx-color-fondo: #FAF9F7;
+    -fx-color-panel: #FFFFFF;
+    -fx-color-texto: #1A1A1A;
+    -fx-color-texto-sec: #6C6C6C;
+    -fx-color-borde: #E0D5CF;
+}
+
+/* ============================================================
+   FONDO GENERAL
+   ============================================================ */
+.pane {
+    -fx-background-color: -fx-color-fondo;
+}
+
+/* ============================================================
+   BARRA LATERAL VERTICAL (SIDEBAR)
+   ============================================================ */
+.vboxbotones {
+    -fx-background-color: -fx-color-secundario;
+    -fx-padding: 20 10;
+    -fx-spacing: 5;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 15, 0, 3, 0);
+}
+
+.vboxbotones>.label {
+    -fx-text-fill: -fx-color-primario;
+    -fx-font-size: 11px;
+    -fx-font-weight: 700;
+    -fx-letter-spacing: 1.5px;
+    -fx-padding: 10 0 15 5;
+}
+
+/* Botones del menú lateral - ESTILO WEB NAVBAR (SIN APARIENCIA DE BOTÓN) */
+.menu-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #E8E8E8;
+    -fx-border-width: 0;
+    -fx-font-size: 14px;
+    -fx-font-weight: 500;
+    -fx-font-family: "Segoe UI";
+    -fx-padding: 10 16;
+    -fx-cursor: hand;
+    -fx-alignment: CENTER_LEFT;
+    -fx-min-width: 120px;
+    -fx-pref-width: 120px;
+    -fx-max-width: 120px;
+}
+
+.menu-btn:hover {
+    -fx-background-color: rgba(217, 121, 65, 0.15);
+    -fx-text-fill: -fx-color-primario;
+    -fx-border-width: 0 0 0 3px;
+    -fx-border-color: -fx-color-primario;
+}
+
+.menu-btn:pressed {
+    -fx-background-color: rgba(217, 121, 65, 0.25);
+    -fx-text-fill: -fx-color-primario;
+}
+
+/* ============================================================
+   BARRA SUPERIOR (HEADER)
+   ============================================================ */
+.hboxuser {
+    -fx-background-color: #FFFFFF;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.12), 15, 0, 0, 3);
+    -fx-padding: 12 20;
+    -fx-spacing: 15;
+}
+
+.hboxuser .label {
+    -fx-text-fill: -fx-color-secundario;
+    -fx-font-size: 15px;
+    -fx-font-weight: 600;
+}
+
+#InformarcionDeInicio {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-color-secundario;
+}
+
+#btnCerrarSesionDashboard {
+    -fx-background-color: transparent;
+    -fx-text-fill: -fx-color-primario;
+    -fx-border-color: -fx-color-primario;
+    -fx-border-width: 1.5px;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-padding: 8 16;
+    -fx-font-size: 13px;
+    -fx-font-weight: 600;
+    -fx-cursor: hand;
+}
+
+#btnCerrarSesionDashboard:hover {
+    -fx-background-color: -fx-color-primario;
+    -fx-text-fill: #FFFFFF;
+}
+
+/* ============================================================
+   LABELS Y TÍTULOS
+   ============================================================ */
+.label {
+    -fx-text-fill: -fx-color-texto;
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 14px;
+}
+
+/* ============================================================
+   TABLAS - AJUSTADAS AL CONTENIDO
+   ============================================================ */
+.table-view {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 12px;
+    -fx-border-color: transparent;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.08), 15, 0, 0, 2);
+    -fx-padding: 0;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: linear-gradient(to bottom, -fx-color-primario 0%, #C56A35 100%);
+    -fx-background-radius: 12px 12px 0 0;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-padding: 12 10;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: 700;
+    -fx-font-size: 13px;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.table-view .table-cell {
+    -fx-text-fill: -fx-color-texto;
+    -fx-padding: 12 10;
+    -fx-font-size: 13px;
+    -fx-border-color: #F5EFE7;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.table-row-cell {
+    -fx-background-color: #FFFFFF;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #FAF9F7;
+}
+
+.table-row-cell:hover {
+    -fx-background-color: #FFF0E6;
+    -fx-cursor: hand;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: -fx-color-primario;
+}
+
+.table-row-cell:selected .table-cell {
+    -fx-text-fill: #FFFFFF;
+}
+
+.table-view .filler {
+    -fx-background-color: #FFFFFF;
+}
+
+.table-view .scroll-bar:vertical .thumb {
+    -fx-background-color: -fx-color-primario;
+    -fx-background-radius: 4px;
+}
+
+.table-view .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: -fx-color-primario-hover;
+}
+
+.table-view .scroll-bar:vertical .track {
+    -fx-background-color: #FAF9F7;
+}
+
+/* Auto-ajuste de columnas */
+.table-view .table-column {
+    -fx-pref-width: -1;
+}
+
+/* ============================================================
+   INPUTS - TAMAÑO MEJORADO
+   ============================================================ */
+.text-field,
+.text-area {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 10px;
+    -fx-border-color: -fx-color-borde;
+    -fx-border-width: 1.5px;
+    -fx-border-radius: 10px;
+    -fx-font-size: 14px;
+    -fx-text-fill: -fx-color-texto;
+    -fx-padding: 12 16;
+    -fx-pref-height: 45;
+    -fx-prompt-text-fill: #9A9A9A;
+}
+
+.text-field:hover,
+.text-area:hover {
+    -fx-border-color: -fx-color-primario;
+}
+
+.text-field:focused,
+.text-area:focused {
+    -fx-border-color: -fx-color-primario;
+    -fx-border-width: 2px;
+    -fx-effect: dropshadow(gaussian, -fx-color-primario, 8, 0.25, 0, 0);
+}
+
+.text-area .content {
+    -fx-background-color: transparent;
+}
+
+/* ============================================================
+   COMBOBOX
+   ============================================================ */
+.combo-box {
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-color: -fx-color-borde;
+    -fx-border-width: 1.5px;
+    -fx-font-size: 14px;
+    -fx-pref-height: 45;
+    -fx-background-color: #FFFFFF;
+}
+
+.combo-box:hover {
+    -fx-border-color: -fx-color-primario;
+}
+
+.combo-box:focused {
+    -fx-border-color: -fx-color-primario;
+    -fx-border-width: 2px;
+}
+
+.combo-box .arrow-button {
+    -fx-background-color: transparent;
+}
+
+.combo-box .arrow {
+    -fx-background-color: -fx-color-primario;
+}
+
+.combo-box .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: -fx-color-texto;
+    -fx-font-size: 14px;
+}
+
+.combo-box .list-cell:filled {
+    -fx-text-fill: -fx-color-texto;
+}
+
+.combo-box-popup .list-view {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 10px;
+    -fx-padding: 5px;
+    -fx-border-color: -fx-color-primario;
+    -fx-border-width: 1px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 20, 0, 0, 5);
+}
+
+.combo-box-popup .list-view .list-cell {
+    -fx-font-size: 13px;
+    -fx-padding: 10px 14px;
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: -fx-color-texto;
+}
+
+.combo-box-popup .list-view .list-cell:hover {
+    -fx-background-color: #FFF0E6;
+}
+
+.combo-box-popup .list-view .list-cell:selected {
+    -fx-background-color: -fx-color-primario;
+    -fx-text-fill: #FFFFFF;
+}
+
+/* ============================================================
+   BOTONES
+   ============================================================ */
+.button {
+    -fx-background-color: -fx-color-primario;
+    -fx-text-fill: #FFFFFF;
+    -fx-background-radius: 10px;
+    -fx-padding: 12 24;
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 10, 0, 0, 2);
+}
+
+.button:hover {
+    -fx-background-color: -fx-color-primario-hover;
+    -fx-effect: dropshadow(gaussian, -fx-color-primario, 12, 0.3, 0, 3);
+}
+
+.button:pressed {
+    -fx-background-color: #C56A35;
+}
+
+.button-secondary {
+    -fx-background-color: transparent;
+    -fx-text-fill: -fx-color-primario;
+    -fx-border-color: -fx-color-primario;
+    -fx-border-width: 1.5px;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+}
+
+.button-secondary:hover {
+    -fx-background-color: #FFF0E6;
+    -fx-text-fill: -fx-color-primario-hover;
+    -fx-border-color: -fx-color-primario-hover;
+}
+
+/* ============================================================
+   SCROLLPANE
+   ============================================================ */
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane .scroll-bar:vertical .thumb {
+    -fx-background-color: -fx-color-primario;
+    -fx-background-radius: 4px;
+}
+
+.scroll-pane .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: -fx-color-primario-hover;
+}
+
+.scroll-pane .scroll-bar:vertical .track {
+    -fx-background-color: transparent;
+}
+
+/* ============================================================
+   CARDS
+   ============================================================ */
+.card {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 12px;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.08), 15, 0, 0, 2);
+}
+
+.card:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.12), 20, 0, 0, 4);
+}

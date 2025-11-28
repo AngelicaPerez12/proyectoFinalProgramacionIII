@@ -26,11 +26,7 @@ public class HelloApplication extends Application {
             Parent root = loader.load();
             Scene scene = new Scene(root);
 
-            // Opción B: No cargar un CSS global desde Java. Confiamos en que cada FXML
-            // incluya su propio tema (por ejemplo bakery-theme.css) si lo necesita.
-
-            // Añadir cualquier stylesheet declarado en el FXML (el loader suele poblar root.getStylesheets())
-            if (root.getStylesheets() != null && !root.getStylesheets().isEmpty()) {
+             if (root.getStylesheets() != null && !root.getStylesheets().isEmpty()) {
                 scene.getStylesheets().addAll(root.getStylesheets());
             } else {
                 // Fallback: buscar un CSS con el mismo nombre que el FXML dentro de /css/
