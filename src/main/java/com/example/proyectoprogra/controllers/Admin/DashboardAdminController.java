@@ -26,6 +26,8 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class DashboardAdminController {
+    @FXML
+    private Button btnGestionUsuarios;
 
     @FXML
     private Button btnhistorial;
@@ -169,6 +171,10 @@ public class DashboardAdminController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    @FXML
+    void abrirGestionUsuarios(ActionEvent event) {
+        cambiarVista("/com/example/proyectoprogra/Admin/gestion-admin.fxml");
     }
 
     @FXML

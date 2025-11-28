@@ -28,7 +28,7 @@ public class BienvenidaController {
         // Activa scroll siempre vertical
         scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
 
-        // Activa scroll siempre horizontal si quieres
+        // Activa scroll horizontal según necesidad
         scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
 
         if (fondo != null && rootPane != null) {
@@ -36,7 +36,11 @@ public class BienvenidaController {
             fondo.fitHeightProperty().bind(rootPane.heightProperty());
             fondo.setPreserveRatio(false);
         }
+
+        // Forzar scroll arriba al cargar la vista
+        javafx.application.Platform.runLater(() -> scrollPane.setVvalue(0.0));
     }
+
 
     // Abrir Registro
     public void abrirRegistro(ActionEvent event) {

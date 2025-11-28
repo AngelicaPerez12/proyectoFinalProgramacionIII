@@ -11,79 +11,139 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane styleClass="pane" stylesheets="@../Styles/dashadmin.css" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyectoprogra.controllers.Admin.DashboardAdminController">
+<AnchorPane styleClass="pane"
+            stylesheets="@../Styles/dashadmin.css"
+            AnchorPane.bottomAnchor="0"
+            AnchorPane.leftAnchor="0"
+            AnchorPane.rightAnchor="0"
+            AnchorPane.topAnchor="0"
+            xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.proyectoprogra.controllers.Admin.DashboardAdminController">
 
-    <!-- Barra superior con usuario -->
-    <HBox fx:id="hboxuser" prefHeight="55" styleClass="hboxuser" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+    <!-- ░░░░░ Barra superior ░░░░░ -->
+    <HBox fx:id="hboxuser"
+          prefHeight="55"
+          styleClass="hboxuser"
+          AnchorPane.leftAnchor="0"
+          AnchorPane.rightAnchor="0"
+          AnchorPane.topAnchor="0">
         <children>
-         <Label fx:id="InformarcionDeInicio" text="Label" />
-            <VBox />
+
+            <Label fx:id="InformarcionDeInicio" text="Label" />
+
+            <VBox HBox.hgrow="ALWAYS" />
+
             <Button fx:id="btnCerrarSesionDashboard"
                     text="Cerrar sesión"
                     styleClass="menu-btn"
                     onAction="#cerrarSesionDashboard" />
+
         </children>
-        <padding><Insets bottom="8" left="15" right="20" top="8" /></padding>
+        <padding>
+            <Insets bottom="8" left="15" right="20" top="8" />
+        </padding>
     </HBox>
 
-    <!-- Panel de usuario desplegable -->
-    <VBox fx:id="panelUsuario" managed="false" spacing="5" style="-fx-background-color: #D1D3D4; -fx-padding: 10; -fx-border-color: gray; -fx-border-radius: 5; -fx-background-radius: 5;" visible="false">
+    <!-- ░░░░░ Panel de usuario desplegable ░░░░░ -->
+    <VBox fx:id="panelUsuario"
+          spacing="5"
+          visible="false"
+          managed="false"
+          style="-fx-background-color: #D1D3D4; -fx-padding: 10; -fx-border-color: gray; -fx-border-radius: 5; -fx-background-radius: 5;">
         <Label fx:id="lblNombreUsuario" text="Nombre" />
         <Label fx:id="lblCorreoUsuario" text="Correo" />
         <Label fx:id="lblRolUsuario" text="Rol" />
         <TextField fx:id="txtEditarNombre" promptText="Editar nombre" />
         <TextField fx:id="txtEditarCorreo" promptText="Editar correo" />
-        <Button fx:id="btnGuardarCambios" onAction="#guardarCambios" text="Guardar cambios" />
-        <Button fx:id="btnCerrarSesion" onAction="#cerrarSesion" text="Cerrar sesión" />
+        <Button fx:id="btnGuardarCambios" text="Guardar cambios" onAction="#guardarCambios" />
+        <Button fx:id="btnCerrarSesion" text="Cerrar sesión" onAction="#cerrarSesion" />
     </VBox>
 
-    <!-- Menú lateral -->
-    <VBox fx:id="vboxbotones" prefWidth="150" styleClass="vboxbotones" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.topAnchor="55">
+    <!-- ░░░░░ Menú lateral ░░░░░ -->
+    <VBox fx:id="vboxbotones"
+          prefWidth="150"
+          styleClass="vboxbotones"
+          AnchorPane.bottomAnchor="0"
+          AnchorPane.leftAnchor="0"
+          AnchorPane.topAnchor="55">
+
         <children>
-            <Label style="-fx-font-weight: bold; -fx-font-size: 14;" text="Navegación" />
+
+            <Label text="Navegación" style="-fx-font-weight: bold; -fx-font-size: 14;" />
+
             <VBox spacing="15">
-                <!-- Botón Regresar al Dashboard -->
+
+                <!-- Dashboard -->
                 <HBox alignment="CENTER_LEFT" spacing="10">
                     <ImageView fitHeight="25" fitWidth="25" preserveRatio="true">
-                        <image><Image url="@../Imagenes/home.png"/></image> <!-- icono opcional -->
+                        <image><Image url="@../Imagenes/home.png"/></image>
                     </ImageView>
-                    <Button fx:id="btnDashboard" onAction="#regresarDashboard" styleClass="menu-btn" text="Dashboard" />
+                    <Button fx:id="btnDashboard" text="Dashboard" styleClass="menu-btn" onAction="#regresarDashboard" />
                 </HBox>
+
+                <!-- Pasteles -->
                 <HBox alignment="CENTER_LEFT" spacing="10">
                     <ImageView fitHeight="25" fitWidth="25" preserveRatio="true">
                         <image><Image url="@../Imagenes/cake.png" /></image>
                     </ImageView>
-                    <Button fx:id="btnpastel" onAction="#inforPasteles" styleClass="menu-btn" text="Pasteles" />
+                    <Button fx:id="btnpastel" text="Pasteles" styleClass="menu-btn" onAction="#inforPasteles" />
                 </HBox>
+
+                <!-- Pedidos -->
                 <HBox alignment="CENTER_LEFT" spacing="10">
                     <ImageView fitHeight="25" fitWidth="25" preserveRatio="true">
                         <image><Image url="@../Imagenes/checkout.png" /></image>
                     </ImageView>
-                    <Button fx:id="btnpedidos" onAction="#pedidos" styleClass="menu-btn" text="Pedidos" />
+                    <Button fx:id="btnpedidos" text="Pedidos" styleClass="menu-btn" onAction="#pedidos" />
                 </HBox>
+
+                <!-- Historial -->
                 <HBox alignment="CENTER_LEFT" spacing="10">
                     <ImageView fitHeight="25" fitWidth="25" preserveRatio="true">
                         <image><Image url="@../Imagenes/file.png" /></image>
                     </ImageView>
-                    <Button fx:id="btnhistorial" onAction="#historial" styleClass="menu-btn" text="Historial" />
+                    <Button fx:id="btnhistorial" text="Historial" styleClass="menu-btn" onAction="#historial" />
                 </HBox>
+
+                <!-- Reportes -->
                 <HBox alignment="CENTER_LEFT" spacing="10">
                     <ImageView fitHeight="25" fitWidth="25" preserveRatio="true">
                         <image><Image url="@../Imagenes/report.png" /></image>
                     </ImageView>
-                    <Button fx:id="btnreportes" onAction="#resportes" styleClass="menu-btn" text="Reportes" />
+                    <Button fx:id="btnreportes" text="Reportes" styleClass="menu-btn" onAction="#resportes" />
                 </HBox>
+
+                <!-- ⭐ NUEVO: Gestion de Usuarios -->
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <ImageView fitHeight="25" fitWidth="25" preserveRatio="true">
+                        <image><Image url="@../Imagenes/users.png" /></image>
+                    </ImageView>
+                    <Button fx:id="btnGestionUsuarios" text="Usuarios" styleClass="menu-btn" onAction="#abrirGestionUsuarios" />
+                </HBox>
+
             </VBox>
+
         </children>
-        <padding><Insets left="15" top="20" /></padding>
+
+        <padding>
+            <Insets left="15" top="20" />
+        </padding>
     </VBox>
 
-    <!-- Contenedor principal de contenido -->
-    <StackPane fx:id="contenidoPrincipal" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="150" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="55">
-        <ImageView fx:id="logo" pickOnBounds="true" preserveRatio="true" smooth="true">
+    <!-- ░░░░░ Panel principal ░░░░░ -->
+    <StackPane fx:id="contenidoPrincipal"
+               AnchorPane.bottomAnchor="0"
+               AnchorPane.leftAnchor="150"
+               AnchorPane.rightAnchor="0"
+               AnchorPane.topAnchor="55">
+
+        <ImageView fx:id="logo"
+                   preserveRatio="true"
+                   pickOnBounds="true"
+                   smooth="true">
             <image><Image url="@../Imagenes/sweetharmony.png" /></image>
         </ImageView>
-        <!-- Botón regresar -->
 
     </StackPane>
 
