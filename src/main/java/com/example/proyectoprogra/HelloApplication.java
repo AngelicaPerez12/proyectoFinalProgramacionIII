@@ -2,6 +2,7 @@ package com.example.proyectoprogra;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -20,7 +21,13 @@ public class HelloApplication extends Application {
             }
 
             FXMLLoader loader = new FXMLLoader(fxmlUrl);
-            Scene scene = new Scene(loader.load());
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+
+
+            if (root.getStylesheets() != null && !root.getStylesheets().isEmpty()) {
+                scene.getStylesheets().addAll(root.getStylesheets());
+            }
 
             stage.setTitle("Sweet Harmony - Pastelería Premium");
             stage.setScene(scene);
@@ -30,7 +37,7 @@ public class HelloApplication extends Application {
             stage.show();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println("Error al cargar la aplicación: " + e.getMessage());
         }
     }
 

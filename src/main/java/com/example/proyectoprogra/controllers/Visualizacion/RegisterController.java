@@ -37,7 +37,7 @@ public class RegisterController {
     @FXML
     public void initialize() {
         // Aplicar CSS al Scene cuando esté disponible
-        String cssPath = "/com/example/proyectoprogra/Styles/register.css";
+        String cssPath = "/com/example/proyectoprogra/css/register.css";
         if (btnCrearCuentaReg != null) {
             btnCrearCuentaReg.sceneProperty().addListener((obs, oldScene, newScene) -> {
                 if (newScene != null) {

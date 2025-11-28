@@ -7,22 +7,21 @@
 <BorderPane xmlns="http://javafx.com/javafx/25"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.example.proyectoprogra.controllers.Cliente.PedidoClienteController"
-            styleClass="bakery-background"
-            stylesheets="@../css/bakery-theme.css,@../css/responsive.css">
+            stylesheets="@../css/pedido-cliente.css">
 
     <!-- Contenido sin navbar -->
     <center>
         <ScrollPane fitToWidth="true" fitToHeight="true" styleClass="bakery-scroll">
-            <VBox spacing="30" alignment="TOP_CENTER" styleClass="bakery-form-spacing-large">
+            <VBox spacing="35" alignment="TOP_CENTER" styleClass="bakery-form-spacing-large">
                 <padding>
-                    <Insets top="40" left="50" right="50" bottom="40"/>
+                    <Insets top="50" left="60" right="60" bottom="50"/>
                 </padding>
 
                 <!-- Título -->
-                <VBox alignment="CENTER" spacing="15">
+                <VBox alignment="CENTER" spacing="18">
                     <Label text="Realizar Pedido Personalizado" styleClass="bakery-title-large" />
                     <Label text="Completa los detalles de tu pastel perfecto" styleClass="bakery-subtitle-large" />
-                    <VBox styleClass="bakery-divider" prefHeight="2" prefWidth="300"/>
+                    <VBox styleClass="bakery-divider" prefHeight="2" prefWidth="320"/>
                 </VBox>
 
                 <!-- Card del formulario -->

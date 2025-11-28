@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
@@ -21,15 +22,26 @@ public class BienvenidaController {
 
     @FXML
     private StackPane rootPane;
+
     @FXML
     private ScrollPane scrollPane;
+
+    @FXML
+    private Button btnLogin;
+
+    @FXML
+    private Button btnRegister;
+
+    @FXML
+    private Button btnSalir;
+
     @FXML
     public void initialize() {
         // Activa scroll siempre vertical
-        scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
-
-        // Activa scroll horizontal según necesidad
-        scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+        if (scrollPane != null) {
+            scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
+            scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+        }
 
         if (fondo != null && rootPane != null) {
             fondo.fitWidthProperty().bind(rootPane.widthProperty());
@@ -38,28 +50,33 @@ public class BienvenidaController {
         }
 
         // Forzar scroll arriba al cargar la vista
-        javafx.application.Platform.runLater(() -> scrollPane.setVvalue(0.0));
+        if (scrollPane != null) {
+            javafx.application.Platform.runLater(() -> scrollPane.setVvalue(0.0));
+        }
     }
 
 
-    // Abrir Registro
+    // Abrir Registro (invocado desde FXML)
+    @FXML
     public void abrirRegistro(ActionEvent event) {
         cambiarVista(event,
                 "/com/example/proyectoprogra/Visualizacion/register-view.fxml",
                 "Registrarse",
-                null);
+                "/com/example/proyectoprogra/css/register.css");
     }
 
-    // Abrir Login
-    public void entrarallogin(ActionEvent event) {
+    // Abrir Login (invocado desde FXML)
+    @FXML
+    public void abrirLogin(ActionEvent event) {
         cambiarVista(event,
                 "/com/example/proyectoprogra/Visualizacion/login-view.fxml",
                 "Iniciar Sesión",
-                "/com/example/proyectoprogra/Styles/login.css");
+                "/com/example/proyectoprogra/css/login.css");
     }
 
-    // Cerrar ventana
-    public void CerrarSesion(ActionEvent event) {
+    // Cerrar la aplicación (invocado desde FXML)
+    @FXML
+    public void cerrarAplicacion(ActionEvent event) {
         Stage stage = getStage(event);
         if (stage != null) stage.close();
     }

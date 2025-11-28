@@ -1,0 +1,117 @@
+/* ========================================
+   CATÁLOGO CLIENTE - CSS EXCLUSIVO
+   Paleta Sweet Harmony
+   ======================================== */
+
+/* ========== FONDO PRINCIPAL ========== */
+.border-pane {
+    -fx-background-color: #FFF8F0;
+}
+
+/* ========== SCROLLPANE ========== */
+.scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane .scroll-bar:vertical .thumb {
+    -fx-background-color: #D4A574;
+    -fx-background-radius: 4px;
+}
+
+.scroll-pane .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: #E0B685;
+}
+
+.scroll-pane .scroll-bar:vertical .track {
+    -fx-background-color: transparent;
+}
+
+/* ========== TODOS LOS LABELS ========== */
+.label {
+    -fx-text-fill: #4A4A4A;
+    -fx-font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    -fx-font-size: 14px;
+}
+
+/* ========== TÍTULOS ========== */
+.bakery-title-large {
+    -fx-font-size: 40px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #8B6F5C;
+}
+
+.bakery-subtitle-large {
+    -fx-font-size: 18px;
+    -fx-text-fill: #6A6A6A;
+    -fx-font-weight: 400;
+}
+
+.bakery-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #8B6F5C;
+}
+
+.bakery-label {
+    -fx-font-size: 13px;
+    -fx-text-fill: #6A6A6A;
+    -fx-font-weight: 400;
+}
+
+.bakery-subtitle {
+    -fx-font-size: 13px;
+    -fx-text-fill: #D4A574;
+    -fx-font-weight: 600;
+}
+
+/* ========== DIVIDER ========== */
+.bakery-divider {
+    -fx-background-color: linear-gradient(to right, transparent, #D4A574, transparent);
+    -fx-pref-height: 2px;
+}
+
+/* ========== CARDS DE PRODUCTOS ========== */
+.bakery-card {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 18px;
+    -fx-effect: dropshadow(gaussian, #8B6F5C, 20, 0.08, 0, 5);
+}
+
+.bakery-card:hover {
+    -fx-effect: dropshadow(gaussian, #D4A574, 30, 0.2, 0, 10);
+    -fx-translate-y: -5;
+}
+
+/* ========== BOTONES ========== */
+.bakery-button-large {
+    -fx-background-color: linear-gradient(to bottom, #D4A574 0%, #C89563 100%);
+    -fx-background-radius: 12px;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+    -fx-padding: 14px 28px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, #D4A574, 12, 0.4, 0, 4);
+}
+
+.bakery-button-large:hover {
+    -fx-background-color: linear-gradient(to bottom, #E0B685 0%, #D4A574 100%);
+    -fx-effect: dropshadow(gaussian, #D4A574, 16, 0.6, 0, 6);
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}
+
+.bakery-button-large:pressed {
+    -fx-background-color: linear-gradient(to bottom, #C89563 0%, #D78498 100%);
+    -fx-scale-x: 0.98;
+    -fx-scale-y: 0.98;
+}
+
+/* ========== IMÁGENES ========== */
+.image-view {
+    -fx-effect: dropshadow(gaussian, #8B6F5C, 10, 0.1, 0, 3);
+}

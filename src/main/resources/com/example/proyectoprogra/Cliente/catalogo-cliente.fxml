@@ -8,25 +8,24 @@
 
 <BorderPane xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.example.proyectoprogra.controllers.Cliente.CatalogoClienteController"
-            styleClass="bakery-background"
-            stylesheets="@../css/bakery-theme.css,@../css/responsive.css">
+            stylesheets="@../css/catalogo-cliente.css">
 
     <center>
         <ScrollPane fitToWidth="true" fitToHeight="true" styleClass="bakery-scroll">
-            <VBox spacing="30" alignment="TOP_CENTER">
+            <VBox spacing="35" alignment="TOP_CENTER">
                 <padding>
-                    <Insets top="30" left="40" right="40" bottom="30"/>
+                    <Insets top="40" left="50" right="50" bottom="40"/>
                 </padding>
 
                 <!-- Título -->
-                <VBox alignment="CENTER" spacing="15">
+                <VBox alignment="CENTER" spacing="18">
                     <Label text="Nuestro Catálogo" styleClass="bakery-title-large" />
                     <Label text="Descubre nuestras deliciosas creaciones artesanales" styleClass="bakery-subtitle-large" />
-                    <VBox styleClass="bakery-divider" prefHeight="2" prefWidth="200"/>
+                    <VBox styleClass="bakery-divider" prefHeight="2" prefWidth="220"/>
                 </VBox>
 
                 <!-- GRID DE PRODUCTOS -->
-                <FlowPane hgap="30" vgap="30" alignment="CENTER" prefWrapLength="950">
+                <FlowPane hgap="35" vgap="35" alignment="CENTER" prefWrapLength="1000">
 
                     <!-- PRODUCTO 1 -->
                     <VBox spacing="15" styleClass="bakery-card" alignment="CENTER" prefWidth="270" prefHeight="450">

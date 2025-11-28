@@ -12,137 +12,98 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 
-<StackPane styleClass="bakery-background" stylesheets="@../css/bakery-theme.css,@../css/responsive.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyectoprogra.controllers.Visualizacion.RegisterController">
-
-    <ScrollPane fitToWidth="true" fitToHeight="true" styleClass="bakery-scroll">
-        <VBox alignment="CENTER" spacing="30" fillWidth="true" styleClass="bakery-responsive-container, bakery-form-spacing-large">
-            <padding>
-                <Insets top="40" bottom="40" left="40" right="40" />
-            </padding>
-
-            <!-- Logo de Pastelería -->
-            <VBox alignment="CENTER" spacing="5">
-                <Label text="🍰" style="-fx-font-size: 100px;" />
-                <Label text="✨" style="-fx-font-size: 30px; -fx-text-fill: #FFD700;" />
-            </VBox>
-
-            <!-- Título Principal -->
-            <VBox alignment="CENTER" spacing="8">
-                <Label text="SWEET HARMONY" styleClass="bakery-title" />
-                <Label text="Únete a nuestra familia" styleClass="bakery-subtitle" />
-            </VBox>
-
-            <!-- Card de Registro con Tema de Pastelería -->
-            <VBox styleClass="bakery-card-large, responsive-card" spacing="22" alignment="CENTER">
+<ScrollPane fitToWidth="true" fitToHeight="true" style="-fx-background-color: transparent;" stylesheets="@../css/register.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyectoprogra.controllers.Visualizacion.RegisterController">
+    <content>
+        <StackPane styleClass="bakery-background">
+            <VBox alignment="CENTER" spacing="30" fillWidth="true" styleClass="bakery-responsive-container, bakery-form-spacing-large">
                 <padding>
-                    <Insets top="35" bottom="35" left="35" right="35" />
+                    <Insets top="40" bottom="40" left="40" right="40" />
                 </padding>
 
-                <!-- Título del Card -->
+                <!-- Logo de Pastelería -->
                 <VBox alignment="CENTER" spacing="5">
-                    <Label text="Crear Cuenta Nueva" styleClass="bakery-title" style="-fx-font-size: 24px;" />
-                    <HBox alignment="CENTER" spacing="5">
-                        <Label text="🧁" style="-fx-font-size: 18px;" />
-                        <Label text="Comienza tu dulce aventura" styleClass="bakery-subtitle" style="-fx-font-size: 14px;" />
-                        <Label text="🧁" style="-fx-font-size: 18px;" />
-                    </HBox>
+                    <Label text="🍰" style="-fx-font-size: 100px;" />
+                    <Label text="✨" style="-fx-font-size: 30px; -fx-text-fill: #FFD700;" />
                 </VBox>
 
-                <!-- Divider decorativo -->
-                <VBox styleClass="bakery-divider" prefHeight="2" />
+                <!-- Título Principal -->
+                <VBox alignment="CENTER" spacing="8">
+                    <Label text="SWEET HARMONY" styleClass="bakery-title" />
+                    <Label text="Únete a nuestra familia" styleClass="bakery-subtitle" />
+                </VBox>
 
-                <!-- FORMULARIO EN 2 COLUMNAS -->
-                <GridPane hgap="20" vgap="18" alignment="CENTER">
-                    <columnConstraints>
-                        <ColumnConstraints percentWidth="50" />
-                        <ColumnConstraints percentWidth="50" />
-                    </columnConstraints>
+                <!-- Card de Registro con Tema de Pastelería -->
+                <VBox styleClass="bakery-card-large, responsive-card" spacing="22" alignment="CENTER">
+                    <padding>
+                        <Insets top="35" bottom="35" left="35" right="35" />
+                    </padding>
 
-                    <!-- COLUMNA 1 -->
-                    <!-- Nombre -->
-                    <VBox spacing="10" alignment="CENTER_LEFT" styleClass="bakery-form-group" GridPane.columnIndex="0" GridPane.rowIndex="0">
-                        <HBox spacing="5" alignment="CENTER_LEFT">
-                            <Label text="👤" style="-fx-font-size: 18px;" />
+                    <!-- Título del Card -->
+                    <VBox alignment="CENTER" spacing="5">
+                        <Label text="Crear Cuenta Nueva" styleClass="bakery-title" style="-fx-font-size: 24px;" />
+                        <HBox alignment="CENTER" spacing="5">
+                            <Label text="Comienza tu dulce aventura" styleClass="bakery-subtitle" style="-fx-font-size: 14px;" />
+                        </HBox>
+                    </VBox>
+
+                    <VBox styleClass="bakery-divider" prefHeight="2" />
+
+                    <!-- FORMULARIO EN 2 COLUMNAS -->
+                    <GridPane hgap="20" vgap="18" alignment="CENTER">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="50" />
+                            <ColumnConstraints percentWidth="50" />
+                        </columnConstraints>
+
+                        <!-- COLUMNA 1 -->
+                        <!-- Nombre -->
+                        <VBox spacing="10" alignment="CENTER_LEFT" styleClass="bakery-form-group" GridPane.columnIndex="0" GridPane.rowIndex="0">
                             <Label text="Nombre" styleClass="bakery-label" />
-                        </HBox>
-                        <TextField fx:id="campoNombreReg" 
-                                  promptText="Tu nombre"
-                                  styleClass="bakery-input-large, responsive-input" />
-                    </VBox>
+                            <TextField fx:id="campoNombreReg" promptText="Tu nombre" styleClass="bakery-input-large, responsive-input" />
+                        </VBox>
 
-                    <!-- Apellido -->
-                    <VBox spacing="10" alignment="CENTER_LEFT" styleClass="bakery-form-group" GridPane.columnIndex="1" GridPane.rowIndex="0">
-                        <HBox spacing="5" alignment="CENTER_LEFT">
-                            <Label text="👥" style="-fx-font-size: 18px;" />
+                        <!-- Apellido -->
+                        <VBox spacing="10" alignment="CENTER_LEFT" styleClass="bakery-form-group" GridPane.columnIndex="1" GridPane.rowIndex="0">
                             <Label text="Apellido" styleClass="bakery-label" />
-                        </HBox>
-                        <TextField fx:id="campoApellidoReg" 
-                                  promptText="Tu apellido"
-                                  styleClass="bakery-input-large, responsive-input" />
-                    </VBox>
+                            <TextField fx:id="campoApellidoReg" promptText="Tu apellido" styleClass="bakery-input-large, responsive-input" />
+                        </VBox>
 
-                    <!-- Email -->
-                    <VBox spacing="10" alignment="CENTER_LEFT" styleClass="bakery-form-group" GridPane.columnIndex="0" GridPane.rowIndex="1">
-                        <HBox spacing="5" alignment="CENTER_LEFT">
-                            <Label text="📧" style="-fx-font-size: 18px;" />
+                        <!-- Email -->
+                        <VBox spacing="10" alignment="CENTER_LEFT" styleClass="bakery-form-group" GridPane.columnIndex="0" GridPane.rowIndex="1">
                             <Label text="Correo electrónico" styleClass="bakery-label" />
-                        </HBox>
-                        <TextField fx:id="campoEmailReg" 
-                                  promptText="nombre@ejemplo.com"
-                                  styleClass="bakery-input-large, responsive-input" />
-                    </VBox>
+                            <TextField fx:id="campoEmailReg" promptText="nombre@ejemplo.com" styleClass="bakery-input-large, responsive-input" />
+                        </VBox>
 
-                    <!-- Contraseña -->
-                    <VBox spacing="10" alignment="CENTER_LEFT" styleClass="bakery-form-group" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                        <HBox spacing="5" alignment="CENTER_LEFT">
-                            <Label text="🔒" style="-fx-font-size: 18px;" />
+                        <!-- Contraseña -->
+                        <VBox spacing="10" alignment="CENTER_LEFT" styleClass="bakery-form-group" GridPane.columnIndex="1" GridPane.rowIndex="1">
                             <Label text="Contraseña" styleClass="bakery-label" />
-                        </HBox>
-                        <PasswordField fx:id="campoContrasenaReg" 
-                                      promptText="Crea una contraseña segura"
-                                      styleClass="bakery-input-large, responsive-input" />
-                    </VBox>
+                            <PasswordField fx:id="campoContrasenaReg" promptText="Crea una contraseña segura" styleClass="bakery-input-large, responsive-input" />
+                        </VBox>
 
-                    <!-- Confirmar Contraseña (span 2 columns) -->
-                    <VBox spacing="10" alignment="CENTER_LEFT" styleClass="bakery-form-group" GridPane.columnIndex="0" GridPane.rowIndex="2" GridPane.columnSpan="2">
-                        <HBox spacing="5" alignment="CENTER_LEFT">
-                            <Label text="🔑" style="-fx-font-size: 18px;" />
+                        <!-- Confirmar Contraseña (span 2 columns) -->
+                        <VBox spacing="10" alignment="CENTER_LEFT" styleClass="bakery-form-group" GridPane.columnIndex="0" GridPane.rowIndex="2" GridPane.columnSpan="2">
                             <Label text="Confirmar contraseña" styleClass="bakery-label" />
-                        </HBox>
-                        <PasswordField fx:id="campoContrasenaRegConfirm" 
-                                      promptText="Repite tu contraseña"
-                                      styleClass="bakery-input-large, responsive-input" />
-                    </VBox>
-                </GridPane>
+                            <PasswordField fx:id="campoContrasenaRegConfirm" promptText="Repite tu contraseña" styleClass="bakery-input-large, responsive-input" />
+                        </VBox>
+                    </GridPane>
 
-                <!-- Mensaje de error/éxito -->
-                <Label fx:id="mensajeReg" styleClass="bakery-message" wrapText="true" />
+                    <!-- Mensaje de error/éxito -->
+                    <Label fx:id="mensajeReg" styleClass="bakery-message" wrapText="true" />
 
-                <!-- Botón Crear Cuenta -->
-                <Button fx:id="btnCrearCuentaReg" 
-                       text="CREAR MI CUENTA 🎉" 
-                       onAction="#registrarUsuario"
-                       styleClass="bakery-button-large, responsive-button-full"
-                       prefHeight="65" />
+                    <!-- Botón Crear Cuenta -->
+                    <Button fx:id="btnCrearCuentaReg" text="CREAR MI CUENTA 🎉" onAction="#registrarUsuario" styleClass="bakery-button-large, responsive-button-full" prefHeight="65" />
 
-                <!-- Divider -->
-                <VBox styleClass="bakery-divider" prefHeight="1" />
+                    <VBox styleClass="bakery-divider" prefHeight="1" />
 
-                <!-- Ya tienes cuenta -->
-                <VBox alignment="CENTER" spacing="10">
-                    <HBox alignment="CENTER" spacing="5">
-                        <Label text="🎂" style="-fx-font-size: 16px;" />
+                    <!-- Ya tienes cuenta -->
+                    <VBox alignment="CENTER" spacing="10">
                         <Label text="¿Ya tienes cuenta?" styleClass="bakery-label" style="-fx-font-size: 13px;" />
-                    </HBox>
-                    <Button fx:id="btnCancelarReg" 
-                           text="Iniciar Sesión ✨" 
-                           onAction="#cerrar" 
-                           styleClass="bakery-button-secondary" />
+                        <Button fx:id="btnCancelarReg" text="Iniciar Sesión ✨" onAction="#cerrar" styleClass="bakery-button-large, responsive-button-full" />
+                    </VBox>
+
                 </VBox>
 
             </VBox>
-
-        </VBox>
-    </ScrollPane>
-
-</StackPane>
+        </StackPane>
+    </content>
+</ScrollPane>

@@ -1,0 +1,292 @@
+/* ========================================
+   PEDIDO CLIENTE - CSS EXCLUSIVO
+   Paleta Sweet Harmony
+   ======================================== */
+
+:root {
+    -color-primario: #D97941;
+    -color-secundario: #3A2E2A;
+    -color-fondo: #FAF9F7;
+    -color-panel: #FFFFFF;
+    -color-texto: #1A1A1A;
+    -color-texto-sec: #6C6C6C;
+    -color-hover: #E38B51;
+}
+
+/* ========== FONDO PRINCIPAL ========== */
+.border-pane {
+    -fx-background-color: #FAF9F7;
+}
+
+/* ========== SCROLLPANE ========== */
+.scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane .scroll-bar:vertical .thumb {
+    -fx-background-color: #D97941;
+    -fx-background-radius: 4px;
+}
+
+.scroll-pane .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: #E38B51;
+}
+
+.scroll-pane .scroll-bar:vertical .track {
+    -fx-background-color: transparent;
+}
+
+/* ========== TODOS LOS LABELS ========== */
+.label {
+    -fx-text-fill: #1A1A1A;
+    -fx-font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    -fx-font-size: 14px;
+}
+
+/* ========== TÍTULOS ========== */
+.bakery-title-large {
+    -fx-font-size: 36px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #3A2E2A;
+}
+
+.bakery-subtitle-large {
+    -fx-font-size: 16px;
+    -fx-text-fill: #6C6C6C;
+}
+
+.bakery-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #3A2E2A;
+}
+
+.bakery-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #1A1A1A;
+}
+
+.bakery-subtitle {
+    -fx-font-size: 13px;
+    -fx-text-fill: #6C6C6C;
+}
+
+/* ========== DIVIDER ========== */
+.bakery-divider {
+    -fx-background-color: linear-gradient(to right, transparent, #D97941, transparent);
+    -fx-pref-height: 1px;
+}
+
+/* ========== CARDS ========== */
+.bakery-card-large {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 20px;
+    -fx-effect: dropshadow(gaussian, #3A2E2A, 25, 0.08, 0, 5);
+}
+
+/* ==== CAMPOS DE TEXTO (TextField, TextArea) ==== */
+.text-field,
+.text-area {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 10px;
+    -fx-border-color: #D97941;
+    -fx-border-radius: 10px;
+    -fx-border-width: 1.5px;
+    -fx-font-size: 15px;
+    -fx-padding: 14px 16px;
+    -fx-pref-height: 50px;
+}
+
+.text-field:focused,
+.text-area:focused {
+    -fx-border-color: #E38B51;
+    -fx-background-color: #FFFFFF;
+    -fx-effect: dropshadow(gaussian, #D97941, 10, 0.25, 0, 0);
+}
+
+.text-field,
+.text-area {
+    -fx-text-fill: #1A1A1A;
+    -fx-prompt-text-fill: #6C6C6C;
+}
+
+/* Específico para TextArea */
+.text-area .content {
+    -fx-background-color: transparent;
+}
+
+/* Específico para inputs con clase bakery-input-large */
+.bakery-input-large {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 10px;
+    -fx-border-color: #D97941;
+    -fx-border-radius: 10px;
+    -fx-border-width: 1.5px;
+    -fx-font-size: 15px;
+    -fx-padding: 14px 16px;
+    -fx-pref-height: 50px;
+    -fx-text-fill: #1A1A1A;
+    -fx-prompt-text-fill: #6C6C6C;
+}
+
+.bakery-input-large:focused {
+    -fx-border-color: #E38B51;
+    -fx-background-color: #FFFFFF;
+    -fx-effect: dropshadow(gaussian, #D97941, 10, 0.25, 0, 0);
+}
+
+.bakery-input-large:hover {
+    -fx-border-color: #E38B51;
+}
+
+/* ==== COMBOBOX ==== */
+.combo-box {
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-color: #D97941;
+    -fx-border-width: 1.5px;
+    -fx-font-size: 15px;
+    -fx-pref-height: 50px;
+    -fx-background-color: #FFFFFF;
+}
+
+.combo-box .arrow-button {
+    -fx-background-color: transparent;
+}
+
+.combo-box .arrow {
+    -fx-background-color: #D97941;
+}
+
+.combo-box:hover {
+    -fx-border-color: #E38B51;
+}
+
+.combo-box .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #1A1A1A;
+    -fx-font-size: 15px;
+}
+
+.combo-box .list-cell:filled {
+    -fx-text-fill: #1A1A1A;
+}
+
+/* PopUp del ComboBox */
+.combo-box-popup .list-view {
+    -fx-background-color: #FFFFFF;
+    -fx-control-inner-background: #FFFFFF;
+    -fx-background-radius: 10px;
+    -fx-padding: 5px;
+    -fx-border-color: #D97941;
+    -fx-border-width: 1px;
+    -fx-effect: dropshadow(gaussian, #3A2E2A, 20, 0.15, 0, 5);
+}
+
+.combo-box-popup .list-view .list-cell {
+    -fx-font-size: 14px;
+    -fx-padding: 10px 14px;
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #1A1A1A;
+}
+
+.combo-box-popup .list-view .list-cell:hover {
+    -fx-background-color: #FFF0E6;
+}
+
+.combo-box-popup .list-view .list-cell:selected {
+    -fx-background-color: #D97941;
+    -fx-text-fill: #FFFFFF;
+}
+
+/* ==== DATEPICKER ==== */
+.date-picker {
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-color: #D97941;
+    -fx-border-width: 1.5px;
+    -fx-pref-height: 50px;
+    -fx-background-color: #FFFFFF;
+}
+
+.date-picker:hover {
+    -fx-border-color: #E38B51;
+}
+
+.date-picker .arrow-button {
+    -fx-background-color: transparent;
+}
+
+.date-picker .arrow {
+    -fx-background-color: #D97941;
+}
+
+.date-picker .text-field {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+    -fx-text-fill: #1A1A1A;
+    -fx-prompt-text-fill: #6C6C6C;
+    -fx-font-size: 15px;
+}
+
+/* ==== BOTÓN PRIMARIO ==== */
+.bakery-button-large {
+    -fx-background-color: #D97941;
+    -fx-text-fill: white;
+    -fx-background-radius: 12px;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-padding: 16px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, #D97941, 15, 0.4, 0, 5);
+}
+
+.bakery-button-large:hover {
+    -fx-background-color: #E38B51;
+    -fx-effect: dropshadow(gaussian, #D97941, 20, 0.6, 0, 7);
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+}
+
+.bakery-button-large:pressed {
+    -fx-background-color: #C56A35;
+    -fx-scale-x: 0.98;
+    -fx-scale-y: 0.98;
+}
+
+/* ==== BOTÓN SECUNDARIO ==== */
+.bakery-button-secondary {
+    -fx-background-color: transparent;
+    -fx-border-color: #3A2E2A;
+    -fx-border-width: 2px;
+    -fx-border-radius: 12px;
+    -fx-text-fill: #3A2E2A;
+    -fx-font-size: 15px;
+    -fx-font-weight: 600;
+    -fx-padding: 14px 32px;
+    -fx-cursor: hand;
+}
+
+.bakery-button-secondary:hover {
+    -fx-background-color: #F5EFE7;
+    -fx-border-color: #D97941;
+    -fx-text-fill: #D97941;
+}
+
+.bakery-button-secondary:pressed {
+    -fx-background-color: #E8DED0;
+}
+
+/* ========== FORM SPACING ========== */
+.bakery-form-spacing-large {
+    -fx-spacing: 35px;
+}
+
+.bakery-form-group {
+    -fx-spacing: 8px;
+}

@@ -9,16 +9,12 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
 
-<StackPane styleClass="bakery-background"
-           stylesheets="@../css/bakery-theme.css,@../css/responsive.css"
-           xmlns="http://javafx.com/javafx/25"
-           xmlns:fx="http://javafx.com/fxml/1"
-           fx:controller="com.example.proyectoprogra.controllers.Visualizacion.RecuperacionDePinController">
-
-    <!-- ScrollPane para hacer todo scrollable -->
-    <ScrollPane fitToWidth="true" fitToHeight="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" style="-fx-background: transparent; -fx-background-color: transparent;">
-        <content>
+<ScrollPane fitToWidth="true" fitToHeight="true" style="-fx-background: transparent; -fx-background-color: transparent;" stylesheets="@../css/recuperacion.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyectoprogra.controllers.Visualizacion.RecuperacionDePinController">
+    <content>
+        <StackPane styleClass="bakery-background">
             <VBox alignment="CENTER" spacing="30" fillWidth="true" styleClass="bakery-responsive-container, bakery-form-spacing-large">
                 <padding>
                     <Insets top="40" bottom="40" left="40" right="40" />
@@ -45,52 +41,60 @@
                     <!-- Título del card -->
                     <VBox alignment="CENTER" spacing="5">
                         <Label text="Recupera tu acceso" styleClass="bakery-title" style="-fx-font-size: 24px;" />
-                        <Label text="🍰 Te ayudaremos a recuperar tu cuenta" styleClass="bakery-subtitle" />
+                        <Label text="Te ayudaremos a recuperar tu cuenta" styleClass="bakery-subtitle" />
                     </VBox>
 
                     <VBox styleClass="bakery-divider" prefHeight="2" />
 
-                    <!-- Email -->
-                    <VBox spacing="10" alignment="CENTER_LEFT" styleClass="bakery-form-group">
-                        <HBox spacing="5" alignment="CENTER_LEFT">
-                            <Label text="📧" style="-fx-font-size: 16px;" />
-                            <Label text="Correo electrónico" styleClass="bakery-label" />
-                        </HBox>
-                        <TextField fx:id="campoEmailRec" promptText="nombre@ejemplo.com" styleClass="bakery-input-large, responsive-input" />
-                    </VBox>
+                    <!-- FORMULARIO EN 2 COLUMNAS -->
+                    <GridPane hgap="20" vgap="18" alignment="CENTER">
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="50" />
+                            <ColumnConstraints percentWidth="50" />
+                        </columnConstraints>
 
-                    <Button text="ENVIAR CÓDIGO 📨" onAction="#enviarCodigo" styleClass="bakery-button-large" prefHeight="60" />
+                        <!-- Columna izquierda: Email y Código -->
+                        <VBox spacing="10" alignment="CENTER_LEFT" styleClass="bakery-form-group" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                            <HBox spacing="8" alignment="CENTER_LEFT">
+                                <Label text="📧" style="-fx-font-size: 16px;" />
+                                <Label text="Correo electrónico" styleClass="bakery-label" />
+                            </HBox>
+                            <TextField fx:id="campoEmailRec" promptText="nombre@ejemplo.com" styleClass="bakery-input-large, responsive-input" />
+                        </VBox>
 
-                    <!-- Código -->
-                    <VBox spacing="10" alignment="CENTER_LEFT" styleClass="bakery-form-group">
-                        <HBox spacing="5" alignment="CENTER_LEFT">
-                            <Label text="🔑" style="-fx-font-size: 16px;" />
-                            <Label text="Código recibido" styleClass="bakery-label" />
-                        </HBox>
-                        <TextField fx:id="campoCodigoRec" promptText="Ingresa el código" styleClass="bakery-input-large, responsive-input" />
-                    </VBox>
+                        <VBox spacing="10" alignment="CENTER_LEFT" styleClass="bakery-form-group" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                            <HBox spacing="8" alignment="CENTER_LEFT">
+                                <Label text="🔑" style="-fx-font-size: 16px;" />
+                                <Label text="Código recibido" styleClass="bakery-label" />
+                            </HBox>
+                            <TextField fx:id="campoCodigoRec" promptText="Ingresa el código" styleClass="bakery-input-large, responsive-input" />
+                        </VBox>
 
-                    <!-- Nuevo PIN -->
-                    <VBox spacing="10" alignment="CENTER_LEFT" styleClass="bakery-form-group">
-                        <HBox spacing="5" alignment="CENTER_LEFT">
-                            <Label text="🔒" style="-fx-font-size: 16px;" />
-                            <Label text="Nueva contraseña" styleClass="bakery-label" />
-                        </HBox>
-                        <PasswordField fx:id="campoPinNuevo" promptText="Nueva contraseña" styleClass="bakery-input-large, responsive-input" />
-                    </VBox>
+                        <!-- Columna derecha: Nuevo PIN y Confirmar PIN -->
+                        <VBox spacing="10" alignment="CENTER_LEFT" styleClass="bakery-form-group" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                            <HBox spacing="8" alignment="CENTER_LEFT">
+                                <Label text="🔒" style="-fx-font-size: 16px;" />
+                                <Label text="Nueva contraseña" styleClass="bakery-label" />
+                            </HBox>
+                            <PasswordField fx:id="campoPinNuevo" promptText="Nueva contraseña" styleClass="bakery-input-large, responsive-input" />
+                        </VBox>
 
-                    <!-- Confirmar PIN -->
-                    <VBox spacing="10" alignment="CENTER_LEFT" styleClass="bakery-form-group">
-                        <HBox spacing="5" alignment="CENTER_LEFT">
-                            <Label text="✅" style="-fx-font-size: 16px;" />
-                            <Label text="Confirmar contraseña" styleClass="bakery-label" />
-                        </HBox>
-                        <PasswordField fx:id="campoPinConfirm" promptText="Confirma contraseña" styleClass="bakery-input-large, responsive-input" />
-                    </VBox>
+                        <VBox spacing="10" alignment="CENTER_LEFT" styleClass="bakery-form-group" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                            <HBox spacing="8" alignment="CENTER_LEFT">
+                                <Label text="✅" style="-fx-font-size: 16px;" />
+                                <Label text="Confirmar contraseña" styleClass="bakery-label" />
+                            </HBox>
+                            <PasswordField fx:id="campoPinConfirm" promptText="Confirma contraseña" styleClass="bakery-input-large, responsive-input" />
+                        </VBox>
+
+                    </GridPane>
 
                     <Label fx:id="mensajeRec" styleClass="bakery-message" wrapText="true" />
 
-                    <Button text="ACTUALIZAR CONTRASEÑA 🎉" onAction="#recuperarPin" styleClass="bakery-button-large" prefHeight="65" />
+                    <HBox alignment="CENTER" spacing="12">
+                        <Button text="ENVIAR CÓDIGO 📨" onAction="#enviarCodigo" styleClass="bakery-button-large" prefHeight="60" />
+                        <Button text="ACTUALIZAR CONTRASEÑA 🎉" onAction="#recuperarPin" styleClass="bakery-button-large" prefHeight="60" />
+                    </HBox>
 
                     <VBox styleClass="bakery-divider" prefHeight="1" />
 
@@ -101,8 +105,6 @@
                 </VBox>
 
             </VBox>
-        </content>
-    </ScrollPane>
-
-</StackPane>
-
+        </StackPane>
+    </content>
+</ScrollPane>

@@ -1,0 +1,107 @@
+/* ========================================
+   HISTORIAL CLIENTE - CSS EXCLUSIVO
+   Paleta Sweet Harmony
+   ======================================== */
+
+/* ========== FONDO PRINCIPAL ========== */
+.border-pane {
+    -fx-background-color: #FFF8F0;
+}
+
+/* ========== TODOS LOS LABELS ========== */
+.label {
+    -fx-text-fill: #4A4A4A;
+    -fx-font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    -fx-font-size: 14px;
+}
+
+/* ========== TÍTULOS ========== */
+.bakery-title-large {
+    -fx-font-size: 38px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #8B6F5C;
+}
+
+.bakery-subtitle-large {
+    -fx-font-size: 17px;
+    -fx-text-fill: #6A6A6A;
+    -fx-font-weight: 400;
+}
+
+/* ========== CARD PRINCIPAL ========== */
+.bakery-card {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 20px;
+    -fx-effect: dropshadow(gaussian, #8B6F5C, 25, 0.12, 0, 6);
+}
+
+/* ========== TABLA ========== */
+.table-view {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 14px;
+    -fx-border-color: transparent;
+}
+
+/* Headers de la tabla */
+.table-view .column-header-background {
+    -fx-background-color: linear-gradient(to bottom, #D4A574 0%, #C89563 100%);
+    -fx-background-radius: 14px 14px 0 0;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: 700;
+    -fx-font-size: 14px;
+}
+
+/* Celdas */
+.table-view .table-cell {
+    -fx-text-fill: #4A4A4A;
+    -fx-padding: 14px 12px;
+    -fx-font-size: 13px;
+    -fx-border-color: #F5EFE7;
+}
+
+/* Filas */
+.table-row-cell {
+    -fx-background-color: #FFFFFF;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #FFF8F0;
+}
+
+.table-row-cell:hover {
+    -fx-background-color: #F5EFE7;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #D4A574;
+}
+
+.table-row-cell:selected .table-cell {
+    -fx-text-fill: #FFFFFF;
+}
+
+/* Filler */
+.table-view .filler {
+    -fx-background-color: #FFFFFF;
+}
+
+/* ========== SCROLLBAR DE LA TABLA ========== */
+.table-view .scroll-bar:vertical .thumb {
+    -fx-background-color: #D4A574;
+    -fx-background-radius: 4px;
+}
+
+.table-view .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: #E0B685;
+}
+
+.table-view .scroll-bar:vertical .track {
+    -fx-background-color: #FFF8F0;
+}

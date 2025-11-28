@@ -1,0 +1,150 @@
+/* ========================================
+   PERFIL CLIENTE - CSS EXCLUSIVO
+   Paleta Sweet Harmony
+   ======================================== */
+
+/* ========== FONDO PRINCIPAL ========== */
+.border-pane {
+    -fx-background-color: #FFF8F0;
+}
+
+/* ========== SCROLLPANE ========== */
+.scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane .scroll-bar:vertical .thumb {
+    -fx-background-color: #D4A574;
+    -fx-background-radius: 4px;
+}
+
+.scroll-pane .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: #E0B685;
+}
+
+.scroll-pane .scroll-bar:vertical .track {
+    -fx-background-color: transparent;
+}
+
+/* ========== TODOS LOS LABELS ========== */
+.label {
+    -fx-text-fill: #4A4A4A;
+    -fx-font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    -fx-font-size: 14px;
+}
+
+/* ========== TÍTULOS ========== */
+.bakery-title-large {
+    -fx-font-size: 38px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #8B6F5C;
+}
+
+.bakery-subtitle-large {
+    -fx-font-size: 17px;
+    -fx-text-fill: #6A6A6A;
+    -fx-font-weight: 400;
+}
+
+.bakery-label {
+    -fx-font-size: 16px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #4A4A4A;
+}
+
+/* ========== CARD PRINCIPAL ========== */
+.bakery-card-large {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 20px;
+    -fx-effect: dropshadow(gaussian, #8B6F5C, 25, 0.12, 0, 6);
+}
+
+/* ========== INPUTS ========== */
+.bakery-input-large {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 12px;
+    -fx-border-color: #E8D5D0;
+    -fx-border-width: 2px;
+    -fx-border-radius: 12px;
+    -fx-padding: 16px 20px;
+    -fx-font-size: 15px;
+    -fx-text-fill: #4A4A4A;
+    -fx-prompt-text-fill: #9A9A9A;
+    -fx-min-height: 52px;
+}
+
+.bakery-input-large:focused {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #D4A574;
+    -fx-effect: dropshadow(gaussian, #D4A574, 12, 0.25, 0, 0);
+}
+
+.bakery-input-large:hover {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E0B685;
+}
+
+/* Input disabled (Rol) */
+.bakery-input-large:disabled {
+    -fx-background-color: #F5EFE7;
+    -fx-opacity: 0.8;
+    -fx-text-fill: #9A9A9A;
+}
+
+/* ========== DIVIDER ========== */
+.bakery-divider {
+    -fx-background-color: linear-gradient(to right, transparent, #D4A574, transparent);
+    -fx-pref-height: 1px;
+}
+
+/* ========== BOTONES ========== */
+.bakery-button-large {
+    -fx-background-color: linear-gradient(to bottom, #D4A574 0%, #C89563 100%);
+    -fx-background-radius: 14px;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 15px;
+    -fx-font-weight: 700;
+    -fx-padding: 18px 40px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, #D4A574, 15, 0.4, 0, 5);
+}
+
+.bakery-button-large:hover {
+    -fx-background-color: linear-gradient(to bottom, #E0B685 0%, #D4A574 100%);
+    -fx-effect: dropshadow(gaussian, #D4A574, 20, 0.6, 0, 7);
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}
+
+.bakery-button-large:pressed {
+    -fx-background-color: linear-gradient(to bottom, #C89563 0%, #D78498 100%);
+    -fx-scale-x: 0.98;
+    -fx-scale-y: 0.98;
+}
+
+/* Botón CERRAR SESIÓN */
+.bakery-button-secondary {
+    -fx-background-color: transparent;
+    -fx-text-fill: #E57373;
+    -fx-border-color: #E57373;
+    -fx-border-width: 2px;
+    -fx-border-radius: 14px;
+    -fx-font-size: 15px;
+    -fx-font-weight: 700;
+    -fx-padding: 18px 40px;
+    -fx-cursor: hand;
+}
+
+.bakery-button-secondary:hover {
+    -fx-background-color: #FFEBEE;
+    -fx-border-color: #D96363;
+    -fx-text-fill: #D96363;
+}
+
+.bakery-button-secondary:pressed {
+    -fx-background-color: #FFCDD2;
+}

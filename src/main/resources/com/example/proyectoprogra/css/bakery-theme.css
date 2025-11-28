@@ -1,6 +1,6 @@
- /* ========================================
-   SWEET HARMONY - MINIMAL THEME
-   Paleta minimal y profesional
+/* ========================================
+   SWEET HARMONY - MODERN MINIMAL THEME
+   Diseño moderno, limpio y profesional
    ======================================== */
 
 /* ========== VARIABLES DE COLOR ========== */
@@ -10,232 +10,225 @@
     -fx-soft-taupe: #4A4A4A;
     -fx-sand-beige: #D9CFC3;
     -fx-cocoa-black: #1F1A17;
+    
+    /* Variantes adicionales */
+    -fx-rose-light: #F2DFE0;
+    -fx-rose-dark: #D9B5B6;
+    -fx-cream-dark: #F5F0EB;
+    -fx-shadow-soft: rgba(31, 26, 23, 0.08);
+    -fx-shadow-medium: rgba(31, 26, 23, 0.12);
 }
 
 /* ========== FONDO PRINCIPAL ========== */
 .bakery-background {
     -fx-background-color: linear-gradient(
-        from 0% 0% to 100% 100%,
+        135deg,
         #FAF7F2 0%,
         #F5F0EB 50%,
         #E8C7C8 100%
     );
 }
 
-
-/* ========== CARDS MINIMAL ========== */
+/* ========== CARDS MODERNOS ========== */
 .bakery-card {
     -fx-background-color: white;
-    -fx-background-radius: 20;
-    -fx-padding: 40;
-    -fx-effect: dropshadow(gaussian, rgba(217, 207, 195, 0.3), 15, 0.3, 0, 5);
-    -fx-border-color: #D9CFC3;
-    -fx-border-width: 2;
-    -fx-border-radius: 20;
+    -fx-background-radius: 16;
+    -fx-padding: 30;
+    -fx-effect: dropshadow(gaussian, rgba(31, 26, 23, 0.08), 20, 0, 0, 4);
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+}
+
+.bakery-card:hover {
+    -fx-effect: dropshadow(gaussian, rgba(31, 26, 23, 0.12), 30, 0, 0, 8);
+    -fx-translate-y: -2;
 }
 
 .bakery-card-large {
+    -fx-background-color: white;
+    -fx-background-radius: 20;
     -fx-padding: 50;
+    -fx-effect: dropshadow(gaussian, rgba(31, 26, 23, 0.1), 25, 0, 0, 6);
     -fx-min-width: 550px;
 }
 
-/* ========== LOGO Y TÍTULOS ========== */
-.bakery-logo {
-    -fx-font-size: 6em;
-    -fx-effect: dropshadow(gaussian, rgba(31, 26, 23, 0.2), 10, 0.5, 0, 3);
-}
-
-.bakery-logo-large {
-    -fx-font-size: 8em;
-}
-
+/* ========== TIPOGRAFÍA ========== */
 .bakery-title {
     -fx-font-family: "Segoe UI", "Arial Rounded MT Bold", sans-serif;
-    -fx-font-size: 32px;
-    -fx-font-weight: bold;
+    -fx-font-size: 28px;
+    -fx-font-weight: 700;
     -fx-text-fill: #1F1A17;
-    -fx-effect: dropshadow(gaussian, rgba(217, 207, 195, 0.2), 5, 0.3, 0, 2);
+    -fx-effect: dropshadow(gaussian, rgba(31, 26, 23, 0.05), 3, 0, 0, 1);
 }
 
 .bakery-title-large {
-    -fx-font-size: 42px;
+    -fx-font-size: 38px;
+    -fx-font-weight: 700;
+    -fx-letter-spacing: -0.5px;
 }
 
 .bakery-subtitle {
     -fx-font-family: "Segoe UI", sans-serif;
-    -fx-font-size: 16px;
+    -fx-font-size: 15px;
     -fx-text-fill: #4A4A4A;
-    -fx-font-style: italic;
+    -fx-font-weight: 500;
 }
 
 .bakery-subtitle-large {
-    -fx-font-size: 20px;
+    -fx-font-size: 18px;
+    -fx-opacity: 0.85;
 }
 
-/* ========== INPUTS MINIMAL ========== */
-.bakery-input {
-    -fx-background-color: white;
-    -fx-background-radius: 15;
-    -fx-border-color: #D9CFC3;
-    -fx-border-width: 2;
-    -fx-border-radius: 15;
-    -fx-padding: 12 20;
-    -fx-font-size: 14px;
+.bakery-label {
     -fx-text-fill: #4A4A4A;
-    -fx-prompt-text-fill: #4A4A4A;
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+}
+
+/* ========== INPUTS MODERNOS ========== */
+.bakery-input,
+.text-field,
+.password-field,
+.text-area {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 12;
+    -fx-border-color: #E0E0E0;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 12;
+    -fx-padding: 14 20;
+    -fx-font-size: 14px;
+    -fx-text-fill: #1F1A17;
+    -fx-prompt-text-fill: #9E9E9E;
+    -fx-min-height: 48px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.03), 4, 0, 0, 2);
 }
 
 .bakery-input-large {
-    -fx-min-height: 55px;
-    -fx-font-size: 16px;
-    -fx-padding: 15 25;
+    -fx-min-height: 56px;
+    -fx-font-size: 15px;
+    -fx-padding: 16 24;
 }
 
-.bakery-input:focused {
+.bakery-input:focused,
+.text-field:focused,
+.password-field:focused,
+.text-area:focused {
     -fx-border-color: #E8C7C8;
-    -fx-background-color: #FAF7F2;
-    -fx-effect: dropshadow(gaussian, rgba(232, 199, 200, 0.3), 8, 0.4, 0, 0);
-}
-
-.bakery-input:hover {
-    -fx-border-color: #E8C7C8;
-}
-
-/* ========== BOTONES MINIMAL ========== */
-.bakery-button {
-    -fx-background-color: linear-gradient(to bottom, #E8C7C8, #D9B5B6);
-    -fx-background-radius: 25;
-    -fx-text-fill: white;
-    -fx-font-size: 16px;
-    -fx-font-weight: bold;
-    -fx-padding: 15 40;
-    -fx-cursor: hand;
-    -fx-effect: dropshadow(gaussian, rgba(232, 199, 200, 0.4), 10, 0.4, 0, 4);
-    -fx-border-color: #D9CFC3;
     -fx-border-width: 2;
-    -fx-border-radius: 25;
+    -fx-background-color: #FEFEFE;
+    -fx-effect: dropshadow(gaussian, rgba(232, 199, 200, 0.25), 12, 0, 0, 0);
+}
+
+.bakery-input:hover,
+.text-field:hover,
+.password-field:hover,
+.text-area:hover {
+    -fx-border-color: #D9CFC3;
+    -fx-background-color: #FAFAFA;
+}
+
+/* ========== BOTONES MODERNOS ========== */
+.bakery-button,
+.button {
+    -fx-background-color: linear-gradient(to bottom, #E8C7C8 0%, #DDB8B9 100%);
+    -fx-background-radius: 12;
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+    -fx-font-weight: 600;
+    -fx-padding: 14 32;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(232, 199, 200, 0.4), 12, 0, 0, 4);
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
 }
 
 .bakery-button-large {
-    -fx-min-height: 60px;
-    -fx-font-size: 18px;
-    -fx-padding: 18 50;
+    -fx-min-height: 58px;
+    -fx-font-size: 16px;
+    -fx-font-weight: 700;
+    -fx-padding: 16 40;
+    -fx-background-radius: 14;
 }
 
-.bakery-button:hover {
-    -fx-background-color: linear-gradient(to bottom, #D9B5B6, #CCA3A4);
-    -fx-scale-x: 1.05;
-    -fx-scale-y: 1.05;
-    -fx-effect: dropshadow(gaussian, rgba(232, 199, 200, 0.6), 15, 0.5, 0, 6);
+.bakery-button:hover,
+.button:hover {
+    -fx-background-color: linear-gradient(to bottom, #DDB8B9 0%, #D2A7A8 100%);
+    -fx-effect: dropshadow(gaussian, rgba(232, 199, 200, 0.5), 16, 0, 0, 6);
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
 }
 
-.bakery-button:pressed {
-    -fx-background-color: linear-gradient(to bottom, #CCA3A4, #BF9192);
+.bakery-button:pressed,
+.button:pressed {
+    -fx-background-color: linear-gradient(to bottom, #D2A7A8 0%, #C79697 100%);
+    -fx-effect: dropshadow(gaussian, rgba(232, 199, 200, 0.3), 8, 0, 0, 2);
     -fx-scale-x: 0.98;
     -fx-scale-y: 0.98;
 }
 
 .bakery-button-secondary {
     -fx-background-color: transparent;
-    -fx-background-radius: 25;
+    -fx-background-radius: 12;
     -fx-text-fill: #4A4A4A;
     -fx-font-size: 14px;
-    -fx-padding: 10 30;
+    -fx-font-weight: 600;
+    -fx-padding: 12 28;
     -fx-cursor: hand;
     -fx-border-color: #D9CFC3;
-    -fx-border-width: 2;
-    -fx-border-radius: 25;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 12;
+    -fx-effect: none;
 }
 
 .bakery-button-secondary:hover {
-    -fx-background-color: #E8C7C8;
-    -fx-text-fill: white;
-}
-
-/* ========== BOTONES POR DEFECTO ========== */
-.button {
-    -fx-background-color: linear-gradient(to bottom, #E8C7C8, #D9B5B6);
-    -fx-background-radius: 25;
-    -fx-text-fill: white;
-    -fx-font-size: 14px;
-    -fx-font-weight: bold;
-    -fx-padding: 12 35;
-    -fx-cursor: hand;
-    -fx-effect: dropshadow(gaussian, rgba(232, 199, 200, 0.4), 10, 0.4, 0, 4);
-    -fx-border-color: #D9CFC3;
-    -fx-border-width: 2;
-    -fx-border-radius: 25;
-}
-
-.button:hover {
-    -fx-background-color: linear-gradient(to bottom, #D9B5B6, #CCA3A4);
-    -fx-scale-x: 1.05;
-    -fx-scale-y: 1.05;
-}
-
-.button:pressed {
-    -fx-background-color: linear-gradient(to bottom, #CCA3A4, #BF9192);
-    -fx-scale-x: 0.98;
-    -fx-scale-y: 0.98;
-}
-
-/* ========== TEXTFIELD Y PASSWORDFIELD POR DEFECTO ========== */
-.text-field,
-.password-field {
-    -fx-background-color: white;
-    -fx-background-radius: 15;
-    -fx-border-color: #D9CFC3;
-    -fx-border-width: 2;
-    -fx-border-radius: 15;
-    -fx-padding: 12 20;
-    -fx-font-size: 14px;
-    -fx-text-fill: #4A4A4A;
-    -fx-prompt-text-fill: #4A4A4A;
-    -fx-min-height: 45px;
-}
-
-.text-field:focused,
-.password-field:focused {
+    -fx-background-color: rgba(232, 199, 200, 0.1);
     -fx-border-color: #E8C7C8;
-    -fx-background-color: #FAF7F2;
-    -fx-effect: dropshadow(gaussian, rgba(232, 199, 200, 0.3), 8, 0.4, 0, 0);
+    -fx-text-fill: #1F1A17;
 }
 
-.text-field:hover,
-.password-field:hover {
-    -fx-border-color: #E8C7C8;
+.bakery-button-secondary:pressed {
+    -fx-background-color: rgba(232, 199, 200, 0.2);
 }
 
-/* ========== COMBOBOX ========== */
+/* ========== COMBOBOX MODERNO ========== */
 .combo-box {
     -fx-background-color: white;
-    -fx-background-radius: 15;
-    -fx-border-color: #D9CFC3;
+    -fx-background-radius: 12;
+    -fx-border-color: #E0E0E0;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 12;
+    -fx-min-height: 48px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.03), 4, 0, 0, 2);
+}
+
+.combo-box:focused {
+    -fx-border-color: #E8C7C8;
     -fx-border-width: 2;
-    -fx-border-radius: 15;
-    -fx-min-height: 45px;
+    -fx-effect: dropshadow(gaussian, rgba(232, 199, 200, 0.25), 12, 0, 0, 0);
 }
 
 .combo-box .list-cell {
     -fx-background-color: white;
-    -fx-text-fill: #4A4A4A;
-    -fx-padding: 8 15;
+    -fx-text-fill: #1F1A17;
+    -fx-padding: 10 16;
+    -fx-font-size: 14px;
 }
 
 .combo-box .list-cell:filled:selected {
     -fx-background-color: #E8C7C8;
-    -fx-text-fill: #4A4A4A;
+    -fx-text-fill: white;
 }
 
 .combo-box .list-cell:filled {
-    -fx-text-fill: #4A4A4A;
+    -fx-text-fill: #1F1A17;
 }
 
 .combo-box-popup .list-view {
     -fx-background-color: white;
-    -fx-border-color: #D9CFC3;
-    -fx-border-width: 2;
-    -fx-border-radius: 10;
+    -fx-border-color: #E0E0E0;
+    -fx-border-width: 1;
+    -fx-border-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 20, 0, 0, 4);
 }
 
 .combo-box-popup .list-view .list-cell:hover {
@@ -244,200 +237,189 @@
 
 .combo-box-popup .list-view .list-cell:selected {
     -fx-background-color: #E8C7C8;
-    -fx-text-fill: #4A4A4A;
+    -fx-text-fill: white;
 }
 
 .combo-box .arrow-button {
     -fx-background-color: #E8C7C8;
-    -fx-background-radius: 0 15 15 0;
+    -fx-background-radius: 0 12 12 0;
 }
 
 .combo-box .arrow {
-    -fx-background-color: #4A4A4A;
+    -fx-background-color: white;
 }
 
-/* ========== DATEPICKER ========== */
+/* ========== DATEPICKER MODERNO ========== */
 .date-picker {
     -fx-background-color: white;
-    -fx-background-radius: 15;
-    -fx-border-color: #D9CFC3;
+    -fx-background-radius: 12;
+    -fx-border-color: #E0E0E0;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 12;
+    -fx-min-height: 48px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.03), 4, 0, 0, 2);
+}
+
+.date-picker:focused {
+    -fx-border-color: #E8C7C8;
     -fx-border-width: 2;
-    -fx-border-radius: 15;
-    -fx-min-height: 45px;
 }
 
 .date-picker .text-field {
-    -fx-background-color: white;
-    -fx-background-radius: 15 0 0 15;
-    -fx-text-fill: #4A4A4A;
-    -fx-prompt-text-fill: #4A4A4A;
-    -fx-padding: 8 15;
+    -fx-background-color: transparent;
+    -fx-background-radius: 12 0 0 12;
+    -fx-text-fill: #1F1A17;
+    -fx-prompt-text-fill: #9E9E9E;
+    -fx-padding: 10 16;
+    -fx-border-width: 0;
+    -fx-effect: none;
 }
 
 .date-picker .arrow-button {
     -fx-background-color: #E8C7C8;
-    -fx-background-radius: 0 15 15 0;
+    -fx-background-radius: 0 12 12 0;
 }
 
 .date-picker .arrow {
-    -fx-background-color: #4A4A4A;
+    -fx-background-color: white;
 }
 
 .date-picker-popup {
     -fx-background-color: white;
-    -fx-border-color: #D9CFC3;
-    -fx-border-width: 2;
-    -fx-border-radius: 10;
+    -fx-border-color: #E0E0E0;
+    -fx-border-width: 1;
+    -fx-border-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.15), 25, 0, 0, 6);
 }
 
-/* ========== TABLEVIEW ========== */
+/* ========== TABLEVIEW MODERNO ========== */
 .table-view {
     -fx-background-color: white;
-    -fx-background-radius: 10;
-    -fx-border-color: #D9CFC3;
-    -fx-border-width: 2;
-    -fx-border-radius: 10;
+    -fx-background-radius: 12;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-effect: dropshadow(gaussian, rgba(31, 26, 23, 0.08), 20, 0, 0, 4);
+}
+
+.table-view .column-header-background {
+    -fx-background-color: linear-gradient(to bottom, #F5F0EB 0%, #E8C7C8 100%);
+    -fx-background-radius: 12 12 0 0;
 }
 
 .table-view .column-header {
-    -fx-background-color: linear-gradient(to bottom, #E8C7C8, #D9CFC3);
-    -fx-text-fill: #4A4A4A;
-    -fx-font-weight: bold;
-    -fx-font-size: 14px;
-    -fx-padding: 10;
+    -fx-background-color: transparent;
+    -fx-text-fill: #1F1A17;
+    -fx-font-weight: 700;
+    -fx-font-size: 13px;
+    -fx-padding: 14 12;
+    -fx-border-color: transparent;
 }
 
 .table-view .column-header .label {
-    -fx-text-fill: #4A4A4A;
-    -fx-font-weight: bold;
+    -fx-text-fill: #1F1A17;
+    -fx-font-weight: 700;
+    -fx-font-size: 13px;
 }
 
 .table-view .table-cell {
     -fx-text-fill: #4A4A4A;
-    -fx-padding: 8;
+    -fx-padding: 12 12;
+    -fx-font-size: 13px;
+    -fx-border-color: #F5F5F5;
+}
+
+.table-row-cell {
+    -fx-background-color: white;
+    -fx-border-color: transparent;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #FAFAFA;
 }
 
 .table-row-cell:hover {
-    -fx-background-color: #FAF7F2;
+    -fx-background-color: #F5F0EB;
 }
 
 .table-row-cell:selected {
     -fx-background-color: #E8C7C8;
+    -fx-text-fill: white;
+}
+
+.table-row-cell:selected .table-cell {
+    -fx-text-fill: white;
 }
 
 .table-view .filler {
     -fx-background-color: white;
 }
 
-/* ========== ENLACES ========== */
-.bakery-link {
-    -fx-text-fill: #E8C7C8;
-    -fx-underline: false;
-    -fx-cursor: hand;
-    -fx-font-size: 14px;
-}
-
-.bakery-link:hover {
-    -fx-text-fill: #4A4A4A;
-    -fx-underline: true;
-}
-
-/* ========== ETIQUETAS ========== */
-.bakery-label {
-    -fx-text-fill: #4A4A4A;
-    -fx-font-size: 14px;
-    -fx-font-weight: bold;
-}
-
-.bakery-message {
-    -fx-text-fill: #E8C7C8;
-    -fx-font-size: 13px;
-    -fx-font-style: italic;
-}
-
-.bakery-message-error {
-    -fx-text-fill: #DC143C;
-    -fx-font-weight: bold;
-}
-
-.bakery-message-success {
-    -fx-text-fill: #32CD32;
-    -fx-font-weight: bold;
-}
-
-/* ========== DECORACIONES ========== */
-.bakery-divider {
-    -fx-background-color: linear-gradient(to right, transparent, #D9CFC3, transparent);
-    -fx-pref-height: 2;
-    -fx-max-width: -1;
-}
-
-
-.bakery-icon-decoration {
-    -fx-font-size: 24px;
-    -fx-text-fill: #E8C7C8;
-}
-
-/* ========== SCROLLPANE ========== */
-.bakery-scroll {
+/* ========== SCROLLPANE MODERNO ========== */
+.bakery-scroll,
+.scroll-pane {
     -fx-background-color: transparent;
     -fx-background: transparent;
+    -fx-border-color: transparent;
 }
 
-.bakery-scroll .viewport {
+.bakery-scroll .viewport,
+.scroll-pane .viewport {
     -fx-background-color: transparent;
 }
 
-.bakery-scroll .scroll-bar {
+.bakery-scroll .scroll-bar,
+.scroll-pane .scroll-bar {
     -fx-background-color: transparent;
+    -fx-padding: 2;
 }
 
-.bakery-scroll .scroll-bar .thumb {
+.bakery-scroll .scroll-bar .thumb,
+.scroll-pane .scroll-bar .thumb {
+    -fx-background-color: #D9CFC3;
+    -fx-background-radius: 6;
+}
+
+.bakery-scroll .scroll-bar .thumb:hover,
+.scroll-pane .scroll-bar .thumb:hover {
     -fx-background-color: #E8C7C8;
-    -fx-background-radius: 10;
 }
 
-.bakery-scroll .scroll-bar .thumb:hover {
-    -fx-background-color: #D9B5B6;
+.bakery-scroll .scroll-bar .track,
+.scroll-pane .scroll-bar .track {
+    -fx-background-color: transparent;
 }
 
-/* ========== RESPONSIVE ========== */
-.bakery-responsive-container {
-    -fx-alignment: CENTER;
-    -fx-fill-width: true;
-    -fx-max-width: Infinity;
-    -fx-spacing: 20;
+.bakery-scroll .scroll-bar .increment-button,
+.bakery-scroll .scroll-bar .decrement-button,
+.scroll-pane .scroll-bar .increment-button,
+.scroll-pane .scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
 }
 
-.bakery-form-group {
-    -fx-spacing: 10;
-    -fx-alignment: CENTER_LEFT;
-}
-
-.bakery-form-spacing-large {
-    -fx-spacing: 25;
-}
-
-/* ========== NAVBAR WEB-STYLE ========== */
+/* ========== NAVBAR MODERNO ========== */
 .navbar-web {
-    -fx-background-color: linear-gradient(to right, #FAF7F2, #F5F0EB);
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.08), 8, 0, 0, 2);
-    -fx-padding: 0 30;
+    -fx-background-color: rgba(255, 255, 255, 0.95);
+    -fx-effect: dropshadow(gaussian, rgba(31, 26, 23, 0.08), 12, 0, 0, 2);
+    -fx-padding: 0 40;
+    -fx-border-color: transparent;
+    -fx-border-width: 0 0 1 0;
 }
 
 .navbar-logo {
     -fx-font-family: "Segoe UI", "Arial Rounded MT Bold", sans-serif;
-    -fx-font-size: 20px;
-    -fx-font-weight: bold;
+    -fx-font-size: 22px;
+    -fx-font-weight: 700;
     -fx-text-fill: #1F1A17;
+    -fx-letter-spacing: 0.5px;
 }
 
 .navbar-button {
     -fx-background-color: transparent;
-    -fx-background-radius: 8;
+    -fx-background-radius: 10;
     -fx-text-fill: #4A4A4A;
     -fx-font-size: 14px;
-    -fx-font-weight: 500;
+    -fx-font-weight: 600;
     -fx-padding: 10 20;
     -fx-cursor: hand;
     -fx-border-color: transparent;
@@ -445,7 +427,7 @@
 }
 
 .navbar-button:hover {
-    -fx-background-color: rgba(232, 199, 200, 0.15);
+    -fx-background-color: rgba(232, 199, 200, 0.12);
     -fx-text-fill: #1F1A17;
 }
 
@@ -455,5 +437,128 @@
 }
 
 .navbar-button-active:hover {
-    -fx-background-color: #D9B5B6;
+    -fx-background-color: #DDB8B9;
+}
+
+/* ========== DECORACIONES ========== */
+.bakery-divider {
+    -fx-background-color: linear-gradient(to right, transparent, #E0E0E0, transparent);
+    -fx-pref-height: 1;
+    -fx-max-width: -1;
+}
+
+.bakery-icon-decoration {
+    -fx-font-size: 24px;
+    -fx-text-fill: #E8C7C8;
+}
+
+/* ========== MENSAJES ========== */
+.bakery-message {
+    -fx-text-fill: #E8C7C8;
+    -fx-font-size: 13px;
+    -fx-font-style: italic;
+}
+
+.bakery-message-error {
+    -fx-text-fill: #E57373;
+    -fx-font-weight: 600;
+}
+
+.bakery-message-success {
+    -fx-text-fill: #81C784;
+    -fx-font-weight: 600;
+}
+
+/* ========== ENLACES ========== */
+.bakery-link {
+    -fx-text-fill: #E8C7C8;
+    -fx-underline: false;
+    -fx-cursor: hand;
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+}
+
+.bakery-link:hover {
+    -fx-text-fill: #DDB8B9;
+    -fx-underline: true;
+}
+
+/* ========== FORMULARIOS ========== */
+.bakery-form-group {
+    -fx-spacing: 8;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.bakery-form-spacing-large {
+    -fx-spacing: 28;
+}
+
+.bakery-responsive-container {
+    -fx-alignment: CENTER;
+    -fx-fill-width: true;
+    -fx-max-width: Infinity;
+    -fx-spacing: 24;
+}
+
+/* ========== ANIMACIONES Y TRANSICIONES ========== */
+.bakery-card,
+.bakery-button,
+.bakery-input,
+.text-field,
+.password-field,
+.combo-box,
+.date-picker,
+.navbar-button {
+    -fx-transition: all 0.3s ease;
+}
+
+/* ========== ESTADOS DISABLED ========== */
+.bakery-button:disabled,
+.button:disabled {
+    -fx-opacity: 0.5;
+    -fx-cursor: default;
+}
+
+.bakery-input:disabled,
+.text-field:disabled,
+.password-field:disabled {
+    -fx-background-color: #F5F5F5;
+    -fx-text-fill: #9E9E9E;
+    -fx-opacity: 0.7;
+}
+
+/* ========== RESPONSIVE UTILITIES ========== */
+@media (max-width: 800px) {
+    .bakery-card-large {
+        -fx-padding: 30;
+        -fx-min-width: 400px;
+    }
+    
+    .bakery-title-large {
+        -fx-font-size: 32px;
+    }
+    
+    .navbar-web {
+        -fx-padding: 0 20;
+    }
+}
+
+@media (max-width: 600px) {
+    .bakery-card {
+        -fx-padding: 20;
+    }
+    
+    .bakery-card-large {
+        -fx-padding: 25;
+        -fx-min-width: 300px;
+    }
+    
+    .bakery-title-large {
+        -fx-font-size: 28px;
+    }
+    
+    .bakery-button-large {
+        -fx-font-size: 15px;
+        -fx-padding: 14 32;
+    }
 }

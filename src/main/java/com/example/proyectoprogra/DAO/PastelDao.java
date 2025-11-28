@@ -11,7 +11,7 @@ public class PastelDao {
         List<Pastel> lista = new ArrayList<>();
         String sql = "SELECT id_pastel, nombre, descripcion, id_categoria, id_tamano, precio_base, id_sabor FROM tbl_pasteles WHERE id_categoria = ? AND id_tamano = ?";
         try (Connection conn = ConexionDB.getConection();
-             PreparedStatement ps = conn.prepareStatement(sql)) {
+                PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setInt(1, idCategoria);
             ps.setInt(2, idTamano);
             try (ResultSet rs = ps.executeQuery()) {
@@ -20,11 +20,10 @@ public class PastelDao {
                             rs.getInt("id_pastel"),
                             rs.getString("nombre"),
                             rs.getString("descripcion"),
-                            rs.getString("categoria"),
-                            rs.getString("tamano"),
+                            rs.getString("id_categoria"),
+                            rs.getString("id_tamano"),
                             rs.getDouble("precio_base"),
-                            rs.getString("id_sabor")
-                    ));
+                            rs.getString("id_sabor")));
                 }
             }
         } catch (SQLException e) {
@@ -36,7 +35,7 @@ public class PastelDao {
     public Pastel obtenerPorId(int idPastel) {
         String sql = "SELECT id_pastel, nombre, descripcion, id_categoria, id_tamano, precio_base, id_sabor FROM tbl_pasteles WHERE id_pastel = ?";
         try (Connection conn = ConexionDB.getConection();
-             PreparedStatement ps = conn.prepareStatement(sql)) {
+                PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setInt(1, idPastel);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
@@ -47,11 +46,12 @@ public class PastelDao {
                             rs.getString("id_categoria"),
                             rs.getString("id_tamano"),
                             rs.getDouble("precio_base"),
-                            rs.getString("id_sabor")
-                    );
+                            rs.getString("id_sabor"));
                 }
             }
-        } catch (SQLException e) { e.printStackTrace(); }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 }

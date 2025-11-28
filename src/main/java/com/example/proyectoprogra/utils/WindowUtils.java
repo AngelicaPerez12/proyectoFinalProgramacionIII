@@ -27,6 +27,11 @@ public class WindowUtils {
         // Crear escena con tamaño por defecto
         Scene scene = new Scene(root, DEFAULT_WIDTH, DEFAULT_HEIGHT);
 
+        // Copiar stylesheets del root (si el FXML declaró estilos) al Scene
+        if (root.getStylesheets() != null && !root.getStylesheets().isEmpty()) {
+            scene.getStylesheets().addAll(root.getStylesheets());
+        }
+
         // Configurar tamaño mínimo
         stage.setMinWidth(MIN_WIDTH);
         stage.setMinHeight(MIN_HEIGHT);
