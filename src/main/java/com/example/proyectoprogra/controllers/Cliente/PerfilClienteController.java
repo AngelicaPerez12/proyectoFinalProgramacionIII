@@ -43,7 +43,6 @@ public class PerfilClienteController {
             txtNombre.setText(usuarioActual.getNombre());
             txtApellido.setText(usuarioActual.getApellido());
             txtCorreo.setText(usuarioActual.getCorreo());
-            txtPassword.setText(usuarioActual.getContraseña());
             txtRol.setText(usuarioActual.getRol());
         }
     }
@@ -54,7 +53,6 @@ public class PerfilClienteController {
         usuarioActual.setNombre(txtNombre.getText());
         usuarioActual.setApellido(txtApellido.getText());
         usuarioActual.setCorreo(txtCorreo.getText());
-        usuarioActual.setContraseña(txtPassword.getText());
 
         boolean actualizado = UsuarioDao.actualizarUsuario(usuarioActual);
 

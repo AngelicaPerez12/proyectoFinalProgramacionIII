@@ -10,7 +10,7 @@
 <?import java.lang.String?>
 <VBox spacing="15" alignment="CENTER" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.example.proyectoprogra.controllers.Cliente.TicketController"
-      styleClass="bakery-card-large" stylesheets="@../Styles/bakery-theme.css"
+      styleClass="bakery-card-large" stylesheets="@../css/bakery-theme.css"
       style="-fx-background-color: white; -fx-padding: 40;">
 
     <padding>

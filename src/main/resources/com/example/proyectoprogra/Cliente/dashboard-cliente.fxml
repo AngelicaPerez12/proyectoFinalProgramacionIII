@@ -10,7 +10,7 @@
             fx:id="rootPane"
             fx:controller="com.example.proyectoprogra.controllers.Cliente.DashboardClienteController"
             styleClass="bakery-background"
-            stylesheets="@../Styles/bakery-theme.css,@../Styles/responsive.css"
+            stylesheets="@../css/bakery-theme.css,@../css/responsive.css"
             prefHeight="700" prefWidth="1000">
 
     <!-- NAVBAR (child 0) -->

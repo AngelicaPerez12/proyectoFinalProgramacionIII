@@ -8,7 +8,7 @@
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.example.proyectoprogra.controllers.Cliente.HistorialClienteController"
             styleClass="bakery-background"
-            stylesheets="@../Styles/bakery-theme.css,@../Styles/responsive.css">
+            stylesheets="@../css/bakery-theme.css,@../css/responsive.css">
 
     <!-- Contenido principal -->
     <center>

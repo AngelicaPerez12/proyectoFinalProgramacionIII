@@ -11,7 +11,7 @@
             fitToWidth="true"
             fitToHeight="true"
             style="-fx-background-color: transparent;"
-            stylesheets="@../Styles/bakery-theme.css,@../Styles/responsive.css">
+            stylesheets="@../css/bakery-theme.css,@../css/responsive.css">
 
     <content>
         <StackPane fx:id="rootPane" styleClass="bakery-background">

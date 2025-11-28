@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.HBox?>
 
 <StackPane styleClass="bakery-background"
-           stylesheets="@../Styles/bakery-theme.css,@../Styles/responsive.css"
+           stylesheets="@../css/bakery-theme.css,@../css/responsive.css"
            xmlns="http://javafx.com/javafx/25"
            xmlns:fx="http://javafx.com/fxml/1"
            fx:controller="com.example.proyectoprogra.controllers.Visualizacion.RecuperacionDePinController">

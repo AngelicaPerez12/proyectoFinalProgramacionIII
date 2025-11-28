@@ -1,0 +1,192 @@
+.root {
+    -fx-color-primario: #E8C7C8;
+    /* Rosa Palo Neutro */
+    -fx-color-secundario: #FAF7F2;
+    /* Blanco Crema */
+    -fx-color-borde: #D9CFC3;
+    /* Beige Arena */
+    -fx-color-hover: #4A4A4A;
+    /* Gris Topo */
+    -fx-color-texto: #1F1A17;
+    /* Negro Cacao */
+}
+
+.pane {
+    -fx-background-color: -fx-color-secundario;
+}
+
+.vboxbotones {
+    -fx-background-color: -fx-color-primario;
+
+}
+
+.hboxuser {
+    -fx-background-color: -fx-color-primario;
+
+}
+
+.menu-btn {
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+    -fx-font-size: 13;
+    -fx-text-fill: -fx-color-texto;
+}
+
+.menu-btn:hover {
+    -fx-text-fill: -fx-color-hover;
+}
+
+.contenedor-imagen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+/* dashboardAdmin.css */
+
+/* Label de información de inicio */
+#InformarcionDeInicio {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-color-texto; /* Negro cacao */
+    -fx-padding: 0 10 0 10;
+}
+
+/* Botón de cerrar sesión en la barra superior adaptado a la paleta rosa */
+#btnCerrarSesionDashboard {
+    -fx-background-color: -fx-color-primario; /* Rosa Palo Neutro */
+    -fx-text-fill: -fx-color-texto; /* Negro cacao */
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-color: -fx-color-borde;
+    -fx-border-width: 1px;
+    -fx-padding: 5 15 5 15;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 2, 0, 0, 1);
+}
+
+#btnCerrarSesionDashboard:hover {
+    -fx-background-color: #DDA8AA; /* Rosa más oscuro al pasar el mouse */
+}
+
+/* Transición suave */
+#btnCerrarSesionDashboard {
+    -fx-transition: all 0.2s ease-in-out;
+}
+/* gestionAdmin.css */
+
+/* Label del título */
+.label {
+    -fx-text-fill: -fx-color-texto;
+}
+
+.label {
+    -fx-font-weight: bold;
+}
+
+.label {
+    -fx-font-size: 22px;
+}
+
+/* TableView */
+.table-view {
+    -fx-background-color: -fx-color-secundario;
+    -fx-border-color: -fx-color-borde;
+    -fx-border-radius: 5px;
+    -fx-table-cell-border-color: transparent;
+    -fx-padding: 5;
+    -fx-font-size: 13px;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: -fx-color-primario;
+}
+
+.table-view .column-header,
+.table-view .filler {
+    -fx-size: 35px;
+    -fx-border-color: -fx-color-borde;
+    -fx-border-width: 0 0 1 0;
+    -fx-background-color: -fx-color-primario;
+    -fx-text-fill: -fx-color-texto;
+    -fx-font-weight: bold;
+}
+
+.table-view .table-cell {
+    -fx-padding: 5 10 5 10;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.table-view .table-row-cell:filled:selected,
+.table-view .table-row-cell:focused:selected {
+    -fx-background-color: #E3AFAF; /* rosa pálido al seleccionar */
+}
+
+.table-view .table-row-cell:hover {
+    -fx-background-color: #F5DADA; /* rosa muy suave al pasar el mouse */
+}
+
+/* Panel CRUD */
+.vbox {
+    -fx-background-color: -fx-color-secundario;
+    -fx-padding: 15;
+    -fx-border-color: -fx-color-borde;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+/* Botones CRUD */
+#btnAgregar {
+    -fx-background-color: #E8C7C8;
+    -fx-text-fill: -fx-color-texto;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+}
+
+#btnAgregar:hover {
+    -fx-background-color: #DDA8AA;
+}
+
+#btnActualizar {
+    -fx-background-color: #E8C7C8;
+    -fx-text-fill: -fx-color-texto;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+}
+
+#btnActualizar:hover {
+    -fx-background-color: #DDA8AA;
+}
+
+#btnEliminar {
+    -fx-background-color: #E8C7C8;
+    -fx-text-fill: -fx-color-texto;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+}
+
+#btnEliminar:hover {
+    -fx-background-color: #DDA8AA;
+}
+
+#btnLimpiar {
+    -fx-background-color: #E8C7C8;
+    -fx-text-fill: -fx-color-texto;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+}
+
+#btnLimpiar:hover {
+    -fx-background-color: #DDA8AA;
+}
+
+/* TextFields y ComboBox */
+.text-field, .combo-box {
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-border-color: -fx-color-borde;
+    -fx-padding: 5;
+}
+
