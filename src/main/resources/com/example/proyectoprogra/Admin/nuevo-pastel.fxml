@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.proyectoprogra.controllers.Admin.NuevoPastelController"
+            prefHeight="400.0" prefWidth="600.0">
+    <Label text="Crear Nuevo Pastel" style="-fx-font-size: 22;" />
+
+    <TextField fx:id="txtNombre" promptText="Nombre del pastel" />
+    <TextField fx:id="txtDescripcion" promptText="Descripción" />
+
+    <ComboBox fx:id="comboCategoria" promptText="Seleccionar categoría" />
+    <ComboBox fx:id="comboTamano" promptText="Seleccionar tamaño" />
+    <ComboBox fx:id="comboSabor" promptText="Seleccionar sabor" />
+
+    <TextField fx:id="txtPrecio" promptText="Precio Base" />
+
+    <HBox spacing="10">
+        <Button text="Guardar" onAction="#guardarPastel" />
+        <Button text="Cancelar" onAction="#cancelar" />
+    </HBox>
+
+</VBox>

@@ -15,11 +15,18 @@ public class AdminPastelDao {
         ObservableList<Pastel> lista = FXCollections.observableArrayList();
 
         String sql = """
-            SELECT id_pastel, nombre, descripcion, id_categoria, 
-                   id_tamano, precio_base, id_sabor
-            FROM tbl_pasteles
-            ORDER BY id_pastel ASC
-        """;
+        SELECT p.id_pastel, p.nombre, p.descripcion,
+               c.nombre_categoria AS categoria,
+               t.nombre_tamano AS tamano,
+               s.nombre AS sabor,
+               p.precio_base
+        FROM tbl_pasteles p
+        INNER JOIN tbl_categorias c ON p.id_categoria = c.id_categoria
+        INNER JOIN tbl_tamanos t ON p.id_tamano = t.id_tamano
+        INNER JOIN tbl_sabores s ON p.id_sabor = s.id
+        ORDER BY p.id_pastel ASC
+    """;
+
 
         try (Connection conn = ConexionDB.getConection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -31,10 +38,10 @@ public class AdminPastelDao {
                         rs.getInt("id_pastel"),
                         rs.getString("nombre"),
                         rs.getString("descripcion"),
-                        rs.getInt("id_categoria"),
-                        rs.getInt("id_tamano"),
+                        rs.getString("categoria"),
+                        rs.getString("tamano"),
                         rs.getDouble("precio_base"),
-                        rs.getInt("id_sabor")
+                        rs.getString("sabor")
                 ));
             }
 
@@ -44,4 +51,30 @@ public class AdminPastelDao {
 
         return lista;
     }
+    public static void insertarPastel(String nombre, String descripcion, int idCategoria, int idTamano, int idSabor, double precio) {
+
+        String sql = """
+        INSERT INTO tbl_pasteles 
+        (nombre, descripcion, id_categoria, id_tamano, id_sabor, precio_base) 
+        VALUES (?, ?, ?, ?, ?, ?)
+    """;
+
+        try (Connection conn = ConexionDB.getConection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, nombre);
+            stmt.setString(2, descripcion);
+            stmt.setInt(3, idCategoria);
+            stmt.setInt(4, idTamano);
+            stmt.setInt(5, idSabor);
+            stmt.setDouble(6, precio);
+
+            stmt.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }

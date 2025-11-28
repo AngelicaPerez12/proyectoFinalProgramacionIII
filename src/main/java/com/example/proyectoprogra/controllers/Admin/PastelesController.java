@@ -38,9 +38,10 @@ public class PastelesController {
         colId.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("idPastel"));
         colNombre.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("nombre"));
         colDescripcion.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("descripcion"));
-        colCategoria.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("idCategoria"));
-        colTamano.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("idTamano"));
-        colSabor.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("idSabor"));
+        colCategoria.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("categoria"));
+        colTamano.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("tamano"));
+        colSabor.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("sabor"));
+
         colPrecio.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("precioBase"));
 
         listaPasteles = AdminPastelDao.obtenerTodos();
@@ -56,9 +57,9 @@ public class PastelesController {
 
                 return pastel.getNombre().toLowerCase().contains(texto) ||
                         pastel.getDescripcion().toLowerCase().contains(texto) ||
-                        String.valueOf(pastel.getIdCategoria()).contains(texto) ||
-                        String.valueOf(pastel.getIdTamano()).contains(texto) ||
-                        String.valueOf(pastel.getIdSabor()).contains(texto) ||
+                        String.valueOf(pastel.getCategoria()).contains(texto) ||
+                        String.valueOf(pastel.getTamano()).contains(texto) ||
+                        String.valueOf(pastel.getSabor()).contains(texto) ||
                         String.valueOf(pastel.getPrecioBase()).contains(texto);
             });
         });
@@ -99,4 +100,19 @@ public class PastelesController {
     void resportes(ActionEvent e) { cambiarVista("/com/example/proyectoprogra/Admin/reportes-admin-view.fxml", e); }
 
     public void informacionUsuario(ActionEvent actionEvent) {}
+
+    public void crearnuevoproducto(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/proyectoprogra/Admin/nuevo-pastel.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = new Stage();
+            stage.setTitle("Nuevo Producto");
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

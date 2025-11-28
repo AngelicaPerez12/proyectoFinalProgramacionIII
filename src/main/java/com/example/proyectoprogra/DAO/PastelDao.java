@@ -20,10 +20,10 @@ public class PastelDao {
                             rs.getInt("id_pastel"),
                             rs.getString("nombre"),
                             rs.getString("descripcion"),
-                            rs.getInt("id_categoria"),
-                            rs.getInt("id_tamano"),
+                            rs.getString("categoria"),
+                            rs.getString("tamano"),
                             rs.getDouble("precio_base"),
-                            rs.getInt("id_sabor")
+                            rs.getString("id_sabor")
                     ));
                 }
             }
@@ -44,10 +44,10 @@ public class PastelDao {
                             rs.getInt("id_pastel"),
                             rs.getString("nombre"),
                             rs.getString("descripcion"),
-                            rs.getInt("id_categoria"),
-                            rs.getInt("id_tamano"),
+                            rs.getString("id_categoria"),
+                            rs.getString("id_tamano"),
                             rs.getDouble("precio_base"),
-                            rs.getInt("id_sabor")
+                            rs.getString("id_sabor")
                     );
                 }
             }
